@@ -6,15 +6,19 @@
 
 ## What are DoView Boards?
 
-DoView Boards are drill-down visual planning and coordination boards based on This→Then causal logic. They represent what needs to happen for action in the world to produce desired outcomes.
+DoView Boards are drill-down visual planning and coordination boards based on This→Then causal logic. They represent what needs to happen for action in the world to produce desired outcomes. They use two novel approaches to planning. First they are based around a This-Then diagram showing the outcomes being sought and the steps it is believed will lead to them. Most planning apps start from the point of view of what you are going to do, rather than from the point of view of the outcomes you are seeking. In this sence DoView Boards can be seen as sitting 'above' traditional project plannign apps and platforms, enabling you to see why you are doing projects or activities. Second, they have been designed to enable the one DoView Board to cover all of the things that are needed to plan, draw on previous evidence, prioritize, delegate or contract, measure, evaluate, hold parties to account, improve and report on any organization or any other type of initiative. 
 
-DoView Boards have been used for planning and outcomes work in thousands of instances. Their utility and usability have been progressively optimized by Dr Paul Duignan and others using them for planning, coordination, alignment, implementation, performance measurement, delegation, contracting, and evaluation.
+The curret iteration of DoView Boards is a prototype for use in piloting, proof of concept and for use in situations where confidentiality and security risks are low. Anyone is free to develop other DoView Board apps and extend the minimum specification that is provided in this repository.  
 
-The [legacy DoView app](https://github.com/DoViewPlanning/DoViewApp), developed to draw DoView Boards and DoView Strategy/Outcomes diagrams, was used in over 55 countries and won Gartner Cool Vendor recognition. The Gartner citation described the approach as “Sometimes simplicity and elegance define use.” This captures the vision behind the development of DoView Boards.
+The DoView Boards prompt package lets you ask an AI system such as ChatGPT, Claude, or another suitable model to create a DoView Board on a topic. The AI generates a standalone DoView Board web app: a single `.html` file that opens in a browser and contains both the DoView Board interface and the topic-specific board content. There is no separate installed app required for use.
+
+The design of the current DoView Board app builds on the earlier [legacy DoView app](https://github.com/DoViewPlanning/DoViewApp), which was developed to draw DoView Boards and DoView Strategy/Outcomes diagrams. The legacy DoView app was used in over 55 countries and won Gartner Cool Vendor recognition. The Gartner citation described the approach as “Sometimes simplicity and elegance define use.” The current standalone DoView Board web app is therefore not a new idea created from scratch; it is a browser-based prototype that carries forward the design intent and practical experience behind the earlier DoView app.
+
+DoView strategy/outcomes models, now able to be generated as DoView Boards have been used for planning and outcomes work in thousands of instances. Their utility and usability have been progressively optimized by Dr Paul Duignan and others using them for planning, coordination, alignment, implementation, performance measurement, delegation, contracting, and evaluation.
 
 DoView Boards are not just drawing canvases. They represent outcomes, enabling conditions, actions, implementation work, evidence, measures, evaluation questions, sources, assumptions, risks, and supporting documentation in a structured form.
 
-DoView Planning is a practical application of outcomes theory. Outcomes theory theorizes outcomes systems as any system that identifies, prioritizes, delegates or contracts, implements, measures, attributes, or holds parties to account for outcomes of any type.
+DoView Planning https://doviewplanning.org is a practical application of outcomes theory https://doviewplanning.org/theory, https://doviewplanning.org/book. Outcomes theory theorizes outcomes systems as any system that identifies, prioritizes, delegates or contracts, implements, measures, attributes, or holds parties to account for outcomes of any type undertaken by humans in any context. The same approach is likely to be be useful for human/AI agent collaboration and may be useful for inter-AI agent collaboration, planning and implementation.
 
 The DoView Board prototype app is an app for capturing all of the key elements of any outcomes system as they are conceptualized within outcomes theory.
 
