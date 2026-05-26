@@ -116,6 +116,7 @@
         "showMeasures": false,
         "showEvalQuestions": false,
         "showMainText": false,
+        "showLinkInfoOnHover": false,
         "showLateralHow": false,
         "showTags": false
       },

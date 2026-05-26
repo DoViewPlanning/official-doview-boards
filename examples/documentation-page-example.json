@@ -53,7 +53,7 @@
   "savedState": {
     "boardInfo": "Example config showing a Documentation Page. The page exists in subpages, while its formatted content is stored in savedState.docContent keyed by the page ID.",
     "pageInfo": {
-      "p1": "A small This–Then page included so the documentation page sits in a complete board.",
+      "p1": "A small This–Then Page included so the Documentation Page sits in a complete board.",
       "p2": "This Documentation Page stores longer-form notes, assumptions, and review guidance."
     },
     "docContent": {
@@ -143,6 +143,7 @@
         "showMeasures": false,
         "showEvalQuestions": false,
         "showMainText": false,
+        "showLinkInfoOnHover": false,
         "showLateralHow": false,
         "showTags": false
       },

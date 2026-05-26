@@ -108,11 +108,11 @@
     }
   ],
   "savedState": {
-    "boardInfo": "Example config showing How Page levels, upward/downward How links, and non-up-and-down How links. Replace example content before real use.",
+    "boardInfo": "Example config showing How Page levels, Vertical Links, and Cross-Links. Replace example content before real use.",
     "pageInfo": {
-      "p2": "Level 1 How boxes represent major workstreams.",
-      "p3": "Level 2 How boxes represent teams that contribute to Level 1 workstreams.",
-      "p4": "No-level How page showing partner relationships outside the strict up/down hierarchy."
+      "p2": "Level 1 How Boxes represent major workstreams.",
+      "p3": "Level 2 How Boxes represent teams that contribute to Level 1 workstreams.",
+      "p4": "Cross-Link How Page showing partner relationships outside the strict Vertical Link hierarchy."
     },
     "ttLinks": [
       {
@@ -231,7 +231,7 @@
         "from": "p3-H001",
         "to": "p3-H002",
         "mainText": "School liaison helps coordinate volunteer-reader placement.",
-        "notes1": "Non-up-and-down same-level How link.",
+        "notes1": "Cross-Link same-level How link.",
         "notes2": "",
         "notes3": "",
         "tagIds": []
@@ -241,7 +241,7 @@
         "from": "p4-H001",
         "to": "p3-H001",
         "mainText": "School partners support the school liaison team.",
-        "notes1": "Non-up-and-down no-level How link.",
+        "notes1": "Cross-Link to an unlevelled How Page.",
         "notes2": "",
         "notes3": "",
         "tagIds": []
@@ -262,6 +262,7 @@
         "showMeasures": false,
         "showEvalQuestions": false,
         "showMainText": false,
+        "showLinkInfoOnHover": false,
         "showLateralHow": false,
         "showTags": false
       },

@@ -1,10 +1,10 @@
 # Security and Read-Only Notes
 
-**DoView Boards version:** V1.1.0  
-**Release date:** 2026-05-08  
+**DoView Boards version:** V1.2.0  
+**Release date:** 2026-05-22  
 **Document status:** Developer and deployment guidance for this release
 
-This document explains the main security, deployment, and read-only limitations for the DoView Boards V1.1.0 release. It is intended for people using, sharing, hosting, adapting, or integrating DoView Boards.
+This document explains the main security, deployment, and read-only limitations for the DoView Boards V1.2.0 release. It is intended for people using, sharing, hosting, adapting, or integrating DoView Boards.
 
 ## 1. Main security principle
 
@@ -12,9 +12,11 @@ A generated DoView Board is an active standalone HTML/JavaScript file. Treat it 
 
 Open only board files from sources you trust. Do not run arbitrary third-party DoView Board HTML in a privileged app context, an authenticated admin environment, or the same origin as sensitive cookies, private sessions, or privileged tools.
 
+The Save / Download Board workflow is user-triggered. In browsers that support a file-save picker, a board can write the generated standalone `.html` board to a file the user chooses. The board should not store local file paths, persist file handles, request directory access, read arbitrary local files, or write automatically on load.
+
 ## 2. Intended-use level of the prototype
 
-The V1.1.0 DoView Board prototype is intended to make it easy to:
+The V1.2.0 DoView Board prototype is intended to make it easy to:
 
 - experiment with DoView Boards;
 - learn how they work;
@@ -45,6 +47,7 @@ For production, enterprise, public-sector, regulated, sensitive, or multi-user u
 
 - sandboxed iframes;
 - isolated origins;
+- content-security policy appropriate to the hosting environment;
 - restricted viewers;
 - approved hosting arrangements;
 - content review before publication;
@@ -84,7 +87,9 @@ Board Chat is optional. A DoView Board can be viewed, edited, saved, copied, pri
 
 Avoiding Board Chat is the simplest way to reduce Board Chat-related privacy, confidentiality, API-key, and external-data-sharing risk.
 
-If Board Chat is used, it may send board content to the AI endpoint or provider configured by the user. Users and organizations should understand and approve any endpoint, provider, backend, proxy, logging, retention, and data-handling arrangements before using Board Chat with sensitive or controlled content.
+Board Chat is inactive unless configured and used. The presence of Board Chat code does not by itself mean board content is sent to an AI provider. If no AI endpoint/API key is entered and the user does not use Board Chat, the board does not send board content to an AI provider through Board Chat. The provider-transmission risk arises when a user configures an endpoint/API key and sends content through Board Chat.
+
+If Board Chat is used, it may send board content to the custom AI endpoint configured by the user, using the API key or session credential entered for that session. Users and organizations should understand and approve any endpoint, provider, backend, proxy, logging, retention, and data-handling arrangements before using Board Chat with sensitive or controlled content.
 
 In this release:
 
@@ -93,11 +98,16 @@ In this release:
 - API keys are not saved by the board;
 - users must re-enter API keys when they use Board Chat;
 - remembered settings, where supported, are limited to endpoint/model settings and not API keys;
-- opening a board should not contact Anthropic or another AI provider unless Board Chat is opened/used or the user sends a request with explicitly configured settings.
+- opening a board should not contact any AI provider;
+- Board Chat should only send after the user sends a message with an explicitly configured custom endpoint.
 
-For enterprise, public-sector, regulated, sensitive, or multi-user deployments, disable Board Chat by default or govern it unless there is an approved AI endpoint or provider, an approved backend or proxy, an approved logging and audit policy, an approved retention policy, and organizational approval for the board content being sent to that provider.
+Users who do not configure Board Chat can still use the board manually in a normal Claude chat or another AI chat by putting the board content into that chat.
+
+For enterprise, public-sector, regulated, sensitive, or multi-user deployments, disable Board Chat by default or govern it unless there is an approved custom AI endpoint, an approved backend or proxy, an approved logging and audit policy, an approved retention policy, and organizational approval for the board content being sent to that endpoint.
 
 Do not allow arbitrary user-supplied AI endpoints in managed environments unless the organization has approved that risk.
+
+For sensitive or higher-risk use, leave Board Chat unconfigured/disabled and do not enter an API key unless appropriate endpoint, privacy, security, compliance, and data-handling arrangements are in place.
 
 ## 7. Local browser storage
 
@@ -145,4 +155,4 @@ Use of the DoView® Marks, Official DoView® Badge, logos, certification marks, 
 
 ## 12. No warranty
 
-The DoView Boards V1.1.0 release is provided under the applicable licence terms. Review the Apache-2.0 licence and any accompanying notices. You are responsible for deciding whether the software, board files, AI-generated content, hosting, integrations, and deployment arrangements are appropriate for your use case.
+The DoView Boards V1.2.0 release is provided under the applicable licence terms. Review the Apache-2.0 licence and any accompanying notices. You are responsible for deciding whether the software, board files, AI-generated content, hosting, integrations, and deployment arrangements are appropriate for your use case.

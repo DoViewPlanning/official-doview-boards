@@ -1,16 +1,16 @@
 # Security Policy
 
-**DoView Boards version:** V1.1.0  
-**Release date:** 2026-05-08  
-**Document status:** Security policy for the first public DoView Boards prompt package release
+**DoView Boards version:** V1.2.0  
+**Release date:** 2026-05-22  
+**Document status:** Security policy for this release
 
 ## Supported versions
 
-This repository currently supports the first public DoView Boards prompt package release:
+This repository currently supports the V1.2.0 DoView Boards prompt package release:
 
 | Version | Supported |
 |---|---|
-| V1.1.0 | Yes |
+| V1.2.0 | Yes |
 
 Earlier internal development builds are not supported public releases.
 
@@ -58,6 +58,7 @@ For higher-risk, sensitive, confidential, regulated, public, multi-user, enterpr
 - access controls;
 - review of generated content;
 - approved AI endpoints where Board Chat is used;
+- content-security policy and isolation appropriate to the hosting environment;
 - appropriate privacy, compliance, logging, retention, and audit arrangements.
 
 ## Read-only copies
@@ -83,9 +84,11 @@ Do not rely on read-only mode to prove that a board is official, unchanged, appr
 
 Board Chat is optional. DoView Boards can be used without Board Chat.
 
-If Board Chat is enabled, board content may be sent to an AI endpoint or provider selected or configured by the user or implementation. API keys are sensitive and should not be embedded in generated board files or exported board state.
+Board Chat is inactive unless configured and used. The presence of Board Chat code does not by itself mean board content is sent to an AI provider. If no AI endpoint/API key is entered and the user does not use Board Chat, the board does not send board content to an AI provider through Board Chat.
 
-Users with privacy, confidentiality, security, compliance, API-key, or external-data-sharing concerns should avoid Board Chat unless they have appropriate arrangements in place.
+If Board Chat is enabled and used, board content may be sent to the custom AI endpoint configured by the user, using the API key or session credential entered for that session. API keys are sensitive, session-only, and should not be embedded in generated board files, localStorage, or exported board state.
+
+For sensitive or higher-risk use, leave Board Chat unconfigured/disabled and do not enter an API key unless appropriate endpoint, privacy, security, compliance, and data-handling arrangements are in place.
 
 ## Checksums and signed releases
 

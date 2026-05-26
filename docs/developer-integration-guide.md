@@ -1,10 +1,10 @@
 # DoView Board Developer Integration Guide
 
-**DoView Boards version:** V1.1.0  
-**Release date:** 2026-05-08  
-**Document status:** Developer integration guide for the first public DoView Boards prompt package release
+**DoView Boards version:** V1.2.0  
+**Release date:** 2026-05-22  
+**Document status:** Developer integration guide for the V1.2.0 DoView Boards prompt package release
 
-This guide explains how developers can use, inspect, embed, adapt, or build on the V1.1.0 DoView Board reference package.
+This guide explains how developers can use, inspect, embed, adapt, or build on the V1.2.0 DoView Board reference package.
 
 It should be read with:
 
@@ -15,7 +15,7 @@ It should be read with:
 
 ## 1. What is in the reference package
 
-The V1.1.0 release includes:
+The V1.2.0 release includes:
 
 - [`doview-board-building-prompt.md`](../doview-board-building-prompt.md) — the prompt package for creating DoView Board configs and standalone boards with AI systems;
 - [`doview-board-engine.js`](../doview-board-engine.js) — the canonical JavaScript reference engine for this release;
@@ -67,7 +67,7 @@ A developer can also implement the DoView-compatible standard without using the 
 
 ## 4. Reference engine status
 
-[`doview-board-engine.js`](../doview-board-engine.js) is the canonical reference implementation for V1.1.0.
+[`doview-board-engine.js`](../doview-board-engine.js) is the canonical reference implementation for V1.2.0.
 
 It is intended to:
 
@@ -159,6 +159,7 @@ Create a pure JSON board config, for example:
         "showMeasures": false,
         "showEvalQuestions": false,
         "showMainText": false,
+        "showLinkInfoOnHover": false,
         "showLateralHow": false,
         "showTags": false
       },
@@ -194,7 +195,7 @@ Then run:
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config doview-board-config.json \
-  --out example-doview-board_doview-board_v1.1.0_2026-05-08.html
+  --out example-doview-board_doview-board_v1.2.0_2026-05-22.html
 ```
 
 No npm install is required. The builder uses plain Node.js built-in modules.
@@ -223,10 +224,13 @@ pure JSON config
 standalone HTML board
 ```
 
+The builder also appends the package-controlled Documentation Page titled `Using DoView Boards and Disclaimer` to standalone board output and avoids adding a duplicate if that Documentation Page is already present.
+
 The generated HTML board should contain:
 
 - one embedded copy of the engine in the HTML head;
 - one `DoView.init(...)` call in the HTML body;
+- board config/state in that body initialization call, not inside the engine script;
 - no embedded prompt package text;
 - no embedded builder code;
 - no duplicated engine source.
@@ -242,7 +246,7 @@ The builder expects generated board filenames to follow this pattern:
 Example:
 
 ```text
-example-doview-board_doview-board_v1.1.0_2026-05-08.html
+example-doview-board_doview-board_v1.2.0_2026-05-22.html
 ```
 
 The builder may warn if the output filename does not match this pattern.
@@ -285,7 +289,7 @@ For final distributed boards, prefer the builder path so the output is assembled
 
 ## 10. Important direct-embedding note
 
-The V1.1.0 engine takes control of the document body when initialized. It injects the board interface into `document.body`.
+The V1.2.0 engine takes control of the document body when initialized. It injects the board interface into `document.body`.
 
 For that reason, if you want to place a DoView Board inside a larger app, the safest simple pattern is usually to embed a standalone generated board in a sandboxed iframe, rather than initializing the engine directly inside a page that also contains other application UI.
 
@@ -293,7 +297,7 @@ Example:
 
 ```html
 <iframe
-  src="example-doview-board_doview-board_v1.1.0_2026-05-08.html"
+  src="example-doview-board_doview-board_v1.2.0_2026-05-22.html"
   sandbox="allow-scripts allow-downloads"
   style="width: 100%; height: 800px; border: 1px solid #ddd;">
 </iframe>
@@ -345,7 +349,7 @@ Use [`config-reference.md`](config-reference.md) for the detailed field-by-field
 
 ## 12. Public surfaces developers may rely on
 
-For V1.1.0 reference-engine work, developers may rely on these public surfaces:
+For V1.2.0 reference-engine work, developers may rely on these public surfaces:
 
 - the release files named in this repository;
 - the `DoView.init(config)` entry point;
@@ -384,7 +388,7 @@ When generating configs from your own app, AI system, script, or backend:
 2. include a title and stable slug;
 3. include explicit page IDs;
 4. include explicit `pageType` values;
-5. include complete colour objects for generated This–Then pages;
+5. include complete colour objects for generated This–Then Pages;
 6. keep This–Then, How, Documentation, and Final Outcomes conceptually separate;
 7. store rich state in `savedState`;
 8. include `savedState.viewSettings` for generated standalone boards;
@@ -395,7 +399,7 @@ Technical validity does not prove that the board is a good DoView model. For sub
 
 ## 15. Working with This–Then links
 
-This–Then links are directional causal or enabling links between This–Then boxes.
+This–Then links are directional causal or enabling links between This–Then Boxes.
 
 In the reference config, they are stored in `savedState.ttLinks`.
 
@@ -407,16 +411,18 @@ A simple link object may include:
   "from": "p1-c0-b0",
   "to": "p1-c1-b0",
   "polarity": "positive",
+  "light": "",
   "mainText": "",
   "notes1": "",
   "notes2": "",
   "notes3": "",
   "measures": [],
-  "evalQuestions": []
+  "evalQuestions": [],
+  "tagIds": []
 }
 ```
 
-This–Then links should preserve direction and, where used, polarity. They should remain distinct from How links and page-jump navigation. Substantial This–Then pages should be reviewed as causal networks: avoid isolated boxes, allow many-to-many causal contribution, and document important or non-obvious links where supported.
+This–Then links should preserve direction and, where used, polarity. `mainText` is the optional link Display Text. `light` is optional and may be empty/absent for unset; `grey` is a deliberate selected Traffic Lights value. `tagIds` is optional and preserves tags applied to the This–Then link. Generated link Display Text should not duplicate link Traffic Light labels, symbols, or status text; the official link Traffic Light belongs in `light`. Links should remain distinct from How links and page-jump navigation. Substantial This–Then Pages should be reviewed as causal networks: avoid isolated boxes, allow many-to-many causal contribution, and document important or non-obvious links where supported.
 
 ## 16. Working with How links
 
@@ -426,14 +432,14 @@ In the reference config, they are stored in `savedState.howLinks`.
 
 How links may represent:
 
-- upward alignment;
-- downward alignment;
-- same-level implementation relationships;
-- skipped-level implementation relationships;
-- no-level implementation relationships;
-- Level-2-or-deeper How-to-This–Then relationships.
+- upward Vertical Links;
+- downward Vertical Links;
+- same-level Cross-Links;
+- skipped-level Cross-Links;
+- unlevelled/Cross-Link How Page relationships;
+- Level 2-or-deeper How-to-This–Then Cross-Links.
 
-Up-and-down How links and non-up-and-down How links should remain conceptually and visually distinct where possible.
+Vertical Links and Cross-Links should remain conceptually and visually distinct where possible. The reference config still uses internal fields such as `showLateralHow` and optional `linkKind: "lateral"` for backward-compatible Cross-Link support; do not rename internal data keys merely to match user-facing terminology.
 
 ## 17. Measures and Evaluation Questions
 
@@ -441,12 +447,18 @@ Measures and Evaluation Questions are board-level reusable objects.
 
 They may be associated with:
 
-- This–Then boxes;
-- How boxes;
+- This–Then Boxes;
+- How Boxes;
 - Final Outcome boxes;
 - This–Then links, where supported by the reference engine.
 
 Do not treat Measures and Evaluation Questions merely as display text. They should keep stable IDs and associations so that they can be reused, shown, hidden, searched, exported, and reviewed.
+
+For a single box, do not attach the same Measure ID or Evaluation Question ID more than once. The V1.2.0 reference engine normalizes duplicate box-level Measure/Evaluation Question references on load/save while preserving the existing saved-state fields.
+
+How Boxes, Measures, and Evaluation Questions may also carry an optional `displayId`. This is an editable user-facing identifier only; keep internal links and references on the stable `id`.
+
+Measures and Evaluation Questions may carry optional Traffic Light metadata using `trafficLight`. Allowed values match the package Traffic Light states: `green`, `greenYellow`, `yellow`, `yellowRed`, `red`, `grey`, or empty/absent for unset. Existing items without `trafficLight` have no Traffic Light. The field is metadata for the existing Measure or Evaluation Question item, not a separate display-text field.
 
 ## 18. Documentation Pages
 
@@ -491,7 +503,9 @@ Board Chat is optional. DoView Boards can be viewed, edited, saved, copied, prin
 
 A DoView-compatible implementation does not need to implement Board Chat.
 
-If you implement or enable Board Chat, remember that board content may be sent to an AI endpoint or provider. API keys are sensitive. Do not embed API keys in exported board files. For enterprise, regulated, sensitive, confidential, public, or multi-user deployment, use approved endpoints and appropriate backend/proxy, logging, audit, retention, and data-handling arrangements.
+If you implement or enable Board Chat, remember that board content may be sent to the custom AI endpoint configured by the user, using the API key or session credential entered for that session. API keys are sensitive, session-only, and must not be embedded in exported board files, localStorage, or exported board state. For enterprise, regulated, sensitive, confidential, public, or multi-user deployment, use approved endpoints and appropriate backend/proxy, logging, audit, retention, and data-handling arrangements.
+
+Do not make hidden or unsolicited external network calls, fetch external files, publish files, overwrite local files, or send board content to any endpoint unless the user explicitly requested the action, supplied any needed endpoint or credential, and the host platform permits it. This does not block explicit user-triggered Board Chat, Save / Download Board, Copy HTML Board, or Update Board Changes to Main AI Chat actions.
 
 ## 22. Security and deployment checklist
 
@@ -550,14 +564,14 @@ Trademark rights are separate. Apache-2.0 does not grant permission to claim off
 
 ## 26. Versioning and compatibility
 
-This guide targets DoView Boards V1.1.0.
+This guide targets DoView Boards V1.2.0.
 
 When building on the reference package, state which DoView Boards version and specification version your implementation targets.
 
 Suggested wording:
 
 ```text
-This tool targets the DoView Boards V1.1.0 minimum specification.
+This tool targets the DoView Boards V1.2.0 minimum specification.
 ```
 
 If you adapt the reference engine, keep your own release history and clearly identify changes that may affect config compatibility, security, Board Chat behaviour, saved state, or generated-board output.
@@ -586,7 +600,7 @@ Avoid these mistakes:
 - describing an implementation as official without written permission;
 - using the Official DoView® Badge without written permission;
 - generating boards that are technically valid but shallow, generic, under-linked, or template-shaped;
-- generating populated This–Then pages from a repeated 3x2, 3x3, `4-4-4-4`, or `4-4-4-3` template rather than from the domain logic.
+- generating populated This–Then Pages from a repeated 3x2, 3x3, `4-4-4-4`, or `4-4-4-3` template rather than from the domain logic.
 
 ## 29. Relationship to the examples
 
@@ -616,7 +630,7 @@ Before releasing a DoView-compatible tool or generated board, check:
 - [ ] It preserves This–Then, How, Documentation, and Final Outcomes distinctions.
 - [ ] It preserves link-type meanings.
 - [ ] It implements or preserves the This–Then Page modelling rules in the minimum specification and `spec/this-then-page-rules.md`.
-- [ ] It preserves Display text, Notes, Measures, Evaluation Questions, Sources, and Tags where supported.
+- [ ] It preserves Display Text, Notes, Measures, Evaluation Questions, Sources, and Tags where supported.
 - [ ] It does not discard unknown additive saved-state fields without reason.
 - [ ] It treats generated HTML boards as active JavaScript files.
 - [ ] It does not treat read-only mode as a security boundary.
@@ -624,4 +638,3 @@ Before releasing a DoView-compatible tool or generated board, check:
 - [ ] It does not imply official status without written permission.
 - [ ] It includes suitable attribution.
 - [ ] It states the DoView Boards version or specification version targeted.
-

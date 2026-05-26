@@ -1,8 +1,8 @@
 # DoView Board Examples
 
-**DoView Boards version:** V1.1.0  
-**Release date:** 2026-05-08  
-**Document status:** Examples guide for the first public DoView Boards prompt package release
+**DoView Boards version:** V1.2.0  
+**Release date:** 2026-05-22  
+**Document status:** Examples guide for the V1.2.0 DoView Boards prompt package release
 
 This folder contains example DoView Board files for users and developers.
 
@@ -20,8 +20,8 @@ Standalone `.html` boards contain active JavaScript. Treat them like executable 
 These files are smaller config examples for developers. They show structures used by the reference engine and builder. They are not complete standalone boards by themselves.
 
 - [`minimal-config.json`](minimal-config.json) — smallest useful complete board config.
-- [`this-then-page-example.json`](this-then-page-example.json) — This–Then Page columns, boxes, many-to-many links, polarity, and link notes.
-- [`how-page-example.json`](how-page-example.json) — How Pages, How boxes, How levels, upward/downward How links, and non-up-and-down How links.
+- [`this-then-page-example.json`](this-then-page-example.json) — This–Then Page columns, boxes, many-to-many links, polarity, link Display Text, and link notes.
+- [`how-page-example.json`](how-page-example.json) — How Pages, How Boxes, How levels, Vertical Links, and Cross-Links.
 - [`documentation-page-example.json`](documentation-page-example.json) — Documentation Page structure, with formatted content stored in `savedState.docContent`.
 - [`measures-eqs-example.json`](measures-eqs-example.json) — Measures and Evaluation Questions associated with boxes and This–Then links.
 
@@ -31,7 +31,7 @@ Use the JSON examples with the builder, for example:
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config examples/minimal-config.json \
-  --out my-board_doview-board_v1.1.0.0_2026-05-08.html
+  --out my-board_doview-board_v1.2.0_2026-05-22.html
 ```
 
 ## Read-only example

@@ -1,14 +1,14 @@
 # DoView Boards
 
-**DoView Boards version:** V1.1.0  
-**Release date:** 2026-05-08  
-**Release status:** First public DoView Boards prompt package release
+**DoView Boards version:** V1.2.0  
+**Release date:** 2026-05-22  
+**Release status:** Public DoView Boards V1.2.0 release
 
 ## What are DoView Boards?
 
-DoView Boards are drill-down visual planning and coordination boards based on This→Then causal logic. They represent what needs to happen for action in the world to produce desired outcomes. They use two novel approaches to planning. First they are based around a This-Then diagram showing the outcomes being sought and the steps it is believed will lead to them. Most planning apps start from the point of view of what you are going to do, rather than from the point of view of the outcomes you are seeking. In this sence DoView Boards can be seen as sitting 'above' traditional project plannign apps and platforms, enabling you to see why you are doing projects or activities. Second, they have been designed to enable the one DoView Board to cover all of the things that are needed to plan, draw on previous evidence, prioritize, delegate or contract, measure, evaluate, hold parties to account, improve and report on any organization or any other type of initiative. 
+DoView Boards are drill-down visual planning and coordination boards based on This→Then causal logic. They represent what needs to happen for action in the world to produce desired outcomes. They use two novel approaches to planning. First they are based around a This-Then diagram showing the outcomes being sought and the steps it is believed will lead to them. Most planning apps start from the point of view of what you are going to do, rather than from the point of view of the outcomes you are seeking. In this sense DoView Boards can be seen as sitting 'above' traditional project planning apps and platforms, enabling you to see why you are doing projects or activities. Second, they have been designed to enable the one DoView Board to cover all of the things that are needed to plan, draw on previous evidence, prioritize, delegate or contract, measure, evaluate, hold parties to account, improve and report on any organization or any other type of initiative. 
 
-The curret iteration of DoView Boards is a prototype for use in piloting, proof of concept and for use in situations where confidentiality and security risks are low. Anyone is free to develop other DoView Board apps and extend the minimum specification that is provided in this repository.  
+The current iteration of DoView Boards is a prototype for use in piloting, proof of concept and for use in situations where confidentiality and security risks are low. Anyone is free to develop other DoView Board apps and extend the minimum specification that is provided in this repository.  
 
 The DoView Boards prompt package lets you ask an AI system such as ChatGPT, Claude, or another suitable model to create a DoView Board on a topic. The AI generates a standalone DoView Board web app: a single `.html` file that opens in a browser and contains both the DoView Board interface and the topic-specific board content. There is no separate installed app required for use.
 
@@ -18,7 +18,7 @@ DoView strategy/outcomes models, now able to be generated as DoView Boards have 
 
 DoView Boards are not just drawing canvases. They represent outcomes, enabling conditions, actions, implementation work, evidence, measures, evaluation questions, sources, assumptions, risks, and supporting documentation in a structured form.
 
-DoView Planning https://doviewplanning.org is a practical application of outcomes theory https://doviewplanning.org/theory, https://doviewplanning.org/book. Outcomes theory theorizes outcomes systems as any system that identifies, prioritizes, delegates or contracts, implements, measures, attributes, or holds parties to account for outcomes of any type undertaken by humans in any context. The same approach is likely to be be useful for human/AI agent collaboration and may be useful for inter-AI agent collaboration, planning and implementation.
+DoView Planning https://doviewplanning.org is a practical application of outcomes theory https://doviewplanning.org/theory, https://doviewplanning.org/book. Outcomes theory theorizes outcomes systems as any system that identifies, prioritizes, delegates or contracts, implements, measures, attributes, or holds parties to account for outcomes of any type undertaken by humans in any context. The same approach is likely to be useful for human/AI agent collaboration and may be useful for inter-AI agent collaboration, planning and implementation.
 
 The DoView Board prototype app is an app for capturing all of the key elements of any outcomes system as they are conceptualized within outcomes theory.
 
@@ -34,7 +34,7 @@ Experimentally, DoView Boards may also provide a visual interface for human-AI c
 
 This repository is a practical starting point for users, developers, researchers, experimenters, and organisations that want to understand, generate, implement, or extend DoView Boards.
 
-The V1.1.0 public release includes:
+The V1.2.0 public release includes:
 
 - the DoView Board building prompt;
 - the canonical JavaScript reference engine;
@@ -46,7 +46,7 @@ The V1.1.0 public release includes:
 - config reference documentation;
 - security and read-only notes;
 - trademark and attribution guidance;
-- Apache-2.0 licence material.
+- Apache-2.0 licence material;
 - instructions for AI coding agents working with this repository;
 - guidance for humans commissioning AI-built DoView-compatible apps;
 - contribution guidance for developers and users.
@@ -88,7 +88,7 @@ Generated standalone boards are active `.html` files containing JavaScript. Trea
 
 Developers can use this repository to:
 
-- inspect the canonical V1.1.0 reference engine;
+- inspect the canonical V1.2.0 reference engine;
 - generate standalone board HTML files;
 - create tools that output reference-engine-compatible configs;
 - embed DoView Boards in other systems;
@@ -113,7 +113,7 @@ The builder takes a pure JSON board config and the reference engine, then create
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config doview-board-config.json \
-  --out example-board_doview-board_v1.1.0_2026-05-08.html
+  --out example-board_doview-board_v1.2.0_2026-05-22.html
 ```
 
 The config input should be JSON only. It should not include prompt text, builder source, duplicate engine code, or a `DoView.init(...)` JavaScript wrapper.
@@ -162,11 +162,13 @@ See [`LICENSE`](LICENSE), [`NOTICE.md`](NOTICE.md), and [`docs/trademark-and-att
 
 Generated standalone DoView Boards are active HTML/JavaScript files. Treat them like executable web content, not passive documents.
 
-The V1.1.0 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
+The V1.2.0 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
+
+Generated boards from untrusted sources should not be opened casually. Hosted or shared boards should not be served from the same origin/domain as sensitive applications.
 
 Read-only mode is a convenience feature. It is not access control, authentication, authorization, encryption, tamper protection, digital signing, audit logging, version control, a permissions system, or a security boundary.
 
-Board Chat is optional. If Board Chat is used, board content may be sent to configured AI endpoints or providers. Users with privacy, confidentiality, security, compliance, API-key, or external-data-sharing concerns should avoid Board Chat unless appropriate arrangements are in place.
+Board Chat is optional and inactive unless configured and used. The presence of Board Chat code does not by itself mean board content is sent to an AI provider. If no AI endpoint/API key is entered and the user does not use Board Chat, the board does not send board content to an AI provider through Board Chat. If Board Chat is used, board content may be sent to the configured endpoint using the API key or session credential entered for the session. API keys are not saved by the board. For sensitive or higher-risk use, leave Board Chat unconfigured/disabled and do not enter an API key unless appropriate endpoint, privacy, security, compliance, and data-handling arrangements are in place.
 
 See [`docs/security-and-read-only-notes.md`](docs/security-and-read-only-notes.md) and [`SECURITY.md`](SECURITY.md).
 
@@ -229,7 +231,7 @@ For general information about DoView Planning, see https://doviewplanning.org.
 
 See [`CHANGELOG.md`](CHANGELOG.md).
 
-V1.1.0 is the first public DoView Boards prompt package release. Earlier internal builds are not part of the public changelog.
+V1.2.0 is the current public DoView Boards prompt package release. Earlier internal builds are not part of the public changelog.
 
 ## More information
 

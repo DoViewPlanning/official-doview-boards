@@ -72,7 +72,7 @@
     "B": {
       "p1-c0-b0": {
         "label": "Students know support is available",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -89,7 +89,7 @@
       },
       "p1-c0-b1": {
         "label": "Mentors prepared for sessions",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -104,7 +104,7 @@
       },
       "p1-c1-b0": {
         "label": "Students attend regularly",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -121,7 +121,7 @@
       },
       "p1-c1-b1": {
         "label": "Helpful study habits practised",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -138,7 +138,7 @@
       },
       "p1-c2-b0": {
         "label": "Students feel more confident about learning",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -155,7 +155,7 @@
       },
       "p2-H001": {
         "label": "Mentor coordination",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -170,7 +170,7 @@
       },
       "p2-H002": {
         "label": "Family communication",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -187,7 +187,7 @@
       },
       "final-b0": {
         "label": "Students are better supported to keep learning",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -443,6 +443,7 @@
         "showMeasures": true,
         "showEvalQuestions": true,
         "showMainText": true,
+        "showLinkInfoOnHover": false,
         "showLateralHow": false,
         "showTags": false
       },

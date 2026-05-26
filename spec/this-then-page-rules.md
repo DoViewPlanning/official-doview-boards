@@ -14,15 +14,15 @@ The rules in this file help ensure that generated or implemented boards remain D
 
 ## 2. Core DoView diagram principles represented in This–Then Pages
 
-The public DoView Planning rules for drawing DoView diagrams are represented in the V1.1.0 package in the following ways.
+The public DoView Planning rules for drawing DoView diagrams are represented in the V1.2.0 package in the following ways.
 
 ### 2.1 Keep boxes compact
 
-Box labels should be short enough to be read quickly. Long explanations, evidence, references, caveats, and supporting material should go in Display text, Notes, link notes, Page info, Board info, Documentation Pages, or Sources.
+Box labels should be short enough to be read quickly. Long explanations, evidence, references, caveats, and supporting material should go in Display Text, Notes, link notes, Page info, Board info, Documentation Pages, or Sources.
 
 ### 2.2 Word boxes as outcomes, conditions, or completed states where appropriate
 
-This–Then boxes should usually describe outcomes, conditions, capacities, behaviours, decisions, states, risks phrased as conditions, assumptions, implementation states, or enabling factors.
+This–Then Boxes should usually describe outcomes, conditions, capacities, behaviours, decisions, states, risks phrased as conditions, assumptions, implementation states, or enabling factors.
 
 Where natural, use compact completed-state wording. For example, use “Funding secured” rather than “Funding has been secured,” unless the user asks for another style.
 
@@ -392,7 +392,7 @@ Only create a blank, starter, empty, or shell This–Then Page where the user ha
 
 If the user asks to add a page but does not specify the page type and does not clearly imply a populated This–Then Page, the app or assistant should ask whether the user wants a This–Then Page, How Page, or Documentation Page.
 
-## 20. This–Then page colour-object rule
+## 20. This–Then Page colour-object rule
 
 Every generated This–Then subpage in the reference-engine config must include a complete `color` object with:
 

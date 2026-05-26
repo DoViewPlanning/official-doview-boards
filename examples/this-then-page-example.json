@@ -62,7 +62,7 @@
     "B": {
       "p1-c0-b0": {
         "label": "Flood warnings understood",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -75,7 +75,7 @@
       },
       "p1-c0-b1": {
         "label": "Vulnerable households identified",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -88,7 +88,7 @@
       },
       "p1-c0-b2": {
         "label": "Road access risk mapped",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -101,7 +101,7 @@
       },
       "p1-c0-b3": {
         "label": "Warning messages delayed",
-        "light": "grey",
+        "light": "",
         "entries": [],
         "priority": "",
         "hasSubpage": false,
@@ -262,6 +262,7 @@
         "showMeasures": false,
         "showEvalQuestions": false,
         "showMainText": false,
+        "showLinkInfoOnHover": false,
         "showLateralHow": false,
         "showTags": false
       },

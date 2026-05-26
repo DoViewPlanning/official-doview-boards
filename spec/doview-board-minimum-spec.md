@@ -1,10 +1,10 @@
 # DoView Board Minimum Specification
 
-**DoView Boards version:** V1.1.0  
-**Release date:** 2026-05-08  
-**Document status:** Minimum compatibility specification for the first public DoView Boards prompt package release
+**DoView Boards version:** V1.2.0  
+**Release date:** 2026-05-22  
+**Document status:** Minimum compatibility specification for the V1.2.0 DoView Boards prompt package release
 
-This document defines the minimum structure and behaviour expected of a DoView-compatible board, app, platform, system, or generated standalone board for the V1.1.0 release.
+This document defines the minimum structure and behaviour expected of a DoView-compatible board, app, platform, system, or generated standalone board for the V1.2.0 release.
 
 The reference JavaScript engine in this repository is the canonical reference implementation for this release. This specification defines the DoView-compatible standard that the reference engine demonstrates. Developers should not have to reverse-engineer the standard from the engine alone. The companion file [`this-then-page-rules.md`](this-then-page-rules.md) expands the This–Then Page modelling rules that are central to DoView-compatible board quality.
 
@@ -21,10 +21,10 @@ This specification covers the minimum requirements for:
 - required page types;
 - This–Then causal pages;
 - How implementation/alignment pages;
-- Documentation pages;
+- Documentation Pages;
 - Final Outcomes;
 - boxes and box fields;
-- Display text and Notes;
+- Display Text and Notes;
 - Measures and Evaluation Questions;
 - structural link types;
 - source and evidence handling;
@@ -57,7 +57,7 @@ A board, app, platform, tool, or system is DoView-compatible when it preserves t
 
 ### Reference implementation
 
-The reference implementation is the V1.1.0 JavaScript engine released with this repository as `doview-board-engine.js`, together with the builder and prompt package. It demonstrates one working implementation of this specification.
+The reference implementation is the V1.2.0 JavaScript engine released with this repository as `doview-board-engine.js`, together with the builder and prompt package. It demonstrates one working implementation of this specification.
 
 ## 3. Compatibility levels
 
@@ -69,7 +69,7 @@ A system is conceptually DoView-compatible if it follows the DoView Board struct
 
 ### 3.2 Reference-engine compatibility
 
-A board is reference-engine compatible if it can be loaded by the V1.1.0 reference engine using the config and saved-state structure expected by that engine.
+A board is reference-engine compatible if it can be loaded by the V1.2.0 reference engine using the config and saved-state structure expected by that engine.
 
 Reference-engine compatibility is useful for examples, generated standalone boards, tests, and developers who want to embed or adapt the reference implementation.
 
@@ -90,7 +90,7 @@ A DoView-compatible board must have:
 7. a built-in or clearly supported Final Outcomes area;
 8. boxes representing outcomes, conditions, actions, implementation entities, or final outcomes;
 9. structural links showing relationships between boxes;
-10. support for Display text and Notes on boxes;
+10. support for Display Text and Notes on boxes;
 11. support for Measures and Evaluation Questions associated with boxes, and where supported, This–Then links;
 12. support for sources or evidence references;
 13. a way to save, export, or persist the board structure;
@@ -255,9 +255,9 @@ These terms may be used only where they are genuinely appropriate for the domain
 
 ### 7.4 Boxes and wording
 
-This–Then boxes should normally be compact outcome or condition statements. They should usually represent one concept per box.
+This–Then Boxes should normally be compact outcome or condition statements. They should usually represent one concept per box.
 
-Good This–Then box labels are:
+Good This–Then Box labels are:
 
 - specific to the topic;
 - written as outcomes, conditions, capacities, behaviours, decisions, states, risks phrased as conditions, assumptions, implementation states, or enabling factors;
@@ -267,7 +267,7 @@ Good This–Then box labels are:
 
 Compact DoView outcome phrasing is preferred where appropriate. For example, “Funding secured” is usually preferred to “Funding has been secured,” unless the user asks for different wording.
 
-Do not overload box labels with evidence, references, URLs, or long explanations. Put that material in Display text, Notes, link annotations, Page info, Board info, Documentation Pages, or Sources.
+Do not overload box labels with evidence, references, URLs, or long explanations. Put that material in Display Text, Notes, link annotations, Page info, Board info, Documentation Pages, or Sources.
 
 Numbered placeholder labels should not be used unless the user explicitly asks for numbered items. Avoid labels such as “Condition 1.1,” “Outcome 2.3,” “Box 4.2.1,” “Step 3,” or “Pathway 07” unless numbering is part of the user’s requested structure.
 
@@ -275,7 +275,7 @@ Numbered placeholder labels should not be used unless the user explicitly asks f
 
 A This–Then Page should include the relevant things that need to occur in the outside-world causal logic of the domain, not only things controlled by one organization or initiative.
 
-This–Then boxes are not limited to quantifiable outcomes. They may include:
+This–Then Boxes are not limited to quantifiable outcomes. They may include:
 
 - enabling conditions;
 - capacities;
@@ -429,9 +429,9 @@ How Pages show how outcomes will be pursued. They represent actions, projects, w
 
 How Pages should be used for “what we do” or “who/what acts” rather than for causal outcome pathways that belong on This–Then Pages.
 
-### 8.2 How boxes
+### 8.2 How Boxes
 
-How boxes represent implementation items such as:
+How Boxes represent implementation items such as:
 
 - actions;
 - projects;
@@ -444,7 +444,7 @@ How boxes represent implementation items such as:
 - capabilities;
 - implementation tasks.
 
-In the reference engine, How boxes use stable IDs such as `H001`, `H002`, and `H003`. The visible number is stable and should not change when other How boxes are deleted or reordered.
+In the reference engine, How Boxes use stable IDs such as `H001`, `H002`, and `H003`. The visible number is stable and should not change when other How Boxes are deleted or reordered.
 
 ### 8.3 How Page levels
 
@@ -456,13 +456,13 @@ A How Page may have a board-defined level. For example, one board might use:
 
 Another board may define levels differently. Levels are not a fixed ontology; they give meaning to the up/down alignment links within that board.
 
-A How Page may also have no level. No-level How Pages may still contain useful implementation information but do not participate in the strict adjacent-level hierarchy.
+A How Page may also have no level. User-facing Cross-Link How Pages are unlevelled How Pages; they may still contain useful implementation information but do not participate in the strict adjacent-level Vertical Link hierarchy.
 
 ### 8.4 How Page layout
 
-A How Page does not need This–Then columns or arrows. The reference engine displays How boxes as a neutral grid with stable visible IDs.
+A How Page does not need This–Then columns or arrows. The reference engine displays How Boxes as a neutral grid with stable visible IDs.
 
-A compatible implementation may use a different layout if it preserves the meaning of How boxes, levels, and link types.
+A compatible implementation may use a different layout if it preserves the meaning of How Boxes, levels, and link types.
 
 ## 9. Documentation Pages
 
@@ -492,7 +492,7 @@ Documentation content should be handled carefully because generated boards are a
 
 ### 9.3 Documentation is not a replacement for structure
 
-Documentation Pages should not be used to avoid modelling important causal or implementation logic. Important outcomes and enabling conditions should still be represented as This–Then boxes. Important implementation actions should still be represented as How boxes.
+Documentation Pages should not be used to avoid modelling important causal or implementation logic. Important outcomes and enabling conditions should still be represented as This–Then Boxes. Important implementation actions should still be represented as How Boxes.
 
 ## 10. Final Outcomes
 
@@ -510,7 +510,7 @@ Do not turn every This–Then Page’s final column into a mini Final Outcomes p
 
 ### 10.3 Visual distinction
 
-Final Outcomes should be visually distinct from ordinary This–Then boxes. The reference engine uses a black-and-white style with neutral borders and a distinct Final Outcomes heading.
+Final Outcomes should be visually distinct from ordinary This–Then Boxes. The reference engine uses a black-and-white style with neutral borders and a distinct Final Outcomes heading.
 
 A compatible implementation may use different styling if Final Outcomes remain clearly identifiable as board-level outcomes.
 
@@ -520,8 +520,8 @@ A compatible implementation may use different styling if Final Outcomes remain c
 
 A DoView-compatible board should distinguish at least these box types:
 
-- This–Then boxes;
-- How boxes;
+- This–Then Boxes;
+- How Boxes;
 - Final Outcome boxes.
 
 The same implementation may use a shared internal box model, but the meaning of each box type must remain clear.
@@ -532,11 +532,11 @@ Every box must have a label.
 
 Box labels should be natural-language labels, not placeholders. Avoid labels such as “Condition 1,” “Outcome 2,” “Box 3,” “Step 4,” or “Pathway 5” unless the user explicitly asked for numbered items.
 
-### 11.3 Display text
+### 11.3 Display Text
 
-Boxes should support Display text. Display text is longer explanatory text associated with a box and may be shown under the box in the board view where the view settings allow it.
+Boxes should support Display Text. Display Text is longer explanatory text associated with a box and may be shown under the box in the board view where the view settings allow it.
 
-Display text is different from the box label. The box label should remain concise; Display text can explain, qualify, or document the box.
+Display Text is different from the box label. The box label should remain concise; Display Text can explain, qualify, or document the box.
 
 ### 11.4 Notes
 
@@ -544,13 +544,13 @@ Boxes should support Notes 1, Notes 2, Notes 3, Notes 4, and Notes 5.
 
 The notes fields may be used for evidence, assumptions, caveats, implementation details, user commentary, or other structured supporting information.
 
-### 11.5 Traffic lights and priorities
+### 11.5 Traffic Lights and priorities
 
 A compatible board may support traffic-light status and priority markers.
 
-In the reference package, newly generated boards should not pre-assign non-neutral traffic lights or priorities unless the user explicitly asks for them. Defaults should be neutral/unset.
+In the reference package, newly generated boards should not pre-assign non-neutral Traffic Lights or priorities unless the user explicitly asks for them. Defaults should be neutral/unset.
 
-Traffic lights and priority markers are planning aids. They are not approval, verification, official status, or security controls.
+Traffic Lights and priority markers are planning aids. They are not approval, verification, official status, or security controls.
 
 ### 11.6 Tags
 
@@ -567,7 +567,7 @@ Tags are not:
 - security;
 - protection.
 
-In the V1.1.0 reference implementation, tags may apply to boxes, structural links, Measures, and Evaluation Questions. They are not implemented for pages, page tabs, Sources, Board info, Page info, Documentation Page clones, copied/imported content as separate surfaces, or unsupported UI surfaces.
+In the V1.2.0 reference implementation, tags may apply to boxes, structural links, Measures, and Evaluation Questions. They are not implemented for pages, page tabs, Sources, Board info, Page info, Documentation Page clones, copied/imported content as separate surfaces, or unsupported UI surfaces.
 
 ### 11.7 Jump/drill links
 
@@ -592,17 +592,17 @@ A box may have:
 
 Multiple boxes may link to the same target box, and one box may link to multiple target boxes.
 
-This is especially important on This–Then Pages, where the board should represent a causal network rather than a simple one-to-one chain. A This–Then box may contribute to several later boxes, and several earlier boxes may contribute to the same later box.
+This is especially important on This–Then Pages, where the board should represent a causal network rather than a simple one-to-one chain. A This–Then Box may contribute to several later boxes, and several earlier boxes may contribute to the same later box.
 
-How Page up-and-down links are also many-to-many unless a board deliberately imposes a stricter hierarchy. For example, one Level-1 How box may align with several Level-2 How boxes, and one Level-2 How box may align upward to more than one Level-1 How box where that accurately represents the implementation structure.
+How Page Vertical Links are also many-to-many unless a board deliberately imposes a stricter hierarchy. For example, one Level 1 How Box may align with several Level 2 How Boxes, and one Level 2 How Box may align upward to more than one Level 1 How Box where that accurately represents the implementation structure.
 
 Many-to-many linking must still preserve link meaning. Links should not be added merely to create density. Each link should represent a real causal, enabling, alignment, implementation, or relationship claim.
 
-This–Then links describe causal or enabling relationships. How up-and-down links describe implementation hierarchy or alignment. Non-up-and-down How links describe implementation relationships that are not part of the strict adjacent-level hierarchy. Jump or drill links are navigation links and are not the same as structural links.
+This–Then links describe causal or enabling relationships. Vertical Links describe implementation hierarchy or alignment. Cross-Links describe implementation relationships that are not part of the strict adjacent-level hierarchy. Jump or drill links are navigation links and are not the same as structural links.
 
 ### 12.1 This–Then causal links
 
-This–Then links are formal directional links between This–Then boxes.
+This–Then links are formal directional links between This–Then Boxes.
 
 They mean that the source box helps make the target box happen, or affects it in a causal or enabling way.
 
@@ -630,38 +630,38 @@ Implementations that support polarity should display the difference clearly.
 
 How links connect implementation items to outcomes or to other implementation items.
 
-A How link should always have a How box as its source in the reference-engine model. It may point to a This–Then box or to another How box, subject to the hierarchy and non-up/down rules below.
+A How link should always have a How Box as its source in the reference-engine model. It may point to a This–Then Box or to another How Box, subject to the Vertical Link and Cross-Link rules below.
 
 How links are not ordinary This–Then causal links. They express implementation alignment or relationship rather than a This–Then outcome pathway.
 
-### 12.4 Up-and-down How links
+### 12.4 Vertical Links
 
-Up-and-down How links are hierarchical implementation/alignment links.
+Vertical Links are hierarchical implementation/alignment links.
 
-An upward How link points from a How box to the outcome, higher-level How box, or adjacent higher implementation level that the source contributes to or aligns with. A downward How link points from a How box to a lower-level How box that helps implement, deliver, break down, or operationalize the source.
+An upward Vertical Link points from a How Box to the outcome, higher-level How Box, or adjacent higher implementation level that the source contributes to or aligns with. A downward Vertical Link points from a How Box to a lower-level How Box that helps implement, deliver, break down, or operationalize the source.
 
-In the V1.1.0 reference model:
+In the V1.2.0 reference model:
 
-- a Level-1 How box may link upward to This–Then boxes;
-- a Level-1 How box may link downward to Level-2 How boxes;
-- a Level-N How box where N is 2 or higher may link upward to Level-(N-1) How boxes;
-- a Level-N How box may link downward to Level-(N+1) How boxes;
+- a Level 1 How Box may link upward to This–Then Boxes;
+- a Level 1 How Box may link downward to Level 2 How Boxes;
+- a Level-N How Box where N is 2 or higher may link upward to Level-(N-1) How Boxes;
+- a Level-N How Box may link downward to Level-(N+1) How Boxes;
 - hierarchical How-to-How links are adjacent-level only;
 - hierarchical How link counts should register symmetrically at both ends of the relationship.
 
-### 12.5 Non-up-and-down How links
+### 12.5 Cross-Links
 
-Non-up-and-down links are implementation relationships that are not part of the strict adjacent-level hierarchy.
+Cross-Links are implementation relationships that are not part of the strict adjacent-level hierarchy.
 
 They include:
 
 - same-page How-to-How links;
 - same-level How-to-How links;
 - skipped-level How-to-How links;
-- no-level How links;
-- links from Level-2-or-deeper How boxes to This–Then boxes.
+- links from unlevelled How Pages;
+- links from Level 2-or-deeper How Boxes to This–Then Boxes.
 
-These links should be visually and conceptually distinct from up-and-down hierarchy links.
+These links should be visually and conceptually distinct from Vertical Links.
 
 ### 12.6 Page jump, drill, documentation, and source references
 
@@ -688,7 +688,7 @@ The reference engine supports Notes 1, Notes 2, and Notes 3 on structural links.
 
 ### 12.8 Measures and Evaluation Questions on links
 
-The V1.1.0 reference engine supports associating Measures and Evaluation Questions with This–Then links. It does not support this feature for How links in this release.
+The V1.2.0 reference engine supports associating Measures and Evaluation Questions with This–Then links. It does not support this feature for How links in this release.
 
 A compatible implementation should not silently discard Measure or Evaluation Question associations attached to This–Then links.
 
@@ -706,7 +706,7 @@ A Measure should support:
 
 - stable Measure ID;
 - title;
-- Display text;
+- Display Text;
 - Notes 1;
 - Notes 2;
 - Notes 3;
@@ -719,8 +719,8 @@ In the reference engine, Measure IDs use the form `M001`, `M002`, `M003`, and so
 
 Measures may be associated with:
 
-- This–Then boxes;
-- How boxes;
+- This–Then Boxes;
+- How Boxes;
 - Final Outcome boxes;
 - This–Then links, where the implementation supports link-level Measure associations.
 
@@ -744,7 +744,7 @@ An Evaluation Question should support:
 
 - stable Evaluation Question ID;
 - question text;
-- Display text;
+- Display Text;
 - Notes 1;
 - Notes 2;
 - Notes 3;
@@ -757,8 +757,8 @@ In the reference engine, Evaluation Question IDs use the form `EQ001`, `EQ002`, 
 
 Evaluation Questions may be associated with:
 
-- This–Then boxes;
-- How boxes;
+- This–Then Boxes;
+- How Boxes;
 - Final Outcome boxes;
 - This–Then links, where the implementation supports link-level Evaluation Question associations.
 
@@ -802,46 +802,46 @@ A compatible implementation should allow users to show or hide major display ele
 
 A This–Then Page should be able to show or hide, at minimum where implemented:
 
-- traffic lights;
+- Traffic Lights;
 - priorities;
-- Display text under boxes;
+- Display Text under Boxes;
 - Measures under boxes;
 - Evaluation Questions under boxes;
-- This–Then link counts;
-- up-and-down links to How boxes;
-- non-up-and-down links to How boxes;
+- This–Then Link counts;
+- Vertical Link counts from How Boxes;
+- Cross-Links to How Boxes;
 - tags where supported.
 
 ### 16.3 How view settings
 
 A How Page should be able to show or hide, at minimum where implemented:
 
-- traffic lights;
+- Traffic Lights;
 - priorities;
-- Display text under boxes;
+- Display Text under Boxes;
 - numbering;
 - Measures under boxes;
 - Evaluation Questions under boxes;
-- up-and-down links to This–Then and How boxes;
-- non-up-and-down links to This–Then and How boxes;
+- Vertical Link counts to This–Then Boxes or How Boxes;
+- Cross-Links to This–Then Boxes or How Boxes;
 - tags where supported.
 
 ### 16.4 Final Outcomes view settings
 
 The Final Outcomes area should be able to show or hide, at minimum where implemented:
 
-- traffic lights;
+- Traffic Lights;
 - priorities;
-- Display text under boxes;
+- Display Text under Boxes;
 - Measures under boxes;
 - Evaluation Questions under boxes;
 - tags where supported.
 
 ### 16.5 Simple default view
 
-The V1.1.0 generated-board default is a simple Page view with optional display items off unless the user asks otherwise.
+The V1.2.0 generated-board default is a simple Page View with optional display items off unless the user asks otherwise.
 
-Users should be able to turn on additional details through Page view controls. A simple default view must not mean the underlying data has been removed.
+Users should be able to turn on additional details through Page View controls. A simple default view must not mean the underlying data has been removed.
 
 ## 17. Overview and navigation
 
@@ -867,7 +867,7 @@ Where a link, search result, jump, or overview item leads to another page, the i
 
 ### 17.4 Search
 
-Search is not conceptually required for every minimal implementation, but the reference engine supports board search across page titles, box titles, Display text, Measures, Evaluation Questions, and Documentation content. Compatible systems that support search should preserve the distinction between structural items and free-text results.
+Search is not conceptually required for every minimal implementation, but the reference engine supports board search across page titles, box titles, Display Text, Measures, Evaluation Questions, and Documentation content. Compatible systems that support search should preserve the distinction between structural items and free-text results.
 
 ## 18. Visual and interaction conventions
 
@@ -881,7 +881,7 @@ The reference engine uses coloured page accents, columns, arrows, and This/Then 
 
 How Pages should look and behave differently from This–Then Pages. They should not imply This–Then causal columns where the page is actually an implementation page.
 
-The reference engine uses neutral How boxes in a grid with stable H-number IDs.
+The reference engine uses neutral How Boxes in a grid with stable H-number IDs.
 
 ### 18.3 Documentation visual language
 
@@ -892,11 +892,11 @@ Documentation Pages should look and behave differently from box pages. They shou
 A compatible implementation should keep different relationship types visually distinct:
 
 - This–Then links;
-- up-and-down How links;
-- non-up-and-down How links;
+- Vertical Links;
+- Cross-Links;
 - jump/drill navigation.
 
-This distinction is important. A navigation jump should not be confused with a causal link. A non-up/down How link should not be confused with a This–Then link.
+This distinction is important. A navigation jump should not be confused with a causal link. A Cross-Link should not be confused with a This–Then link.
 
 ### 18.5 Read-only indicators
 
@@ -936,7 +936,7 @@ A technically valid but shallow, generic, under-linked, or template-like board m
 
 ## 20. Reference-engine config shape
 
-This section summarizes the V1.1.0 reference-engine config shape. The separate `docs/config-reference.md` should provide the more detailed technical reference.
+This section summarizes the V1.2.0 reference-engine config shape. The separate `docs/config-reference.md` should provide the more detailed technical reference.
 
 A reference-engine-compatible config contains:
 
@@ -983,13 +983,13 @@ A How subpage uses:
 ```json
 {
   "id": "p2",
-  "label": "How page label",
+  "label": "How Page label",
   "pageType": "how",
   "howLevel": 1,
   "howBoxes": [
     {
       "id": "H001",
-      "label": "How box label"
+      "label": "How Box label"
     }
   ],
   "nextHowNum": 2,
@@ -1004,13 +1004,13 @@ A Documentation subpage uses:
 ```json
 {
   "id": "p3",
-  "label": "Documentation page label",
+  "label": "Documentation Page label",
   "pageType": "documentation",
   "cols": []
 }
 ```
 
-Documentation content is stored in saved state, keyed by the Documentation page ID.
+Documentation content is stored in saved state, keyed by the Documentation Page ID.
 
 ```json
 {
@@ -1026,8 +1026,8 @@ Documentation content is stored in saved state, keyed by the Documentation page 
 
 The reference engine uses generated box IDs such as:
 
-- `p1-c0-b0` for a This–Then box;
-- `p2-H001` for a How box;
+- `p1-c0-b0` for a This–Then Box;
+- `p2-H001` for a How Box;
 - `final-b0` for a Final Outcome box.
 
 Structural links and associations refer to these IDs.
@@ -1101,7 +1101,7 @@ Numbered placeholder labels should not be used unless the user explicitly asks f
 
 ### 21.6 Simple-board exception
 
-A genuinely simple one-page board may remain simple. The standard does not require artificial complexity, unnecessary sources, unnecessary Documentation pages, or extra Measures and Evaluation Questions where they do not fit the user’s purpose.
+A genuinely simple one-page board may remain simple. The standard does not require artificial complexity, unnecessary sources, unnecessary Documentation Pages, or extra Measures and Evaluation Questions where they do not fit the user’s purpose.
 
 ## 22. Read-only meaning and limits
 
@@ -1191,10 +1191,10 @@ Extensions should not break the core semantics of:
 
 - This–Then causal pages;
 - How implementation/alignment pages;
-- Documentation pages;
+- Documentation Pages;
 - Final Outcomes;
 - structural link types;
-- Display text and Notes;
+- Display Text and Notes;
 - Measures;
 - Evaluation Questions;
 - sources;
@@ -1239,13 +1239,13 @@ A developer can use this checklist when assessing compatibility.
 - [ ] Documentation Pages hold supporting text and explanation.
 - [ ] Final Outcomes represent board-level outcomes.
 - [ ] This–Then links are distinct from How links.
-- [ ] Up-and-down How links are distinct from non-up-and-down How links.
+- [ ] Vertical Links are distinct from Cross-Links.
 - [ ] Navigation jumps are distinct from structural links.
 
 ### Required content features
 
 - [ ] Boxes have labels.
-- [ ] Boxes support Display text.
+- [ ] Boxes support Display Text.
 - [ ] Boxes support Notes.
 - [ ] Measures are supported as board-level reusable objects.
 - [ ] Evaluation Questions are supported as board-level reusable objects.
@@ -1257,7 +1257,7 @@ A developer can use this checklist when assessing compatibility.
 - [ ] Substantial boards are domain-shaped rather than template-shaped.
 - [ ] Multi-page boards do not repeat the same This–Then geometry without a domain reason.
 - [ ] Ordinary multi-page boards with four or more This–Then Pages have been checked against the page-shape audit, near-match, shape-family, and terminal/end-column rules.
-- [ ] This–Then boxes are causally connected where appropriate.
+- [ ] This–Then Boxes are causally connected where appropriate.
 - [ ] Terminal page-level outcomes are not overloaded as a substitute for real page-shape variation.
 - [ ] Numbered placeholder labels are avoided unless explicitly requested.
 
@@ -1285,6 +1285,6 @@ This specification should be read with:
 
 ## 30. Versioning
 
-This is the V1.1.0 minimum specification for the first public DoView Boards prompt package release.
+This is the V1.2.0 minimum specification for the V1.2.0 DoView Boards prompt package release.
 
 Future releases may refine the specification, config format, reference engine, examples, validation rules, checksum verification, security guidance, or badge process. Developers should state which DoView Boards specification version their implementation targets.
