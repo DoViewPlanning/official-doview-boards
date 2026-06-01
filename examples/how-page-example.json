@@ -83,6 +83,7 @@
       "id": "p4",
       "label": "Partner relationships",
       "pageType": "how",
+      "howLevel": null,
       "cols": [],
       "howBoxes": [
         {

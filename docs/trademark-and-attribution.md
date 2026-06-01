@@ -1,10 +1,10 @@
 # Trademark and Attribution
 
-**DoView Boards version:** V1.2.0  
+**DoView Boards version:** V1.2.1  
 **Policy status:** Developer-facing summary for this release  
-**Release date:** 2026-05-22
+**Release date:** 2026-06-02
 
-This document summarizes the DoView® Planning Attribution & Trademark Use Policy for the DoView Boards V1.2.0 release. The current policy published by DoView Planning is the controlling trademark policy.
+This document summarizes the DoView® Planning Attribution & Trademark Use Policy for the DoView Boards V1.2.1 release. The current policy published by DoView Planning is the controlling trademark policy.
 
 
 # DoView® Planning Attribution and Trademark Use

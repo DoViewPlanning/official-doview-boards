@@ -1,5 +1,31 @@
 # Changelog
 
+## V1.2.1 — 2026-06-02
+
+Conservative prompt/package patch release for the DoView Boards reference package.
+
+### Included
+
+- Strengthened prompt and config guidance so no-level, cross-link, and non-hierarchical How Pages use explicit `howLevel: null`, remain outside the numbered vertical hierarchy, and display `No level`.
+- Strengthened link-annotation guidance so requested This–Then rationale, evidence, assumptions, supporting information, or explanations are specific to each exact source/target relationship, without repeated boilerplate or invented evidence.
+- Strengthened Documentation Page clone guidance so explicit clone requests create real `.doc-clone` blocks in `savedState.docContent` using supported clone types and valid source keys.
+- Strengthened box Display Text guidance so `detailText` stays blank/omitted unless the user asks for box-level supporting text; link rationale stays on links.
+- Strengthened Traffic Light and priority guidance so optional overlays, display settings, and underlying fields remain neutral/unset unless explicitly requested.
+- Corrected the Overview hint wording to say that How Pages show actions being taken to change outcomes.
+- Updated public package, engine, builder, prompt, documentation, specification, and standalone example version references to `V1.2.1`.
+- Updated the How Page JSON example so its cross-link page uses explicit `howLevel: null`.
+
+### Preserved behaviours
+
+- Existing saved-state/schema compatibility is preserved.
+- Existing numbered vertical How Pages and How Box IDs such as `H001` remain unchanged.
+- Builder validation, CLI behaviour, output assembly, and normalization are unchanged apart from version text.
+- Existing This–Then, How, Documentation Page, clone, Display Text, Traffic Light, priority, save/copy/read-only, print, presentation, Board Chat, and Page View runtime behaviour is preserved apart from the Overview wording correction and version labels.
+
+### Validation
+
+- Release validation covered JavaScript syntax checks, JSON parsing, builder assembly checks, no-level How Page rendering, relationship-specific link annotations, Documentation Page clone blocks, neutral default Display Text/Traffic Light/priority state, Overview wording checks, version-reference checks, standalone HTML script checks, browser-like load smoke checks, package manifest review, and ZIP hygiene checks.
+
 ## V1.2.0 — 2026-05-22
 
 Public release update for the DoView Boards reference package.

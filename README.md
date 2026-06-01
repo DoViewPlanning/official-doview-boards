@@ -1,8 +1,8 @@
 # DoView Boards
 
-**DoView Boards version:** V1.2.0  
-**Release date:** 2026-05-22  
-**Release status:** Public DoView Boards V1.2.0 release
+**DoView Boards version:** V1.2.1  
+**Release date:** 2026-06-02  
+**Release status:** Public DoView Boards V1.2.1 release
 
 ## What are DoView Boards?
 
@@ -34,7 +34,7 @@ Experimentally, DoView Boards may also provide a visual interface for human-AI c
 
 This repository is a practical starting point for users, developers, researchers, experimenters, and organisations that want to understand, generate, implement, or extend DoView Boards.
 
-The V1.2.0 public release includes:
+The V1.2.1 public release includes:
 
 - the DoView Board building prompt;
 - the canonical JavaScript reference engine;
@@ -88,7 +88,7 @@ Generated standalone boards are active `.html` files containing JavaScript. Trea
 
 Developers can use this repository to:
 
-- inspect the canonical V1.2.0 reference engine;
+- inspect the canonical V1.2.1 reference engine;
 - generate standalone board HTML files;
 - create tools that output reference-engine-compatible configs;
 - embed DoView Boards in other systems;
@@ -113,7 +113,7 @@ The builder takes a pure JSON board config and the reference engine, then create
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config doview-board-config.json \
-  --out example-board_doview-board_v1.2.0_2026-05-22.html
+  --out example-board_doview-board_v1.2.1_2026-06-02.html
 ```
 
 The config input should be JSON only. It should not include prompt text, builder source, duplicate engine code, or a `DoView.init(...)` JavaScript wrapper.
@@ -162,7 +162,7 @@ See [`LICENSE`](LICENSE), [`NOTICE.md`](NOTICE.md), and [`docs/trademark-and-att
 
 Generated standalone DoView Boards are active HTML/JavaScript files. Treat them like executable web content, not passive documents.
 
-The V1.2.0 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
+The V1.2.1 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
 
 Generated boards from untrusted sources should not be opened casually. Hosted or shared boards should not be served from the same origin/domain as sensitive applications.
 
@@ -231,7 +231,7 @@ For general information about DoView Planning, see https://doviewplanning.org.
 
 See [`CHANGELOG.md`](CHANGELOG.md).
 
-V1.2.0 is the current public DoView Boards prompt package release. Earlier internal builds are not part of the public changelog.
+V1.2.1 is the current public DoView Boards prompt package release. Earlier internal builds are not part of the public changelog.
 
 ## More information
 

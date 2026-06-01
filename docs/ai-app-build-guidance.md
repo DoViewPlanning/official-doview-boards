@@ -1,7 +1,7 @@
 # Guidance for Building DoView Boards Apps with AI Coding Agents
 
-**DoView Boards version:** V1.2.0  
-**Release date:** 2026-05-22  
+**DoView Boards version:** V1.2.1  
+**Release date:** 2026-06-02  
 **Document status:** Human guidance for commissioning AI-built DoView-compatible apps
 
 This document is for people who want to point an AI coding agent at this repository and ask it to build a DoView Boards app, platform, plugin, integration, or workflow.
@@ -15,7 +15,7 @@ Use this document to specify what you want before asking an AI coding agent such
 You can start with this instruction:
 
 ```text
-Using this repository, build a DoView-compatible app. Treat spec/doview-board-minimum-spec.md as the compatibility standard, doview-board-engine.js as the canonical V1.2.0 reference implementation, docs/config-reference.md as the reference config format, and AGENTS.md as your repository instructions. Before making major architecture choices, ask me to specify the missing decisions listed in docs/ai-app-build-guidance.md.
+Using this repository, build a DoView-compatible app. Treat spec/doview-board-minimum-spec.md as the compatibility standard, doview-board-engine.js as the canonical V1.2.1 reference implementation, docs/config-reference.md as the reference config format, and AGENTS.md as your repository instructions. Before making major architecture choices, ask me to specify the missing decisions listed in docs/ai-app-build-guidance.md.
 ```
 
 ## If you are an AI coding agent
@@ -150,7 +150,7 @@ If you need protected or controlled access, specify real access-control requirem
 
 Specify whether the app should:
 
-- embed or adapt the V1.2.0 reference engine;
+- embed or adapt the V1.2.1 reference engine;
 - use the reference engine only for compatibility testing;
 - implement the DoView Board minimum specification in another stack;
 - support importing/exporting the reference-engine config format;
@@ -218,7 +218,7 @@ Examples:
 
 - DoView-compatible only;
 - reference-engine-compatible config;
-- standalone generated HTML compatible with V1.2.0;
+- standalone generated HTML compatible with V1.2.1;
 - import/export compatibility with this release;
 - future-proof custom app based on the minimum specification.
 
@@ -323,7 +323,7 @@ Import/export:
 [JSON / standalone HTML / read-only HTML / PDF / PowerPoint / API / other]
 
 Compatibility target:
-[DoView-compatible / reference-engine-compatible / V1.2.0 standalone HTML / other]
+[DoView-compatible / reference-engine-compatible / V1.2.1 standalone HTML / other]
 
 This–Then modelling:
 [follow the minimum specification and spec/this-then-page-rules.md / explain any deliberate limits]

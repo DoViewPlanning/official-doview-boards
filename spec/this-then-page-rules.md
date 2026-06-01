@@ -14,7 +14,7 @@ The rules in this file help ensure that generated or implemented boards remain D
 
 ## 2. Core DoView diagram principles represented in This–Then Pages
 
-The public DoView Planning rules for drawing DoView diagrams are represented in the V1.2.0 package in the following ways.
+The public DoView Planning rules for drawing DoView diagrams are represented in the V1.2.1 package in the following ways.
 
 ### 2.1 Keep boxes compact
 

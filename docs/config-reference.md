@@ -1,10 +1,10 @@
 # DoView Board Config Reference
 
-**DoView Boards version:** V1.2.0  
-**Release date:** 2026-05-22  
-**Document status:** Technical reference for the V1.2.0 DoView Boards prompt package release
+**DoView Boards version:** V1.2.1  
+**Release date:** 2026-06-02  
+**Document status:** Technical reference for the V1.2.1 DoView Boards prompt package release
 
-This document describes the board configuration structure used by the V1.2.0 DoView Board reference engine and builder.
+This document describes the board configuration structure used by the V1.2.1 DoView Board reference engine and builder.
 
 It should be read with:
 
@@ -19,9 +19,9 @@ This reference documents the practical config shape used by:
 - `doview-board-engine.js`;
 - `doview-board-builder.js`;
 - generated standalone DoView Board HTML files;
-- the V1.2.0 examples.
+- the V1.2.1 examples.
 
-The config format is not the same thing as the DoView-compatible conceptual standard. A system can be DoView-compatible while using a different database, API, storage model, rendering layer, or programming language. This document is for developers who want to work with the V1.2.0 JavaScript reference implementation or generate configs that it can load.
+The config format is not the same thing as the DoView-compatible conceptual standard. A system can be DoView-compatible while using a different database, API, storage model, rendering layer, or programming language. This document is for developers who want to work with the V1.2.1 JavaScript reference implementation or generate configs that it can load.
 
 ## 2. Config-first build model
 
@@ -45,7 +45,7 @@ Basic builder command:
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config doview-board-config.json \
-  --out example-board_doview-board_v1.2.0_2026-05-22.html
+  --out example-board_doview-board_v1.2.1_2026-06-02.html
 ```
 
 Generated standalone boards are active HTML/JavaScript files. Treat them like executable web content, not passive documents.
@@ -345,6 +345,8 @@ How levels define the meaning of Vertical Links within the board. They are not a
 
 Only adjacent levels count as Vertical Links between How Boxes in the reference engine. Unlevelled How Pages participate in Cross-Links only.
 
+For a generated no-level, cross-link, or non-hierarchical How Page, set `howLevel` explicitly to `null`. Do not omit the field: omission is retained for backward-compatible auto-assignment of numbered levels on older boards. The reference UI displays an explicit `null` level as `No level`. A numbered vertical How Page may still contain Cross-Links; use `null` when the page itself sits outside the vertical hierarchy.
+
 ### 6.2 `howBoxes`
 
 Required array for How Pages.
@@ -438,6 +440,14 @@ The builder validates that each `savedState.docContent` key points to an existin
 
 Documentation content may include formatted HTML. Implementations that allow rich HTML must apply security controls appropriate to their deployment context.
 
+Documentation Page clone blocks are stored inside the relevant `savedState.docContent[pageId]` HTML:
+
+```html
+<div class="doc-clone" data-clone-type="box_title" data-clone-key="p1-c0-b0"></div>
+```
+
+Supported `data-clone-type` values are `page_title`, `box_title`, `box_main_text`, `measure`, `eval_question`, and `link`. Use source keys for real existing board objects: page IDs (or `final` for the Final Outcomes page title), box IDs, Measure IDs, Evaluation Question IDs, or structural link IDs as appropriate. When a user explicitly requests Documentation Page clones, include real `.doc-clone` markers rather than copied text, paraphrases, headings, or ordinary links.
+
 ## 8. Final Outcomes
 
 Final Outcomes are board-level outcomes, separate from ordinary page-level terminal outcomes.
@@ -506,7 +516,7 @@ Common fields:
 | `label` | Box label. Should match the visible label in the page structure where applicable. |
 | `light` | Optional box traffic-light state: `green`, `greenYellow`, `yellow`, `yellowRed`, `red`, `grey`, or empty/absent for unset. `grey` is a deliberate selected value, not unset. Generated boards should normally leave this empty unless the user asks otherwise. |
 | `entries` | Array of note entries. Used for Notes 1–5 and older note-style entries. |
-| `priority` | Optional formal priority marker. Use only `A`, `B`, `C`, `D`, `E`, `BAU`, or blank. Leave blank unless useful or requested. |
+| `priority` | Optional formal priority marker. Use only `A`, `B`, `C`, `D`, `E`, `BAU`, or blank. Leave blank/absent unless the user requests priorities. |
 | `hasSubpage` | Boolean used by the reference engine for drill/subpage affordances. |
 | `detailText` | Display Text / supporting text for the box. |
 | `borderColor` | Optional custom border colour. |
@@ -517,7 +527,7 @@ Common fields:
 | `jumpToPage` | Optional page ID for a jump/drill navigation link. |
 | `uid` | Stable unique ID. Preserve if present. |
 
-For a single box, include each Measure ID or Evaluation Question ID at most once. The V1.2.0 reference engine de-duplicates repeated box-level Measure/Evaluation Question IDs when loading or saving a board, without changing the saved-state field names or Measure/Evaluation Question definitions.
+For a single box, include each Measure ID or Evaluation Question ID at most once. The V1.2.1 reference engine de-duplicates repeated box-level Measure/Evaluation Question IDs when loading or saving a board, without changing the saved-state field names or Measure/Evaluation Question definitions.
 
 Optional copy/provenance metadata may also appear:
 
@@ -577,6 +587,8 @@ Box Display Text is stored as `detailText`.
 
 Hiding Display Text through Page View settings must not delete `detailText`.
 
+For generated boards, leave box `detailText` blank/absent unless the user explicitly requests box-level detail, descriptions, evidence, explanations, notes, or text under boxes. Relationship rationale or evidence requested under links belongs in the relevant link `mainText`, not in box `detailText`.
+
 ## 10. Structural links
 
 The reference engine stores structural links in two arrays:
@@ -631,6 +643,8 @@ Fields:
 | `uid` | Stable unique ID. Preserve if present. |
 
 Generated Link Display Text should start with the substantive relationship, causal explanation, evidence summary, or user-facing explanation. Do not duplicate the official link Traffic Light in `mainText` with leading colour labels, status text, or symbols such as `GREEN —`, `RED —`, `Traffic light: Yellow`, or `Status: Yellow/Green`; store the official value only in `light`.
+
+When link rationale, evidence, assumptions, supporting information, relationship notes, or explanation are requested, each generated `mainText` value must be specific to the exact source and target boxes and explain their actual relationship. Do not repeat interchangeable boilerplate across links. If evidence or sources have not been supplied or researched, do not invent them; label the text as rationale, assumption, or a suggested evidence need.
 
 This–Then links may be positive or negative:
 
@@ -687,7 +701,7 @@ Fields:
 | `uid` | Stable unique ID. Preserve if present. |
 | `linkKind` | Optional. `"lateral"` explicitly marks a Cross-Link. The internal value remains `lateral` for backward-compatible reference-engine config support. |
 
-How links do not support link-level Measures or Evaluation Questions in V1.2.0. Do not add `measures` or `evalQuestions` to How links expecting the reference engine to use them.
+How links do not support link-level Measures or Evaluation Questions in V1.2.1. Do not add `measures` or `evalQuestions` to How links expecting the reference engine to use them.
 
 ### 10.4 How link classification
 
@@ -755,6 +769,8 @@ Fields:
 | `uid` | Stable unique ID. Preserve if present. |
 
 Existing Measures without `trafficLight` default to no Traffic Light. The field is metadata for the Measure item itself; do not add a separate `displayText` field or rename this field when generating configs.
+
+Do not populate Measure `trafficLight` values unless the user explicitly requests Traffic Lights or clearly synonymous status treatment.
 
 ### 11.1 Measure associations
 
@@ -838,6 +854,8 @@ Fields:
 | `uid` | Stable unique ID. Preserve if present. |
 
 Existing Evaluation Questions without `trafficLight` default to no Traffic Light. The field is metadata for the Evaluation Question item itself; do not add a separate `displayText` field or rename this field when generating configs.
+
+Do not populate Evaluation Question `trafficLight` values unless the user explicitly requests Traffic Lights or clearly synonymous status treatment.
 
 ### 12.1 Evaluation Question associations
 
@@ -980,7 +998,7 @@ Use this for short text such as `Draft`, `Illustrative only`, or `Internal worki
 
 Generated standalone boards must include explicit view settings.
 
-Simple default V1.2.0 settings:
+Simple default V1.2.1 settings:
 
 ```json
 {
@@ -1142,7 +1160,7 @@ Recommended output filename pattern:
 Example:
 
 ```text
-example-board_doview-board_v1.2.0_2026-05-22.html
+example-board_doview-board_v1.2.1_2026-06-02.html
 ```
 
 ## 20. Minimal generated config example
@@ -1341,7 +1359,7 @@ When generating or transforming configs:
 - keep navigation jumps distinct from structural links;
 - keep This–Then links distinct from How links;
 - keep generated This–Then Pages domain-shaped rather than template-shaped, following the page-shape, terminal-outcome, causal-connectivity, and many-to-many link rules in the specification;
-- do not add unsupported schema and assume the V1.2.0 reference engine will use it.
+- do not add unsupported schema and assume the V1.2.1 reference engine will use it.
 
 ## 22. Validation checklist
 
@@ -1356,9 +1374,14 @@ Before using the builder or publishing a generated board, check:
 - [ ] This–Then Pages have been reviewed against the modelling rules in the minimum specification and `spec/this-then-page-rules.md`;
 - [ ] `cols` arrays exist;
 - [ ] How Pages have `howBoxes` arrays;
+- [ ] generated no-level, cross-link, or non-hierarchical How Pages use explicit `howLevel: null`;
 - [ ] Documentation Page content keys point to Documentation Pages;
+- [ ] requested Documentation Page clones use valid `.doc-clone` blocks with supported types and real source keys;
 - [ ] links point to real box IDs;
+- [ ] requested link rationale/evidence text is specific to each exact source and target pair, with no repeated boilerplate or fabricated sources;
 - [ ] generated Link Display Text does not duplicate link Traffic Light labels, symbols, or status text;
+- [ ] box `detailText` stays blank/absent unless box-level supporting text was requested;
+- [ ] `showTrafficLights` and `showPriorities` stay off and underlying `light`, `trafficLight`, and `priority` fields stay neutral/unset unless requested;
 - [ ] optional This–Then link `tagIds` arrays are preserved where present;
 - [ ] Measure and Evaluation Question Traffic Lights use optional `trafficLight` fields only;
 - [ ] `sources` contains only real source material;

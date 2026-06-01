@@ -1,8 +1,8 @@
 # DoView Board Examples
 
-**DoView Boards version:** V1.2.0  
-**Release date:** 2026-05-22  
-**Document status:** Examples guide for the V1.2.0 DoView Boards prompt package release
+**DoView Boards version:** V1.2.1  
+**Release date:** 2026-06-02  
+**Document status:** Examples guide for the V1.2.1 DoView Boards prompt package release
 
 This folder contains example DoView Board files for users and developers.
 
@@ -31,7 +31,7 @@ Use the JSON examples with the builder, for example:
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config examples/minimal-config.json \
-  --out my-board_doview-board_v1.2.0_2026-05-22.html
+  --out my-board_doview-board_v1.2.1_2026-06-02.html
 ```
 
 ## Read-only example

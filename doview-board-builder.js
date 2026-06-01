@@ -2,8 +2,8 @@
 'use strict';
 
 /*
-DoView Board Builder V1.2.0
-Public release: 2026-05-22
+DoView Board Builder V1.2.1
+Public release: 2026-06-02
 Plain Node.js local builder for assembling validated config-first DoView boards into single-file HTML outputs. No external npm packages.
 See CHANGELOG.md for release history and security notes.
 */
@@ -11,7 +11,7 @@ See CHANGELOG.md for release history and security notes.
 const fs = require('fs');
 const path = require('path');
 
-const BUILDER_VERSION = 'V1.2.0';
+const BUILDER_VERSION = 'V1.2.1';
 const EXPECTED_FILENAME_RE = /^[a-z0-9][a-z0-9-]*_doview-board_[vV]\d+\.\d+\.\d+_\d{4}-\d{2}-\d{2}\.html$/;
 
 const SIMPLE_DEFAULT_VIEW_SETTINGS = {
@@ -62,7 +62,7 @@ function usage() {
     '  node doview-board-builder.js \\',
     '    --engine doview-board-engine.js \\',
     '    --config doview-board-config.json \\',
-    '    --out labour-2026-nz-election_doview-board_v1.2.0_2026-05-22.html',
+    '    --out labour-2026-nz-election_doview-board_v1.2.1_2026-06-02.html',
     '',
     'Inputs:',
     '  --engine   DoView engine JavaScript file, usually doview-board-engine.js',
