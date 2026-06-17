@@ -263,7 +263,7 @@
         "showMeasures": false,
         "showEvalQuestions": false,
         "showMainText": false,
-        "showLinkInfoOnHover": false,
+        "showLinkInfoOnHover": true,
         "showLateralHow": false,
         "showTags": false
       },

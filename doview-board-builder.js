@@ -2,8 +2,8 @@
 'use strict';
 
 /*
-DoView Board Builder V1.2.6
-Public release: 2026-06-02
+DoView Board Builder V1.3.4
+Public release: 2026-06-16
 Plain Node.js local builder for assembling validated config-first DoView boards into single-file HTML outputs. No external npm packages.
 See CHANGELOG.md for release history and security notes.
 */
@@ -11,8 +11,8 @@ See CHANGELOG.md for release history and security notes.
 const fs = require('fs');
 const path = require('path');
 
-const BUILDER_VERSION = 'V1.2.6';
-const VALIDATION_VERSION = 'V1.2.6';
+const BUILDER_VERSION = 'V1.3.4';
+const VALIDATION_VERSION = 'V1.3.4';
 const EXPECTED_FILENAME_RE = /^[a-z0-9][a-z0-9-]*_doview-board_[vV]\d+\.\d+\.\d+_\d{4}-\d{2}-\d{2}\.html$/;
 
 const SIMPLE_DEFAULT_VIEW_SETTINGS = {
@@ -49,9 +49,9 @@ See the disclaimer section below.
 
 The DoView Board prompt and the DoView Board built within this DoView Board prototype app are provided free of charge so that anyone can experiment with DoView Boards and explore for themselves how they can answer the 20 key questions that anyone running or overseeing an organization needs to answer. See [https://doviewplanning.org/doviewboardsuse](https://doviewplanning.org/doviewboardsuse).
 
-Help
+Walk-Through
 
-To get help using DoView Boards, type the following into any AI system: ‘Look just at this website [https://doviewplanning.org/help](https://doviewplanning.org/help) and tell me how to [put your question in here]’.
+To get a walk-through for using DoView Boards, see [https://doviewplanning.org/walkthrough](https://doviewplanning.org/walkthrough).
 
 Accessing Consulting or Training
 
@@ -73,6 +73,7 @@ Please note that this DoView Board is in an interactive HTML file and contains a
 const STANDARD_NON_CONTENT_SOURCE_URLS = [
   'https://doviewplanning.org/doviewboardsuse',
   'https://doviewplanning.org/help',
+  'https://doviewplanning.org/walkthrough',
   'https://doviewplanning.org/offerings',
   'https://github.com/DoViewPlanning/doview-boards',
   'https://doviewplanning.org/trademarkuse',
@@ -93,7 +94,7 @@ function usage() {
     '  node doview-board-builder.js \\',
     '    --engine doview-board-engine.js \\',
     '    --config doview-board-config.json \\',
-    '    --out labour-2026-nz-election_doview-board_v1.2.6_2026-06-02.html',
+    '    --out labour-2026-nz-election_doview-board_v1.3.4_2026-06-16.html',
     '',
     'Inputs:',
     '  --engine   DoView engine JavaScript file, usually doview-board-engine.js',
@@ -261,9 +262,9 @@ function warnNumberedPlaceholder(kind, label, where, warnings) {
   }
 }
 
-function collectKnownBoxIds(cfg, warnings) {
+function collectKnownBoxIds(cfg, warnings, pagesOverride) {
   const ids = new Set();
-  const pages = Array.isArray(cfg.subpages) ? cfg.subpages : [];
+  const pages = Array.isArray(pagesOverride) ? pagesOverride : (Array.isArray(cfg.subpages) ? cfg.subpages : []);
   pages.forEach(function (p) {
     const type = p && (p.pageType || 'this_then');
     if (!p || !p.id) return;
@@ -288,6 +289,55 @@ function collectKnownBoxIds(cfg, warnings) {
     Object.keys(cfg.savedState.B).forEach(function (k) { ids.add(k); });
   }
   return ids;
+}
+
+function runtimeUsesSavedSP(cfg) {
+  const state = cfg && cfg.savedState && isPlainObject(cfg.savedState) ? cfg.savedState : {};
+  return !!(state.B && isPlainObject(state.B) && Array.isArray(state.SP));
+}
+
+function effectiveRuntimePages(cfg) {
+  const state = cfg && cfg.savedState && isPlainObject(cfg.savedState) ? cfg.savedState : {};
+  if (runtimeUsesSavedSP(cfg)) return state.SP;
+  return Array.isArray(cfg.subpages) ? cfg.subpages : [];
+}
+
+function collectPageIdsFromPages(pages) {
+  const ids = new Set();
+  (Array.isArray(pages) ? pages : []).forEach(function (page) {
+    if (page && page.id) ids.add(page.id);
+  });
+  return ids;
+}
+
+function setDifference(left, right) {
+  const out = [];
+  left.forEach(function (value) {
+    if (!right.has(value)) out.push(value);
+  });
+  return out;
+}
+
+function describeSetDifference(leftLabel, rightLabel, left, right, kind) {
+  const missing = setDifference(left, right);
+  const extra = setDifference(right, left);
+  const parts = [];
+  if (missing.length) parts.push(kind + ' in ' + leftLabel + ' but not ' + rightLabel + ': ' + missing.sort().join(', '));
+  if (extra.length) parts.push(kind + ' in ' + rightLabel + ' but not ' + leftLabel + ': ' + extra.sort().join(', '));
+  return parts;
+}
+
+function validateEffectivePageStateConsistency(cfg, strict, errors, warnings) {
+  if (!runtimeUsesSavedSP(cfg)) return;
+  const topPages = Array.isArray(cfg.subpages) ? cfg.subpages : [];
+  const savedPages = cfg.savedState.SP;
+  const pageMessages = describeSetDifference('subpages', 'savedState.SP', collectPageIdsFromPages(topPages), collectPageIdsFromPages(savedPages), 'Page IDs');
+  const topBoxIds = collectKnownBoxIds({ subpages: topPages, finalOutcomes: cfg.finalOutcomes }, [], topPages);
+  const savedBoxIds = collectKnownBoxIds({ subpages: savedPages, finalOutcomes: cfg.finalOutcomes }, [], savedPages);
+  const boxMessages = describeSetDifference('subpages', 'savedState.SP', topBoxIds, savedBoxIds, 'Box IDs');
+  pageMessages.concat(boxMessages).forEach(function (message) {
+    reportModeIssue(strict, errors, warnings, message + '. Runtime loading uses savedState.SP when savedState.B and savedState.SP are present, so generated configs must keep these structures consistent.');
+  });
 }
 
 function cloneJson(value) {
@@ -385,9 +435,40 @@ function enforceNoLevelHowPages(cfg, checks, strict, errors, warnings, autoFixes
   }
 }
 
+function numberedHowLevelValue(value) {
+  return (typeof value === 'number' && Number.isFinite(value) && Math.floor(value) === value) ? value : null;
+}
+
+function howPageDisplayRef(p, fallbackIndex) {
+  const label = isNonEmptyString(p && p.label) ? p.label : '';
+  const id = isNonEmptyString(p && p.id) ? p.id : '';
+  if (label && id) return '"' + label + '" (' + id + ')';
+  if (label) return '"' + label + '"';
+  if (id) return id;
+  return 'How Page at index ' + fallbackIndex;
+}
+
+function validateUniqueNumberedHowLevels(cfg, errors) {
+  howPageCopies(cfg).forEach(function (copy) {
+    const byLevel = Object.create(null);
+    copy.pages.forEach(function (p, i) {
+      if (!p || (p.pageType || 'this_then') !== 'how') return;
+      const level = numberedHowLevelValue(p.howLevel);
+      if (level === null) return;
+      const key = String(level);
+      if (!byLevel[key]) byLevel[key] = [];
+      byLevel[key].push(howPageDisplayRef(p, i));
+    });
+    Object.keys(byLevel).forEach(function (level) {
+      if (byLevel[level].length <= 1) return;
+      errors.push('Duplicate numbered How Page level in ' + copy.name + ': howLevel ' + level + ' is used by more than one How Page (' + byLevel[level].join(', ') + '). There is only one vertical How Page hierarchy. Use one page per numbered level, or set lateral/cross-link How Pages to howLevel: null.');
+    });
+  });
+}
+
 function collectBoxLabelMap(cfg) {
   const labels = Object.create(null);
-  const pages = Array.isArray(cfg.subpages) ? cfg.subpages : [];
+  const pages = effectiveRuntimePages(cfg);
   pages.forEach(function (p) {
     if (!p || !p.id) return;
     const type = p.pageType || 'this_then';
@@ -425,6 +506,123 @@ function linkArrayLocations(cfg, key) {
   }
   if (Array.isArray(cfg[key])) locations.push({ name: key, links: cfg[key] });
   return locations;
+}
+
+function runtimeLinkArrayLocations(cfg, key) {
+  const state = cfg && cfg.savedState && isPlainObject(cfg.savedState) ? cfg.savedState : {};
+  if (Array.isArray(state[key])) return [{ name: 'savedState.' + key, links: state[key] }];
+  return [];
+}
+
+function effectiveRuntimeFinalOutcomes(cfg) {
+  const state = cfg && cfg.savedState && isPlainObject(cfg.savedState) ? cfg.savedState : {};
+  if (runtimeUsesSavedSP(cfg)) return Array.isArray(state.FO) ? state.FO : [];
+  return Array.isArray(cfg.finalOutcomes) ? cfg.finalOutcomes : [];
+}
+
+function collectEffectiveRuntimeBoxContext(cfg) {
+  const ids = new Set();
+  const types = Object.create(null);
+  const pages = effectiveRuntimePages(cfg);
+  pages.forEach(function (p) {
+    if (!p || !p.id) return;
+    const type = p.pageType || 'this_then';
+    if (type === 'this_then' && Array.isArray(p.cols)) {
+      p.cols.forEach(function (col, ci) {
+        (col && Array.isArray(col.boxes) ? col.boxes : []).forEach(function (_box, bi) {
+          const key = p.id + '-c' + ci + '-b' + bi;
+          ids.add(key);
+          types[key] = 'this_then';
+        });
+      });
+    }
+    if (type === 'how' && Array.isArray(p.howBoxes)) {
+      p.howBoxes.forEach(function (hb) {
+        if (!hb || !hb.id) return;
+        const key = p.id + '-' + hb.id;
+        ids.add(key);
+        types[key] = 'how';
+      });
+    }
+  });
+  effectiveRuntimeFinalOutcomes(cfg).forEach(function (_f, i) {
+    const key = 'final-b' + i;
+    ids.add(key);
+    types[key] = 'final';
+  });
+  const state = cfg && cfg.savedState && isPlainObject(cfg.savedState) ? cfg.savedState : {};
+  if (isPlainObject(state.B)) {
+    Object.keys(state.B).forEach(function (key) { ids.add(key); });
+  }
+  return { ids: ids, types: types };
+}
+
+function runtimeBoxTypeLabel(type) {
+  if (type === 'this_then') return 'ordinary This-Then box';
+  if (type === 'how') return 'How box';
+  if (type === 'final') return 'Final Outcome box';
+  return 'non-page or unknown box';
+}
+
+function effectiveEndpointInvalidReason(key, boxContext, expectedType) {
+  if (!isNonEmptyString(key)) return 'endpoint is missing';
+  if (!boxContext.ids.has(key)) return 'endpoint "' + key + '" does not exist in effective runtime B';
+  if (boxContext.types[key] !== expectedType) {
+    return 'endpoint "' + key + '" is a ' + runtimeBoxTypeLabel(boxContext.types[key]) + ', not an ' + runtimeBoxTypeLabel(expectedType);
+  }
+  return '';
+}
+
+function effectiveTTLinkInvalidReason(link, boxContext) {
+  if (!isPlainObject(link)) return 'link record is not an object';
+  const fromReason = effectiveEndpointInvalidReason(link.from, boxContext, 'this_then');
+  if (fromReason) return 'from ' + fromReason;
+  const toReason = effectiveEndpointInvalidReason(link.to, boxContext, 'this_then');
+  if (toReason) return 'to ' + toReason;
+  return '';
+}
+
+function effectiveHowLinkInvalidReason(link, boxContext) {
+  if (!isPlainObject(link)) return 'link record is not an object';
+  const fromReason = effectiveEndpointInvalidReason(link.from, boxContext, 'how');
+  if (fromReason) return 'from ' + fromReason;
+  if (!isNonEmptyString(link.to)) return 'to endpoint is missing';
+  if (!boxContext.ids.has(link.to)) return 'to endpoint "' + link.to + '" does not exist in effective runtime B';
+  const toType = boxContext.types[link.to];
+  if (toType !== 'this_then' && toType !== 'how') {
+    return 'to endpoint "' + link.to + '" is a ' + runtimeBoxTypeLabel(toType) + ', not an ordinary This-Then box or How box';
+  }
+  return '';
+}
+
+function collectEffectiveRuntimeLinkInfo(cfg) {
+  const boxContext = collectEffectiveRuntimeBoxContext(cfg);
+  const validLinkIds = new Set();
+  const invalidLinkReasons = Object.create(null);
+  [
+    { key: 'ttLinks', label: 'This-Then link', checker: effectiveTTLinkInvalidReason },
+    { key: 'howLinks', label: 'How link', checker: effectiveHowLinkInvalidReason }
+  ].forEach(function (rule) {
+    runtimeLinkArrayLocations(cfg, rule.key).forEach(function (item) {
+      item.links.forEach(function (link, i) {
+        if (!link || !link.id) return;
+        const reason = rule.checker(link, boxContext);
+        if (reason) {
+          invalidLinkReasons[link.id] = item.name + '[' + i + '] ' + rule.label + ' "' + link.id + '" will be removed by runtime cleanup: ' + reason;
+        } else {
+          validLinkIds.add(link.id);
+        }
+      });
+    });
+  });
+  return { validLinkIds: validLinkIds, invalidLinkReasons: invalidLinkReasons };
+}
+
+function validateRuntimeSurvivingLinks(cfg, strict, errors, warnings) {
+  const linkInfo = collectEffectiveRuntimeLinkInfo(cfg);
+  Object.keys(linkInfo.invalidLinkReasons).sort().forEach(function (linkId) {
+    reportModeIssue(strict, errors, warnings, linkInfo.invalidLinkReasons[linkId]);
+  });
 }
 
 function stemWord(word) {
@@ -592,25 +790,100 @@ function parseHtmlAttrs(text) {
   return attrs;
 }
 
+function normalizeMeasureIdInput(id) {
+  const x = String(id || '').trim().toUpperCase();
+  const m = x.match(/^M(\d+)$/);
+  return m ? 'M' + String(parseInt(m[1], 10)).padStart(3, '0') : x;
+}
+
+function normalizeEQIdInput(id) {
+  const x = String(id || '').trim().toUpperCase();
+  const m = x.match(/^(?:EQ|Q)(\d+)$/);
+  return m ? 'EQ' + String(parseInt(m[1], 10)).padStart(3, '0') : x;
+}
+
+function isCanonicalMeasureId(id) {
+  return /^M\d{3,}$/.test(String(id || ''));
+}
+
+function isCanonicalEQId(id) {
+  return /^EQ\d{3,}$/.test(String(id || ''));
+}
+
+function validateCanonicalIdList(ids, listName, itemLabel, normalizer, isCanonical, strict, errors, warnings) {
+  const seen = new Set();
+  (Array.isArray(ids) ? ids : []).forEach(function (id, i) {
+    const text = String(id || '');
+    const where = listName + '[' + i + ']';
+    if (!isNonEmptyString(text)) {
+      reportModeIssue(strict, errors, warnings, where + ' must be a non-empty ' + itemLabel + ' ID');
+      return;
+    }
+    const normalized = normalizer(text);
+    if (!isCanonical(text) || text !== normalized) {
+      reportModeIssue(strict, errors, warnings, where + ' uses non-canonical ' + itemLabel + ' ID "' + text + '". Use "' + normalized + '".');
+    }
+    if (seen.has(normalized)) {
+      reportModeIssue(strict, errors, warnings, where + ' duplicates canonical ' + itemLabel + ' ID "' + normalized + '".');
+    }
+    seen.add(normalized);
+  });
+}
+
+function validateCanonicalMeasureEvalQuestionIds(cfg, strict, errors, warnings) {
+  const state = cfg.savedState && isPlainObject(cfg.savedState) ? cfg.savedState : {};
+  validateCanonicalIdList(
+    (Array.isArray(state.measures) ? state.measures : []).map(function (m) { return m && m.id; }),
+    'savedState.measures.id',
+    'Measure',
+    normalizeMeasureIdInput,
+    isCanonicalMeasureId,
+    strict,
+    errors,
+    warnings
+  );
+  validateCanonicalIdList(
+    (Array.isArray(state.evalQuestions) ? state.evalQuestions : []).map(function (q) { return q && q.id; }),
+    'savedState.evalQuestions.id',
+    'Evaluation Question',
+    normalizeEQIdInput,
+    isCanonicalEQId,
+    strict,
+    errors,
+    warnings
+  );
+  const B = isPlainObject(state.B) ? state.B : {};
+  Object.keys(B).forEach(function (boxId) {
+    const box = B[boxId];
+    if (!isPlainObject(box)) return;
+    validateCanonicalIdList(box.measures || [], 'savedState.B[' + boxId + '].measures', 'Measure', normalizeMeasureIdInput, isCanonicalMeasureId, strict, errors, warnings);
+    validateCanonicalIdList(box.evalQuestions || [], 'savedState.B[' + boxId + '].evalQuestions', 'Evaluation Question', normalizeEQIdInput, isCanonicalEQId, strict, errors, warnings);
+  });
+  linkArrayLocations(cfg, 'ttLinks').forEach(function (item) {
+    item.links.forEach(function (link, i) {
+      if (!isPlainObject(link)) return;
+      validateCanonicalIdList(link.measures || [], item.name + '[' + i + '].measures', 'Measure', normalizeMeasureIdInput, isCanonicalMeasureId, strict, errors, warnings);
+      validateCanonicalIdList(link.evalQuestions || [], item.name + '[' + i + '].evalQuestions', 'Evaluation Question', normalizeEQIdInput, isCanonicalEQId, strict, errors, warnings);
+    });
+  });
+}
+
 function collectCloneSourceKeys(cfg) {
+  const pages = effectiveRuntimePages(cfg);
+  const linkInfo = collectEffectiveRuntimeLinkInfo(cfg);
   const keys = {
     page_title: new Set(['final']),
-    box_title: collectKnownBoxIds(cfg, []),
-    box_main_text: collectKnownBoxIds(cfg, []),
+    box_title: collectKnownBoxIds(cfg, [], pages),
+    box_main_text: collectKnownBoxIds(cfg, [], pages),
     measure: new Set(),
     eval_question: new Set(),
-    link: new Set()
+    link: linkInfo.validLinkIds,
+    linkInvalidReasons: linkInfo.invalidLinkReasons
   };
-  const pages = Array.isArray(cfg.subpages) ? cfg.subpages : [];
   pages.forEach(function (p) { if (p && p.id) keys.page_title.add(p.id); });
   const state = cfg.savedState && isPlainObject(cfg.savedState) ? cfg.savedState : {};
   (Array.isArray(state.measures) ? state.measures : []).forEach(function (m) { if (m && m.id) keys.measure.add(m.id); });
   (Array.isArray(state.evalQuestions) ? state.evalQuestions : []).forEach(function (q) { if (q && q.id) keys.eval_question.add(q.id); });
-  ['ttLinks', 'howLinks'].forEach(function (name) {
-    linkArrayLocations(cfg, name).forEach(function (item) {
-      item.links.forEach(function (link) { if (link && link.id) keys.link.add(link.id); });
-    });
-  });
   return keys;
 }
 
@@ -642,8 +915,14 @@ function validateDocumentationClones(cfg, checks, strict, errors, warnings) {
         reportModeIssue(strict, errors, warnings, 'savedState.docContent[' + pageId + '] uses a .doc-clone on <' + tag + '>. Use an engine-supported <div class="doc-clone" ...></div> block.');
       } else if (DOC_CLONE_TYPES.indexOf(type) === -1) {
         reportModeIssue(strict, errors, warnings, 'savedState.docContent[' + pageId + '] has unsupported Documentation clone type: ' + (type || '(missing)'));
+      } else if (type === 'measure' && !isCanonicalMeasureId(key)) {
+        reportModeIssue(strict, errors, warnings, 'savedState.docContent[' + pageId + '] has non-canonical Measure clone key "' + (key || '(missing)') + '". Use canonical IDs such as M001.');
+      } else if (type === 'eval_question' && !isCanonicalEQId(key)) {
+        reportModeIssue(strict, errors, warnings, 'savedState.docContent[' + pageId + '] has non-canonical Evaluation Question clone key "' + (key || '(missing)') + '". Use canonical IDs such as EQ001.');
+      } else if (type === 'link' && key && sourceKeys.linkInvalidReasons[key]) {
+        reportModeIssue(strict, errors, warnings, 'Documentation Page ' + pageId + ' has link clone data-clone-key="' + key + '" but link "' + key + '" is not runtime-valid. ' + sourceKeys.linkInvalidReasons[key]);
       } else if (!key || !sourceKeys[type].has(key)) {
-        reportModeIssue(strict, errors, warnings, 'savedState.docContent[' + pageId + '] has Documentation clone key "' + (key || '(missing)') + '" that does not point to a real ' + type + ' object');
+        reportModeIssue(strict, errors, warnings, 'savedState.docContent[' + pageId + '] has Documentation clone key "' + (key || '(missing)') + '" that does not point to a real runtime-surviving ' + type + ' object');
       } else {
         validCloneCount++;
       }
@@ -799,7 +1078,11 @@ function runGenerationPreflight(cfg) {
   }
 
   enforceNoLevelHowPages(out, checks, strict, errors, warnings, autoFixes);
+  validateUniqueNumberedHowLevels(out, errors);
+  validateEffectivePageStateConsistency(out, strict, errors, warnings);
+  validateCanonicalMeasureEvalQuestionIds(out, strict, errors, warnings);
   validateBaselineLinkText(out, strict, errors, warnings);
+  validateRuntimeSurvivingLinks(out, strict, errors, warnings);
   validateDocumentationClones(out, checks, strict, errors, warnings);
   if (strict) {
     validateStrictLinkText(out, checks, errors);
@@ -938,6 +1221,7 @@ function createBuilderValidationStamp(mode, warnings, autoFixes) {
     validatedAt: new Date().toISOString(),
     checks: {
       noLevelHowPages: 'passed',
+      uniqueNumberedHowLevels: 'passed',
       thisThenLinkText: 'passed',
       howLinkText: 'passed',
       documentationClones: 'passed',
@@ -1313,10 +1597,10 @@ function validateConfig(cfg) {
   }
 
   if (!cfg.savedState || !isPlainObject(cfg.savedState)) {
-    errors.push('Generated standalone boards must include savedState with explicit simple-default viewSettings so Page View and display controls reopen consistently.');
+    errors.push('Generated standalone boards must include savedState with explicit viewSettings so Page View and display controls reopen consistently.');
   } else {
     if (!isPlainObject(cfg.savedState.viewSettings)) {
-      errors.push('savedState.viewSettings is required for generated standalone boards. Use explicit simple-default thisThen, how, and finalOutcomes objects unless the user chose Detailed Page View.');
+      errors.push('savedState.viewSettings is required for generated standalone boards. Use explicit thisThen, how, and finalOutcomes objects, with only requested Page View options turned on.');
     } else {
       ['thisThen', 'how', 'finalOutcomes'].forEach(function (section) {
         if (!isPlainObject(cfg.savedState.viewSettings[section])) {
@@ -1353,7 +1637,7 @@ function canonicalDisclaimerInlineHtml(text) {
 
 function canonicalDisclaimerDocHtml() {
   const sectionHeads = {
-    Help: true,
+    'Walk-Through': true,
     'Accessing Consulting or Training': true,
     'Adapting the DoView Board Prototype App to your setting': true,
     Disclaimer: true

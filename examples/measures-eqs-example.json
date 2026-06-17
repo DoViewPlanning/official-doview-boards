@@ -443,7 +443,7 @@
         "showMeasures": true,
         "showEvalQuestions": true,
         "showMainText": true,
-        "showLinkInfoOnHover": false,
+        "showLinkInfoOnHover": true,
         "showLateralHow": false,
         "showTags": false
       },

@@ -1,8 +1,8 @@
 # DoView Boards
 
-**DoView Boards version:** V1.2.6  
-**Release date:** 2026-06-02  
-**Release status:** Public DoView Boards V1.2.6 release
+**DoView Boards package version:** V1.3.4  
+**Release date:** 2026-06-16  
+**Release status:** Public DoView Boards V1.3.4 release. It fixes the mobile bottom control layout, moves mobile Board Chat into the bottom toolbar, adds the supplied walkthrough and collection-index developer resources, and clarifies Official DoView® Badge guidance while preserving saved-state/schema and desktop runtime behaviour.
 
 ## What are DoView Boards?
 
@@ -34,13 +34,18 @@ Experimentally, DoView Boards may also provide a visual interface for human-AI c
 
 This repository is a practical starting point for users, developers, researchers, experimenters, and organisations that want to understand, generate, implement, or extend DoView Boards.
 
-The V1.2.6 public release includes:
+The V1.3.4 full GitHub repository/package release includes the V1.3.4 prompt, reference runtime, builder, documentation, tests, and examples:
 
+- the Start Here master prompt for opening interaction and board setup;
 - the DoView Board building prompt;
 - the canonical JavaScript reference engine;
 - the plain Node.js board builder;
 - simple and complex standalone HTML board examples;
 - JSON config examples for developers;
+- collection JSON configuration examples;
+- the standalone walkthrough package/developer copy under `docs/walkthrough/`;
+- collection-index developer prompt and templates under `docs/collection-index/`;
+- a beginner-friendly guide to publishing DoView Board Collections with GitHub Pages;
 - the DoView Board minimum specification;
 - developer integration documentation;
 - config reference documentation;
@@ -78,6 +83,8 @@ The easiest way to use DoView Boards is to get the full DoView Boards prompt pac
 
 That page is the recommended starting point for ordinary users. It explains how to use the prompt package with ChatGPT, Claude, or another AI system to create a standalone DoView Board.
 
+When using the prompt package, a generic request such as "build a DoView Board" starts the setup flow. It is not treated as the board topic. To build a standard board, provide the name of the organization, initiative or other organized work when asked.
+
 This GitHub repository contains the same public release materials for people who want to inspect the files, download a release package, or work with the reference engine and developer documentation.
 
 Ordinary users usually do not need to work directly with the JavaScript engine, builder, config reference, or developer integration guide.
@@ -89,7 +96,7 @@ Generated standalone boards are active `.html` files containing JavaScript. Trea
 
 Developers can use this repository to:
 
-- inspect the canonical V1.2.6 reference engine;
+- inspect the canonical V1.3.4 reference engine;
 - generate standalone board HTML files;
 - create tools that output reference-engine-compatible configs;
 - embed DoView Boards in other systems;
@@ -100,11 +107,23 @@ The package is designed around **one canonical reference engine**. Do not treat 
 
 Developer starting points:
 
+- [`000-START-HERE-RUN-FIRST.md`](000-START-HERE-RUN-FIRST.md)
 - [`spec/doview-board-minimum-spec.md`](spec/doview-board-minimum-spec.md)
+- [`spec/this-then-page-rules.md`](spec/this-then-page-rules.md)
 - [`docs/developer-integration-guide.md`](docs/developer-integration-guide.md)
 - [`docs/config-reference.md`](docs/config-reference.md)
 - [`doview-board-engine.js`](doview-board-engine.js)
 - [`doview-board-builder.js`](doview-board-builder.js)
+
+## Developer note: preserve the DoView Drawing Rules
+
+DoView Boards are built around the DoView Drawing Rules. These rules guide how This-Then pages are drawn and are central to the method.
+
+Developers and AI coding agents should preserve the Drawing Rules when changing prompts, examples, builder behaviour, documentation or specifications. See [`spec/this-then-page-rules.md`](spec/this-then-page-rules.md) for the authoritative This-Then Page modelling rules, read with [`spec/doview-board-minimum-spec.md`](spec/doview-board-minimum-spec.md).
+
+AI-generated boards, especially sets of boards, should also be reviewed for repeated hidden structures, generic causal pathways, and shallow renaming of the same model.
+
+The release package should preserve canonical repository filenames and folder names. Timestamp-suffixed duplicate files or folders should not be included in public release ZIPs.
 
 ## Developer quick start
 
@@ -114,7 +133,7 @@ The builder takes a pure JSON board config and the reference engine, then create
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config doview-board-config.json \
-  --out example-board_doview-board_v1.2.6_2026-06-02.html
+  --out doview-board-example.html
 ```
 
 The config input should be JSON only. It should not include prompt text, builder source, duplicate engine code, or a `DoView.init(...)` JavaScript wrapper.
@@ -125,6 +144,21 @@ The generated output is a standalone `.html` board containing active JavaScript.
 
 See [`docs/developer-integration-guide.md`](docs/developer-integration-guide.md) and [`docs/config-reference.md`](docs/config-reference.md) for details.
 
+## Publishing DoView Board Collections
+
+To put a DoView Board Collection on the internet using GitHub and GitHub Pages, start with [`How to Put a DoView Board Collection Onto the Internet`](docs/how-to-put-a-doview-board-collection-onto-internet.md).
+
+Developer templates for collection index pages are included under [`docs/collection-index/`](docs/collection-index/).
+
+The short distinction is:
+
+```text
+collections.json = lists collections
+collection.json = lists boards inside one collection
+```
+
+When adding a board to an existing collection folder, normally update that folder's `collection.json`. Update the top-level `boards/collections.json` when adding, removing, renaming, or recounting a whole collection.
+
 ## DoView-compatible vs Official DoView®
 
 A board, app, platform, tool, or system may be described as **DoView-compatible** when it accurately implements the minimum structure and behaviour described in [`spec/doview-board-minimum-spec.md`](spec/doview-board-minimum-spec.md).
@@ -132,6 +166,8 @@ A board, app, platform, tool, or system may be described as **DoView-compatible*
 DoView-compatible does **not** mean official, endorsed, certified, approved, quality-assured, affiliated with DoView®, or entitled to use the Official DoView® Badge.
 
 “Official DoView®” status, official endorsement, certification, approval, quality assurance, affiliation, official badge use, and similar claims require written permission from the relevant DoView® rights holder.
+
+The Official DoView® Badge included in boards generated by the official package identifies the official package/source. It does not mean the content of a user-created board has been reviewed, endorsed, certified, approved, or quality-assured.
 
 To ask about official status, badge use, collaboration, review, quality assurance, or permission, contact DoView Planning at <https://doviewplanning.org/contact>.
 
@@ -165,7 +201,7 @@ See [`LICENSE`](LICENSE), [`NOTICE.md`](NOTICE.md), and [`docs/trademark-and-att
 
 Generated standalone DoView Boards are active HTML/JavaScript files. Treat them like executable web content, not passive documents.
 
-The V1.2.6 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
+The V1.3.4 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
 
 Generated boards from untrusted sources should not be opened casually. Hosted or shared boards should not be served from the same origin/domain as sensitive applications.
 
@@ -209,12 +245,14 @@ These are smaller config examples for developers. They show the structures used 
 - [`examples/how-page-example.json`](examples/how-page-example.json)
 - [`examples/documentation-page-example.json`](examples/documentation-page-example.json)
 - [`examples/measures-eqs-example.json`](examples/measures-eqs-example.json)
+- [`examples/collections.json`](examples/collections.json)
+- [`examples/collection.json`](examples/collection.json)
 
 ### Read-only example
 
 - [`examples/read-only-example.html`](examples/read-only-example.html)
 
-Use the HTML examples when you want to see a board. Use the JSON examples when you want to understand or test the config format.
+Use the HTML examples when you want to see a board. Use the JSON examples when you want to understand or test the config format. Use the collection JSON examples when you want to understand collection index configuration.
 
 
 
@@ -234,7 +272,7 @@ For general information about DoView Planning, see https://doviewplanning.org.
 
 See [`CHANGELOG.md`](CHANGELOG.md).
 
-V1.2.6 is the current public DoView Boards prompt package release. Earlier internal validation builds are retained in the changelog for traceability but are not public releases.
+V1.3.4 is the current public full GitHub repository/package release. It fixes mobile portrait and landscape bottom controls, places Chat with board in the mobile toolbar while preserving the desktop floating Chat button, adds the supplied walkthrough and collection-index developer resources, and clarifies badge/trademark guidance. The accepted earlier corrective fixes remain preserved.
 
 ## More information
 

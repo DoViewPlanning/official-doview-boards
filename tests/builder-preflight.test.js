@@ -10,7 +10,7 @@ const childProcess = require('child_process');
 const root = path.resolve(__dirname, '..');
 const builder = path.join(root, 'doview-board-builder.js');
 const engine = path.join(root, 'doview-board-engine.js');
-const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'doview-v125-preflight-'));
+const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'doview-v132-preflight-'));
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
@@ -73,7 +73,7 @@ function boxState(label, measures, evalQuestions) {
 }
 
 function passingConfig() {
-  return {
+  const config = {
     title: 'Builder strict preflight fixture',
     slug: 'builder-strict-preflight-fixture',
     generationChecks: {
@@ -84,6 +84,9 @@ function passingConfig() {
       measuresMustAttachToBoxes: true,
       evalQuestionsMustAttachToBoxes: true,
       allPageViewOptionsOffUnlessRequested: true,
+      requestedPageViewOptions: {
+        thisThen: ['showLinkInfoOnHover']
+      },
       boxDisplayTextRequested: false,
       trafficLightsRequested: false,
       prioritiesRequested: false
@@ -190,11 +193,27 @@ function passingConfig() {
       viewSettings: viewSettings()
     }
   };
+  config.savedState.SP = clone(config.subpages);
+  config.savedState.FO = clone(config.finalOutcomes);
+  config.savedState.viewSettings.thisThen.showLinkInfoOnHover = true;
+  return config;
+}
+
+function extraHowPage(id, label, howLevel) {
+  return {
+    id: id,
+    label: label,
+    pageType: 'how',
+    howLevel: howLevel,
+    howBoxes: [{ id: 'H001', label: label + ' action' }],
+    nextHowNum: 2,
+    cols: []
+  };
 }
 
 function runCase(name, config, shouldPass) {
   const configPath = path.join(tempDir, name + '.json');
-  const outPath = path.join(tempDir, name + '_doview-board_v1.2.6_2026-06-02.html');
+  const outPath = path.join(tempDir, name + '_doview-board_v1.3.4_2026-06-16.html');
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
   const result = childProcess.spawnSync(process.execPath, [
     builder,
@@ -228,8 +247,8 @@ try {
   const passingEmbedded = embeddedConfig(passing.outPath);
   assert.strictEqual(passingEmbedded.generationChecks, undefined, 'builder-only generationChecks must not be embedded');
   assert.strictEqual(passingEmbedded.builderValidation.passed, true, 'builderValidation stamp must record a passing build');
-  assert.strictEqual(passingEmbedded.builderValidation.builderVersion, 'V1.2.6');
-  assert.strictEqual(passingEmbedded.builderValidation.validationVersion, 'V1.2.6');
+  assert.strictEqual(passingEmbedded.builderValidation.builderVersion, 'V1.3.4');
+  assert.strictEqual(passingEmbedded.builderValidation.validationVersion, 'V1.3.4');
   assert.strictEqual(passingEmbedded.builderValidation.mode, 'strict-generated');
   assert.strictEqual(passingEmbedded.builderValidation.checks.measureEqAttachment, 'passed');
   assert.strictEqual(passingEmbedded.builderValidation.checks.sourcesRegistry, 'passed');
@@ -246,6 +265,28 @@ try {
   const correctedConfig = embeddedConfig(corrected.outPath);
   assert.strictEqual(correctedConfig.subpages.find(function (p) { return p.id === 'p4'; }).howLevel, null);
 
+  const duplicateLevelOne = passingConfig();
+  duplicateLevelOne.subpages.push(extraHowPage('p6', 'Duplicate Level 1 delivery', 1));
+  const duplicateLevelOneResult = runCase('duplicate-how-level-1-fails', duplicateLevelOne, false);
+  assert.match(duplicateLevelOneResult.result.stderr + duplicateLevelOneResult.result.stdout, /Duplicate numbered How Page level[\s\S]*howLevel 1/);
+
+  const duplicateLevelTwo = passingConfig();
+  duplicateLevelTwo.subpages.push(extraHowPage('p6', 'Duplicate Level 2 delivery', 2));
+  const duplicateLevelTwoResult = runCase('duplicate-how-level-2-fails', duplicateLevelTwo, false);
+  assert.match(duplicateLevelTwoResult.result.stderr + duplicateLevelTwoResult.result.stdout, /Duplicate numbered How Page level[\s\S]*howLevel 2/);
+
+  const multipleNull = passingConfig();
+  multipleNull.subpages.push(extraHowPage('p6', 'Stakeholder Cross-Link', null));
+  multipleNull.savedState.SP.push(extraHowPage('p6', 'Stakeholder Cross-Link', null));
+  runCase('multiple-null-how-levels-pass', multipleNull, true);
+
+  const completeHierarchyWithNulls = passingConfig();
+  completeHierarchyWithNulls.subpages.push(extraHowPage('p6', 'Level 3 quality assurance', 3));
+  completeHierarchyWithNulls.subpages.push(extraHowPage('p7', 'Stakeholder Cross-Link', null));
+  completeHierarchyWithNulls.savedState.SP.push(extraHowPage('p6', 'Level 3 quality assurance', 3));
+  completeHierarchyWithNulls.savedState.SP.push(extraHowPage('p7', 'Stakeholder Cross-Link', null));
+  runCase('level-1-2-3-plus-null-how-levels-pass', completeHierarchyWithNulls, true);
+
   const repeatedTt = passingConfig();
   repeatedTt.savedState.ttLinks.forEach(function (link) {
     link.mainText = 'Rationale: upstream work enables or constrains the next implementation condition in this pathway.';
@@ -261,6 +302,74 @@ try {
   const fakeClones = passingConfig();
   fakeClones.savedState.docContent.p5 = '<h2>Copied references</h2><span data-clone-id="p1-c0-b0">Foundation brief agreed</span>';
   runCase('fake-documentation-clones-fail', fakeClones, false);
+
+  const lowercaseMeasureClone = passingConfig();
+  lowercaseMeasureClone.savedState.docContent.p5 = '<h2>Live references</h2><div class="doc-clone" data-clone-type="measure" data-clone-key="m001"></div>';
+  runCase('lowercase-measure-clone-key-fails', lowercaseMeasureClone, false);
+
+  const shortEvalClone = passingConfig();
+  shortEvalClone.savedState.docContent.p5 = '<h2>Live references</h2><div class="doc-clone" data-clone-type="eval_question" data-clone-key="q001"></div>';
+  runCase('short-eq-clone-key-fails', shortEvalClone, false);
+
+  const missingCloneSource = passingConfig();
+  missingCloneSource.savedState.docContent.p5 = '<h2>Live references</h2><div class="doc-clone" data-clone-type="measure" data-clone-key="M999"></div>';
+  runCase('missing-documentation-clone-source-fails', missingCloneSource, false);
+
+  const missingLinkCloneSource = passingConfig();
+  missingLinkCloneSource.savedState.docContent.p5 = '<h2>Live references</h2><div class="doc-clone" data-clone-type="link" data-clone-key="ttl_999"></div>';
+  const missingLinkCloneResult = runCase('missing-link-clone-source-fails', missingLinkCloneSource, false);
+  assert.match(missingLinkCloneResult.result.stderr + missingLinkCloneResult.result.stdout, /ttl_999[\s\S]*runtime-surviving link object/);
+
+  const finalToLinkClone = passingConfig();
+  finalToLinkClone.savedState.B['final-b0'] = boxState('Delivery decisions improve');
+  finalToLinkClone.savedState.ttLinks.push({
+    id: 'ttl_final_to',
+    from: 'p1-c0-b0',
+    to: 'final-b0',
+    mainText: 'Foundation brief agreed is assumed to support Delivery decisions improve.'
+  });
+  finalToLinkClone.savedState.docContent.p5 = '<h2>Live references</h2><div class="doc-clone" data-clone-type="link" data-clone-key="ttl_final_to"></div>';
+  const finalToLinkCloneResult = runCase('final-outcome-to-link-clone-fails', finalToLinkClone, false);
+  assert.match(finalToLinkCloneResult.result.stderr + finalToLinkCloneResult.result.stdout, /ttl_final_to[\s\S]*Final Outcome box/);
+
+  const finalFromLinkClone = passingConfig();
+  finalFromLinkClone.savedState.B['final-b0'] = boxState('Delivery decisions improve');
+  finalFromLinkClone.savedState.ttLinks.push({
+    id: 'ttl_final_from',
+    from: 'final-b0',
+    to: 'p1-c1-b0',
+    mainText: 'Delivery decisions improve is not a valid source for Delivery sequence confirmed.'
+  });
+  finalFromLinkClone.savedState.docContent.p5 = '<h2>Live references</h2><div class="doc-clone" data-clone-type="link" data-clone-key="ttl_final_from"></div>';
+  const finalFromLinkCloneResult = runCase('final-outcome-from-link-clone-fails', finalFromLinkClone, false);
+  assert.match(finalFromLinkCloneResult.result.stderr + finalFromLinkCloneResult.result.stdout, /ttl_final_from[\s\S]*Final Outcome box/);
+
+  const missingEndpointLinkClone = passingConfig();
+  missingEndpointLinkClone.savedState.ttLinks.push({
+    id: 'ttl_missing_endpoint',
+    from: 'p1-c0-b0',
+    to: 'p1-c9-b9',
+    mainText: 'Foundation brief agreed is linked to a missing endpoint in this invalid fixture.'
+  });
+  missingEndpointLinkClone.savedState.docContent.p5 = '<h2>Live references</h2><div class="doc-clone" data-clone-type="link" data-clone-key="ttl_missing_endpoint"></div>';
+  const missingEndpointLinkCloneResult = runCase('missing-endpoint-link-clone-fails', missingEndpointLinkClone, false);
+  assert.match(missingEndpointLinkCloneResult.result.stderr + missingEndpointLinkCloneResult.result.stdout, /ttl_missing_endpoint[\s\S]*does not exist in effective runtime B/);
+
+  const nonTTEndpointLinkClone = passingConfig();
+  nonTTEndpointLinkClone.savedState.ttLinks.push({
+    id: 'ttl_how_endpoint',
+    from: 'p1-c0-b0',
+    to: 'p2-H001',
+    mainText: 'Foundation brief agreed is incorrectly linked to Programme coordination as a This-Then link.'
+  });
+  nonTTEndpointLinkClone.savedState.docContent.p5 = '<h2>Live references</h2><div class="doc-clone" data-clone-type="link" data-clone-key="ttl_how_endpoint"></div>';
+  const nonTTEndpointLinkCloneResult = runCase('non-this-then-endpoint-link-clone-fails', nonTTEndpointLinkClone, false);
+  assert.match(nonTTEndpointLinkCloneResult.result.stderr + nonTTEndpointLinkCloneResult.result.stdout, /ttl_how_endpoint[\s\S]*How box/);
+
+  const inconsistentSavedSP = passingConfig();
+  inconsistentSavedSP.savedState.SP[0].cols[1].boxes = ['Different saved-state box only'];
+  const inconsistentSavedSPResult = runCase('savedstate-sp-inconsistency-fails', inconsistentSavedSP, false);
+  assert.match(inconsistentSavedSPResult.result.stderr + inconsistentSavedSPResult.result.stdout, /savedState\.SP/);
 
   const missingNoLevel = passingConfig();
   missingNoLevel.generationChecks.expectedNoLevelHowPages = ['Missing competencies page'];
@@ -280,10 +389,11 @@ try {
   assert.strictEqual(viewCorrectedConfig.savedState.viewSettings.how.showNumbering, false);
 
   const allowedView = passingConfig();
-  allowedView.generationChecks.requestedPageViewOptions = { thisThen: ['showMeasures'] };
+  allowedView.generationChecks.requestedPageViewOptions = { thisThen: ['showMeasures', 'showLinkInfoOnHover'] };
   allowedView.savedState.viewSettings.thisThen.showMeasures = true;
   const allowedViewBuilt = runCase('requested-page-view-remains-on', allowedView, true);
   assert.strictEqual(embeddedConfig(allowedViewBuilt.outPath).savedState.viewSettings.thisThen.showMeasures, true);
+  assert.strictEqual(embeddedConfig(allowedViewBuilt.outPath).savedState.viewSettings.thisThen.showLinkInfoOnHover, true);
 
   const missingEvidenceUrls = passingConfig();
   missingEvidenceUrls.generationChecks.linkEvidenceUrlsRequested = true;
@@ -325,17 +435,17 @@ try {
   inputStamp.builderValidation = { passed: true, builderVersion: 'invented' };
   const inputStampBuilt = runCase('input-stamp-overwritten', inputStamp, true);
   const replacedStamp = embeddedConfig(inputStampBuilt.outPath).builderValidation;
-  assert.strictEqual(replacedStamp.builderVersion, 'V1.2.6');
+  assert.strictEqual(replacedStamp.builderVersion, 'V1.3.4');
   assert.ok(replacedStamp.autoFixes.some(function (fix) { return /Removed input builderValidation metadata/.test(fix); }));
 
   const sourcesRegistry = passingConfig();
   sourcesRegistry.sources = [
     { title: 'Evidence source', url: 'https://example.org/evidence' },
     { title: 'Duplicate evidence source', url: 'https://example.org/evidence/' },
-    { title: 'https://doviewplanning.org/help', url: 'https://doviewplanning.org/help' },
+    { title: 'https://doviewplanning.org/walkthrough', url: 'https://doviewplanning.org/walkthrough' },
     { title: 'Authored methodology source', url: 'https://doviewplanning.org/theory' }
   ];
-  sourcesRegistry.savedState.docContent.p5 += '<p>Supporting material: https://example.org/documentation-source</p><p>Package help link: https://doviewplanning.org/help</p><p>Package training link: https://doviewplanning.org/offerings</p><p>Package repository link: https://github.com/DoViewPlanning/doview-boards</p>';
+  sourcesRegistry.savedState.docContent.p5 += '<p>Supporting material: https://example.org/documentation-source</p><p>Package walk-through link: https://doviewplanning.org/walkthrough</p><p>Package training link: https://doviewplanning.org/offerings</p><p>Package repository link: https://github.com/DoViewPlanning/doview-boards</p>';
   sourcesRegistry.savedState.ttLinks[0].notes1 = 'Relationship evidence: https://example.org/link-source';
   const sourcesBuilt = runCase('sources-registry-autofix', sourcesRegistry, true);
   const sourcesEmbedded = embeddedConfig(sourcesBuilt.outPath);
@@ -343,7 +453,7 @@ try {
   assert.ok(sourceUrls.includes('https://example.org/documentation-source'));
   assert.ok(sourceUrls.includes('https://example.org/link-source'));
   assert.ok(sourceUrls.includes('https://doviewplanning.org/theory'));
-  assert.ok(!sourceUrls.includes('https://doviewplanning.org/help'));
+  assert.ok(!sourceUrls.includes('https://doviewplanning.org/walkthrough'));
   assert.ok(!sourceUrls.includes('https://doviewplanning.org/offerings'));
   assert.ok(!sourceUrls.includes('https://github.com/DoViewPlanning/doview-boards'));
   assert.strictEqual(sourceUrls.filter(function (url) { return url === 'https://example.org/evidence' || url === 'https://example.org/evidence/'; }).length, 1);

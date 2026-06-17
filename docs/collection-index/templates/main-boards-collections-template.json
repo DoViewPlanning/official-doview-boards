@@ -1,0 +1,10 @@
+{
+  "version": "v1.3.4",
+  "collections": [
+    {
+      "title": "{{COLLECTION_TITLE}}",
+      "href": "{{folder-name}}/",
+      "count": "{{COUNT_TEXT}}"
+    }
+  ]
+}

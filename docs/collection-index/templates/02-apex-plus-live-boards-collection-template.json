@@ -1,0 +1,19 @@
+{
+  "version": "v1.3.4",
+  "title": "{{COLLECTION_TITLE}}",
+  "subtitle": "{{COLLECTION_SUBTITLE}}",
+  "currentTitle": "{{CURRENT_COLLECTION_NAME}}",
+  "status": "Illustrative only - Not Endorsed",
+  "sectionTitle": "Agency Boards",
+  "featured": {
+    "title": "{{APEX_BOARD_TITLE}}",
+    "file": "{{apex-board-file.html}}",
+    "eyebrow": "Apex board"
+  },
+  "boards": [
+    {
+      "title": "{{BOARD_TITLE_1}}",
+      "file": "{{board-file-1.html}}"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "version": "v1.2.7",
+  "title": "International Cooperation",
+  "description": "Configuration example for one DoView Board Collection. This JSON lists board HTML files inside one collection folder.",
+  "boards": [
+    {
+      "name": "Regional Partnership Outcomes",
+      "acronym": "RPO",
+      "description": "Example DoView Board file in this collection.",
+      "file": "regional-partnership-outcomes_doview-board_v1.2.7_2026-06-10.html"
+    },
+    {
+      "name": "Shared Monitoring Framework",
+      "acronym": "SMF",
+      "description": "Example DoView Board file in this collection.",
+      "file": "shared-monitoring-framework_doview-board_v1.2.7_2026-06-10.html"
+    }
+  ]
+}

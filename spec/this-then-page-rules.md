@@ -6,15 +6,27 @@ This–Then diagrams are drawn according to a specific set of rules. The DoView 
 
 This file expands the normative requirements in [`doview-board-minimum-spec.md`](doview-board-minimum-spec.md). If there is any conflict, the minimum specification controls.
 
-## 1. Why these rules matter
+## 1. Why the DoView Drawing Rules matter
+
+The DoView Drawing Rules are a core part of what makes a DoView Board a DoView Board.
+
+They have been developed through extensive real-world use to support a powerful way of visualising outcomes and the pathways leading to them.
 
 This–Then modelling is a central part of a DoView Board. A DoView Board is not just a diagramming surface or a collection of labelled boxes. It is intended to make explicit the causal logic of what is believed needs to happen in order for outcomes to be achieved.
 
+In particular:
+
+- **Outcomes, not activities.** This-Then boxes should normally be written as completed results, such as "increased awareness", not activities such as "increasing awareness". The board should show the outcomes being worked toward, not just what people are busy doing.
+- **Everything important on one board.** Risks, assumptions, measures, evaluation questions, documentation and other critical review material should remain connected to the board system rather than being pushed into disconnected tables or side documents where decision-makers may miss them.
+- **Future-proof first, then prioritise.** A DoView Board should map the wider set of outcomes and contributing factors that may matter, then allow current priorities to be flagged. Prioritisation should not replace the fuller map.
+
 The rules in this file help ensure that generated or implemented boards remain DoView-compatible rather than becoming generic flowcharts, template worksheets, activity plans, mind maps, or decorative diagrams.
+
+Developers and AI coding agents should preserve these rules when changing prompts, examples, builder behaviour, documentation or specifications.
 
 ## 2. Core DoView diagram principles represented in This–Then Pages
 
-The public DoView Planning rules for drawing DoView diagrams are represented in the V1.2.6 package in the following ways.
+The public DoView Planning rules for drawing DoView diagrams are represented in the V1.3.4 package in the following ways.
 
 ### 2.1 Keep boxes compact
 

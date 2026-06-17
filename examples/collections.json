@@ -1,0 +1,31 @@
+{
+  "version": "v1.2.7",
+  "title": "Example DoView Board Collections",
+  "description": "Configuration example for a collection-of-collections page. This JSON lists collections, not individual boards.",
+  "collections": [
+    {
+      "name": "International Cooperation",
+      "acronym": "IC",
+      "description": "Example boards about international cooperation outcomes and implementation.",
+      "path": "international-cooperation/",
+      "url": "international-cooperation/",
+      "count": 2
+    },
+    {
+      "name": "Local Planning",
+      "acronym": "LP",
+      "description": "Example boards about local planning outcomes.",
+      "path": "local-planning/",
+      "url": "local-planning/",
+      "count": 1
+    },
+    {
+      "name": "External Example Collection",
+      "acronym": "EXT",
+      "description": "Example of a collection link that is outside this repository.",
+      "url": "https://example.org/doview-boards/",
+      "external": true,
+      "count": 3
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 # DoView Board Examples
 
-**DoView Boards version:** V1.2.6  
-**Release date:** 2026-06-02  
-**Document status:** Examples guide for the V1.2.6 DoView Boards prompt package release
+**DoView Boards package version:** V1.3.4  
+**Release date:** 2026-06-16  
+**Document status:** Examples guide for the V1.3.4 full GitHub repository/package release
 
 This folder contains example DoView Board files for users and developers.
 
@@ -14,6 +14,8 @@ These files are complete generated DoView Boards. Open them in a browser to see 
 - [`complex-example.html`](complex-example.html) — a larger standalone board example.
 
 Standalone `.html` boards contain active JavaScript. Treat them like executable web content, not passive documents.
+
+The package/developer copy of the standalone walkthrough is in [`../docs/walkthrough/`](../docs/walkthrough/).
 
 ## Developer JSON config examples
 
@@ -31,8 +33,19 @@ Use the JSON examples with the builder, for example:
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config examples/minimal-config.json \
-  --out my-board_doview-board_v1.2.6_2026-06-02.html
+  --out my-board.html
 ```
+
+## Collection JSON configuration examples
+
+These files are configuration examples for DoView Board Collections. They are not complete standalone DoView Boards.
+
+- [`collections.json`](collections.json) — example `collections` list for a collection-of-collections page.
+- [`collection.json`](collection.json) — example `boards` list for one collection folder.
+
+Use `collections.json` to list collections. Use `collection.json` to list boards inside one collection.
+
+Developer templates for collection index pages are in [`../docs/collection-index/`](../docs/collection-index/).
 
 ## Read-only example
 
@@ -45,5 +58,7 @@ Read-only mode is a convenience feature. It is not access control, authenticatio
 Use the HTML examples when you want to see a finished board.
 
 Use the JSON examples when you want to understand, test, or adapt the config format.
+
+Use the collection JSON examples when you want to understand how collection index pages can list collections and board files.
 
 Use the read-only example when you want to inspect how a read-only board copy behaves.

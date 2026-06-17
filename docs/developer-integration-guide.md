@@ -1,27 +1,32 @@
 # DoView Board Developer Integration Guide
 
-**DoView Boards version:** V1.2.6  
-**Release date:** 2026-06-02  
-**Document status:** Developer integration guide for the V1.2.6 DoView Boards prompt package release
+**DoView Boards version:** V1.3.4  
+**Release date:** 2026-06-16  
+**Document status:** Developer integration guide for the V1.3.4 DoView Boards prompt package release
 
-This guide explains how developers can use, inspect, embed, adapt, or build on the V1.2.6 DoView Board reference package.
+This guide explains how developers can use, inspect, embed, adapt, or build on the V1.3.4 DoView Board reference package.
 
 It should be read with:
 
+- [`000-START-HERE-RUN-FIRST.md`](../000-START-HERE-RUN-FIRST.md) for opening interaction and standard setup flow;
 - [`doview-board-minimum-spec.md`](../spec/doview-board-minimum-spec.md) for the DoView-compatible standard;
+- [`this-then-page-rules.md`](../spec/this-then-page-rules.md) for the expanded This-Then Page modelling rules;
 - [`config-reference.md`](config-reference.md) for the technical config format;
 - [`security-and-read-only-notes.md`](security-and-read-only-notes.md) for security, deployment, Board Chat, and read-only limitations;
 - [`trademark-and-attribution.md`](trademark-and-attribution.md) for trademark, attribution, and Official DoView® Badge guidance.
 
 ## 1. What is in the reference package
 
-The V1.2.6 release includes:
+The V1.3.4 release includes:
 
+- [`000-START-HERE-RUN-FIRST.md`](../000-START-HERE-RUN-FIRST.md) — the source of truth for the opening interaction, standard 10 board setup choices, setup-choice changes, and single-board/multiple-board intake;
 - [`doview-board-building-prompt.md`](../doview-board-building-prompt.md) — the prompt package for creating DoView Board configs and standalone boards with AI systems;
 - [`doview-board-engine.js`](../doview-board-engine.js) — the canonical JavaScript reference engine for this release;
 - [`doview-board-builder.js`](../doview-board-builder.js) — a plain Node.js builder that assembles a pure JSON config and the reference engine into a standalone HTML board;
 - [`examples/simple-example.html`](../examples/simple-example.html) — a simple standalone board example;
 - [`examples/complex-example.html`](../examples/complex-example.html) — a more substantial standalone board example;
+- [`docs/walkthrough/`](walkthrough/) — package/developer copy of the standalone walkthrough HTML;
+- [`docs/collection-index/`](collection-index/) — developer templates for DoView Board collection index pages;
 - [`spec/doview-board-minimum-spec.md`](../spec/doview-board-minimum-spec.md) — the minimum DoView-compatible standard;
 - this developer guide and related documentation.
 
@@ -67,7 +72,7 @@ A developer can also implement the DoView-compatible standard without using the 
 
 ## 4. Reference engine status
 
-[`doview-board-engine.js`](../doview-board-engine.js) is the canonical reference implementation for V1.2.6.
+[`doview-board-engine.js`](../doview-board-engine.js) is the canonical reference implementation for V1.3.4.
 
 It is intended to:
 
@@ -109,6 +114,8 @@ docs/config-reference.md
 docs/developer-integration-guide.md
 docs/security-and-read-only-notes.md
 docs/trademark-and-attribution.md
+docs/walkthrough/
+docs/collection-index/
 ```
 
 ## 6. Quick start: build a standalone board
@@ -159,7 +166,7 @@ Create a pure JSON board config, for example:
         "showMeasures": false,
         "showEvalQuestions": false,
         "showMainText": false,
-        "showLinkInfoOnHover": false,
+        "showLinkInfoOnHover": true,
         "showLateralHow": false,
         "showTags": false
       },
@@ -195,7 +202,7 @@ Then run:
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config doview-board-config.json \
-  --out example-doview-board_doview-board_v1.2.6_2026-06-02.html
+  --out example-doview-board_doview-board_v1.3.4_2026-06-16.html
 ```
 
 No npm install is required. The builder uses plain Node.js built-in modules.
@@ -250,7 +257,7 @@ The builder expects generated board filenames to follow this pattern:
 Example:
 
 ```text
-example-doview-board_doview-board_v1.2.6_2026-06-02.html
+example-doview-board_doview-board_v1.3.4_2026-06-16.html
 ```
 
 The builder may warn if the output filename does not match this pattern.
@@ -293,7 +300,7 @@ For final distributed boards, prefer the builder path so the output is assembled
 
 ## 10. Important direct-embedding note
 
-The V1.2.6 engine takes control of the document body when initialized. It injects the board interface into `document.body`.
+The V1.3.4 engine takes control of the document body when initialized. It injects the board interface into `document.body`.
 
 For that reason, if you want to place a DoView Board inside a larger app, the safest simple pattern is usually to embed a standalone generated board in a sandboxed iframe, rather than initializing the engine directly inside a page that also contains other application UI.
 
@@ -301,7 +308,7 @@ Example:
 
 ```html
 <iframe
-  src="example-doview-board_doview-board_v1.2.6_2026-06-02.html"
+  src="example-doview-board_doview-board_v1.3.4_2026-06-16.html"
   sandbox="allow-scripts allow-downloads"
   style="width: 100%; height: 800px; border: 1px solid #ddd;">
 </iframe>
@@ -353,7 +360,7 @@ Use [`config-reference.md`](config-reference.md) for the detailed field-by-field
 
 ## 12. Public surfaces developers may rely on
 
-For V1.2.6 reference-engine work, developers may rely on these public surfaces:
+For V1.3.4 reference-engine work, developers may rely on these public surfaces:
 
 - the release files named in this repository;
 - the `DoView.init(config)` entry point;
@@ -447,6 +454,8 @@ How links may represent:
 
 Vertical Links and Cross-Links should remain conceptually and visually distinct where possible. The reference config still uses internal fields such as `showLateralHow` and optional `linkKind: "lateral"` for backward-compatible Cross-Link support; do not rename internal data keys merely to match user-facing terminology.
 
+There is one numbered vertical How Page hierarchy. A generated or built config must not contain more than one How Page with the same non-null numeric `howLevel`; use `howLevel: null` for lateral, Cross-Link, no-level, or non-hierarchical How Pages.
+
 ## 17. Measures and Evaluation Questions
 
 Measures and Evaluation Questions are board-level reusable objects.
@@ -460,7 +469,7 @@ They may be associated with:
 
 Do not treat Measures and Evaluation Questions merely as display text. They should keep stable IDs and associations so that they can be reused, shown, hidden, searched, exported, and reviewed.
 
-For a single box, do not attach the same Measure ID or Evaluation Question ID more than once. The V1.2.6 reference engine normalizes duplicate box-level Measure/Evaluation Question references on load/save while preserving the existing saved-state fields.
+For a single box, do not attach the same Measure ID or Evaluation Question ID more than once. The V1.3.4 reference engine normalizes duplicate box-level Measure/Evaluation Question references on load/save while preserving the existing saved-state fields.
 
 Box-level `savedState.B[boxId].measures` and `savedState.B[boxId].evalQuestions` arrays are valid associations and are the runtime source of truth for box association display. The runtime recognizes them for This-Then Boxes, How Boxes, and Final Outcome boxes even when a generated config does not include the optional redundant `savedState.SP` copy.
 
@@ -572,14 +581,14 @@ Trademark rights are separate. Apache-2.0 does not grant permission to claim off
 
 ## 26. Versioning and compatibility
 
-This guide targets DoView Boards V1.2.6.
+This guide targets DoView Boards V1.3.4.
 
 When building on the reference package, state which DoView Boards version and specification version your implementation targets.
 
 Suggested wording:
 
 ```text
-This tool targets the DoView Boards V1.2.6 minimum specification.
+This tool targets the DoView Boards V1.3.4 minimum specification.
 ```
 
 If you adapt the reference engine, keep your own release history and clearly identify changes that may affect config compatibility, security, Board Chat behaviour, saved state, or generated-board output.

@@ -11,7 +11,7 @@ const { pathToFileURL } = require('url');
 const root = path.resolve(__dirname, '..');
 const builder = path.join(root, 'doview-board-builder.js');
 const engine = path.join(root, 'doview-board-engine.js');
-const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'doview-v126-runtime-meq-'));
+const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'doview-v131-runtime-meq-'));
 
 function boxState(label, measures, evalQuestions) {
   return {
@@ -153,7 +153,7 @@ function chromeExecutable() {
 
 try {
   const configPath = path.join(tempDir, 'runtime-meq-fixture.json');
-  const htmlPath = path.join(tempDir, 'runtime-meq-fixture_doview-board_v1.2.6_2026-06-02.html');
+  const htmlPath = path.join(tempDir, 'runtime-meq-fixture_doview-board_v1.3.4_2026-06-16.html');
   const probePath = path.join(tempDir, 'runtime-meq-probe.html');
   fs.writeFileSync(configPath, JSON.stringify(runtimeFixture(), null, 2));
   const build = childProcess.spawnSync(process.execPath, [

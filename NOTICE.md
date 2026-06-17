@@ -1,8 +1,8 @@
 # Notice
 
-**DoView Boards version:** V1.2.6  
-**Release date:** 2026-06-02  
-**Document status:** Notice file for the V1.2.6 DoView Boards prompt package release
+**DoView Boards version:** V1.3.4  
+**Release date:** 2026-06-16  
+**Document status:** Notice file for the V1.3.4 DoView Boards prompt package release
 
 ## Apache-2.0 licence
 

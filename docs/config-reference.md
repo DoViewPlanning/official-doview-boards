@@ -1,10 +1,10 @@
 # DoView Board Config Reference
 
-**DoView Boards version:** V1.2.6  
-**Release date:** 2026-06-02  
-**Document status:** Technical reference for the V1.2.6 DoView Boards prompt package release
+**DoView Boards version:** V1.3.4  
+**Release date:** 2026-06-16  
+**Document status:** Technical reference for the V1.3.4 DoView Boards prompt package release
 
-This document describes the board configuration structure used by the V1.2.6 DoView Board reference engine and builder.
+This document describes the board configuration structure used by the V1.3.4 DoView Board reference engine and builder.
 
 It should be read with:
 
@@ -19,9 +19,9 @@ This reference documents the practical config shape used by:
 - `doview-board-engine.js`;
 - `doview-board-builder.js`;
 - generated standalone DoView Board HTML files;
-- the V1.2.6 examples.
+- the V1.3.4 examples.
 
-The config format is not the same thing as the DoView-compatible conceptual standard. A system can be DoView-compatible while using a different database, API, storage model, rendering layer, or programming language. This document is for developers who want to work with the V1.2.6 JavaScript reference implementation or generate configs that it can load.
+The config format is not the same thing as the DoView-compatible conceptual standard. A system can be DoView-compatible while using a different database, API, storage model, rendering layer, or programming language. This document is for developers who want to work with the V1.3.4 JavaScript reference implementation or generate configs that it can load.
 
 ## 2. Config-first build model
 
@@ -49,7 +49,7 @@ Basic builder command:
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config doview-board-config.json \
-  --out example-board_doview-board_v1.2.6_2026-06-02.html
+  --out example-board_doview-board_v1.3.4_2026-06-16.html
 ```
 
 Generated standalone boards are active HTML/JavaScript files. Treat them like executable web content, not passive documents.
@@ -185,7 +185,9 @@ Optional top-level builder-only object for generated configs.
     "measuresMustAttachToBoxes": true,
     "evalQuestionsMustAttachToBoxes": true,
     "allPageViewOptionsOffUnlessRequested": true,
-    "requestedPageViewOptions": {},
+    "requestedPageViewOptions": {
+      "thisThen": ["showLinkInfoOnHover"]
+    },
     "boxDisplayTextRequested": false,
     "trafficLightsRequested": false,
     "prioritiesRequested": false
@@ -193,7 +195,7 @@ Optional top-level builder-only object for generated configs.
 }
 ```
 
-Use `expectedNoLevelHowPages` for page IDs or unique labels that must remain outside the numbered How hierarchy. If Page View options were requested, list only those allowed to remain on, for example:
+Use `expectedNoLevelHowPages` for page IDs or unique labels that must remain outside the numbered How hierarchy. The standard 10-choice setup requests `thisThen.showLinkInfoOnHover`. If additional Page View options were requested, list only those allowed to remain on, for example:
 
 ```json
 {
@@ -395,6 +397,8 @@ How levels define the meaning of Vertical Links within the board. They are not a
 
 Only adjacent levels count as Vertical Links between How Boxes in the reference engine. Unlevelled How Pages participate in Cross-Links only.
 
+There is one numbered vertical How Page hierarchy. Each non-null numeric `howLevel` value may be used by at most one How Page. Duplicate numbered levels are invalid. Multiple Cross-Link/no-level How Pages remain valid when they use explicit `howLevel: null`.
+
 For a generated no-level, cross-link, non-hierarchical, or non-vertical How Page, set `howLevel` explicitly to `null`. Do not omit the field: omission is retained for backward-compatible auto-assignment of numbered levels on older boards. The reference UI displays an explicit `null` level as `No level`. A numbered vertical How Page may still contain Cross-Links; use `null` when the page itself sits outside the vertical hierarchy.
 
 ### 6.2 `howBoxes`
@@ -496,7 +500,7 @@ Documentation Page clone blocks are stored inside the relevant `savedState.docCo
 <div class="doc-clone" data-clone-type="box_title" data-clone-key="p1-c0-b0"></div>
 ```
 
-Supported `data-clone-type` values are `page_title`, `box_title`, `box_main_text`, `measure`, `eval_question`, and `link`. Use source keys for real existing board objects: page IDs (or `final` for the Final Outcomes page title), box IDs, Measure IDs, Evaluation Question IDs, or structural link IDs as appropriate. When a user explicitly requests Documentation Page clones, include real `.doc-clone` markers rather than copied text, paraphrases, headings, or ordinary links.
+Supported `data-clone-type` values are `page_title`, `box_title`, `box_main_text`, `measure`, `eval_question`, and `link`. Use source keys for real existing board objects: page IDs (or `final` for the Final Outcomes page title), box IDs, Measure IDs, Evaluation Question IDs, or structural link IDs as appropriate. Link clone keys must point to links that survive runtime cleanup. For This–Then link clones, both endpoints must be ordinary This–Then boxes; a raw `ttLinks` record involving a Final Outcome box such as `final-b0`, a How box, a missing box, or any other non-This–Then endpoint is not a valid Documentation Page link-clone source. When a user explicitly requests Documentation Page clones, include real `.doc-clone` markers rather than copied text, paraphrases, headings, or ordinary links.
 
 ## 8. Final Outcomes
 
@@ -577,7 +581,7 @@ Common fields:
 | `jumpToPage` | Optional page ID for a jump/drill navigation link. |
 | `uid` | Stable unique ID. Preserve if present. |
 
-For a single box, include each Measure ID or Evaluation Question ID at most once. The V1.2.6 reference engine de-duplicates repeated box-level Measure/Evaluation Question IDs when loading or saving a board, without changing the saved-state field names or Measure/Evaluation Question definitions.
+For a single box, include each Measure ID or Evaluation Question ID at most once. The V1.3.4 reference engine de-duplicates repeated box-level Measure/Evaluation Question IDs when loading or saving a board, without changing the saved-state field names or Measure/Evaluation Question definitions.
 
 The box-level `measures` and `evalQuestions` arrays are valid runtime associations. List views, detail panes, and Page View under-box displays must recognize those arrays for This-Then Boxes, How Boxes, and Final Outcome boxes. A generated config may use nested `savedState.B` without also duplicating the page list into `savedState.SP`.
 
@@ -658,7 +662,7 @@ Links are many-to-many. A box may have zero, one, or many incoming links and zer
 
 ### 10.1 This–Then links: `savedState.ttLinks`
 
-This–Then links connect This–Then Boxes to This–Then Boxes.
+This–Then links connect This–Then Boxes to This–Then Boxes. Both endpoints must be ordinary This–Then boxes in the effective runtime page state. Links whose endpoints are Final Outcome boxes, How boxes, missing boxes, or other non-This–Then objects are removed by runtime cleanup and must not be used as Documentation Page link-clone sources.
 
 ```json
 {
@@ -753,7 +757,7 @@ Fields:
 | `uid` | Stable unique ID. Preserve if present. |
 | `linkKind` | Optional. `"lateral"` explicitly marks a Cross-Link. The internal value remains `lateral` for backward-compatible reference-engine config support. |
 
-How links do not support link-level Measures or Evaluation Questions in V1.2.6. Do not add `measures` or `evalQuestions` to How links expecting the reference engine to use them.
+How links do not support link-level Measures or Evaluation Questions in V1.3.4. Do not add `measures` or `evalQuestions` to How links expecting the reference engine to use them.
 
 ### 10.4 How link classification
 
@@ -1054,7 +1058,7 @@ Use this for short text such as `Draft`, `Illustrative only`, or `Internal worki
 
 Generated standalone boards must include explicit view settings.
 
-Simple default V1.2.6 settings:
+Standard V1.3.4 setup settings:
 
 ```json
 {
@@ -1069,7 +1073,7 @@ Simple default V1.2.6 settings:
         "showEvalQuestions": false,
         "showMainText": false,
         "showMainTextCodeStyle": false,
-        "showLinkInfoOnHover": false,
+        "showLinkInfoOnHover": true,
         "showLinkInfoCodeStyle": false,
         "showLateralHow": false,
         "showTags": false
@@ -1171,7 +1175,7 @@ url or href
 
 Do not invent sources. Where public evidence is used, include sources at board level and place the relevant source close to the specific claim where useful, such as in box Display Text, link Display Text, Page info, Board info, or Documentation content.
 
-The V1.2.6 builder scans visible generated board content for `http://` and `https://` URLs, deduplicates URL-bearing source entries, and safely adds missing content/evidence registry entries using the URL as the title when no better title is available. It excludes fixed package-controlled help, training, repository, trademark, and support URLs from auto-addition. It does not invent URLs, and it preserves explicitly titled source entries so genuine board-content sources are not removed.
+The V1.3.4 builder scans visible generated board content for `http://` and `https://` URLs, deduplicates URL-bearing source entries, and safely adds missing content/evidence registry entries using the URL as the title when no better title is available. It excludes fixed package-controlled help, training, repository, trademark, and support URLs from auto-addition. It does not invent URLs, and it preserves explicitly titled source entries so genuine board-content sources are not removed.
 
 ## 19. File assembly rules
 
@@ -1220,7 +1224,7 @@ Recommended output filename pattern:
 Example:
 
 ```text
-example-board_doview-board_v1.2.6_2026-06-02.html
+example-board_doview-board_v1.3.4_2026-06-16.html
 ```
 
 ## 20. Minimal generated config example
@@ -1374,7 +1378,7 @@ This example is intentionally small. It is technically useful for testing the re
         "showMeasures": false,
         "showEvalQuestions": false,
         "showMainText": false,
-        "showLinkInfoOnHover": false,
+        "showLinkInfoOnHover": true,
         "showLateralHow": false,
         "showTags": false
       },
@@ -1419,7 +1423,7 @@ When generating or transforming configs:
 - keep navigation jumps distinct from structural links;
 - keep This–Then links distinct from How links;
 - keep generated This–Then Pages domain-shaped rather than template-shaped, following the page-shape, terminal-outcome, causal-connectivity, and many-to-many link rules in the specification;
-- do not add unsupported schema and assume the V1.2.6 reference engine will use it.
+- do not add unsupported schema and assume the V1.3.4 reference engine will use it.
 
 ## 22. Validation checklist
 
@@ -1434,9 +1438,10 @@ Before using the builder or publishing a generated board, check:
 - [ ] This–Then Pages have been reviewed against the modelling rules in the minimum specification and `spec/this-then-page-rules.md`;
 - [ ] `cols` arrays exist;
 - [ ] How Pages have `howBoxes` arrays;
+- [ ] numbered How Pages do not duplicate non-null numeric `howLevel` values;
 - [ ] generated no-level, cross-link, non-hierarchical, or non-vertical How Pages use explicit `howLevel: null`;
 - [ ] Documentation Page content keys point to Documentation Pages;
-- [ ] requested Documentation Page clones use valid `.doc-clone` blocks with supported types and real source keys;
+- [ ] requested Documentation Page clones use valid `.doc-clone` blocks with supported types and source keys that resolve against the effective runtime state, with link clones pointing only to runtime-surviving links;
 - [ ] links point to real box IDs;
 - [ ] requested link rationale/evidence text is specific to each exact source and target pair, with no duplicate or near-duplicate boilerplate, generic page-level rationale, irrelevant repeated URLs, or fabricated sources;
 - [ ] generated Link Display Text does not duplicate link Traffic Light labels, symbols, or status text;

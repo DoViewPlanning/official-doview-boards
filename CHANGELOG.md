@@ -1,5 +1,143 @@
 # Changelog
 
+## V1.3.4 — 2026-06-16
+
+Release build following rejected V1.3.3 work. The accepted baseline remains V1.3.2.
+
+### Included
+
+- Fixed the mobile portrait and mobile landscape bottom control bar so it no longer wraps into a tall multi-line block.
+- Kept mobile bottom controls reachable through a compact horizontally scrollable toolbar.
+- Moved `Chat with board` into the mobile bottom toolbar and hid the floating Chat button on mobile only.
+- Preserved desktop/laptop bottom control layout and the desktop/laptop floating Chat button behaviour.
+- Added the real supplied standalone walkthrough HTML under `docs/walkthrough/`.
+- Added hash deep links to the walkthrough so URLs such as `#tour=1&step=3` can open a specific tour step.
+- Added the real supplied collection-index developer templates under `docs/collection-index/`.
+- Clarified developer-facing trademark and Official DoView® Badge guidance for forks, substantially modified apps, rebranded platforms, and independently developed DoView-compatible apps.
+- Updated package, prompt, engine, builder, documentation, specification, test, walkthrough, collection-index, and standalone example version references to `V1.3.4`.
+
+### Preserved behaviours
+
+- Runtime save/download, copy/paste, read-only copy, print, selected-box details, page navigation, link, Measure, Evaluation Question, tag, Display Text, Documentation Page, Notes, Board Chat settings/API/key/message/storage, saved-state/schema, and builder validation behaviour are unchanged except for the explicit mobile toolbar/chat placement and version/header text.
+- The V1.3.1 Walk-Through link, standard 10 board setup choices, setup choice 7d, `showLinkInfoOnHover` generated setup, and canonical Measure/Evaluation Question clone validation are preserved.
+- The V1.3.2 Documentation Page link-clone validation and strict failures for runtime-deleted links involving Final Outcome boxes are preserved.
+
+## V1.3.2 — 2026-06-15
+
+Conservative corrective release following V1.3.1.
+
+### Included
+
+- Strengthened builder validation so Documentation Page `link` clones are checked against the effective runtime link set rather than raw saved-state link IDs alone.
+- Added strict/generated validation failures for This–Then links that the runtime will remove on load because either endpoint is missing or is not an ordinary This–Then box, including links involving Final Outcome boxes such as `final-b0`.
+- Preserved valid Documentation Page link clones for runtime-surviving This–Then links and How links.
+- Updated `doview-board-building-prompt.md` and `docs/config-reference.md` so generated Documentation Pages only clone links that survive runtime cleanup, and use text, final-outcome clones, or valid ordinary This–Then link clones when discussing pathways to Final Outcomes.
+- Added builder regression coverage for valid link clones, missing link IDs, links to/from Final Outcome boxes, missing endpoints, and non-This–Then endpoints.
+- Updated package, prompt, engine, builder, documentation, specification, test, and standalone example version references to `V1.3.2`.
+
+### Preserved behaviours
+
+- Runtime linking, Final Outcome handling, Board Chat, read-only behaviour, save/copy/download behaviour, print behaviour, selected-box details, page navigation, Measures, Evaluation Questions, Documentation Pages, and saved-state/schema behaviour are unchanged except for version/header text.
+- The V1.3.1 Walk-Through link, standard 10 board setup choices, setup choice 7d, `showLinkInfoOnHover` generated setup, and canonical Measure/Evaluation Question clone validation are preserved.
+- The `[Source deleted]` broken-clone display is preserved for genuinely deleted clone sources.
+
+## V1.3.1 — 2026-06-15
+
+Conservative point release following V1.3.0.
+
+### Included
+
+- Renamed the top menu `Help` item to `Walk-Through` and changed its target to <https://doviewplanning.org/walkthrough>.
+- Updated the canonical generated-board disclaimer section from `Help` to `Walk-Through`.
+- Replaced the standard setup flow in `000-START-HERE-RUN-FIRST.md` with the standard 10 board setup choices and lettered subparts.
+- Updated `doview-board-building-prompt.md` so standard generated boards request `savedState.viewSettings.thisThen.showLinkInfoOnHover = true` and include `generationChecks.requestedPageViewOptions.thisThen`.
+- Strengthened builder validation for Documentation Page clones so strict generated configs reject non-canonical Measure and Evaluation Question clone keys such as `m001` and `q001`, missing clone sources, and inconsistent top-level `subpages` / runtime `savedState.SP` structures.
+- Added narrow runtime compatibility for clear older Measure/Evaluation Question ID variants so existing boards can continue to resolve unambiguous references where possible.
+- Updated package, prompt, engine, builder, documentation, specification, test, and standalone example version references to `V1.3.1`.
+
+### Preserved behaviours
+
+- Existing saved-state/schema compatibility is preserved.
+- The `[Source deleted]` broken-clone display is preserved for genuinely deleted clone sources.
+- Board Chat behaviour, read-only behaviour, save/copy/download behaviour, print behaviour, selected-box details, page navigation, link behaviour, Measures, Evaluation Questions, and Documentation Page editing are unchanged except for the narrow link/label, validation, compatibility, and version-text changes above.
+
+## V1.3.0 — 2026-06-11
+
+Start-flow hardening release following V1.2.9.
+
+### Included
+
+- Hardened `000-START-HERE-RUN-FIRST.md` so generic launch commands such as "build a doview board", "start", "run this", "make a board", or "build the board" are not treated as board topics.
+- Prevented the AI from inventing a default topic or building a meta-board about DoView Boards when no specific subject is supplied.
+- Clarified that the standard setup applies to an organization or initiative, broadly understood as organized work where outcomes are linked to activities, services, projects, workstreams, teams, partners, roles or competencies.
+- Reinforced the same generic-launch rule in `doview-board-building-prompt.md` while preserving `000-START-HERE-RUN-FIRST.md` as the setup source of truth.
+- Updated package, prompt, engine, builder, documentation, specification, test, and standalone example version references to `V1.3.0`.
+
+### Preserved behaviours
+
+- Runtime behaviour, builder validation logic, saved-state/schema, Board Chat behaviour, read-only behaviour, save/copy/download behaviour, print behaviour, selected-box details, link behaviour, Measures, Evaluation Questions, Documentation Pages, and generated-board causal content are unchanged except for version/header text.
+
+## V1.2.9 — 2026-06-11
+
+Start-flow consolidation and developer-guidance release following V1.2.8.
+
+### Included
+
+- Added/finalised `000-START-HERE-RUN-FIRST.md` as the source of truth for the opening interaction, standard 18-question setup, numbered answer changes, and single-board/multiple-board intake workflow.
+- Updated `doview-board-building-prompt.md` so it defers start flow and setup wording to the start file while preserving technical board-building rules.
+- Added developer and AI-agent guidance about preserving the DoView Drawing Rules and treating `spec/this-then-page-rules.md` as the authoritative expanded rules file, read with `spec/doview-board-minimum-spec.md`.
+- Added developer guidance about social stereotyping, structural stereotyping, repeated hidden structures, and shallow renaming in AI-generated board sets.
+- Reinforced canonical filename and package hygiene expectations for release ZIPs.
+- Updated package, prompt, engine, builder, documentation, specification, test, and standalone example version references to `V1.2.9`.
+
+### Preserved behaviours
+
+- Runtime behaviour, builder validation logic, saved-state/schema, Board Chat behaviour, read-only behaviour, save/copy/download behaviour, print behaviour, selected-box details, link behaviour, Measures, Evaluation Questions, Documentation Pages, and generated-board causal content are unchanged except for version/header text.
+
+### Validation
+
+- Release validation covered repository structure inspection, start-file content checks, main-prompt start-flow checks, version-reference checks, JavaScript syntax checks, builder regression tests, standalone example embedded-script syntax checks, JSON example builder checks, browser smoke checks of rebuilt standalone examples via a local static server, package manifest review, and ZIP hygiene checks.
+- The repository runtime Measure/Evaluation Question fixture skipped its own browser startup path in this environment, so browser coverage was provided by the separate local-server smoke checks.
+
+## V1.2.8 — 2026-06-10
+
+Narrow How Page hierarchy validation bugfix release following V1.2.7.
+
+### Included
+
+- Fixed How Page hierarchy validation so generated and built boards cannot contain more than one numbered How Page at the same level.
+- The builder now rejects duplicate non-null numeric `howLevel` values while still allowing multiple Cross-Link/no-level How Pages with `howLevel: null`.
+- Added prompt guidance requiring AI-generated configs to count numbered How Page levels before finalisation.
+- Added builder regression tests for duplicate `howLevel: 1`, duplicate `howLevel: 2`, multiple `howLevel: null` pages, and a valid Level 1 / Level 2 / Level 3 hierarchy with multiple null no-level pages.
+- Added narrow runtime/manual-edit guards so new numbered How Pages, changed How Page levels, Board Chat How Page creation, and pasted How Pages do not create duplicate numbered How levels.
+
+### Preserved behaviours
+
+- Existing boards still open; the new rule prevents invalid new builds and manual edits rather than redesigning saved-state/schema.
+- Multiple Cross-Link/no-level How Pages with `howLevel: null` remain valid.
+- Board Chat behaviour, read-only behaviour, save/copy/download behaviour, print behaviour, selected-box details, link behaviour, Measures, Evaluation Questions, Documentation Pages, and collection documentation/examples from V1.2.7 remain unchanged except for version/release consistency.
+
+## V1.2.7 — 2026-06-10
+
+Collection documentation and examples release following V1.2.6.
+
+### Included
+
+- Added a beginner-friendly guide, `docs/how-to-put-a-doview-board-collection-onto-internet.md`, explaining how to publish a DoView Board Collection on the internet using GitHub and GitHub Pages.
+- Added collection configuration examples: `examples/collections.json` for a collection-of-collections `collections` list, and `examples/collection.json` for one collection folder's `boards` list.
+- Clarified the difference between `collections.json` and `collection.json`, including when to update the top-level collection list versus an individual collection folder's board list.
+- Added narrow README and examples README links to the new collection documentation and examples.
+
+### Preserved behaviours
+
+- The DoView board-building prompt, reference engine, builder, specs, tests, saved-state/schema, Board Chat behaviour, and generated standalone board examples remain unchanged from V1.2.6.
+- Runtime JavaScript/CSS behaviour, builder validation, generated board content, and causal structure are unchanged.
+
+### Validation limits
+
+- The collection JSON examples are configuration examples, not complete standalone DoView Boards.
+- GitHub Pages publishing is static website hosting. It is not access control, authentication, review workflow, approval, certification, or a security boundary.
+
 ## V1.2.6 — 2026-06-02
 
 Targeted runtime/UI consistency and source-registry cleanup release following V1.2.5.

@@ -1,7 +1,7 @@
 # Instructions for AI Coding Agents
 
-**DoView Boards version:** V1.2.6  
-**Release date:** 2026-06-02  
+**DoView Boards version:** V1.3.4  
+**Release date:** 2026-06-16  
 **Document status:** Instructions for AI coding agents working with this repository
 
 This file is for AI coding agents such as Claude Code, Codex, Cursor, Replit Agent, and similar tools.
@@ -12,14 +12,15 @@ If you are an AI coding agent working in this repository, follow these instructi
 
 Before making major changes, read:
 
-1. [`README.md`](README.md)
-2. [`spec/doview-board-minimum-spec.md`](spec/doview-board-minimum-spec.md)
-3. [`spec/this-then-page-rules.md`](spec/this-then-page-rules.md)
-4. [`docs/developer-integration-guide.md`](docs/developer-integration-guide.md)
-5. [`docs/config-reference.md`](docs/config-reference.md)
-6. [`docs/security-and-read-only-notes.md`](docs/security-and-read-only-notes.md)
-7. [`docs/trademark-and-attribution.md`](docs/trademark-and-attribution.md)
-8. [`docs/ai-app-build-guidance.md`](docs/ai-app-build-guidance.md), if you are being asked to build an app
+1. [`000-START-HERE-RUN-FIRST.md`](000-START-HERE-RUN-FIRST.md), if you are changing prompt intake or setup flow
+2. [`README.md`](README.md)
+3. [`spec/doview-board-minimum-spec.md`](spec/doview-board-minimum-spec.md)
+4. [`spec/this-then-page-rules.md`](spec/this-then-page-rules.md)
+5. [`docs/developer-integration-guide.md`](docs/developer-integration-guide.md)
+6. [`docs/config-reference.md`](docs/config-reference.md)
+7. [`docs/security-and-read-only-notes.md`](docs/security-and-read-only-notes.md)
+8. [`docs/trademark-and-attribution.md`](docs/trademark-and-attribution.md)
+9. [`docs/ai-app-build-guidance.md`](docs/ai-app-build-guidance.md), if you are being asked to build an app
 
 Use the JSON and HTML examples in [`examples/`](examples/) as reference examples, not as the full standard.
 
@@ -29,13 +30,29 @@ When interpreting this repository:
 
 1. Treat [`spec/doview-board-minimum-spec.md`](spec/doview-board-minimum-spec.md) as the DoView-compatible standard for this release.
 2. Treat [`spec/this-then-page-rules.md`](spec/this-then-page-rules.md) as the expanded This–Then Page modelling guidance. If it appears to conflict with the minimum specification, the minimum specification controls.
-3. Treat [`doview-board-engine.js`](doview-board-engine.js) as the canonical V1.2.6 reference implementation.
+3. Treat [`doview-board-engine.js`](doview-board-engine.js) as the canonical V1.3.4 reference implementation.
 4. Treat [`docs/config-reference.md`](docs/config-reference.md) as the technical reference for the reference-engine config shape.
 5. Treat [`doview-board-builder.js`](doview-board-builder.js) as the reference local builder for assembling standalone HTML boards from JSON config.
 6. Treat the files in [`examples/`](examples/) as examples of correct structure, not as limits on what DoView Boards can contain.
 7. Treat [`docs/trademark-and-attribution.md`](docs/trademark-and-attribution.md), [`NOTICE.md`](NOTICE.md), and [`LICENSE`](LICENSE) as controlling repository guidance for licence, attribution, and DoView® trademark/status wording.
 
 If these sources appear to conflict, do not silently guess. Flag the conflict and ask the human user.
+
+## Preserve the DoView Drawing Rules
+
+The DoView Drawing Rules are the core method that makes a DoView Board a DoView Board. They are not cosmetic formatting preferences.
+
+Before changing prompts, examples, builder behaviour, documentation or specifications, identify the existing rules file that sets out the DoView Drawing Rules / This-Then Page rules. In this repository, use [`spec/this-then-page-rules.md`](spec/this-then-page-rules.md) as the authoritative expanded rules file, read with [`spec/doview-board-minimum-spec.md`](spec/doview-board-minimum-spec.md).
+
+Do not turn DoView Boards into generic activity plans, generic strategy maps, or repeated AI-generated templates with only names changed.
+
+## AI-generated board stereotyping and repeated-structure risk
+
+AI-generated boards, especially sets of boards, can suffer from social stereotyping and structural stereotyping.
+
+Structural stereotyping means producing boards that look different on the surface but are based on the same repeated hidden structure.
+
+When reviewing generated boards or examples, check for repeated causal pathways, repeated This-Then page structures, repeated How-page structures, generic measures and evaluation questions, shallow renaming of the same model, and missing country, sector, organization or initiative-specific logic.
 
 ## Preserve DoView-compatible structure
 
@@ -150,8 +167,12 @@ Keep changes focused and explain what changed.
 
 Avoid broad refactors of the reference engine unless explicitly requested. The reference engine is a canonical working implementation for this release.
 
+Preserve the start-flow separation: `000-START-HERE-RUN-FIRST.md` controls intake and setup; `doview-board-building-prompt.md` contains technical board-building rules.
+
 When changing config fields, saved-state behaviour, generated-board behaviour, security wording, read-only behaviour, Board Chat behaviour, trademark wording, or compatibility language, update the relevant docs and examples.
 
 Do not introduce external package dependencies into the builder unless explicitly requested.
 
 Do not add confidential, private, client, or sensitive board content to examples, tests, issues, docs, or commits.
+
+Preserve canonical repository filenames and folder names. Do not create or package timestamp-suffixed duplicate files such as `README 2.31.28 PM.md` or folders such as `docs 2.31.28 PM/`.
