@@ -1,6 +1,6 @@
 # DoView Collection Index Prompt Package
 
-This folder contains developer templates for preparing DoView Board collection folders for the DoView Board collection repository. They are copied from the supplied collection-index prompt package and adapted for the DoView Board V1.3.4 release.
+This folder contains developer templates for preparing DoView Board collection folders for the DoView Board collection repository. They are copied from the supplied collection-index prompt package and adapted for the DoView Board V1.3.6 release.
 
 These files are developer resources, not runtime dependencies for generated DoView Board HTML files.
 

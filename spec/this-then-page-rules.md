@@ -26,7 +26,7 @@ Developers and AI coding agents should preserve these rules when changing prompt
 
 ## 2. Core DoView diagram principles represented in This–Then Pages
 
-The public DoView Planning rules for drawing DoView diagrams are represented in the V1.3.4 package in the following ways.
+The public DoView Planning rules for drawing DoView diagrams are represented in the V1.3.6 package in the following ways.
 
 ### 2.1 Keep boxes compact
 

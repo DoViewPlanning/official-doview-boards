@@ -213,7 +213,7 @@ function extraHowPage(id, label, howLevel) {
 
 function runCase(name, config, shouldPass) {
   const configPath = path.join(tempDir, name + '.json');
-  const outPath = path.join(tempDir, name + '_doview-board_v1.3.4_2026-06-16.html');
+  const outPath = path.join(tempDir, name + '_doview-board_v1.3.6_2026-06-19.html');
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
   const result = childProcess.spawnSync(process.execPath, [
     builder,
@@ -247,8 +247,8 @@ try {
   const passingEmbedded = embeddedConfig(passing.outPath);
   assert.strictEqual(passingEmbedded.generationChecks, undefined, 'builder-only generationChecks must not be embedded');
   assert.strictEqual(passingEmbedded.builderValidation.passed, true, 'builderValidation stamp must record a passing build');
-  assert.strictEqual(passingEmbedded.builderValidation.builderVersion, 'V1.3.4');
-  assert.strictEqual(passingEmbedded.builderValidation.validationVersion, 'V1.3.4');
+  assert.strictEqual(passingEmbedded.builderValidation.builderVersion, 'V1.3.6');
+  assert.strictEqual(passingEmbedded.builderValidation.validationVersion, 'V1.3.6');
   assert.strictEqual(passingEmbedded.builderValidation.mode, 'strict-generated');
   assert.strictEqual(passingEmbedded.builderValidation.checks.measureEqAttachment, 'passed');
   assert.strictEqual(passingEmbedded.builderValidation.checks.sourcesRegistry, 'passed');
@@ -435,7 +435,7 @@ try {
   inputStamp.builderValidation = { passed: true, builderVersion: 'invented' };
   const inputStampBuilt = runCase('input-stamp-overwritten', inputStamp, true);
   const replacedStamp = embeddedConfig(inputStampBuilt.outPath).builderValidation;
-  assert.strictEqual(replacedStamp.builderVersion, 'V1.3.4');
+  assert.strictEqual(replacedStamp.builderVersion, 'V1.3.6');
   assert.ok(replacedStamp.autoFixes.some(function (fix) { return /Removed input builderValidation metadata/.test(fix); }));
 
   const sourcesRegistry = passingConfig();
@@ -445,7 +445,7 @@ try {
     { title: 'https://doviewplanning.org/walkthrough', url: 'https://doviewplanning.org/walkthrough' },
     { title: 'Authored methodology source', url: 'https://doviewplanning.org/theory' }
   ];
-  sourcesRegistry.savedState.docContent.p5 += '<p>Supporting material: https://example.org/documentation-source</p><p>Package walk-through link: https://doviewplanning.org/walkthrough</p><p>Package training link: https://doviewplanning.org/offerings</p><p>Package repository link: https://github.com/DoViewPlanning/doview-boards</p>';
+  sourcesRegistry.savedState.docContent.p5 += '<p>Supporting material: https://example.org/documentation-source</p><p>Package walk-through link: https://doviewplanning.org/walkthrough</p><p>Package training link: https://doviewplanning.org/offerings</p><p>Package repository link: https://github.com/doviewplanning/official-doview-boards</p>';
   sourcesRegistry.savedState.ttLinks[0].notes1 = 'Relationship evidence: https://example.org/link-source';
   const sourcesBuilt = runCase('sources-registry-autofix', sourcesRegistry, true);
   const sourcesEmbedded = embeddedConfig(sourcesBuilt.outPath);
@@ -455,7 +455,7 @@ try {
   assert.ok(sourceUrls.includes('https://doviewplanning.org/theory'));
   assert.ok(!sourceUrls.includes('https://doviewplanning.org/walkthrough'));
   assert.ok(!sourceUrls.includes('https://doviewplanning.org/offerings'));
-  assert.ok(!sourceUrls.includes('https://github.com/DoViewPlanning/doview-boards'));
+  assert.ok(!sourceUrls.includes('https://github.com/doviewplanning/official-doview-boards'));
   assert.strictEqual(sourceUrls.filter(function (url) { return url === 'https://example.org/evidence' || url === 'https://example.org/evidence/'; }).length, 1);
   assert.ok(sourcesEmbedded.builderValidation.autoFixes.some(function (fix) { return /Added missing visible-content URL to sources registry/.test(fix); }));
   assert.ok(sourcesEmbedded.builderValidation.autoFixes.some(function (fix) { return /Removed duplicate source registry entry/.test(fix); }));

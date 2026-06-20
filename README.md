@@ -1,8 +1,18 @@
 # DoView Boards
 
-**DoView Boards package version:** V1.3.4  
-**Release date:** 2026-06-16  
-**Release status:** Public DoView Boards V1.3.4 release. It fixes the mobile bottom control layout, moves mobile Board Chat into the bottom toolbar, adds the supplied walkthrough and collection-index developer resources, and clarifies Official DoView® Badge guidance while preserving saved-state/schema and desktop runtime behaviour.
+**DoView Boards package version:** V1.3.6  
+**Release date:** 2026-06-19  
+**Release status:** Public DoView Boards V1.3.6 release. It adds safe Node.js runtime-check guidance for AI coding assistants and preserves runtime behaviour, builder validation, saved-state/schema, and generated-board causal structure.
+
+## Official DoView Boards repository
+
+This is the official DoView Boards repository maintained by Dr Paul Duignan / DoView Planning.
+
+Our trademark use policy is very permissive. You can create DoView-compatible tools, boards, apps, plugins, integrations, repositories, training, consulting and resources. You just cannot imply that your work is official, endorsed, certified, approved, quality-assured, affiliated with, or produced by Dr Paul Duignan / DoView Planning unless this has been agreed in writing.
+
+For the full trademark-use policy, see <https://doviewplanning.org/trademarkuse>.
+
+To discuss official endorsement, certification, approval, quality assurance, affiliation, production, collaboration, or other official status, contact us at <https://doviewplanning.org/contact>.
 
 ## What are DoView Boards?
 
@@ -12,7 +22,7 @@ The current iteration of DoView Boards is a prototype for use in piloting, proof
 
 The DoView Boards prompt package lets you ask an AI system such as ChatGPT, Claude, or another suitable model to create a DoView Board on a topic. The AI generates a standalone DoView Board web app: a single `.html` file that opens in a browser and contains both the DoView Board interface and the topic-specific board content. There is no separate installed app required for use.
 
-The design of the current DoView Board app builds on the earlier [legacy DoView app](https://github.com/DoViewPlanning/DoViewApp), which was developed to draw DoView Boards and DoView Strategy/Outcomes diagrams. The legacy DoView app was used in over 55 countries and won Gartner Cool Vendor recognition. The Gartner citation described the approach as “Sometimes simplicity and elegance define use.” The current standalone DoView Board web app is therefore not a new idea created from scratch; it is a browser-based prototype that carries forward the design intent and practical experience behind the earlier DoView app.
+The design of the current DoView Board app builds on the earlier [legacy DoView app](https://github.com/doviewplanning/official-doview-legacy-app), which was developed to draw DoView Boards and DoView Strategy/Outcomes diagrams. The legacy DoView app was used in over 55 countries and won Gartner Cool Vendor recognition. The Gartner citation described the approach as “Sometimes simplicity and elegance define use.” The current standalone DoView Board web app is therefore not a new idea created from scratch; it is a browser-based prototype that carries forward the design intent and practical experience behind the earlier DoView app.
 
 DoView strategy/outcomes models, now able to be generated as DoView Boards have been used for planning and outcomes work in thousands of instances. Their utility and usability have been progressively optimized by Dr Paul Duignan and others using them for planning, coordination, alignment, implementation, performance measurement, delegation, contracting, and evaluation.
 
@@ -34,7 +44,7 @@ Experimentally, DoView Boards may also provide a visual interface for human-AI c
 
 This repository is a practical starting point for users, developers, researchers, experimenters, and organisations that want to understand, generate, implement, or extend DoView Boards.
 
-The V1.3.4 full GitHub repository/package release includes the V1.3.4 prompt, reference runtime, builder, documentation, tests, and examples:
+The V1.3.6 full GitHub repository/package release includes the V1.3.6 prompt, reference runtime, builder, documentation, tests, and examples:
 
 - the Start Here master prompt for opening interaction and board setup;
 - the DoView Board building prompt;
@@ -57,7 +67,7 @@ The V1.3.4 full GitHub repository/package release includes the V1.3.4 prompt, re
 - a plain Node.js strict-preflight regression fixture runner;
 - contribution guidance for developers and users.
 
-This repository does not currently contain the legacy DoView app, PowerPoint board generator prompt, or PDF board examples. The legacy DoView app and its source code are available separately at <https://github.com/DoViewPlanning/DoViewApp>.
+This repository does not currently contain the legacy DoView app, PowerPoint board generator prompt, or PDF board examples. The legacy DoView app and its source code are available separately at <https://github.com/doviewplanning/official-doview-legacy-app>.
 
 
 
@@ -96,7 +106,7 @@ Generated standalone boards are active `.html` files containing JavaScript. Trea
 
 Developers can use this repository to:
 
-- inspect the canonical V1.3.4 reference engine;
+- inspect the canonical V1.3.6 reference engine;
 - generate standalone board HTML files;
 - create tools that output reference-engine-compatible configs;
 - embed DoView Boards in other systems;
@@ -128,6 +138,8 @@ The release package should preserve canonical repository filenames and folder na
 ## Developer quick start
 
 The builder takes a pure JSON board config and the reference engine, then creates a standalone HTML board.
+
+The builder requires Node.js because `doview-board-builder.js` is a Node.js script. Node.js is a separate runtime and is not bundled with this package. Check for it with `node --version` or `command -v node`. If it is not installed, ask your AI assistant how to install Node.js for your computer or environment. If it is installed under a non-standard command or path, provide that command or path rather than searching broadly through the filesystem.
 
 ```bash
 node doview-board-builder.js \
@@ -201,7 +213,7 @@ See [`LICENSE`](LICENSE), [`NOTICE.md`](NOTICE.md), and [`docs/trademark-and-att
 
 Generated standalone DoView Boards are active HTML/JavaScript files. Treat them like executable web content, not passive documents.
 
-The V1.3.4 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
+The V1.3.6 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
 
 Generated boards from untrusted sources should not be opened casually. Hosted or shared boards should not be served from the same origin/domain as sensitive applications.
 
@@ -215,7 +227,7 @@ See [`docs/security-and-read-only-notes.md`](docs/security-and-read-only-notes.m
 
 Checksum verification or signed release verification is planned for a future release.
 
-For now, download DoView Boards files only from the official DoViewPlanning GitHub repository or another official DoView source.
+For now, download DoView Boards files only from the official repository at <https://github.com/doviewplanning/official-doview-boards> or another official DoView source.
 
 Future releases may add files such as:
 
@@ -272,7 +284,7 @@ For general information about DoView Planning, see https://doviewplanning.org.
 
 See [`CHANGELOG.md`](CHANGELOG.md).
 
-V1.3.4 is the current public full GitHub repository/package release. It fixes mobile portrait and landscape bottom controls, places Chat with board in the mobile toolbar while preserving the desktop floating Chat button, adds the supplied walkthrough and collection-index developer resources, and clarifies badge/trademark guidance. The accepted earlier corrective fixes remain preserved.
+V1.3.6 is the current public full GitHub repository/package release. It adds safe Node.js runtime-check and user-explanation guidance for AI coding assistants. Runtime behaviour, builder validation, saved-state/schema, and generated-board causal structure remain unchanged.
 
 ## More information
 

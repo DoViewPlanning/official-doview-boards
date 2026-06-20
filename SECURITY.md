@@ -1,16 +1,16 @@
 # Security Policy
 
-**DoView Boards version:** V1.3.4  
-**Release date:** 2026-06-16  
+**DoView Boards version:** V1.3.6  
+**Release date:** 2026-06-19  
 **Document status:** Security policy for this release
 
 ## Supported versions
 
-This repository currently supports the V1.3.4 DoView Boards prompt package release:
+This repository currently supports the V1.3.6 DoView Boards prompt package release:
 
 | Version | Supported |
 |---|---|
-| V1.3.4 | Yes |
+| V1.3.6 | Yes |
 
 Earlier internal development builds are not supported public releases.
 
@@ -94,7 +94,7 @@ For sensitive or higher-risk use, leave Board Chat unconfigured/disabled and do 
 
 Checksum or signed release verification is planned for a future release.
 
-Until then, users should obtain DoView Boards release files only from the official DoViewPlanning GitHub repository or official DoView Planning sources.
+Until then, users should obtain DoView Boards release files only from the official repository at <https://github.com/doviewplanning/official-doview-boards> or official DoView Planning sources.
 
 ## More security guidance
 

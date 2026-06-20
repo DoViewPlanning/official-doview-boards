@@ -2,7 +2,7 @@
 
 Use this prompt when you want an AI assistant to prepare a DoView Board collection folder for the GitHub repository:
 
-`https://github.com/DoViewPlanning/doview-board-collection/tree/main/boards`
+`https://github.com/doviewplanning/official-doview-board-collection/tree/main/boards`
 
 The assistant should create or amend a subfolder collection under `/boards/`, prepare an `index.html`, prepare or update the subfolder `collection.json`, and, where appropriate, prepare an amended main `/boards/collections.json`.
 
@@ -78,7 +78,7 @@ General rules:
 - Board boxes should normally contain only the board/agency/title text and a pill.
 - Do not include the yellow/orange instruction strip except for Option 3, where there are placeholders.
 - If there are no placeholders, remove any text such as “White boxes link…” or “Just click on white boxes.”
-- Use `v1.3.4` in the collection page chrome unless the user supplies a newer collection-index standard.
+- Use `v1.3.6` in the collection page chrome unless the user supplies a newer collection-index standard.
 - Preserve uploaded DoView Board `.html` files as standalone board files. Do not rewrite the embedded DoView Board engine unless the user specifically asks.
 - Remove duplicate-upload suffixes from filenames such as `(1)` when building the GitHub folder, unless doing so would break a link already specified by the user.
 - Use relative links from `index.html` to board files, e.g. `./example-board.html`.
@@ -111,7 +111,7 @@ Use JSON like this, adapted for the selected option:
 
 ```json
 {
-  "version": "v1.3.4",
+  "version": "v1.3.6",
   "title": "Collection Title",
   "subtitle": "A DoView Collection - illustrative boards",
   "currentTitle": "Collection short title",

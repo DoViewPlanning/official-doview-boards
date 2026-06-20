@@ -1,5 +1,5 @@
 # Start Here: DoView Board Master Prompt
-Version 1.3.4
+Version 1.3.6
 
 Begin by showing the appropriate opening message and the standard 10 board setup choices below.
 

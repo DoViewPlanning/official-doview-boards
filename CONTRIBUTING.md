@@ -1,8 +1,8 @@
 # Contributing
 
-**DoView Boards version:** V1.3.4  
-**Release date:** 2026-06-16  
-**Document status:** Contribution guidance for the V1.3.4 DoView Boards prompt package release
+**DoView Boards version:** V1.3.6  
+**Release date:** 2026-06-19  
+**Document status:** Contribution guidance for the V1.3.6 DoView Boards prompt package release
 
 Contributions, suggestions, issue reports, examples, corrections, and implementation feedback are welcome.
 
@@ -73,7 +73,7 @@ Do not turn DoView Boards into a generic drawing canvas, flowchart, mind map, ka
 
 ## Reference engine discipline
 
-The V1.3.4 reference engine is the canonical reference implementation for this release.
+The V1.3.6 reference engine is the canonical reference implementation for this release.
 
 Avoid broad engine rewrites or cosmetic refactors unless they are clearly justified. Small, focused changes are easier to review and less likely to break compatibility.
 

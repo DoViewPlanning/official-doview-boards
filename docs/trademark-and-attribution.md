@@ -1,10 +1,24 @@
 # Trademark and Attribution
 
-**DoView Boards version:** V1.3.4  
+**DoView Boards version:** V1.3.6  
 **Policy status:** Developer-facing summary for this release  
-**Release date:** 2026-06-16
+**Release date:** 2026-06-19
 
-This document summarizes the DoView® Planning Attribution & Trademark Use Policy for the DoView Boards V1.3.4 release. The current policy published by DoView Planning is the controlling trademark policy.
+This document summarizes the DoView® Planning Attribution & Trademark Use Policy for the DoView Boards V1.3.6 release. The current policy published by DoView Planning is the controlling trademark policy.
+
+## Official repository and permissive trademark use
+
+This repository is official because it is maintained by Dr Paul Duignan / DoView Planning.
+
+Our trademark use policy is very permissive.
+
+You can create DoView-compatible tools, boards, apps, plugins, integrations, repositories, training, consulting and resources.
+
+You just cannot imply that your work is official, endorsed, certified, approved, quality-assured, affiliated with, or produced by Dr Paul Duignan / DoView Planning unless this has been agreed in writing.
+
+The public trademark-use policy is authoritative: <https://doviewplanning.org/trademarkuse>.
+
+To discuss official endorsement, certification, approval, quality assurance, affiliation, production, collaboration, or other official status, contact DoView Planning: <https://doviewplanning.org/contact>.
 
 
 # DoView® Planning Attribution and Trademark Use
@@ -283,6 +297,8 @@ You are responsible for your own products, services, boards, training, consultin
 If you want to use an official DoView® logo, DoView® Badge, Official DoView® Badge, certification mark, compliance mark, quality mark, approval mark, or similar official-status wording, contact DoView® first.
 
 The version of the trademark policy published on DoViewPlanning.org is the current version.
+
+See <https://doviewplanning.org/trademarkuse>.
 
 ## Contact
 

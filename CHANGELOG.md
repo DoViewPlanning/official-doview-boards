@@ -1,5 +1,45 @@
 # Changelog
 
+## V1.3.6 — 2026-06-19
+
+Small prompt and documentation cleanup release based on the accepted V1.3.5 package.
+
+### Included
+
+- Added Node.js runtime-check and user-explanation wording to `doview-board-building-prompt.md`.
+- Clarified that `doview-board-builder.js` requires Node.js and that Node.js is a separate runtime not bundled with the package.
+- Directed AI coding assistants to use only simple PATH checks such as `node --version` and `command -v node` by default.
+- Directed assistants not to search broadly through a user's filesystem or run recursive `find` commands outside the working folder to locate Node.js unless the user explicitly approves.
+- Directed users to ask their AI assistant how to install Node.js when it is not installed, or to provide the Node command or path when it is installed in a non-standard location.
+- Clarified that JSON board config can still be prepared and validated without Node.js, but final standalone HTML assembly requires Node.js.
+- Clarified local `./output/` handling, including `mkdir -p ./output` when the folder does not exist.
+- Updated package, prompt, engine, builder, documentation, specification, test, walkthrough, and standalone example version references to `V1.3.6`.
+
+### Preserved behaviours
+
+- Runtime JavaScript and CSS behaviour are unchanged apart from V1.3.6 version text.
+- Builder CLI, validation logic, and output assembly behaviour are unchanged apart from V1.3.6 version text.
+- Saved-state/schema and compatibility behaviour are unchanged.
+- Generated-board topic content, causal structure, layout, and saved-state data are unchanged apart from narrow V1.3.6 version text.
+
+## V1.3.5 — 2026-06-19
+
+Conservative repository-naming, documentation, trademark-reference, and link-consistency release based on V1.3.4.
+
+### Included
+
+- Added support for renaming the official repositories under `github.com/doviewplanning` to `official-doview-legacy-app`, `official-doview-boards`, and `official-doview-board-collection`.
+- Updated official repository URLs, package version text, release dates, README official-status wording, and trademark-use references.
+- Added `github-support/doviewplanning-organization-profile-README.md` as a manual-copy draft for the GitHub organization profile.
+- Added `github-support/manual-github-rename-checklist.md` with the three rename mappings and post-rename checks.
+
+### Preserved behaviours
+
+- Runtime JavaScript and CSS behaviour are unchanged apart from approved version, release-date, and official repository URL text.
+- Builder CLI, validation logic, and output assembly behaviour are unchanged apart from approved version, release-date, and official repository URL text.
+- Saved-state/schema and compatibility behaviour are unchanged.
+- Generated-board topic content, causal structure, layout, and saved-state data are unchanged apart from narrow version, release-date, and official repository URL text.
+
 ## V1.3.4 — 2026-06-16
 
 Release build following rejected V1.3.3 work. The accepted baseline remains V1.3.2.

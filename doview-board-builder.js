@@ -2,8 +2,8 @@
 'use strict';
 
 /*
-DoView Board Builder V1.3.4
-Public release: 2026-06-16
+DoView Board Builder V1.3.6
+Public release: 2026-06-19
 Plain Node.js local builder for assembling validated config-first DoView boards into single-file HTML outputs. No external npm packages.
 See CHANGELOG.md for release history and security notes.
 */
@@ -11,8 +11,8 @@ See CHANGELOG.md for release history and security notes.
 const fs = require('fs');
 const path = require('path');
 
-const BUILDER_VERSION = 'V1.3.4';
-const VALIDATION_VERSION = 'V1.3.4';
+const BUILDER_VERSION = 'V1.3.6';
+const VALIDATION_VERSION = 'V1.3.6';
 const EXPECTED_FILENAME_RE = /^[a-z0-9][a-z0-9-]*_doview-board_[vV]\d+\.\d+\.\d+_\d{4}-\d{2}-\d{2}\.html$/;
 
 const SIMPLE_DEFAULT_VIEW_SETTINGS = {
@@ -61,7 +61,7 @@ Adapting the DoView Board Prototype App to your setting
 
 This DoView Board is being used within the DoView Board prototype app. It is a free of charge app that runs inside any browser window and can be used for piloting, testing, proof-of-concept and for use where confidential information is not being included and where there is a low security risk.
 
-The DoView Board app is an open-source developer project under an Apache-2.0 open-source license. See [https://github.com/DoViewPlanning/doview-boards](https://github.com/DoViewPlanning/doview-boards). The wider DoView Planning methodology and DoView® trademarks are governed separately. See [https://doviewplanning.org/trademarkuse](https://doviewplanning.org/trademarkuse).
+The DoView Board app is an open-source developer project under an Apache-2.0 open-source license. See [https://github.com/doviewplanning/official-doview-boards](https://github.com/doviewplanning/official-doview-boards). The wider DoView Planning methodology and DoView® trademarks are governed separately. See [https://doviewplanning.org/trademarkuse](https://doviewplanning.org/trademarkuse).
 
 Because it is an open-source project, any developer can extend, harden, adapt, or include features of the DoView Board app in other planning products or systems to suit specific deployment requirements. For example, adding enhanced stability, scalability, security, authentication, data handling, or integration features needed for production use, sensitive content, or higher-security environments. If you are looking to deploy DoView Boards in a live operational setting, you can work with any developer to tailor the app to your needs. You can also get in touch with us for advice and methodological input into the best way for you to adapt and extend your use of DoView Boards in your particular setting. [https://doviewplanning.org/contact](https://doviewplanning.org/contact).
 
@@ -75,7 +75,7 @@ const STANDARD_NON_CONTENT_SOURCE_URLS = [
   'https://doviewplanning.org/help',
   'https://doviewplanning.org/walkthrough',
   'https://doviewplanning.org/offerings',
-  'https://github.com/DoViewPlanning/doview-boards',
+  'https://github.com/doviewplanning/official-doview-boards',
   'https://doviewplanning.org/trademarkuse',
   'https://doviewplanning.org/contact',
   'https://doviewplanning.org/doviewboards',
@@ -94,7 +94,7 @@ function usage() {
     '  node doview-board-builder.js \\',
     '    --engine doview-board-engine.js \\',
     '    --config doview-board-config.json \\',
-    '    --out labour-2026-nz-election_doview-board_v1.3.4_2026-06-16.html',
+    '    --out labour-2026-nz-election_doview-board_v1.3.6_2026-06-19.html',
     '',
     'Inputs:',
     '  --engine   DoView engine JavaScript file, usually doview-board-engine.js',

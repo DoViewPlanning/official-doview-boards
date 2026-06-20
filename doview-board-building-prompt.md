@@ -1,4 +1,4 @@
-V1.3.4 2026-06-16
+V1.3.6 2026-06-19
 
 AI DoView Drawing Prompt — Revised (based on Dr Paul Duignan's DoView methodology, doviewplanning.org)
 
@@ -116,6 +116,33 @@ Builder-first generation:
 - If content or evidence URLs are used anywhere in visible generated board content, include them in the board-level Sources list. The builder may safely add missing URL registry entries, but it does not invent URLs. Fixed package-controlled help, training, repository, trademark, and support links are not board-content evidence sources merely because the runtime or standard disclaimer displays them.
 - Do not manually embed the prompt, builder source, examples, or duplicate engine code into final board HTML.
 - Preserve engine script integrity. Do not insert board JSON/config/state inside the engine script. Put board config/state only in the correct separate embedded config/state location, normally the body-only `DoView.init(...)` config script assembled by the builder. Preserve the standalone-board initialization scaffolding and script boundaries.
+
+Node.js runtime check and user explanation:
+- The DoView Board builder uses `doview-board-builder.js`, which is a Node.js script. Node.js is not included inside this package; it is a separate runtime that must already be installed on the user's machine or available in the working environment.
+- Before running the builder, check for Node.js only with simple, non-invasive commands such as:
+
+```bash
+node --version
+command -v node
+```
+
+- If Node.js is not available on the normal PATH, do not search broadly through the user's filesystem. Do not search the user's home directory, the whole filesystem, private or unrelated folders, or run recursive `find` commands outside the working folder unless the user explicitly approves it.
+- Instead, explain briefly:
+
+> I need Node.js because the DoView Board package uses the included `doview-board-builder.js` script to assemble the final standalone HTML board. The builder file is included in the package, but Node.js itself is a separate runtime that has to be installed or available in this environment.
+>
+> I checked the normal command path and could not find `node`. Please ask your AI assistant how to install Node.js on your computer or environment. Once Node.js is installed, come back and I can run the builder.
+>
+> If you already have Node.js installed, tell me what command or path I should use. If Node.js is not available yet, I can still prepare and validate the JSON board configuration, but I cannot assemble the final standalone HTML board until Node.js is available.
+
+- For local working-folder builds, use `./output/` unless the user specifies otherwise. If it does not exist, create it with:
+
+```bash
+mkdir -p ./output
+```
+
+- Do not choose a different output location without user approval.
+- Keep this explanation practical. Do not add OS-specific Node.js installation instructions, and do not install Node.js unless the user explicitly asks.
 
 Sensitive information and sharing:
 - Do not include confidential, regulated, personal, commercially sensitive, or legally privileged information in a generated board unless the host environment has appropriate data-handling, access-control, retention, and review controls.
@@ -989,11 +1016,11 @@ The builder file may be available in one of these locations (check in this order
 
 Generated board output should follow this naming pattern:
 
-`<board-slug>_doview-board_v1.3.4_<yyyy-mm-dd>.html`
+`<board-slug>_doview-board_v1.3.6_<yyyy-mm-dd>.html`
 
 Example:
 
-`labour-2026-nz-election_doview-board_v1.3.4_2026-06-16.html`
+`labour-2026-nz-election_doview-board_v1.3.6_2026-06-19.html`
 
 MANDATORY BUILD PROCESS — follow these exact steps. Use the matching builder path for final standalone HTML. The hand-assembly path is diagnostic only:
 
@@ -1109,7 +1136,7 @@ Before running the builder, rerun the current pre-assembly board-quality gate, o
 node /mnt/data/doview-board-builder.js \
   --engine /mnt/data/doview-board-engine.js \
   --config /mnt/data/doview-board-config.json \
-  --out /mnt/user-data/outputs/board-slug_doview-board_v1.3.4_YYYY-MM-DD.html
+  --out /mnt/user-data/outputs/board-slug_doview-board_v1.3.6_YYYY-MM-DD.html
 ```
 
 The builder validates the JSON config and the final HTML assembly before reporting success. Present the generated HTML only if the builder succeeds and the final embedded config contains the builder-inserted validation stamp. If the builder reports a config error or HTML validation error, revise the JSON/config or fix the build issue and rerun the builder from a clean output file. Do not present the board unless the final file exists and all builder validation checks pass. Do not manually invent or paste a stamp. Where the environment supports it, also load the output and confirm the visible board/content area is non-empty and shows expected page titles, box titles, Overview cards/items, or final outcomes.
@@ -1420,7 +1447,7 @@ DOVIEW BOARD FEATURES (handled by the engine)
 The engine provides all of the following automatically. You do NOT need to implement these — just generate the config. This list is for reference so you understand what the board can do:
 
 Visual design:
-- Orange header (#F5A623) with title left, "Board info" link, "Measures" link, "Eval Questions" link, "Links" link, "Search" link, "Walk-Through" link (opens https://doviewplanning.org/walkthrough in a new tab/window), and "Get training" link (opens https://doviewplanning.org/offerings in a new tab/window; tooltip "Want training? Get help using DoView Boards"; non-editable; appears in normal editable boards and in read-only copies); "SEE. PLAN. DO.™ V1.3.4" on the first right-hand line; the text-only Official DoView® Badge Standards-Compliant Board Structure on the second and third right-hand lines (white text, white rounded border, orange background, no logo, no icon — see "Official DoView® Badge Standards-Compliant Board Structure" below)
+- Orange header (#F5A623) with title left, "Board info" link, "Measures" link, "Eval Questions" link, "Links" link, "Search" link, "Walk-Through" link (opens https://doviewplanning.org/walkthrough in a new tab/window), and "Get training" link (opens https://doviewplanning.org/offerings in a new tab/window; tooltip "Want training? Get help using DoView Boards"; non-editable; appears in normal editable boards and in read-only copies); "SEE. PLAN. DO.™ V1.3.6" on the first right-hand line; the text-only Official DoView® Badge Standards-Compliant Board Structure on the second and third right-hand lines (white text, white rounded border, orange background, no logo, no icon — see "Official DoView® Badge Standards-Compliant Board Structure" below)
 - Page-info bar: the bar below the header lays out as a flex row with the existing page name, Page info, View, etc. on the left, and an optional board-level Top right text right-justified on the right (see "Top right text" below). The Top right text is the same across all pages, plain text only, click-to-edit in editable boards, view-only in read-only copies, and persists with the board. When no Top right text exists, the right-hand side of the page-info bar shows nothing at all in both editable boards and read-only copies ( replaces the earlier "+ Add top right text" affordance so finished boards do not look unfinished). Top right text can be added or edited from Board info edit mode, where a compact "Top right text (optional)" field edits the same saved-state value (see "Board info / Page info" below).
 - Top right text: a board-level optional short plain-text annotation or disclaimer (e.g. Draft, Illustrative only, Confidential, Version for contractor review, Not yet approved). It is shown right-justified in the page-info bar across all pages — same text on every page. Plain text only — no rich text, no links. In normal editable boards, clicking the existing text opens a small modal with a text input plus Save / Clear / Cancel buttons; when no Top right text exists, no affordance appears in the page-info bar — instead, Top right text is added or edited from a compact "Top right text (optional)" field inside Board info edit mode, which writes to the same topRightText saved-state value. In read-only copies, the text is visible but not clickable/editable. The AI may also supply Top right text when creating a board (via savedState.topRightText). Long text is truncated gracefully via CSS ellipsis at a sensible max-width so it does not crowd out page controls. The text is saved with the board (savedState.topRightText), persists through Save / Download Board, Copy HTML Board, Create Read-Only Copy, localStorage, and DOVIEW-STATE snapshots, and defaults to '' for older boards (backward compatible).
 - Official DoView® Badge Standards-Compliant Board Structure: a non-editable text-only badge in the top-right of the orange header, on the second and third lines below the SEE. PLAN. DO.™ + version line. Two lines of text — "Official DoView® Badge" (slightly larger) and "Standards-Compliant Board Structure" (slightly smaller). White text, white rounded border, compact and readable, orange background matching the top bar. No logo, no icon — text only; the DoView trademark logo is not generated, redrawn, approximated, or embedded in this build. Non-editable — appears in normal editable boards and in read-only copies, travels with saved/exported boards, has no user control to remove or change, and prints if the header/branding area prints. Clicking the badge opens a non-editable info popup titled "Official DoView® Badge Standards-Compliant Board Structure" with a Close button (no editable fields). Popup body explains that this DoView Board app's structure (not its content) has received the badge, that the DoView methodology is open and may be implemented elsewhere with acknowledgment, that the badge and DoView trademark may not be used or implied as endorsed/official without authorisation, and how to get in touch about badge assessment. The popup ends with one clickable link — visible text "doviewplanning.org/trademarkuse" linking to https://doviewplanning.org/trademarkuse (The previously-included second trademark URL "doviewplanning.org/trademark" has been removed from the popup; only doviewplanning.org/trademarkuse remains as the final clickable link). (The visible badge wording has been reordered from "Official DoView® Standards-Compliant Board Structure Badge" to "Official DoView® Badge Standards-Compliant Board Structure" — line 1 now reads "Official DoView® Badge" and line 2 reads "Standards-Compliant Board Structure"; the popup heading and body wording use the new ordering accordingly. Badge placement, click behavior, popup body, popup link, and broader certification/badge behavior are unchanged. Internal CSS class names and code-side identifiers are intentionally left unchanged to keep the change wording-only.) Boundary: this is the reserved official badge for this official DoView release; this release does not create a broader certification system, does not imply third-party boards/tools may use the badge unless authorised, and does not add logo/image handling.
@@ -1494,7 +1521,7 @@ Measures and Evaluation Questions:
 - Measures and Evaluation Questions are preserved in saved boards, localStorage, and DOVIEW-STATE snapshots.
 - When a Measure or Evaluation Question is edited, created, associated, dis-associated, or deleted, all visible references (under-box display, entry panel associated items, clones) update immediately without requiring the user to leave the page and come back. The current page, open box selection, and scroll position are preserved as far as practical. (user-facing wording uses associated/association for Measures and Evaluation Questions; structural box-to-box links keep links/linked terminology.)
 - Measures and Evaluation Questions can also be attached to This–Then links (see Link details). Deleting a Measure or Evaluation Question also removes any links to it held on This–Then links, not only the links held on boxes. How links are NOT supported for this feature in the current build.
-- The current release does not include clones inside box notes or Measure/EQ notes, named/saved multiple views, per-page custom view overrides, reordering of under-box display types, or richer list browsing and link panes. These are outside the current V1.3.4 feature set.
+- The current release does not include clones inside box notes or Measure/EQ notes, named/saved multiple views, per-page custom view overrides, reordering of under-box display types, or richer list browsing and link panes. These are outside the current V1.3.6 feature set.
 
 View system:
 - Board-wide Page View settings, separate per page type (one set for all This–Then Pages, one set for all How Pages, one set for the Final Outcomes page).

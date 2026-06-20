@@ -1,8 +1,8 @@
 # Notice
 
-**DoView Boards version:** V1.3.4  
-**Release date:** 2026-06-16  
-**Document status:** Notice file for the V1.3.4 DoView Boards prompt package release
+**DoView Boards version:** V1.3.6  
+**Release date:** 2026-06-19  
+**Document status:** Notice file for the V1.3.6 DoView Boards prompt package release
 
 ## Apache-2.0 licence
 
@@ -31,6 +31,10 @@ Apache-2.0 gives permission to use, copy, modify, and distribute the covered cod
 You may accurately describe your work as DoView-compatible, supporting DoView Boards, based on DoView Planning, or implementing the DoView Boards minimum standard, provided that the statement is accurate and does not imply official status.
 
 Use of the DoView® Badge, Official DoView® Badge, official DoView® logos, certification marks, approval marks, quality marks, compliance marks, or similar official-status marks requires written permission.
+
+Our trademark use policy is very permissive. You can create DoView-compatible tools, boards, apps, plugins, integrations, repositories, training, consulting and resources. You just cannot imply that your work is official, endorsed, certified, approved, quality-assured, affiliated with, or produced by Dr Paul Duignan / DoView Planning unless this has been agreed in writing.
+
+The current public policy is at <https://doviewplanning.org/trademarkuse>.
 
 For the developer-facing trademark and attribution guidance, see [`docs/trademark-and-attribution.md`](docs/trademark-and-attribution.md).
 

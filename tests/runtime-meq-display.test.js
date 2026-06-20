@@ -153,7 +153,7 @@ function chromeExecutable() {
 
 try {
   const configPath = path.join(tempDir, 'runtime-meq-fixture.json');
-  const htmlPath = path.join(tempDir, 'runtime-meq-fixture_doview-board_v1.3.4_2026-06-16.html');
+  const htmlPath = path.join(tempDir, 'runtime-meq-fixture_doview-board_v1.3.6_2026-06-19.html');
   const probePath = path.join(tempDir, 'runtime-meq-probe.html');
   fs.writeFileSync(configPath, JSON.stringify(runtimeFixture(), null, 2));
   const build = childProcess.spawnSync(process.execPath, [
