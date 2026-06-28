@@ -8,18 +8,14 @@
   "status": "Illustrative only - Not Endorsed",
   "sectionTitle": "DoView Boards",
   "featured": {
-    "title": "{{OPTIONAL_TOP_BOARD_TITLE}}",
-    "file": "{{optional-top-board-file.html}}",
+    "title": "{{TOP_BOARD_TITLE}}",
+    "file": "{{top-board-file.html}}",
     "eyebrow": "Top DoView Board"
   },
   "boards": [
     {
-      "title": "{{LIVE_BOARD_TITLE_1}}",
-      "file": "{{live-board-file-1.html}}"
-    },
-    {
-      "title": "{{PLACEHOLDER_TITLE_1}}",
-      "status": "planned"
+      "title": "{{BOARD_TITLE_1}}",
+      "file": "{{board-file-1.html}}"
     }
   ]
 }

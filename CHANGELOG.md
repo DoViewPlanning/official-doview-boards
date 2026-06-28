@@ -1,5 +1,33 @@
 # Changelog
 
+## V1.3.7 — 2026-06-26
+
+Conservative template, badge/trademark, acknowledgment, setup-choice, and version-consistency hygiene release based on the accepted V1.3.6 package.
+
+### Included
+
+- Updated public reusable collection and collection-of-collections templates under `docs/collection-index/templates/`.
+- Renamed the public collection-of-collections template files to use `collection-of-collections` naming.
+- Renamed the option 2 public reusable template files to use `top-board-plus-live-boards` naming and Top Board Plus Live Boards Collection wording.
+- Removed collection-level Official DoView Badge markup from public reusable collection templates.
+- Added neutral plain-text collection acknowledgment blocks linked to <https://doviewplanning.org/acknowledgment>, with the heading and acknowledgment lines clarified for public reusable templates.
+- Clarified editable title, subtitle, maintainer, description/about text, JSON reference, and example data fields in public reusable collection templates.
+- Added the `Create a Collection` top navigation link to collection templates, pointing to <https://doviewplanning.org/createacollection>.
+- Aligned collection-of-collections card rendering with the current official collection implementation, including collection pill placement, title placement, count/status placement, orange triangle marker placement, layered backing-card treatment, spacing, typography, shadows, and grid behaviour.
+- Updated single-collection templates to generic title, subtitle, maintainer line, navigation, and card defaults.
+- Updated `000-START-HERE-RUN-FIRST.md` to use the supplied 10 setup choices and `V1.2 Customized Set 2`.
+- Tightened Official DoView Badge and trademark wording so board-level badge provenance is preserved while third-party official status, endorsement, certification, approval, affiliation, and badge rights are not implied.
+- Updated package, prompt, engine, builder, documentation, specification, test, walkthrough, collection-index, and standalone example version references to `V1.3.7`.
+
+### Preserved behaviours
+
+- Runtime JavaScript behaviour, builder validation logic, CLI behaviour, output assembly, saved-state/schema, Board Chat, security/read-only/API-key warnings, and generated-board causal/content structure are unchanged apart from version text and narrow badge/trademark wording.
+- Public reusable collection-template card rendering was conformed to the current reference implementation rather than redesigned.
+
+### Validation
+
+- Release validation covered repository-structure inspection, scoped file review, JavaScript syntax checks, collection-template script syntax checks, JSON parsing, version-reference checks, setup-choice checks, collection badge/acknowledgment/link checks, browser/headless smoke checks of representative collection templates and standalone board examples, package manifest review, and ZIP hygiene checks.
+
 ## V1.3.6 — 2026-06-19
 
 Small prompt and documentation cleanup release based on the accepted V1.3.5 package.

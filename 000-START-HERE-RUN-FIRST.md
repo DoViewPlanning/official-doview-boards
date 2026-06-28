@@ -1,5 +1,5 @@
 # Start Here: DoView Board Master Prompt
-Version 1.3.6
+Version 1.3.7
 
 Begin by showing the appropriate opening message and the standard 10 board setup choices below.
 
@@ -88,22 +88,21 @@ To change any of the answers, type the setup choice number and, if needed, the l
 6. **Links involving How pages**
    a. **Do you want links between the How pages and the This-Then pages?**
    Yes. Put in all relevant links, including:
-
-   * vertical links between Level 1 How boxes and This-Then boxes;
-   * vertical links between boxes on different How page levels;
-   * cross-links between non-Level 1 How boxes and This-Then boxes;
-   * cross-links between Cross-Link How boxes and This-Then boxes;
-   * cross-links between Cross-Link How boxes and other How boxes.
+   vertical links between Level 1 How boxes and This-Then boxes;
+   vertical links between boxes on different How page levels;
+   cross-links between non-Level 1 How boxes and This-Then boxes;
+   cross-links between Cross-Link How boxes and This-Then boxes;
+   cross-links between Cross-Link How boxes and other How boxes.
 
 7. **Extra display features**
    a. **Do you want any extra Display Text in boxes?**
    No.
 
    b. **Do you want traffic lights?**
-   No. Do not assign or display traffic lights by default. Leave traffic-light settings unset or off unless the user specifically asks for them. The board may still include the traffic-light feature if supported by the engine.
+   No. Do not assign or display traffic lights by default. Leave traffic-light settings unset or off unless the user specifically asks for them. The board must still include the traffic-light feature if supported by the engine.
 
    c. **Do you want priorities?**
-   No. Do not assign or display priorities by default. Leave priority settings unset or off unless the user specifically asks for them. The board may still include the priority feature if supported by the engine.
+   No. Do not assign or display priorities by default. Leave priority settings unset or off unless the user specifically asks for them. The board must still include the priority feature if supported by the engine.
 
    d. **What Page View items do you want selected when the board opens?**
    For This-Then pages only, select: Show link Display Text/Traffic Lights on mouse over of black link arrows.
@@ -117,14 +116,16 @@ To change any of the answers, type the setup choice number and, if needed, the l
 
 9. **Documentation pages**
    a. **Do you want Documentation pages?**
-   Yes. Include a general documentation, source notes, assumptions and cautions Documentation page. Also include an illustrative monitoring and evaluation plan with relevant clones on it.
+   Yes. Include a general documentation, source notes, and cautions Documentation page. Also include an illustrative monitoring and evaluation plan with relevant clones on it.
 
 10. **Board note and language style**
     a. **What note should appear on the board?**
     Proof of Concept - Not Endorsed.
 
     b. **What spelling style, language style or local terminology should be used?**
-    Use the spelling and terminology normally used in the relevant country, sector or organization.
+    Use the spelling and terminology normally used in the relevant country, sector or organization unless the user says otherwise.
+
+V1.2 Customized Set 2
 
 ## Internal operating instructions
 

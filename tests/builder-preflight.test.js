@@ -213,7 +213,7 @@ function extraHowPage(id, label, howLevel) {
 
 function runCase(name, config, shouldPass) {
   const configPath = path.join(tempDir, name + '.json');
-  const outPath = path.join(tempDir, name + '_doview-board_v1.3.6_2026-06-19.html');
+  const outPath = path.join(tempDir, name + '_doview-board_v1.3.7_2026-06-26.html');
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
   const result = childProcess.spawnSync(process.execPath, [
     builder,
@@ -247,8 +247,8 @@ try {
   const passingEmbedded = embeddedConfig(passing.outPath);
   assert.strictEqual(passingEmbedded.generationChecks, undefined, 'builder-only generationChecks must not be embedded');
   assert.strictEqual(passingEmbedded.builderValidation.passed, true, 'builderValidation stamp must record a passing build');
-  assert.strictEqual(passingEmbedded.builderValidation.builderVersion, 'V1.3.6');
-  assert.strictEqual(passingEmbedded.builderValidation.validationVersion, 'V1.3.6');
+  assert.strictEqual(passingEmbedded.builderValidation.builderVersion, 'V1.3.7');
+  assert.strictEqual(passingEmbedded.builderValidation.validationVersion, 'V1.3.7');
   assert.strictEqual(passingEmbedded.builderValidation.mode, 'strict-generated');
   assert.strictEqual(passingEmbedded.builderValidation.checks.measureEqAttachment, 'passed');
   assert.strictEqual(passingEmbedded.builderValidation.checks.sourcesRegistry, 'passed');
@@ -435,7 +435,7 @@ try {
   inputStamp.builderValidation = { passed: true, builderVersion: 'invented' };
   const inputStampBuilt = runCase('input-stamp-overwritten', inputStamp, true);
   const replacedStamp = embeddedConfig(inputStampBuilt.outPath).builderValidation;
-  assert.strictEqual(replacedStamp.builderVersion, 'V1.3.6');
+  assert.strictEqual(replacedStamp.builderVersion, 'V1.3.7');
   assert.ok(replacedStamp.autoFixes.some(function (fix) { return /Removed input builderValidation metadata/.test(fix); }));
 
   const sourcesRegistry = passingConfig();

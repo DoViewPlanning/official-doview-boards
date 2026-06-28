@@ -1,7 +1,7 @@
 # How to Put a DoView Board Collection Onto the Internet
 
-**DoView Boards package version:** V1.3.6  
-**Release date:** 2026-06-19  
+**DoView Boards package version:** V1.3.7  
+**Release date:** 2026-06-26  
 **Document status:** Beginner-friendly guide for publishing DoView Board Collections with GitHub Pages
 
 This guide explains one simple way to publish a DoView Board Collection on the internet using GitHub and GitHub Pages.

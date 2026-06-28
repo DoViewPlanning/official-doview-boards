@@ -1,0 +1,11 @@
+{
+  "version": "v1.3.7",
+  "description": "About these collections: [Add a short description of this set of DoView Board collections.]",
+  "collections": [
+    {
+      "title": "DoView Board Collection",
+      "href": "{{folder-name}}/",
+      "count": "{{COUNT_TEXT}}"
+    }
+  ]
+}

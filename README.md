@@ -1,8 +1,8 @@
 # DoView Boards
 
-**DoView Boards package version:** V1.3.6  
-**Release date:** 2026-06-19  
-**Release status:** Public DoView Boards V1.3.6 release. It adds safe Node.js runtime-check guidance for AI coding assistants and preserves runtime behaviour, builder validation, saved-state/schema, and generated-board causal structure.
+**DoView Boards package version:** V1.3.7  
+**Release date:** 2026-06-26  
+**Release status:** Public DoView Boards V1.3.7 release. It updates collection templates, badge/trademark/acknowledgment handling, and the standard setup choices while preserving runtime behaviour, builder validation, saved-state/schema, and generated-board causal structure.
 
 ## Official DoView Boards repository
 
@@ -44,7 +44,7 @@ Experimentally, DoView Boards may also provide a visual interface for human-AI c
 
 This repository is a practical starting point for users, developers, researchers, experimenters, and organisations that want to understand, generate, implement, or extend DoView Boards.
 
-The V1.3.6 full GitHub repository/package release includes the V1.3.6 prompt, reference runtime, builder, documentation, tests, and examples:
+The V1.3.7 full GitHub repository/package release includes the V1.3.7 prompt, reference runtime, builder, documentation, tests, and examples:
 
 - the Start Here master prompt for opening interaction and board setup;
 - the DoView Board building prompt;
@@ -106,7 +106,7 @@ Generated standalone boards are active `.html` files containing JavaScript. Trea
 
 Developers can use this repository to:
 
-- inspect the canonical V1.3.6 reference engine;
+- inspect the canonical V1.3.7 reference engine;
 - generate standalone board HTML files;
 - create tools that output reference-engine-compatible configs;
 - embed DoView Boards in other systems;
@@ -213,7 +213,7 @@ See [`LICENSE`](LICENSE), [`NOTICE.md`](NOTICE.md), and [`docs/trademark-and-att
 
 Generated standalone DoView Boards are active HTML/JavaScript files. Treat them like executable web content, not passive documents.
 
-The V1.3.6 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
+The V1.3.7 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
 
 Generated boards from untrusted sources should not be opened casually. Hosted or shared boards should not be served from the same origin/domain as sensitive applications.
 
@@ -284,7 +284,7 @@ For general information about DoView Planning, see https://doviewplanning.org.
 
 See [`CHANGELOG.md`](CHANGELOG.md).
 
-V1.3.6 is the current public full GitHub repository/package release. It adds safe Node.js runtime-check and user-explanation guidance for AI coding assistants. Runtime behaviour, builder validation, saved-state/schema, and generated-board causal structure remain unchanged.
+V1.3.7 is the current public full GitHub repository/package release. It is a conservative collection-template, badge/trademark, acknowledgment, and setup-choice hygiene release. Runtime behaviour, builder validation, saved-state/schema, and generated-board causal structure remain unchanged.
 
 ## More information
 

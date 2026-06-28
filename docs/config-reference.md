@@ -1,10 +1,10 @@
 # DoView Board Config Reference
 
-**DoView Boards version:** V1.3.6  
-**Release date:** 2026-06-19  
-**Document status:** Technical reference for the V1.3.6 DoView Boards prompt package release
+**DoView Boards version:** V1.3.7  
+**Release date:** 2026-06-26  
+**Document status:** Technical reference for the V1.3.7 DoView Boards prompt package release
 
-This document describes the board configuration structure used by the V1.3.6 DoView Board reference engine and builder.
+This document describes the board configuration structure used by the V1.3.7 DoView Board reference engine and builder.
 
 It should be read with:
 
@@ -19,9 +19,9 @@ This reference documents the practical config shape used by:
 - `doview-board-engine.js`;
 - `doview-board-builder.js`;
 - generated standalone DoView Board HTML files;
-- the V1.3.6 examples.
+- the V1.3.7 examples.
 
-The config format is not the same thing as the DoView-compatible conceptual standard. A system can be DoView-compatible while using a different database, API, storage model, rendering layer, or programming language. This document is for developers who want to work with the V1.3.6 JavaScript reference implementation or generate configs that it can load.
+The config format is not the same thing as the DoView-compatible conceptual standard. A system can be DoView-compatible while using a different database, API, storage model, rendering layer, or programming language. This document is for developers who want to work with the V1.3.7 JavaScript reference implementation or generate configs that it can load.
 
 ## 2. Config-first build model
 
@@ -49,7 +49,7 @@ Basic builder command:
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config doview-board-config.json \
-  --out example-board_doview-board_v1.3.6_2026-06-19.html
+  --out example-board_doview-board_v1.3.7_2026-06-26.html
 ```
 
 Generated standalone boards are active HTML/JavaScript files. Treat them like executable web content, not passive documents.
@@ -581,7 +581,7 @@ Common fields:
 | `jumpToPage` | Optional page ID for a jump/drill navigation link. |
 | `uid` | Stable unique ID. Preserve if present. |
 
-For a single box, include each Measure ID or Evaluation Question ID at most once. The V1.3.6 reference engine de-duplicates repeated box-level Measure/Evaluation Question IDs when loading or saving a board, without changing the saved-state field names or Measure/Evaluation Question definitions.
+For a single box, include each Measure ID or Evaluation Question ID at most once. The V1.3.7 reference engine de-duplicates repeated box-level Measure/Evaluation Question IDs when loading or saving a board, without changing the saved-state field names or Measure/Evaluation Question definitions.
 
 The box-level `measures` and `evalQuestions` arrays are valid runtime associations. List views, detail panes, and Page View under-box displays must recognize those arrays for This-Then Boxes, How Boxes, and Final Outcome boxes. A generated config may use nested `savedState.B` without also duplicating the page list into `savedState.SP`.
 
@@ -757,7 +757,7 @@ Fields:
 | `uid` | Stable unique ID. Preserve if present. |
 | `linkKind` | Optional. `"lateral"` explicitly marks a Cross-Link. The internal value remains `lateral` for backward-compatible reference-engine config support. |
 
-How links do not support link-level Measures or Evaluation Questions in V1.3.6. Do not add `measures` or `evalQuestions` to How links expecting the reference engine to use them.
+How links do not support link-level Measures or Evaluation Questions in V1.3.7. Do not add `measures` or `evalQuestions` to How links expecting the reference engine to use them.
 
 ### 10.4 How link classification
 
@@ -1058,7 +1058,7 @@ Use this for short text such as `Draft`, `Illustrative only`, or `Internal worki
 
 Generated standalone boards must include explicit view settings.
 
-Standard V1.3.6 setup settings:
+Standard V1.3.7 setup settings:
 
 ```json
 {
@@ -1175,7 +1175,7 @@ url or href
 
 Do not invent sources. Where public evidence is used, include sources at board level and place the relevant source close to the specific claim where useful, such as in box Display Text, link Display Text, Page info, Board info, or Documentation content.
 
-The V1.3.6 builder scans visible generated board content for `http://` and `https://` URLs, deduplicates URL-bearing source entries, and safely adds missing content/evidence registry entries using the URL as the title when no better title is available. It excludes fixed package-controlled help, training, repository, trademark, and support URLs from auto-addition. It does not invent URLs, and it preserves explicitly titled source entries so genuine board-content sources are not removed.
+The V1.3.7 builder scans visible generated board content for `http://` and `https://` URLs, deduplicates URL-bearing source entries, and safely adds missing content/evidence registry entries using the URL as the title when no better title is available. It excludes fixed package-controlled help, training, repository, trademark, and support URLs from auto-addition. It does not invent URLs, and it preserves explicitly titled source entries so genuine board-content sources are not removed.
 
 ## 19. File assembly rules
 
@@ -1224,7 +1224,7 @@ Recommended output filename pattern:
 Example:
 
 ```text
-example-board_doview-board_v1.3.6_2026-06-19.html
+example-board_doview-board_v1.3.7_2026-06-26.html
 ```
 
 ## 20. Minimal generated config example
@@ -1423,7 +1423,7 @@ When generating or transforming configs:
 - keep navigation jumps distinct from structural links;
 - keep This–Then links distinct from How links;
 - keep generated This–Then Pages domain-shaped rather than template-shaped, following the page-shape, terminal-outcome, causal-connectivity, and many-to-many link rules in the specification;
-- do not add unsupported schema and assume the V1.3.6 reference engine will use it.
+- do not add unsupported schema and assume the V1.3.7 reference engine will use it.
 
 ## 22. Validation checklist
 

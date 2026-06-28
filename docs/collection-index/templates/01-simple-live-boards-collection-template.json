@@ -1,10 +1,12 @@
 {
-  "version": "v1.3.6",
-  "title": "{{COLLECTION_TITLE}}",
-  "subtitle": "{{COLLECTION_SUBTITLE}}",
-  "currentTitle": "{{CURRENT_COLLECTION_NAME}}",
+  "version": "v1.3.7",
+  "title": "DoView Board Collection",
+  "subtitle": "A collection of DoView Boards.",
+  "description": "About this collection: [Add a short description of this DoView Board collection.]",
+  "maintainer": "Collection maintained by: [your name / organization]",
+  "currentTitle": "DoView Board Collection",
   "status": "Illustrative only - Not Endorsed",
-  "sectionTitle": "Agency Boards",
+  "sectionTitle": "DoView Boards",
   "featured": null,
   "boards": [
     {

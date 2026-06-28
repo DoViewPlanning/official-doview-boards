@@ -1,10 +1,10 @@
 # DoView Board Minimum Specification
 
-**DoView Boards version:** V1.3.6  
-**Release date:** 2026-06-19  
-**Document status:** Minimum compatibility specification for the V1.3.6 DoView Boards prompt package release
+**DoView Boards version:** V1.3.7  
+**Release date:** 2026-06-26  
+**Document status:** Minimum compatibility specification for the V1.3.7 DoView Boards prompt package release
 
-This document defines the minimum structure and behaviour expected of a DoView-compatible board, app, platform, system, or generated standalone board for the V1.3.6 release.
+This document defines the minimum structure and behaviour expected of a DoView-compatible board, app, platform, system, or generated standalone board for the V1.3.7 release.
 
 The reference JavaScript engine in this repository is the canonical reference implementation for this release. This specification defines the DoView-compatible standard that the reference engine demonstrates. Developers should not have to reverse-engineer the standard from the engine alone. The companion file [`this-then-page-rules.md`](this-then-page-rules.md) expands the This–Then Page modelling rules that are central to DoView-compatible board quality.
 
@@ -57,7 +57,7 @@ A board, app, platform, tool, or system is DoView-compatible when it preserves t
 
 ### Reference implementation
 
-The reference implementation is the V1.3.6 JavaScript engine released with this repository as `doview-board-engine.js`, together with the builder and prompt package. It demonstrates one working implementation of this specification.
+The reference implementation is the V1.3.7 JavaScript engine released with this repository as `doview-board-engine.js`, together with the builder and prompt package. It demonstrates one working implementation of this specification.
 
 ## 3. Compatibility levels
 
@@ -69,7 +69,7 @@ A system is conceptually DoView-compatible if it follows the DoView Board struct
 
 ### 3.2 Reference-engine compatibility
 
-A board is reference-engine compatible if it can be loaded by the V1.3.6 reference engine using the config and saved-state structure expected by that engine.
+A board is reference-engine compatible if it can be loaded by the V1.3.7 reference engine using the config and saved-state structure expected by that engine.
 
 Reference-engine compatibility is useful for examples, generated standalone boards, tests, and developers who want to embed or adapt the reference implementation.
 
@@ -571,7 +571,7 @@ Tags are not:
 - security;
 - protection.
 
-In the V1.3.6 reference implementation, tags may apply to boxes, structural links, Measures, and Evaluation Questions. They are not implemented for pages, page tabs, Sources, Board info, Page info, Documentation Page clones, copied/imported content as separate surfaces, or unsupported UI surfaces.
+In the V1.3.7 reference implementation, tags may apply to boxes, structural links, Measures, and Evaluation Questions. They are not implemented for pages, page tabs, Sources, Board info, Page info, Documentation Page clones, copied/imported content as separate surfaces, or unsupported UI surfaces.
 
 ### 11.7 Jump/drill links
 
@@ -644,7 +644,7 @@ Vertical Links are hierarchical implementation/alignment links.
 
 An upward Vertical Link points from a How Box to the outcome, higher-level How Box, or adjacent higher implementation level that the source contributes to or aligns with. A downward Vertical Link points from a How Box to a lower-level How Box that helps implement, deliver, break down, or operationalize the source.
 
-In the V1.3.6 reference model:
+In the V1.3.7 reference model:
 
 - a Level 1 How Box may link upward to This–Then Boxes;
 - a Level 1 How Box may link downward to Level 2 How Boxes;
@@ -692,7 +692,7 @@ The reference engine supports Notes 1, Notes 2, and Notes 3 on structural links.
 
 ### 12.8 Measures and Evaluation Questions on links
 
-The V1.3.6 reference engine supports associating Measures and Evaluation Questions with This–Then links. It does not support this feature for How links in this release.
+The V1.3.7 reference engine supports associating Measures and Evaluation Questions with This–Then links. It does not support this feature for How links in this release.
 
 A compatible implementation should not silently discard Measure or Evaluation Question associations attached to This–Then links.
 
@@ -843,7 +843,7 @@ The Final Outcomes area should be able to show or hide, at minimum where impleme
 
 ### 16.5 Simple default view
 
-The V1.3.6 standard generated-board setup is a simple Page View with only the setup choice 7d link-hover item on (`thisThen.showLinkInfoOnHover = true`) and other optional display items off unless the user asks otherwise.
+The V1.3.7 standard generated-board setup is a simple Page View with only the setup choice 7d link-hover item on (`thisThen.showLinkInfoOnHover = true`) and other optional display items off unless the user asks otherwise.
 
 Users should be able to turn on additional details through Page View controls. A simple default view must not mean the underlying data has been removed.
 
@@ -940,7 +940,7 @@ A technically valid but shallow, generic, under-linked, or template-like board m
 
 ## 20. Reference-engine config shape
 
-This section summarizes the V1.3.6 reference-engine config shape. The separate `docs/config-reference.md` should provide the more detailed technical reference.
+This section summarizes the V1.3.7 reference-engine config shape. The separate `docs/config-reference.md` should provide the more detailed technical reference.
 
 A reference-engine-compatible config contains:
 
@@ -1147,7 +1147,7 @@ Accurate descriptive wording may include:
 - DoView-compatible;
 - supports DoView Boards;
 - based on DoView Planning;
-- implements the DoView Boards minimum standard;
+- implements the DoView Boards minimum specification;
 - creates DoView-compatible boards;
 - uses DoView Planning;
 - uses DoView-based models.
@@ -1207,7 +1207,7 @@ Extensions should not break the core semantics of:
 
 ## 27. Non-compatible or misleading uses
 
-A board, app, platform, or system should not be described as implementing the DoView Boards minimum standard if it:
+A board, app, platform, or system should not be described as implementing the DoView Boards minimum specification if it:
 
 - lacks This–Then causal structure;
 - treats DoView Boards as ordinary unstructured drawing canvases;
@@ -1290,6 +1290,6 @@ This specification should be read with:
 
 ## 30. Versioning
 
-This is the V1.3.6 minimum specification for the V1.3.6 DoView Boards prompt package release.
+This is the V1.3.7 minimum specification for the V1.3.7 DoView Boards prompt package release.
 
 Future releases may refine the specification, config format, reference engine, examples, validation rules, checksum verification, security guidance, or badge process. Developers should state which DoView Boards specification version their implementation targets.

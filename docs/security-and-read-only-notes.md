@@ -1,10 +1,10 @@
 # Security and Read-Only Notes
 
-**DoView Boards version:** V1.3.6  
-**Release date:** 2026-06-19  
+**DoView Boards version:** V1.3.7  
+**Release date:** 2026-06-26  
 **Document status:** Developer and deployment guidance for this release
 
-This document explains the main security, deployment, and read-only limitations for the DoView Boards V1.3.6 release. It is intended for people using, sharing, hosting, adapting, or integrating DoView Boards.
+This document explains the main security, deployment, and read-only limitations for the DoView Boards V1.3.7 release. It is intended for people using, sharing, hosting, adapting, or integrating DoView Boards.
 
 ## 1. Main security principle
 
@@ -18,7 +18,7 @@ The Save / Download Board workflow is user-triggered. In browsers that support a
 
 ## 2. Intended-use level of the prototype
 
-The V1.3.6 DoView Board prototype is intended to make it easy to:
+The V1.3.7 DoView Board prototype is intended to make it easy to:
 
 - experiment with DoView Boards;
 - learn how they work;
@@ -151,10 +151,10 @@ For now, users should download DoView Board files only from the official reposit
 
 ## 11. Trademark and official-status note
 
-Security controls, read-only mode, file checks, or compatibility with the DoView Boards minimum standard do not by themselves make a board, app, platform, product, or system official, endorsed, certified, approved, quality-assured, or affiliated with DoView®.
+Security controls, read-only mode, file checks, or compatibility with the DoView Boards minimum specification do not by themselves make a board, app, platform, product, or system official, endorsed, certified, approved, quality-assured, or affiliated with DoView®.
 
 Use of the DoView® Marks, Official DoView® Badge, logos, certification marks, approval marks, compliance marks, or other official-status wording is governed by the DoView® trademark and attribution guidance. See `docs/trademark-and-attribution.md`.
 
 ## 12. No warranty
 
-The DoView Boards V1.3.6 release is provided under the applicable licence terms. Review the Apache-2.0 licence and any accompanying notices. You are responsible for deciding whether the software, board files, AI-generated content, hosting, integrations, and deployment arrangements are appropriate for your use case.
+The DoView Boards V1.3.7 release is provided under the applicable licence terms. Review the Apache-2.0 licence and any accompanying notices. You are responsible for deciding whether the software, board files, AI-generated content, hosting, integrations, and deployment arrangements are appropriate for your use case.

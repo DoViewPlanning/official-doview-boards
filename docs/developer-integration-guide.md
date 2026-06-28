@@ -1,10 +1,10 @@
 # DoView Board Developer Integration Guide
 
-**DoView Boards version:** V1.3.6  
-**Release date:** 2026-06-19  
-**Document status:** Developer integration guide for the V1.3.6 DoView Boards prompt package release
+**DoView Boards version:** V1.3.7  
+**Release date:** 2026-06-26  
+**Document status:** Developer integration guide for the V1.3.7 DoView Boards prompt package release
 
-This guide explains how developers can use, inspect, embed, adapt, or build on the V1.3.6 DoView Board reference package.
+This guide explains how developers can use, inspect, embed, adapt, or build on the V1.3.7 DoView Board reference package.
 
 It should be read with:
 
@@ -17,7 +17,7 @@ It should be read with:
 
 ## 1. What is in the reference package
 
-The V1.3.6 release includes:
+The V1.3.7 release includes:
 
 - [`000-START-HERE-RUN-FIRST.md`](../000-START-HERE-RUN-FIRST.md) — the source of truth for the opening interaction, standard 10 board setup choices, setup-choice changes, and single-board/multiple-board intake;
 - [`doview-board-building-prompt.md`](../doview-board-building-prompt.md) — the prompt package for creating DoView Board configs and standalone boards with AI systems;
@@ -72,7 +72,7 @@ A developer can also implement the DoView-compatible standard without using the 
 
 ## 4. Reference engine status
 
-[`doview-board-engine.js`](../doview-board-engine.js) is the canonical reference implementation for V1.3.6.
+[`doview-board-engine.js`](../doview-board-engine.js) is the canonical reference implementation for V1.3.7.
 
 It is intended to:
 
@@ -202,7 +202,7 @@ Then run:
 node doview-board-builder.js \
   --engine doview-board-engine.js \
   --config doview-board-config.json \
-  --out example-doview-board_doview-board_v1.3.6_2026-06-19.html
+  --out example-doview-board_doview-board_v1.3.7_2026-06-26.html
 ```
 
 No npm install is required. The builder uses plain Node.js built-in modules.
@@ -257,7 +257,7 @@ The builder expects generated board filenames to follow this pattern:
 Example:
 
 ```text
-example-doview-board_doview-board_v1.3.6_2026-06-19.html
+example-doview-board_doview-board_v1.3.7_2026-06-26.html
 ```
 
 The builder may warn if the output filename does not match this pattern.
@@ -300,7 +300,7 @@ For final distributed boards, prefer the builder path so the output is assembled
 
 ## 10. Important direct-embedding note
 
-The V1.3.6 engine takes control of the document body when initialized. It injects the board interface into `document.body`.
+The V1.3.7 engine takes control of the document body when initialized. It injects the board interface into `document.body`.
 
 For that reason, if you want to place a DoView Board inside a larger app, the safest simple pattern is usually to embed a standalone generated board in a sandboxed iframe, rather than initializing the engine directly inside a page that also contains other application UI.
 
@@ -308,7 +308,7 @@ Example:
 
 ```html
 <iframe
-  src="example-doview-board_doview-board_v1.3.6_2026-06-19.html"
+  src="example-doview-board_doview-board_v1.3.7_2026-06-26.html"
   sandbox="allow-scripts allow-downloads"
   style="width: 100%; height: 800px; border: 1px solid #ddd;">
 </iframe>
@@ -360,7 +360,7 @@ Use [`config-reference.md`](config-reference.md) for the detailed field-by-field
 
 ## 12. Public surfaces developers may rely on
 
-For V1.3.6 reference-engine work, developers may rely on these public surfaces:
+For V1.3.7 reference-engine work, developers may rely on these public surfaces:
 
 - the release files named in this repository;
 - the `DoView.init(config)` entry point;
@@ -469,7 +469,7 @@ They may be associated with:
 
 Do not treat Measures and Evaluation Questions merely as display text. They should keep stable IDs and associations so that they can be reused, shown, hidden, searched, exported, and reviewed.
 
-For a single box, do not attach the same Measure ID or Evaluation Question ID more than once. The V1.3.6 reference engine normalizes duplicate box-level Measure/Evaluation Question references on load/save while preserving the existing saved-state fields.
+For a single box, do not attach the same Measure ID or Evaluation Question ID more than once. The V1.3.7 reference engine normalizes duplicate box-level Measure/Evaluation Question references on load/save while preserving the existing saved-state fields.
 
 Box-level `savedState.B[boxId].measures` and `savedState.B[boxId].evalQuestions` arrays are valid associations and are the runtime source of truth for box association display. The runtime recognizes them for This-Then Boxes, How Boxes, and Final Outcome boxes even when a generated config does not include the optional redundant `savedState.SP` copy.
 
@@ -548,7 +548,7 @@ You may accurately describe software as:
 - DoView-compatible;
 - supporting DoView Boards;
 - based on DoView Planning;
-- implementing the DoView Boards minimum standard;
+- implementing the DoView Boards minimum specification;
 - creating DoView-compatible boards.
 
 Do not imply that your product, service, board, app, platform, system, training, consulting, integration, or repository is official, endorsed, certified, approved, quality-assured, affiliated with DoView®, or entitled to use the Official DoView® Badge unless written permission has been given.
@@ -581,14 +581,14 @@ Trademark rights are separate. Apache-2.0 does not grant permission to claim off
 
 ## 26. Versioning and compatibility
 
-This guide targets DoView Boards V1.3.6.
+This guide targets DoView Boards V1.3.7.
 
 When building on the reference package, state which DoView Boards version and specification version your implementation targets.
 
 Suggested wording:
 
 ```text
-This tool targets the DoView Boards V1.3.6 minimum specification.
+This tool targets the DoView Boards V1.3.7 minimum specification.
 ```
 
 If you adapt the reference engine, keep your own release history and clearly identify changes that may affect config compatibility, security, Board Chat behaviour, saved state, or generated-board output.

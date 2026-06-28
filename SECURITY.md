@@ -1,16 +1,16 @@
 # Security Policy
 
-**DoView Boards version:** V1.3.6  
-**Release date:** 2026-06-19  
+**DoView Boards version:** V1.3.7  
+**Release date:** 2026-06-26  
 **Document status:** Security policy for this release
 
 ## Supported versions
 
-This repository currently supports the V1.3.6 DoView Boards prompt package release:
+This repository currently supports the V1.3.7 DoView Boards prompt package release:
 
 | Version | Supported |
 |---|---|
-| V1.3.6 | Yes |
+| V1.3.7 | Yes |
 
 Earlier internal development builds are not supported public releases.
 
