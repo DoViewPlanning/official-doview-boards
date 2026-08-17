@@ -1,188 +1,181 @@
+# V1.4.3 execution preflight
+
+**This package contains the builder, engine and validation tools required to create the board. Inspect or extract it, author the complete pure JSON configuration, run the included builder, correct ordinary validation errors and return the required files. Do not substitute a prose-only board or ask the user to run the builder.**
+
+Before reporting a technical stop, inspect the package, check Node.js with `node --version`, run the relevant command and state the concrete failure. Strict validation establishes technical consistency only. It does not establish factual, causal or organisational correctness.
+
 # Start Here: DoView Board Master Prompt
-Version 1.3.7
+Version V1.4.3
 
-Begin by showing the appropriate opening message and the standard 10 board setup choices below.
+## User choices override defaults
 
-The opening response should contain only that opening message and those questions.
+Explicit user instructions about board structure, How-page arrangements, mapping rules, sources, display settings or deliverables override package defaults. Apply defaults only where the user is silent.
 
-Do not include commentary about uploaded files, package structure, implementation details, or how these instructions work, unless the user explicitly asks about those things.
+Once Step 1 has been accepted, Step 2 preserves it. A requested structural change returns deliberately to Step 1. Step 2 must never silently change the accepted Step 1 baseline.
 
-A generic launch command such as "build a doview board", "start", "run this", "make a board", "build the board", or similar is not an organization or initiative name.
+## Two-step Board Build Mode
 
-If no specific organization, initiative or organized work has been supplied, do not invent one and do not build a meta-board about DoView Boards.
+A clear request to build a board enters Board Build Mode:
 
-Instead, show the appropriate opening message and the standard 10 board setup choices, then wait for the user to provide the organization, initiative, organized work, or setup-choice changes.
+1. **Step 1 — Structure:** build the complete bounded proof-of-concept board, including ordinary This–Then links and selected How Pages and How Boxes. Do not create How links. Leave link Display Text, Notes 1–3 and traffic lights blank.
+2. **Step 2 — How mapping:** preserve Step 1 exactly and add restrained How links. Leave all link annotations and traffic lights blank.
 
-## Opening message selection
+Each Step produces a usable board. Step 2 completes the V1.4.3 workflow.
 
-Use the ChatGPT or Claude opening message in ordinary chat environments where the AI is mainly producing a structured draft or text response.
+If no subject has been supplied, reproduce `OPENING-MENU.md` verbatim and nothing else. If a subject is supplied, apply the defaults plus any user changes and complete Step 1 immediately. Do not add a routine confirmation step.
 
-Use the Codex or Claude Code opening message in file-building environments where the AI can create or edit board files.
+## Self-review before every delivery
 
-If the environment is unclear, use the ChatGPT or Claude opening message unless file-generation tools are actually available and intended for the task.
+Before saving and presenting each Step, review the actual final board and revise the draft.
 
-## Opening message for ChatGPT or Claude
+- Correct clear technical, structural, causal, mapping, wording and packaging problems that can be fixed confidently within the current Step.
+- In Step 1, reconsider causal direction, missing obvious intermediaries, duplication, unclear labels, excessive density and important omissions.
+- In Step 2, prune theme-only, generic, quota-driven, duplicated or implausibly broad mappings.
+- Do not silently make major strategic or organisational choices where several reasonable alternatives remain.
+- Do not produce a mandatory `## Things for the User to check` section.
+- Do not claim that no debatable relationships remain. Use: `No further high-confidence corrections were identified during self-review. Remaining strategic and causal judgements require careful human review before operational use.`
 
-```text
-I will produce a draft DoView Board.
+Record the self-review in `generationChecks.generatorSelfReview` and in the relevant audit file.
 
-Standard answers to the board setup choices are given below.
+## Files created after every Step
 
-This standard setup is for an organization or initiative, broadly understood as any organized work where outcomes are linked to activities, services, projects, workstreams, teams, partners, roles or competencies. If you want something different, change the relevant setup choices below.
+Create these files with one common base stem:
 
-If you want me to produce a standard board, just give me the name of the organization or initiative and press return.
+- standalone `.html` board;
+- canonical `.json` board;
+- `-prompt-used.md`;
+- the relevant `-structure-audit.md` or `-mapping-audit.md`.
 
-To change any of the answers, type the setup choice number and, if needed, the lettered subpart, followed by your preferred answer, and press return. For example: 7d: turn this off.
-```
+The user-facing response must link only to:
 
-## Opening message for Codex or Claude Code
+1. the standalone HTML board;
+2. one ZIP containing the exact standalone HTML plus the canonical JSON, prompt-used record and relevant audit.
 
-```text
-I will produce one or more draft DoView Boards.
+Do not separately link the JSON, prompt-used record or audit. The HTML bytes inside the ZIP must match the separately supplied HTML exactly. Use `tools/create-delivery-zip.js` and `tools/validate-delivery-zip.js` to enforce the required contents.
 
-If you do not know how to use this AI, ask it to tell you how to.
+The `prompt-used.md` file must record:
 
-Standard answers to the board setup choices are given below.
+- board title and workflow Step;
+- generation date, time and timezone;
+- AI model when reliably known;
+- effort level when explicitly exposed, otherwise `Not exposed`;
+- the user-visible prompt that initiated the Step;
+- material continuing user instructions from the conversation;
+- names of uploaded files actually used;
+- files present but explicitly excluded, when relevant;
+- package, engine, builder, validation and schema versions.
 
-This standard setup is for an organization or initiative, broadly understood as any organized work where outcomes are linked to activities, services, projects, workstreams, teams, partners, roles or competencies. If you want something different, change the relevant setup choices below.
+Do not include hidden system, developer or chain-of-thought content.
 
-If you want me to produce a standard board, just give me the name or names of the organizations or initiatives and press return.
+## Required delivery filenames
 
-To change any of the answers, type the setup choice number and, if needed, the lettered subpart, followed by your preferred answer, and press return. For example: 7d: turn this off.
-```
+Use lowercase filesystem-safe components, hyphens rather than spaces, no colons, and **Step**, never Stage.
 
-## Standard board setup choices and answers
+### Step 1 HTML
 
-1. **Board subject and name**
-   a. **What is the DoView Board about?**
-   [Name of the organization or initiative. This can include a collaboration, partnership, programme, project, service system, reform, strategy, network or other organized work.]
+`[abbreviated-board-name]-1-4-3-step-1-base-doview-board-[AI-model-if-known]-[effort-if-exposed]-[YYYY-MM-DD-HHmm].html`
 
-   b. **What do you want the DoView Board called?**
-   [Name] I will base it on the name you give.
+### Step 2 HTML
 
-2. **Board scale and level of detail**
-   a. **Do you want the This-Then pages to be simple or detailed?**
-   Detailed content structure. This means more subject-specific This-Then boxes, richer causal logic, useful page coverage, and relevant measures and evaluation questions where requested. It does not mean opening the board in Detailed Page View or turning on traffic lights, priorities, Display Text, or under-box details unless separately requested.
+`[abbreviated-board-name]-1-4-3-step-2-prototype-doview-board-with-how-links-[AI-model-if-known]-[effort-if-exposed]-[YYYY-MM-DD-HHmm].html`
 
-   b. **How many This-Then pages do you want?**
-   Normal-sized board. Do not treat this as a fixed number of This-Then pages. Recommend the number of This-Then pages based on the actual scope and complexity of the organization or initiative. Small initiatives may need only a few pages; large agencies, companies, nonprofits, schools, clinics, reform programmes or broad initiatives may need more.
+The bracketed AI-model and effort components are conditional:
 
-3. **Information sources**
-   a. **Should the AI use internet research, information you supply, general sector knowledge, or a mixture?**
-   Use public internet information where available, plus general sector knowledge. If internet access or source retrieval is not available in the AI environment, use general sector knowledge, tell the user this has been done, and record the limitation in the assumptions and cautions documentation.
+- include the AI model only when reliably known;
+- include the effort level only when explicitly exposed;
+- omit an unavailable component completely;
+- never write `model-unknown`, `effort-not-exposed` or a guessed effort level in the filename;
+- do not put the timezone in any filename.
 
-4. **This-Then links and evidence**
-   a. **Do you want links between This-Then boxes?**
-   Yes.
+Use a filesystem-safe model form such as `gpt-5-6-thinking`. Use an exposed effort form such as `high-effort`.
 
-   b. **Do you want information put into the links between This-Then boxes?**
-   Yes. Include concise rationale and evidence notes where useful with URLs where appropriate.
+The ZIP filename must use the exact same stem as its HTML file followed by:
 
-5. **How pages**
-   a. **How many hierarchical Vertical Links How pages do you want?**
-   Two. Level 1: activities, services, projects or workstreams. Level 2: teams, functions, units etc.
+`-plus-additional-files-ai-readible-json-and-prompt-info.zip`
 
-   b. **Do you want any Cross-Link How pages?**
-   Yes. One Cross-Link How page: Competencies.
+Examples:
 
-6. **Links involving How pages**
-   a. **Do you want links between the How pages and the This-Then pages?**
-   Yes. Put in all relevant links, including:
-   vertical links between Level 1 How boxes and This-Then boxes;
-   vertical links between boxes on different How page levels;
-   cross-links between non-Level 1 How boxes and This-Then boxes;
-   cross-links between Cross-Link How boxes and This-Then boxes;
-   cross-links between Cross-Link How boxes and other How boxes.
+- `andy-burnham-gov-1-4-3-step-1-base-doview-board-gpt-5-6-thinking-high-effort-2026-08-14-1118.html`
+- `andy-burnham-gov-1-4-3-step-1-base-doview-board-gpt-5-6-thinking-high-effort-2026-08-14-1118-plus-additional-files-ai-readible-json-and-prompt-info.zip`
+- `andy-burnham-gov-1-4-3-step-2-prototype-doview-board-with-how-links-gpt-5-6-thinking-2026-08-14-1118.html`
+- `andy-burnham-gov-1-4-3-step-2-prototype-doview-board-with-how-links-gpt-5-6-thinking-2026-08-14-1118-plus-additional-files-ai-readible-json-and-prompt-info.zip`
+- when model and effort are unavailable: `andy-burnham-gov-1-4-3-step-1-base-doview-board-2026-08-14-1118.html`
 
-7. **Extra display features**
-   a. **Do you want any extra Display Text in boxes?**
-   No.
+## Required user-facing download links
 
-   b. **Do you want traffic lights?**
-   No. Do not assign or display traffic lights by default. Leave traffic-light settings unset or off unless the user specifically asks for them. The board must still include the traffic-light feature if supported by the engine.
+Use exactly these two labels once each:
 
-   c. **Do you want priorities?**
-   No. Do not assign or display priorities by default. Leave priority settings unset or off unless the user specifically asks for them. The board must still include the priority feature if supported by the engine.
+`[Download the DoView Board HTML file](...)`
 
-   d. **What Page View items do you want selected when the board opens?**
-   For This-Then pages only, select: Show link Display Text/Traffic Lights on mouse over of black link arrows.
+`[Download the DoView Board HTML file plus additional files](...)`
 
-8. **Measurement and evaluation content**
-   a. **Do you want measures, indicators or KPIs?**
-   Yes. Include a small number of measures.
+Do not add separate links to the JSON, prompt record or audit. Do not repeat an introductory or download line.
 
-   b. **Do you want evaluation questions?**
-   Yes. Include a small number of evaluation questions.
+## Exact human-review notice
 
-9. **Documentation pages**
-   a. **Do you want Documentation pages?**
-   Yes. Include a general documentation, source notes, and cautions Documentation page. Also include an illustrative monitoring and evaluation plan with relevant clones on it.
+Use this text exactly in the completion response after the two download links and before the Step-specific completion paragraph:
 
-10. **Board note and language style**
-    a. **What note should appear on the board?**
-    Proof of Concept - Not Endorsed.
+`The draft was reviewed and revised before these files were produced. This was a self-review, not an independent audit. Before putting the board into operational use for an organisation or initiative, it needs to be carefully checked by humans to make sure that it truly reflects the organisation, policy or other type of initiative being modelled.`
 
-    b. **What spelling style, language style or local terminology should be used?**
-    Use the spelling and terminology normally used in the relevant country, sector or organization unless the user says otherwise.
+Put the complete Step instruction in a separate fully bold paragraph near the end. Prefer no authored prose after it, but citation definitions or platform-generated material may follow and must not cause validation failure.
 
-V1.2 Customized Set 2
+## Step 1 requirements
 
-## Internal operating instructions
+- Use `generationChecks.workflowStep: "step-1-structure"`.
+- Build a bounded complete board, normally around 60–100 ordinary This–Then boxes for a substantial subject, but follow the subject rather than a quota.
+- Create selected How Pages and How Boxes but no How links.
+- Leave every structural-link `mainText`, `notes1`, `notes2`, `notes3` and `light` blank.
+- Include exactly three Documentation Pages under the displayed default: combined purpose/scope/assumptions/sources/cautions; illustrative monitoring and evaluation plan; package-controlled disclaimer.
+- Complete the self-review and correct clear problems before saving.
+- Produce HTML, canonical JSON, prompt-used, structure audit and the additional-files ZIP.
+- Populate `generationChecks.generatorSelfReview.chatHandoff.reportedCounts` from the actual final board. The builder rejects incorrect counts.
 
-Use these instructions after showing the opening message and questions.
+Use this exact fully bold paragraph after the human-review paragraph:
 
-- If the user gives only a generic launch command such as "build a doview board", "start", "run this", "make a board", or "build the board", do not treat that phrase as the subject of the board, do not invent a default topic, and do not build a meta-board about DoView Boards. Show the appropriate opening message and standard 10 board setup choices, then wait for the user to provide a specific organization, initiative, organized work, or setup-choice changes.
-- If the user gives only one specific organization, initiative, collaboration, partnership, programme, project, service system, reform, strategy, network or other organized work name, use the standard answers above and produce one board.
-- If the user gives setup-choice changes, including numbered or lettered subpart changes, replace only those answers. Keep all other standard answers unchanged.
-- If the user gives a specific subject plus setup-choice changes, use the supplied subject and the changed setup choices.
-- Ask follow-up questions only when essential information is missing and cannot be reasonably inferred.
-- In normal chat environments, produce one structured-text draft unless file-generation tools are actually available.
-- In Codex, Claude Code, or similar file-building environments, produce actual board files where supported.
-- If internet or source access is unavailable, use general sector knowledge, tell the user this has been done, and record the limitation in the board's assumptions and cautions documentation.
-- Do not claim files were created, internet research was used, validation was run, or runtime checks passed unless those things actually happened.
-- End builds with a concise statement of what was produced, whether internet research was used, whether files were created, whether validation was run, and important limitations.
+`**Step 1 is complete. Type 'Do step 2' to add links between the How Boxes, This–Then Boxes and other How Boxes.**`
 
-## Setup-choice changes
+## Step 2 requirements
 
-Treat a user response such as `2a simple`, `7d off`, `8b no evaluation questions`, or `5a three How pages` as a change to the corresponding setup choice or lettered subpart only.
+- Begin from the exact accepted Step 1 canonical JSON and preserve its `structureDigest`.
+- Use `generationChecks.workflowStep: "step-2-how-mapping"`.
+- Add only permitted How links and mapping metadata.
+- Leave all This–Then and How-link annotation fields and traffic lights blank.
+- Under the default arrangement:
+  - Level 1 projects/workstreams → ordinary This–Then boxes;
+  - Level 2 organisations/functions → Level 1 projects/workstreams;
+  - competencies → Level 1 projects/workstreams only.
+- A user-selected arrangement may override this default and must be recorded in `competencyMappingReview.targetMode: "user-defined"` with the reason and permitted target set.
+- Competency mapping must be selective. Generic usefulness is insufficient. A competency may have zero links. Do not target equal counts or complete representation.
+- Density thresholds are diagnostic review indicators, not numerical targets. Do not add or remove links merely to fall below a threshold; decide each link through the pair-specific admission test.
+- Internally review competencies mapped to more than half the permitted projects, projects receiving nearly all competencies, unusually uniform degree patterns and broad organisational sources. Prune only relationships that fail the admission test.
+- Produce HTML, canonical JSON, prompt-used, mapping audit and the additional-files ZIP.
+- Populate `generationChecks.generatorSelfReview.chatHandoff.reportedCounts` from the actual final board. The builder rejects incorrect counts.
 
-If the user supplies several setup-choice changes, apply each changed answer and leave the rest of the standard answers unchanged.
+Use this exact fully bold paragraph after the human-review paragraph:
 
-If a setup-choice change conflicts with another user instruction, use the user's latest and most specific instruction.
+`**Step 2 is complete. Download the finished proof-of-concept board using the links above.**`
 
-## Single-board and multiple-board intake
+## Fixed opening menu when no subject is supplied
 
-If the user gives one specific organization, initiative, collaboration, partnership, programme, project, service system, reform, strategy, network or other organized work name, produce one board.
+When the user has not supplied a board subject, read `OPENING-MENU.md` and reproduce its entire contents **verbatim** as the response.
 
-If the user gives several specific organization, initiative, collaboration, partnership, programme, project, service system, reform, strategy, network, or other organized work names in Codex, Claude Code, or another file-building environment, treat the request as a request for multiple boards unless the user clearly says they are alternatives or examples.
+Do not add text before or after it. Do not shorten, summarise, paraphrase, combine or replace it with a single question. All ten numbered choices and both workflow Steps must appear. Then wait for the user to supply the subject or override one or more numbered defaults.
 
-For multiple boards, first prepare a structure plan across the set before building individual boards. The structure plan should identify:
+When a subject has already been supplied, do not show the menu. Apply the defaults plus any explicit user changes and complete Step 1 immediately.
 
-- the boards to be produced;
-- the likely scope of each board;
-- shared assumptions that apply across the set;
-- topic-specific differences that must be reflected in each board;
-- any dependencies, overlaps, or sequencing across the boards.
+## Governing files
 
-## Multiple-board anti-stereotyping rules
+- `OPENING-MENU.md` — fixed ten-choice startup menu; reproduce verbatim when no subject is supplied.
+- `doview-board-building-prompt.md` — board methodology, JSON fields, execution and delivery requirements.
+- `additional-doview-prompt.md` — mandatory Step 2 mapping restraint.
+- `doview-board-builder.js` — strict transition and config validator and JSON/HTML builder.
+- `doview-board-engine.js` — runtime reference.
+- `tools/how-link-metrics.js`, `tools/graph-validation.js`, `tools/shape-metrics.js` — deterministic diagnostics.
+- `tools/create-prompt-used.js` — helper for the required prompt-used file.
+- `tools/delivery-filenames.js` — validates the final V1.4.3 HTML/ZIP names and shared stem.
+- `tools/create-delivery-zip.js` and `tools/validate-delivery-zip.js` — create and verify the four-file Step ZIP, including byte-identical HTML.
+- `tools/validate-opening-menu.js` — validates the fixed startup menu and optional captured startup responses.
+- `tools/validate-completion-response.js` — validates the two download links, filenames, exact human-review notice and final-line ordering.
+- `tools/release-smoke-test.js` — runs the rc3 positive and negative release checks.
 
-For multiple-board requests, do not produce a set of boards that differ only by names, labels, or superficial wording.
-
-Before finalising a set of boards, check for social stereotyping and structural stereotyping.
-
-Social stereotyping means relying on generic or stereotyped assumptions about a country, sector, population, community, organization type, profession, age group, disability group, ethnicity, gender, or other social category instead of the actual topic and available evidence.
-
-Structural stereotyping means boards that look different on the surface but share the same repeated hidden structure.
-
-For each board in a set, review:
-
-- topic-specific causal logic;
-- outcomes and final outcomes;
-- This-Then page structure;
-- How pages and implementation structure;
-- measures, indicators, and KPIs;
-- evaluation questions;
-- assumptions and cautions;
-- country, sector, organization, initiative, and local terminology.
-
-Revise any board that appears to be a shallow renaming of another board or a generic template applied to a different topic.
+If Step 2 starts in a fresh chat, request the exact Step 1 canonical JSON and this package. Do not reconstruct the board from memory.

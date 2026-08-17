@@ -1,4 +1,14 @@
-V1.3.7 2026-06-26
+# V1.4.3 execution preflight
+
+**The uploaded package contains the builder, engine and validation tools required to complete this task. Use available file and code-execution tools to inspect or extract it, create the board configuration JSON, run the included builder, correct ordinary validation errors and return the required files. Do not claim that a separate DoView application, natural-language generator or external board-building service is required.**
+
+Before reporting a technical stop, actually inspect/extract the package, locate the builder and engine, run the builder or validation command, and correct ordinary configuration errors. A technical stop is allowed only after a real operation fails and must state the exact operation, concrete error and why it prevents completion. Do not offer a prose-only board, a board split across messages, a smaller substitute, instructions for the user to run the builder, or migration to another ChatGPT surface.
+
+# V1.4.3 validation position
+
+Strict validation establishes technical consistency only. It does not establish factual, causal or organisational correctness. Before every delivery, complete a self-review and correct clear problems within the current Step. Do not publish a mandatory issue list. Before operational use, the finished board must be carefully checked by humans to make sure that it truly reflects the organisation, policy or other initiative being modelled.
+
+V1.4.3 2026-08-14
 
 AI DoView Drawing Prompt — Revised (based on Dr Paul Duignan's DoView methodology, doviewplanning.org)
 
@@ -16,76 +26,55 @@ Use only with non-confidential content unless your environment, AI endpoint, hos
 START-FLOW SOURCE OF TRUTH
 ────────────────────────────────────────────────────────
 
-If `000-START-HERE-RUN-FIRST.md` is present, use it as the sole source for the opening interaction, standard 10 board setup choices, interpretation of setup-choice changes, and single-board/multiple-board intake workflow.
+If `000-START-HERE-RUN-FIRST.md` is present, use it as the governing source for the opening interaction. When no subject has been supplied, reproduce `OPENING-MENU.md` verbatim and nothing else. Do not summarise it or replace it with a single question. Use the preflight for interpretation of setup-choice changes and intake workflow.
 
-Do not treat a generic launch command such as "build a doview board", "start", "run this", "make a board", or "build the board" as the topic of the board.
+Treat "build a board", "build a DoView Board", "create a board", "create a DoView Board", and semantically equivalent ordinary requests as Board Build Mode requests regardless of capitalization. Do not treat a generic launch command as the topic of the board.
 
-If setup choice 1a has not been answered with an actual organization, initiative, collaboration, partnership, programme, project, service system, reform, strategy, network or other organized work, return to `000-START-HERE-RUN-FIRST.md` and show the opening message and standard 10 board setup choices.
+If setup choice 1a has not been answered with an actual organization, initiative, collaboration, partnership, programme, project, service system, reform, strategy, network or other organized work, return to `000-START-HERE-RUN-FIRST.md` and reproduce `OPENING-MENU.md` verbatim.
 
 Do not invent a default topic or build a meta-board about DoView Boards.
 
 Do not use any older opening message or older setup-question wording in this file.
 
-After the 10-choice setup has been completed, use the technical board-building rules in this file to generate the DoView Board.
+When a subject is supplied after the choices, apply the displayed defaults plus any changes and begin construction immediately. Do not repeat setup or ask whether to proceed because the response is short. If the initial request already includes the subject, retain it, present the choices compactly, and proceed with the defaults unless the user explicitly asks to pause or change them.
+
+Once Board Build Mode begins, follow the two standard Steps and user-choice precedence defined in `000-START-HERE-RUN-FIRST.md`. Explicit user choices override package defaults. Step 2 preserves the accepted Step 1 baseline.
+
+Execution responsibility in every tool-enabled chat:
+- The AI authors the complete pure JSON config, runs `doview-board-builder.js`, corrects validation failures and delivers matching canonical JSON and standalone HTML.
+- Every Step uses complete top-level `generationChecks` and strict-generated validation. Never use `--compatibility` for a newly AI-generated board.
+- Step 1 uses `workflowStep: "step-1-structure"`, contains no How links and leaves all link annotations and traffic lights blank.
+- Step 2 uses `workflowStep: "step-2-how-mapping"`, starts from exact Step 1 JSON, preserves `structureDigest`, adds How links only and leaves all annotations blank.
+- Every Step creates canonical JSON, standalone HTML, `prompt-used.md` and the relevant audit. The user-facing response links only the HTML and one additional-files ZIP containing the exact same HTML bytes, JSON, prompt record and audit.
+- Every Step supplies `generationChecks.generatorSelfReview`. Clear problems are corrected before delivery; unresolved major judgement calls are left for careful human review rather than shown as a mandatory issue list.
+- Whenever a check names a box, use `Box label (Page label)`; whenever it names a link, use that format for both endpoints.
+- Strict validation establishes technical consistency only. Do not claim semantic certainty.
+
+Bounded completeness under the standard setup:
+- The default detailed board is a bounded strategic model, not an exhaustive inventory.
+- Normally aim for approximately 60–100 ordinary This–Then boxes for a substantial subject, as guidance rather than a quota.
+- Step 1 fixes board complexity. Step 2 cannot add pages, boxes, measures, Evaluation Questions, documentation or new outcomes.
+- Internal planning, web research, iterative config authoring and repeated validation are expected; do not turn them into extra user-facing waves.
 
 ────────────────────────────────────────────────────────
-SETUP — Use the matching engine file for this release
+TWO-STEP BUILD WORKFLOW
 ────────────────────────────────────────────────────────
 
-This prompt requires the matching `doview-board-engine.js` and `doview-board-builder.js` files included with this release package or uploaded by the user. Do not silently substitute files from a different release. If either matching file is missing, ask the user to upload the matching release file before returning final standalone HTML.
+Step 1 — structure:
+- Build and validate the bounded complete board, ordinary This–Then graph, How Pages/Boxes, measures, Evaluation Questions, sources and documentation.
+- Serialize no How links and no link annotations or traffic lights.
+- Create HTML, canonical JSON, prompt-used and structure audit; show only the HTML and additional-files ZIP as downloads.
 
+Step 2 — How mapping:
+- Preserve the exact Step 1 structure.
+- Apply `additional-doview-prompt.md` for directness, materiality, closest-layer selection, target-side review and pruning.
+- Under the default setup, map Level 1→This–Then, Level 2→Level 1 and competencies→Level 1 only.
+- Competencies may have zero links. Generic usefulness and equal-count quotas are insufficient.
+- Calculate competency density against the actually permitted target layer and review broad or suspiciously uniform patterns.
+- Treat density thresholds as diagnostic indicators, not targets to remain just below.
+- Create HTML, canonical JSON, prompt-used and mapping audit; show only the HTML and additional-files ZIP as downloads.
 
-────────────────────────────────────────────────────────
-PROTOTYPE / INTENDED-USE AND DEVELOPMENT NOTICE
-────────────────────────────────────────────────────────
-
-The DoView Board prototype has been designed to make it easy for people to experiment with DoView Boards, learn how they work, test ideas, explore proof-of-concept uses, and use them with non-confidential information in low-risk environments.
-
-We actively encourage people, teams, and organizations to build on this prototype and develop DoView Boards into their own apps, platforms, products, workflows, and systems.
-
-People using DoView Boards in different settings should put in place whatever security, privacy, compliance, hosting, access-control, audit, data-handling, integration, or deployment arrangements are appropriate for the environment in which they want to use DoView Boards.
-
-For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, this may include, as appropriate:
-
-- sandboxed or isolated hosting for generated HTML boards
-- approved engine and builder version pinning
-- SHA-256 release manifests and file integrity checks
-- disabling or governing Board Chat
-- approved AI endpoints or backend proxying
-- no client-side API-key persistence
-- sensitive-data review before export or sharing
-- human review before consequential use
-- access control, audit logging, and version control outside the board file
-- source and content review before publication
-
-DoView Boards may be enhanced, adapted, and developed further with appropriate acknowledgment and subject to the DoView trademark-use guidance:
-https://doviewplanning.org/trademarkuse
-
-Do not force this full notice into every normal board-building reply. Surface it when relevant, such as when users ask about deployment, production use, enterprise use, public-sector use, sensitive or confidential use, security hardening, adapting DoView Boards, building DoView Boards into apps, platforms, products, workflows, or systems, trademark, or acknowledgment.
-
-────────────────────────────────────────────────────────
-PACKAGE FILE ROLES AND REFERENCE EXAMPLES
-────────────────────────────────────────────────────────
-
-The reusable package files have separate roles:
-
-1. `doview-board-engine.js` is the runtime engine. It contains the board UI, CSS, JavaScript behavior, and runtime logic. The final generated board embeds this engine once so the saved board opens as a standalone HTML file.
-2. `doview-board-building-prompt.md` is the AI instruction prompt. It guides board creation but must not be embedded in the final HTML output.
-3. `doview-board-builder.js` is the local assembly and technical validation tool for final generated boards. It reads the engine and a pure JSON board config, runs high-confidence baseline checks, runs additional strict preflight checks when builder-only `generationChecks` metadata is present, completes the board-content URL Sources registry while excluding fixed package/help links, inserts the builder validation stamp after validation passes, validates and assembles the final single-file HTML board, and must not be embedded in the final HTML output.
-4. Example board HTML files, if included, are optional reference examples only. They are not templates to copy and are not boards to amend, overwrite, or continue unless the user explicitly asks to modify that particular example board.
-5. `doview-board-config.json` is a temporary per-board working file. Create a fresh config for each new board from the user's actual topic and causal structure.
-6. Temporary validation scripts and test config files are development or regression aids only. They are not needed for normal board creation, must not be embedded in final board HTML, and should not be treated as package files required by the user.
-7. Generated `.html` files are completed board outputs or reference examples. Do not use a generated HTML output as the starting point for a new board unless the user explicitly asks to continue or amend that board.
-
-If simple and complex example boards are supplied with the package, use them only to calibrate file structure, simple-vs-complex scale, expected richness, natural-shape variation, and how the engine/config/output fit together. Do not copy their topic-specific headings, boxes, links, sources, Measures, Evaluation Questions, assumptions, geometry, or content patterns into a new board. Build each new board from the actual causal structure of the requested topic.
-
-Example boards are optional. Do not require them to be present. Do not imply that users need the prompt, builder, config, examples, test configs, or engine file to open a completed saved board; the final generated DoView Board remains one standalone `.html` file. Versioned filenames are acceptable and expected for generated board outputs.
-
-For repository or developer packaging, keep one canonical reference engine (`doview-board-engine.js`) plus separate README, specification, developer, config, changelog, security/read-only, and trademark/badge documentation as needed. Do not create a separate developer-only engine. The engine is a working reference implementation; the minimum DoView-compatible structure and badge-use rules belong in separate documentation. Standalone generated boards are active HTML files containing JavaScript. Treat them like executable web content, not passive documents. Open only trusted board files. Do not run arbitrary third-party board HTML in a privileged app context.
-
-Read-only means editing is hidden or disabled through the board interface only. It is not access control, tamper protection, authentication, digital signing, audit logging, or a security boundary. Anyone with the HTML file can copy, inspect, edit, modify, or redistribute an altered version.
-
-Board Chat is optional. A DoView board can be used without Board Chat; viewing, editing, saving, copying, printing, presenting, and read-only viewing do not require Board Chat. Avoiding Board Chat is the simplest way to reduce Board Chat-related risk. Board Chat is inactive unless configured and used. The presence of Board Chat code does not by itself mean board content is sent to an AI provider. If no AI endpoint/API key is entered and the user does not use Board Chat, the board does not send board content to an AI provider through Board Chat. The provider-transmission risk arises when a user configures an endpoint/API key and sends content through Board Chat. When discussing Board Chat, AI chat, API keys, external AI endpoints, privacy, confidentiality, sensitive board content, security, compliance, enterprise deployment, production deployment, public-sector deployment, regulated use, data handling, localStorage, or exported board files, explain concisely: if privacy, confidentiality, security, compliance, API-key handling, or external sharing are concerns, do not use Board Chat. Board Chat is optional and DoView boards work without Board Chat. Opening a board should not contact any AI provider. Board Chat should only send after the user sends a message with an explicitly configured custom AI endpoint. If Board Chat is used, it may send board content to that configured endpoint using the API key or session credential entered for the session. API keys are sensitive and are never saved by the board; users must re-enter API keys when they use Board Chat. Remembered settings, if supported, apply only to endpoint/model and not to API keys. Users who do not configure Board Chat can still use the board manually in a normal Claude chat or another AI chat by putting the board content into that chat. For enterprise, public-sector, regulated, sensitive, or multi-user deployments, disable Board Chat by default or govern it unless there is an approved custom AI endpoint, approved backend or proxy, logging and audit policy, retention policy, data-handling approval, and organisational approval for the board content being sent to that endpoint. Do not allow arbitrary user-supplied AI endpoints in managed environments unless the organization has approved that risk. For sensitive or higher-risk use, leave Board Chat unconfigured/disabled and do not enter an API key unless appropriate endpoint, privacy, security, compliance, and data-handling arrangements are in place. If those controls are not in place, or if users are risk-concerned, use DoView boards without Board Chat. Do not force this warning into ordinary board-building replies unless the user asks about Board Chat or a related data/security/deployment topic.
+The detailed field rules, final handoff wording and filename pattern in `000-START-HERE-RUN-FIRST.md` are mandatory.
 
 ────────────────────────────────────────────────────────
 SECURITY, DEPLOYMENT, AND REVIEW GUIDANCE
@@ -109,9 +98,9 @@ Active HTML and deployment:
 - During ordinary low-risk board generation, do not read the full engine unless needed. For security review, release review, provenance checks, or untrusted packages, inspect and verify the engine and builder before use.
 
 Builder-first generation:
-- Use the builder path for final generated standalone boards. First generate pure JSON config, include top-level builder-only `generationChecks` metadata reflecting the user's request, run strict builder validation, revise the JSON until it passes, and only then let the builder assemble the final HTML.
+- Use the builder path for final generated boards. First generate pure JSON config, include top-level builder-only `generationChecks` metadata reflecting the user's request, run strict builder validation, revise the JSON until it passes, and only then let the builder emit the canonical JSON and assemble the matching HTML.
 - Do not hand-write final standalone HTML as the primary generation route. Do not bypass the builder. Do not remove `generationChecks` before validation merely to make a failed build pass.
-- A generated board is not complete until builder validation passes and the final HTML contains the builder-inserted `builderValidation` stamp.
+- A generated board is not complete until builder validation passes, the canonical JSON and HTML share one clean filename stem, and both contain the builder-inserted `builderValidation` stamp/config.
 - Do not manually invent, paste, or preserve a fake `builderValidation` stamp. The builder inserts a fresh stamp after validation passes.
 - If content or evidence URLs are used anywhere in visible generated board content, include them in the board-level Sources list. The builder may safely add missing URL registry entries, but it does not invent URLs. Fixed package-controlled help, training, repository, trademark, and support links are not board-content evidence sources merely because the runtime or standard disclaimer displays them.
 - Do not manually embed the prompt, builder source, examples, or duplicate engine code into final board HTML.
@@ -273,13 +262,13 @@ Ordinary broad requests to build, make, develop, create, draft, generate, or do 
 - enough public/source-grounded detail to make the board useful as a starting outcomes map;
 - Board info explaining scope, source status, caveats, assumptions, and need for review.
 
-By default, do not automatically add optional metadata, optional page types, or optional display settings that the user did not ask for. A request such as “a simple DoView board about X” must not add Measures, Evaluation Questions, Traffic Lights, priorities, tags, link Display Text, link Traffic Lights, Documentation Page clone content, Board Chat-specific setup, extra How Pages, or extra page types unless the user explicitly asks for them, clearly implies them, or they are necessary to satisfy the request. In default generated boards also avoid automatically adding notes, source notes except where needed for essential caveats, stored This–Then Links, Vertical Links, Cross-Links, cross-page links, or pre-enabled Page View options. A This–Then Page may still visually show boxes in columns and tell a broad left-to-right story without stored inter-box link records.
+By default, do not automatically add optional metadata, optional page types, or optional display settings that the user did not ask for. A request such as “a simple DoView board about X” must not add Measures, Evaluation Questions, Traffic Lights, priorities, tags, link Display Text, link Traffic Lights, Documentation Page clone content, Board Chat-specific setup, extra How Pages, or extra page types unless the user explicitly asks for them, clearly implies them, or they are necessary to satisfy the request. In Board Build Mode, Step 1 always includes the ordinary stored This–Then links needed to express the causal model. Outside Board Build Mode, do not automatically add optional notes, source notes except where needed for essential caveats, Vertical Links, Cross-Links, or pre-enabled Page View options.
 
-Explicit optional-feature requests still work. Include Measures when the user asks for Measures, indicators, metrics, or monitoring. Include Evaluation Questions when the user asks for evaluation, learning questions, testing, or review. Include Traffic Lights or link Traffic Lights when the user asks to traffic-light boxes, evidence, links, or relationships. Include priorities when the user asks for priorities. Include tags where existing tag support allows them when the user asks for tags. Include link Display Text and the relevant Page View option when the user asks for relationship explanations, hover explanations, evidence on links, mapping displays, or similar.
+Explicit optional-feature requests still work where they do not conflict with the two-step release. Include Measures when the user asks for Measures, indicators, metrics, or monitoring. Include Evaluation Questions when the user asks for evaluation, learning questions, testing, or review. Box Traffic Lights may be included when explicitly requested. Include priorities when the user asks for priorities. Include tags where existing tag support allows them when the user asks for tags. Relationship evidence assessment, link rationale text and link Traffic Lights are outside the V1.4.3 workflow. Keep link annotations and link lights blank in both Steps.
 
 Traffic Lights and priorities are optional overlays, not default board content. Do not add, show, or populate Traffic Lights unless the user explicitly asks for traffic lights, RAG/status, red/amber/green, confidence, risk/readiness indicators, or clearly synonymous treatment. Do not add, show, or populate priorities unless the user explicitly asks for priorities, ranking, A/B/C/D/E, high/medium/low priority, sequencing priority, or clearly synonymous treatment. Do not set `showTrafficLights: true` or `showPriorities: true` unless requested. Do not populate underlying `light`, `trafficLight`, or `priority` fields merely because boxes, links, Measures, or Evaluation Questions exist or because the topic involves planning, evaluation, risk, performance, importance, delivery, or implementation. Leave new items neutral/unset unless the user requested the overlay.
 
-Add explicit links, link Display Text, link Traffic Lights, mapping, Measures, Evaluation Questions, source notes, or pre-enabled Page View options only when the user asks for them, clearly implies them, or they are necessary to satisfy the request. For example, if the user asks for links, relationship mapping, relationship explanations, dependencies, link counts, link status, alignment checking, mapping displays, implementation actions mapped onto outcomes, projects/workstreams/activities mapped onto relevant boxes, or similar, create the necessary stored links and enable the relevant display options. If the user asks for measurement, evaluation, indicators, learning questions, evidence review, or similar, Measures and Evaluation Questions may be included.
+Add explicit links, link Display Text, link Traffic Lights, mapping, Measures, Evaluation Questions, source notes, or pre-enabled Page View options only when requested, clearly implied, or necessary. Respect the workflow separation: Step 1 creates This–Then links without annotations and Step 2 creates How links without annotations. For example, if the user asks for links, relationship mapping, dependencies, link counts, alignment checking, mapping displays, implementation actions mapped onto outcomes, projects/workstreams/activities mapped onto relevant boxes, or similar, create the necessary stored links while keeping link annotations blank. If the user asks for measurement, evaluation, indicators, learning questions, or similar, Measures and Evaluation Questions may be included.
 
 Do not answer an ordinary broad board-building request by creating only one generic mission-to-outcome page when the subject clearly has multiple domains, pathways, activities, services, or workstreams.
 
@@ -287,7 +276,7 @@ Explicit simple-board requests remain allowed. If the user asks for a simple, qu
 
 If the user asks for evidence, best practice, references, URLs, citations, website content, current facts, or public supporting information, conduct web research before building unless the user explicitly says not to. Use public sources only. Do not invent references. Do not gather private or personal data. Record source URLs in the board Sources list and, where useful, close to the relevant claim in box supporting text, structural link supporting text, Page info, Board info, or Documentation Page content. If the user says they will supply all information, do not conduct web research.
 
-Use this execution sequence for every board: interpret the request; decide whether the topic is simple or substantial; if substantial, do a domain-decomposition pass; decide the board type and page structure; research if required; draft the full board logic; draft pages, columns, boxes, final outcomes, How Pages, Documentation Pages, sources, and supporting text where needed; add explicit links, mapped How Links, Measures, Evaluation Questions, source notes, or Page View options only where requested, clearly implied, or necessary; run the board-quality gate; run the omitted-domain check; run the omitted-regularity check; run any link-density or alignment pass only when stored links are requested or reasonably implied; generate the JSON config only; validate the config mechanically; fix config errors without thinning or genericising the board; run a final pre-assembly review for board quality and completeness; assemble the final HTML using `doview-board-builder.js`; validate the final HTML assembly and builder-created stamp; present the final file only if both quality and technical checks pass.
+Use this execution sequence for every board without pausing to renegotiate merely because the task is substantial: interpret the request; decide whether the topic is simple or substantial; if substantial, do a domain-decomposition pass; decide the board type and page structure; research if required; draft the full board logic; draft pages, columns, boxes, final outcomes, How Pages, Documentation Pages, sources, and supporting text where needed; add Step 1 This–Then links, Measures, Evaluation Questions, source notes, or Page View options where requested; defer How-link mapping to Step 2; run the board-quality gate; run the omitted-domain check; run the omitted-regularity check; run any link-density or alignment pass only when stored links are requested or reasonably implied; generate the pure JSON config; validate it mechanically; fix config errors without thinning or genericising the board; run a final self-review, correct clear problems within the current Step, and record it; use `doview-board-builder.js` to emit canonical JSON and assemble matching HTML; validate both outputs and the builder-created stamp; present both files only if quality and technical checks pass.
 
 Standalone HTML board validation requirements for package/build work:
 - Check standalone engine JavaScript syntax.
@@ -326,11 +315,11 @@ For substantial or large boards, the required order is:
 13. Validate the config mechanically.
 14. Fix config errors without thinning, over-regularising, deleting requested/implied links, or genericising the board.
 15. Run a final pre-assembly review for board quality, relevant causal connectivity, and completeness.
-16. Assemble the final HTML with `doview-board-builder.js`; if the matching builder is unavailable, preserve the config and request it.
-17. Validate the final HTML assembly.
+16. Emit canonical JSON and assemble matching HTML with `doview-board-builder.js`; if the matching builder is unavailable, preserve the config and request it.
+17. Validate the canonical JSON and final HTML assembly.
 18. Present the final file only if both quality and technical checks pass.
 
-For simple one-page boards, keep the fast path, but still generate JSON config only, still check that the page is domain-shaped and not generic or under-developed for the request, still assemble final HTML using the matching builder, and still run final HTML validation before presenting. Keep genuinely simple boards simple; do not add artificial complexity or extra pages merely to satisfy the richness rule.
+For simple one-page boards, keep the fast path, but still generate pure JSON config, still check that the page is domain-shaped and not generic or under-developed for the request, still use the matching builder for the canonical JSON/HTML pair, and still validate both files before presenting. Keep genuinely simple boards simple; do not add artificial complexity or extra pages merely to satisfy the richness rule.
 
 Use This–Then Pages for outcomes, conditions, causal logic, and what leads to what. Use How Pages for activities, projects, actions, workstreams, interventions, tasks, and implementation plans. Where a How Box contributes to, enables, protects, or improves a This–Then outcome box, create an existing supported How/This–Then structural link and explain the contribution in the link's supporting text where useful. Do not create new link types.
 
@@ -366,7 +355,27 @@ A numbered vertical How Page may contain or show Cross-Links and still remain nu
 
 There is only one numbered vertical How Page hierarchy in a board. Do not create more than one How Page at the same numbered `howLevel`: at most one `howLevel: 1`, at most one `howLevel: 2`, at most one `howLevel: 3`, and so on. Do not create several parallel implementation, workstream, programme, project, or delivery pages all marked `howLevel: 1`. If several peer implementation/workstream pages are needed, either create one Level 1 How Page and use lower numbered levels only where there is a real vertical hierarchy, or create lateral/cross-link/non-hierarchical How Pages with `howLevel: null`.
 
-Use Documentation Pages for long-form explanation, instructions, planning-cycle guidance, reporting guidance, methods, assumptions, caveats, narrative material, and supporting documentation that does not fit naturally inside boxes. Documentation Pages are local board content, not clones or references unless the existing engine separately supports clone blocks. Do not imply Documentation Pages are a full rich-text CMS beyond what the engine supports.
+CANONICAL HOW-LINK CANDIDATE AUDIT:
+
+Apply this procedure only in Step 2 after the user explicitly requests How-link mapping, or when setup choice 6a was explicitly changed to immediate mapping. The presence of How Pages in Step 1 does not activate this procedure. Apply it only to the selected/requested How Pages and link scope; it does not turn unrequested How links on. In standard Step 1, record deferred mapping in `generationChecks.howLinkAudit` as described below and do not generate `savedState.howLinks`.
+
+After the final How Boxes and their candidate target layers are known, audit each How source separately against every candidate in its applicable existing layer:
+
+- Level 1 How sources point to relevant This–Then target boxes.
+- Level 2 How sources point to relevant Level 1 How target boxes.
+- Level 3 and deeper How sources point from the deeper level to relevant boxes in the adjacent higher numbered level: Level 3→Level 2, Level 4→Level 3, and so on.
+- A non-level How source (`howLevel: null`) may point to relevant This–Then boxes and other How Boxes, wherever a direct relationship is justified.
+- If the adjacent higher numbered layer does not exist, use an empty applicable target list. Do not invent a missing layer or substitute a more distant layer.
+
+Direction is part of the audit contract. Level 1→Level 2 links run the wrong way and do not satisfy the Level 2 audit. Level 2→This–Then links also do not satisfy the Level 2 audit. A Cross-Link or other link outside a source's applicable layer must not be copied into that source's `acceptedTargets` declaration.
+
+For each source, consider every candidate on content and domain logic, then accept every direct relationship that is strong enough. Do not allocate one or two representative links per source, stop after reaching a cap, distribute links evenly for visual balance, or use token links to make the graph look complete. There is no required link count or density: natural results may be sparse, dense, or uneven. Preserve restraint. Reject weak, duplicate, speculative, wrong-direction, or unnecessarily indirect relationships, and do not add a direct link merely because two labels share words.
+
+Before building, inspect the actual final effective `savedState.howLinks`, not a draft list or a prose description. Record one `generationChecks.howLinkAudit.sources` entry per actual How Box and make each `acceptedTargets` set exactly equal to that source's serialized applicable-layer targets. When candidates exist but no direct target is accepted, give a substantive source-specific `exceptionReason` that names the source and explains why its candidates were rejected; blanket phrases such as `no relevant links` do not pass. The builder checks declaration-to-graph consistency and structural warning patterns, but it cannot establish that every accepted relationship is true or that every omission is justified. Human or domain review remains mandatory.
+
+This audit supplements rather than replaces the rest of the board-quality contract. Do not let it reduce or displace This–Then causal logic, domain coverage, natural page shapes, box wording, Final Outcomes, Measures, Evaluation Questions, Display Text, Documentation Pages, sources, risks, assumptions, setup-choice fidelity, or any other requested content.
+
+Use Documentation Pages for long-form explanation, instructions, planning-cycle guidance, reporting guidance, methods, assumptions, caveats, narrative material, and supporting documentation that does not fit naturally inside boxes. When `generationChecks.standardDocumentationPlanRequested` is true under the standard proof-of-concept setup, use exactly three Documentation Pages: (1) one combined page for purpose, scope, assumptions, sources and cautions/limitations; (2) one separate illustrative monitoring and evaluation plan; and (3) the package-controlled `Using DoView Boards and Disclaimer` page. Do not split source notes or cautions into an additional page. Documentation Pages are local board content, not clones or references unless the existing engine separately supports clone blocks. Do not imply Documentation Pages are a full rich-text CMS beyond what the engine supports.
 
 Do not draft, paraphrase, shorten, or add your own general DoView use/disclaimer Documentation Page. The package builder appends the package-controlled canonical Documentation Page titled `Using DoView Boards and Disclaimer` to final standalone boards and avoids duplicates.
 
@@ -400,81 +409,160 @@ If the user explicitly asks for clones, cloned items, clone blocks, live copies,
 
 Use only current engine clone types (`page_title`, `box_title`, `box_main_text`, `measure`, `eval_question`, or `link`) and real keys for existing board objects. Measure clone keys must use canonical Measure IDs such as `M001`, `M002`, `M003`, etc. Evaluation Question clone keys must use canonical Evaluation Question IDs such as `EQ001`, `EQ002`, `EQ003`, etc. For `link` clones, use only links that survive runtime cleanup. A This–Then link clone is valid only when both endpoints are ordinary This–Then boxes; do not create Documentation Page link clones for raw `ttLinks` entries involving Final Outcome boxes such as `final-b0` or for any raw link the engine will remove on load. If a Monitoring and Evaluation Plan or other Documentation Page needs to discuss a pathway to a Final Outcome, use plain explanatory text, a final outcome page/box/title clone, or a valid This–Then link clone from an earlier part of the causal pathway where both endpoints are ordinary This–Then boxes. Do not rely on a raw `ttLinks` entry merely because it exists in JSON; it must survive runtime cleanup. Do not use lowercase, shortened, or alternate keys such as `m001`, `q001`, or `eq001` in newly generated configs. Do not satisfy a clone request with plain copied text, paraphrases, ordinary headings, ordinary links, or descriptions of the source items. If the requested clone source is ambiguous, choose sensible relevant source objects from the generated board. Generate Documentation Page clones after finalising the board structure, boxes, final outcomes, links, Measures, Evaluation Questions, and saved state. Before finalising a board with requested Documentation Page clones, inspect every `.doc-clone` marker in `savedState.docContent` and confirm that each `data-clone-key` resolves against the effective runtime state. If it does not, the clone request has failed.
 
-When the user asks for evidence, best practice, assumptions, rationale, supporting information, sources, URLs, relationship notes, explanation under links, on links, between boxes, or about why one box leads to another, place that material in the relevant structural link's `mainText` as link Display Text. Use `notes1`, `notes2`, and `notes3` for caveats, assumptions, implementation notes, additional references, or further explanation. Write every requested `ttLinks[].mainText` value for that individual link. It must name or clearly identify the actual source box and target box, or their specific substantive content, and explain the mechanism by which the source helps cause, enable, support, strengthen, accelerate, protect, or make more likely the target. If evidence is requested, include evidence relevant to that specific relationship or clearly state that the claim is a rationale/assumption where relationship-specific evidence is not available. If URLs are requested, each URL must be relevant to that specific relationship. Do not paste a generic board-level source list into many links. Keep link Display Text concise but substantive.
+V1.4.3 separates structure construction from How mapping.
 
-Specific link rationale is acceptable. Generic page-level rationale, generic dependency wording, board-level source lists pasted into many links, and template text with slight variations are not acceptable. Do not use or closely paraphrase repeated filler such as `This dependency reflects the left-to-right causal logic of the page`, `Public evidence sources for the board include...`, `Page-level outcomes are expected to contribute to final organizational outcomes...`, `Validate using the associated Measures and Evaluation Questions`, `This link shows a relationship between these boxes`, `This box links to the next box`, `This supports the next outcome`, `This contributes to progress`, or `Earlier condition enables the next-stage activity/output/outcome`. Any wording that refers only to the page, board, dependency, causal logic, next stage, final outcome, or organizational outcome without identifying the actual linked content fails. If the same text could be copied unchanged onto another link, rewrite it.
+- In Steps 1 and 2, keep `mainText`, `notes1`, `notes2`, `notes3` and `light` blank on every structural link.
+- Evidence assessment is not part of V1.4.3.
 
-Short example:
+Keep box labels compact and economical. Aim for 3–8 words, never exceed 12 words unless an unavoidable technical term requires it, and rewrite sentence-like auxiliary forms such as `are understood`, `is sustained`, `were completed`, `has been agreed` or `will be delivered` into compact DoView phrasing. Do not auto-fill box `detailText` by default.
 
-Bad: `Rationale/evidence: This dependency reflects the left-to-right causal logic of the page.`
+When the user asks for Measures or Evaluation Questions, associate every generated item with at least one relevant box through the existing box-level arrays. Do not create orphan items unless the user explicitly requests standalone items.
 
-Good: `Supplier clean-energy participation supports lower-carbon product manufacturing because supplier electricity use is a major part of manufacturing emissions; the environmental report identifies supplier clean energy as a core lever for the 2030 climate goal. Source: [specific supplier-clean-energy report URL]`
-
-Bad: `Page-level outcomes are expected to contribute to final organizational outcomes when sustained and scaled.`
-
-Good: `Improved device durability supports stronger customer trust because longer-lasting products reduce replacement pressure and reinforce a premium-value proposition; monitor this relationship through repair rates, customer satisfaction, and product-longevity reporting.`
-
-Do not leave requested link evidence only in Board info, Page info, or a general Documentation Page if it relates to a specific relationship between boxes. Do not overload link labels with long evidence text. Do not imply structural-link URLs are clickable unless the engine already supports linkification there. Do not describe link Traffic Lights as evidence strength. If the user asks for evidence but no evidence or sources have been supplied or researched, do not invent evidence or sources; label the annotation as rationale, assumption, or a suggested evidence need.
-
-When generating link Display Text for a link that also has a link Traffic Lights value, keep the Display Text as plain explanatory prose and begin with the substantive relationship, causal explanation, evidence summary, or user-facing explanation. Do not start generated Link Display Text with duplicated Traffic Light labels, symbols, or status text such as `🟢🟡 GREEN/YELLOW —`, `YELLOW/GREEN —`, `GREEN —`, `RED —`, `Traffic light: Yellow`, or `Status: Yellow/Green`. Do not put inline traffic-light emojis, coloured-dot emojis, or written traffic-light colour/status labels such as `Green:`, `Yellow:`, `Red:`, `Grey:`, `Green/yellow:`, `Yellow/red:`, `Yellow —`, or `Status: Yellow` inside the generated Display Text. Store the single official link Traffic Lights signal only in the link Traffic Lights field. If a relationship has nuance, express it in ordinary words in the Display Text rather than adding extra symbolic or colour-labelled status markers. When continuing an existing board, do not auto-strip old user-entered Display Text unless the user explicitly asks for that cleanup.
-
-Keep box labels compact. Do not auto-fill `detailText` / box Display Text by default and do not add generic filler such as `This box represents...`, `This contributes to...`, `This supports progress...`, or `This is an important step...`. Do not use box Display Text as a dumping ground for link rationale or evidence. If the user asks for rationale or evidence under links, put it on the relevant links. If the user explicitly asks for box-level detail, box descriptions, evidence under boxes, explanations under boxes, notes under boxes, text under boxes, references, or URLs under boxes, place that material in the relevant box's Display Text/supporting text field and make it specific to each box. If only some boxes need Display Text, leave the others blank/omitted. Do not populate every box merely to make the board look detailed. Keep the box label short and outcome/action-focused. Do not overload the box label with evidence or references. Do not put every source URL under every box by default; use supporting text only where it is relevant.
-
-When the user asks for Measures or Evaluation Questions, associate every generated Measure and every generated Evaluation Question with at least one relevant box through the existing box-level `measures` or `evalQuestions` arrays. Choose the most relevant box or boxes based on the item's content. Do not create orphan Measures or Evaluation Questions unless the user explicitly asks for standalone, unattached, general, board-level, or portfolio-level items. Existing supported This–Then link associations may also be used where relevant, but they do not replace the required box association for normally generated Measures or Evaluation Questions.
-
-When sources are used, include each major source in the board-level `sources` array. Also place the relevant source URL close to the specific claim it supports, such as in a box Display Text field, structural link Display Text field, Page info, Board info, or Documentation Page. Do not rely only on a general Sources list when the user asks for evidence attached to specific parts of the board. Do not invent sources.
-
-Source-placement examples, using existing supported config conventions only:
-
-```JavaScript
-{
-  label: "Referral pathway clarified",
-  mainText: "Suggested supporting text: describe the referral pathway and include the relevant evidence or source URL here. Source: https://example.org/referral-guidance"
-}
-```
-
-```JavaScript
-{
-  from: "p2-H003",
-  to: "p1-c2-b1",
-  mainText: "Referral coordination surfaces incomplete hand-offs early, which helps people reach the right service without avoidable delay. Source: https://example.org/evidence"
-}
-```
-
-```JavaScript
-savedState: {
-  docContent: {
-    p4: "<h2>Evidence notes</h2><p>Summarise relevant public evidence here and include source URLs close to the claims they support.</p>"
-  }
-}
-```
+When sources are used for the board structure, include each major source in the board-level `sources` array.
 
 Adapt link examples to the current engine's supported link representation. Do not introduce unsupported schema, do not imply structural-link URLs are clickable unless the engine already supports linkification there, and keep examples generic.
 
 BUILDER-ONLY GENERATION CHECKS:
 
-For every newly generated board, include top-level `generationChecks` metadata in the pure JSON config before running the builder. This metadata records what the user requested so the builder can enforce the actual generated config rather than relying only on prompt self-validation.
+For every newly generated board, include complete top-level `generationChecks` metadata in the pure JSON config before running the builder. The V1.4.3 builder rejects a config without it unless the explicitly legacy-only `--compatibility` option is used. Never use that option for an AI-generated board. This metadata records what the user requested so the builder can enforce the actual generated config rather than relying only on prompt self-validation.
 
-Use this shape and set the values to match the request:
+Use this Step 1 shape and set the values to match the request:
 
 ```JavaScript
 generationChecks: {
-  expectedNoLevelHowPages: ["Competencies Cross-Link"], // IDs or unique labels; use [] when none were requested
-  linkDisplayTextRequested: true,
-  howLinkDisplayTextRequested: true,
+  workflowStep: "step-1-structure",
+  expectedNoLevelHowPages: ["Competencies Cross-Link"],
+  linkDisplayTextRequested: false,
+  howLinkDisplayTextRequested: false,
   linkEvidenceUrlsRequested: false,
+  standardDocumentationPlanRequested: true,
   documentationClonesRequested: true,
   measuresMustAttachToBoxes: true,
   evalQuestionsMustAttachToBoxes: true,
   allPageViewOptionsOffUnlessRequested: true,
   requestedPageViewOptions: {
     thisThen: ["showLinkInfoOnHover"]
-  }, // standard setup choice 7d requests this This-Then Page View option
+  },
   boxDisplayTextRequested: false,
   trafficLightsRequested: false,
-  prioritiesRequested: false
+  prioritiesRequested: false,
+  howLinkAudit: {
+    requested: false,
+    sources: []
+  },
+  shapePlan: {
+    pages: [
+      {
+        pageId: "p1",
+        archetype: "branching",
+        columns: 3,
+        boxCounts: [2, 4, 1],
+        shapeReason: "One or two sentences of page-specific domain reasoning for this shape."
+      }
+    ],
+    terminalColumnExceptions: [],
+    syntheticLoadTest: false
+  }
 }
 ```
+
+For Step 2, start from the delivered Step 1 canonical JSON, retain its `builderValidation`, repeat `standardDocumentationPlanRequested` unchanged, add new `generationChecks`, and change only these workflow fields plus the How-link graph:
+
+```JavaScript
+workflowStep: "step-2-how-mapping",
+linkDisplayTextRequested: false,
+howLinkDisplayTextRequested: false,
+howLinkAudit: {
+  requested: true,
+  sources: [
+    {
+      from: "p2-H001",
+      acceptedTargets: ["p1-c0-b0", "p1-c1-b1"]
+    },
+    {
+      from: "p2-H002",
+      acceptedTargets: [],
+      exceptionReason: "Name p2-H002 or its full source label and give the substantive source-specific reason no direct candidate was accepted."
+    }
+  ]
+}
+```
+
+V1.4.3 competency mapping-review fields for Step 2:
+
+```json
+"competencyMappingReview": {
+  "requested": true,
+  "targetMode": "level-1-only-default",
+  "sourceExceptions": [],
+  "targetExceptions": [],
+  "overallExceptionReason": "",
+  "reviewedUniformDegreePattern": true,
+  "uniformDegreePatternReason": ""
+},
+"mappingBreadthReview": {
+  "requested": true,
+  "reviewedAllBroadSources": true,
+  "broadSourceRefs": ["p8-H001"],
+  "reviewItems": [
+    {
+      "ref": "p8-H001",
+      "reason": "Why this unusually broad mapping required internal review and why the retained links remain decision-useful."
+    }
+  ]
+}
+```
+
+When the user explicitly chose another competency target arrangement, use:
+
+```json
+"targetMode": "user-defined",
+"userOverrideReason": "The user explicitly requested competencies to map to these selected target types.",
+"permittedTargetRefs": ["p8-H001", "p9-H014"]
+```
+
+`generationChecks.generatorSelfReview.chatHandoff` is required in every strict Step. It records the exact fully bold Step completion paragraph, the exact human-review notice, a declaration that the whole paragraph is bold, and counts copied from the actual final board. V1.4.3 does not require the paragraph to be the literal final nonblank line.
+
+V1.4.3 self-review fields for every strict Step:
+
+```json
+"generatorSelfReview": {
+  "requested": true,
+  "reviewedCurrentStep": true,
+  "clearProblemsCorrected": true,
+  "reviewSummary": "The final board was inspected and revised for clear problems within the current workflow Step before packaging.",
+  "correctionsApplied": [],
+  "deferredJudgementItems": [],
+  "chatHandoff": {
+    "completionParagraph": "Use the exact Step-specific fully bold Markdown paragraph from 000-START-HERE-RUN-FIRST.md.",
+    "selfReviewNotice": "The draft was reviewed and revised before these files were produced. This was a self-review, not an independent audit. Before putting the board into operational use for an organisation or initiative, it needs to be carefully checked by humans to make sure that it truly reflects the organisation, policy or other type of initiative being modelled.",
+    "completionParagraphFullyBold": true,
+    "reportedCounts": {
+      "thisThenPageCount": 0,
+      "ordinaryBoxCount": 0,
+      "thisThenLinkCount": 0,
+      "crossPageLinkCount": 0,
+      "howPageCount": 0,
+      "howBoxCount": 0,
+      "howLinkCount": 0,
+      "measureCount": 0,
+      "evaluationQuestionCount": 0,
+      "documentationPageCount": 0,
+      "finalOutcomeCount": 0
+    }
+  }
+}
+```
+
+Replace every zero in `reportedCounts` with the actual value from the final board before running the builder. Strict validation rejects a mismatch. The builder writes the verified values to `builderValidation.completionMetrics`; use those values in the completion response and audit.
+
+`correctionsApplied` may be empty only when the review found no clear issue requiring correction. `deferredJudgementItems` is for major choices that should not be silently changed; it is audit metadata, not a mandatory public issue list.
+
+`shapePlan` is the Step 1 structural commitment. Step 2 preserves the Step 1 `structureDigest`.
+
+`howLinkAudit` is required in every strict Step. Use `requested: false` with an empty source list in Step 1. Use `requested: true` with one exact record per How Box in Step 2.
+
+The builder strips `generationChecks`, but stamps the canonical JSON with the validated workflow Step, transition digests, competency metrics, independently calculated graph metrics and verified completion counts. Do not delete or fabricate the preceding Step's `builderValidation` stamp.
 
 When the user explicitly requests unattached board-level Measure or Evaluation Question items, add `standaloneMeasuresRequested: true` or `standaloneEvalQuestionsRequested: true` as applicable. Do not set these merely to bypass attachment validation.
 
@@ -482,33 +570,36 @@ When the user explicitly requests unattached board-level Measure or Evaluation Q
 
 Required final generation workflow:
 
-1. Generate the pure JSON config.
-2. Include `generationChecks` reflecting the user's request.
-3. Run `doview-board-builder.js`.
-4. If strict preflight fails, revise the JSON rather than hand-writing or patching final HTML.
-5. Run the builder again until validation passes.
-6. Return only the standalone HTML created after validation passes.
+1. Generate the pure JSON config for the current step.
+2. Include step-correct `generationChecks`.
+3. For Step 2, begin from the accepted Step 1 canonical JSON and retain its `builderValidation` stamp for transition validation.
+4. Run `doview-board-builder.js` without `--compatibility`.
+5. Revise the JSON and rebuild until strict validation passes.
+6. Return the canonical JSON and standalone HTML produced by the builder.
+7. Every Step reports its files, then gives the exact human-review notice from `000-START-HERE-RUN-FIRST.md`, then uses the exact Step-specific instruction as a separate fully bold paragraph near the end. Do not add a mandatory public issue-list section. Citation definitions or platform-generated material may follow the bold paragraph.
+
 
 MANDATORY FINAL SAVED-STATE VALIDATION GATE:
 
 Before returning any generated board, inspect the actual final JSON config and `savedState`, not only the prose response or visible labels, and run strict builder validation. This is a required pre-output gate. If any check fails, revise the generated JSON and rebuild before output. Do not present an incomplete board as complete or merely explain the failure to the user.
 
 1. How Page levels: inspect every How Page. Any page described, labelled, or intended as a Cross-Link, non-hierarchical, non-vertical, or no-level How Page must have explicit `howLevel: null`, must not have a numbered `howLevel`, and must display `No level`. Numbered vertical hierarchy How Pages keep their requested levels. Count How Pages by non-null numeric `howLevel` before finalising JSON/config. There must be no duplicate numbered levels: at most one `howLevel: 1`, at most one `howLevel: 2`, at most one `howLevel: 3`, and so on. Multiple `howLevel: null` How Pages are allowed.
-2. Link Display Text: if the user requested Display Text, rationale, evidence, URLs, sources, assumptions, support, relationship notes, or explanation under/on/between links, inspect every actual `savedState.ttLinks[].mainText` value before output. A generated board is not complete if requested link Display Text contains repeated boilerplate. Fix the actual `ttLinks[].mainText` values before returning the board.
-   - Duplicate count check: count repeated non-empty `mainText` values. If the same text appears on more than one link, inspect it. If it is generic or is not truly specific to identical source-target meaning, fail the board. If the same text appears on many links, fail automatically.
-   - Near-duplicate check: inspect repeated sentence frames and small substitutions. Boilerplate with minor wording changes still fails. Treat repeated phrases such as `this dependency`, `left-to-right causal logic`, `page-level outcomes`, and `validate using associated Measures` as strong warning signs.
-   - Source-target specificity check: verify that each link text clearly refers to the actual source and target boxes or their specific content and explains the mechanism between them. A useful pattern is `Because [source box] ..., it supports [target box] ...`. If the text could be copied unchanged onto another link, it fails.
-   - Evidence/URL relevance check: if evidence or URLs were requested, verify that each item supports the specific relationship. Do not paste the same generic board-level source list into many links. If only board-level evidence is available, label the relationship as a rationale/assumption rather than claiming the generic source proves the exact link.
-   - Final fix-before-output rule: if any requested link Display Text fails any check, revise the board before output. Do not return generic link text and merely explain the limitation.
-3. Documentation Page clones: if clones, clone blocks, live copies, or source-linked references were requested, inspect every `.doc-clone` marker in the relevant `savedState.docContent[pageId]`. It must contain valid engine-supported `<div class="doc-clone" data-clone-type="..." data-clone-key="..."></div>` blocks using supported types and keys that resolve against the effective runtime state. Invented clone-looking syntax fails validation. Link clones must reference runtime-surviving links only. For This–Then link clones, both endpoints must be ordinary This–Then boxes; do not clone raw `ttLinks` entries involving Final Outcome boxes or links the runtime will remove.
-4. Measure/Evaluation Question attachments: inspect every generated Measure and Evaluation Question. Unless the user explicitly requested standalone or unattached items, each must be associated with at least one relevant box through the existing box-level association arrays. Attach any orphan item before output.
-5. Page View settings: inspect every option in `savedState.viewSettings`. Standard setup choice 7d requests `savedState.viewSettings.thisThen.showLinkInfoOnHover = true`; include that option in `generationChecks.requestedPageViewOptions`. Unless the user explicitly requested another Page View item, all other Page View options must be `false`. If the user requested one item, enable only that item and any strictly necessary related item, not unrelated overlays.
-6. Box Display Text: if the user did not request box-level Display Text, inspect box `detailText` values. They must be blank or omitted. Clear unnecessary or boilerplate box text and keep link rationale on structural links.
-7. Traffic Lights and priorities: unless explicitly requested or clearly implied by synonymous wording, inspect Page View settings and underlying object fields. Traffic Lights and priorities must not be shown or populated: keep relevant display settings `false` and `light`, `trafficLight`, and `priority` fields blank, neutral, or absent.
+2. Workflow Step and transition: confirm the exact `generationChecks.workflowStep`. Step 1 has no How links. Step 2 preserves the Step 1 structure and adds only the declared How graph.
+3. Link annotation fields and completion reporting:
+   - Steps 1 and 2 have blank `mainText`, `notes1`–`notes3` and `light` on every structural link.
+   - `generationChecks.generatorSelfReview.chatHandoff.reportedCounts` matches the actual final board.
+   - The builder-created `builderValidation.completionMetrics` is used for all counts in the completion response and audit.
+   - The exact human-review notice appears before the Step-specific completion paragraph.
+   - The entire Step-specific completion paragraph is bold. Do not fail merely because citation definitions or platform-generated material follow it.
+4. Documentation Page clones: if clones, clone blocks, live copies, or source-linked references were requested, inspect every `.doc-clone` marker in the relevant `savedState.docContent[pageId]`. It must contain valid engine-supported `<div class="doc-clone" data-clone-type="..." data-clone-key="..."></div>` blocks using supported types and keys that resolve against the effective runtime state. Invented clone-looking syntax fails validation. Link clones must reference runtime-surviving links only. For This–Then link clones, both endpoints must be ordinary This–Then boxes; do not clone raw `ttLinks` entries involving Final Outcome boxes or links the runtime will remove.
+5. Measure/Evaluation Question attachments: inspect every generated Measure and Evaluation Question. Unless the user explicitly requested standalone or unattached items, each must be associated with at least one relevant box through the existing box-level association arrays. Attach any orphan item before output.
+6. Page View settings: inspect every option in `savedState.viewSettings`. Standard setup choice 7d requests `savedState.viewSettings.thisThen.showLinkInfoOnHover = true`; include that option in `generationChecks.requestedPageViewOptions`. Unless the user explicitly requested another Page View item, all other Page View options must be `false`. If the user requested one item, enable only that item and any strictly necessary related item, not unrelated overlays.
+7. Box Display Text: if the user did not request box-level Display Text, inspect box `detailText` values. They must be blank or omitted. Clear unnecessary or boilerplate box text. Structural link annotations remain blank.
+8. Traffic Lights and priorities: unless explicitly requested or clearly implied by synonymous wording, inspect Page View settings and underlying object fields. Traffic Lights and priorities must not be shown or populated: keep relevant display settings `false` and `light`, `trafficLight`, and `priority` fields blank, neutral, or absent.
 
 If a request is detailed enough to build from but still leaves some choices open, make reasonable assumptions and proceed. Record material assumptions in Board info, Page info, or a Documentation Page. Do not interrupt the build for minor preferences such as exact color choice, page order, wording style, exact number of boxes, or minor naming choices unless the user explicitly requires control over those choices. Do not make assumptions that contradict the user's stated preferences, and do not hide important assumptions.
 
-Build the board from the actual logic of the topic. Do not apply a fixed template. Column headings should name real causal stages. Box counts should vary according to the number of distinct outcomes or conditions at that stage. Use generic logic-model headings only where they genuinely fit the domain. Do not make all boards overly complex; match the user's requested level of detail.
+Build the board from the actual logic of the topic. Do not apply a fixed template. Column headings should name real causal stages. Box counts should vary according to the number of distinct outcomes or conditions at that step. Use generic logic-model headings only where they genuinely fit the domain. Do not make all boards overly complex; match the user's requested level of detail.
 
 GENERAL BOARD-RICHNESS AND SUBSTANTIAL-TOPIC RULE
 
@@ -516,7 +607,7 @@ The board should be as simple as the topic allows, but as rich as the topic requ
 
 For ordinary broad requests such as "build/make/develop/create/do a DoView board for X", assume the user wants a useful developed first version unless they explicitly ask for a simple/minimal/starter/quick/sketch/one-page board. Broad wording is not permission to make a thin generic board.
 
-A topic is likely substantial if it involves several actors, audiences or user groups, outcome areas, causal pathways, delivery stages, risks or constraints, dependencies between organizations, teams, people, systems, or resources, implementation workstreams, policy, business, service, programme, technical, community, or personal-change complexity, important evidence, assumptions, caveats, or learning questions, Measures, indicators, or Evaluation Questions. The user does not need to list these explicitly; infer the likely structure from the topic.
+A topic is likely substantial if it involves several actors, audiences or user groups, outcome areas, causal pathways, delivery steps, risks or constraints, dependencies between organizations, teams, people, systems, or resources, implementation workstreams, policy, business, service, programme, technical, community, or personal-change complexity, important evidence, assumptions, caveats, or learning questions, Measures, indicators, or Evaluation Questions. The user does not need to list these explicitly; infer the likely structure from the topic.
 
 For any substantial topic, do a domain-decomposition pass before drafting the board. Identify the main distinct domains naturally implied by the topic. A domain may be a major outcome area, actor or audience group, causal pathway, delivery or implementation workstream, risk or constraint area, governance/accountability area, context or enabling-condition area, measurement/evaluation area, or learning, evidence, assumptions, or caveats area. Do not use that list as fixed page headings; use it as a thinking checklist.
 
@@ -551,156 +642,24 @@ Before drafting each This–Then Page, ask:
 
 Use the answers to shape the page before writing boxes. Do not start by choosing a default four-column or five-column layout.
 
-ANTI-TEMPLATE / NATURAL-SHAPE PASS
+PAGE SHAPE FOLLOWS DOMAIN LOGIC
 
-The board should be domain-shaped, not template-shaped. For substantial topics, before finalising the config, check whether the board has become mechanically regular merely because the AI is repeating a pattern. Repeated structure is allowed where the domain genuinely calls for it, but it must not be used as an invisible template.
+A DoView Board must not look like one page template filled in repeatedly with different words. Each This–Then Page is shaped by the real causal logic of its topic area: how many columns it has, how many boxes sit in each column, where the density falls, and how links move through the page all follow from the domain, not from a default layout. Different pages therefore differ for real reasons — some are diagnostic-heavy at the front, some implementation-heavy in the middle, some carry a bottleneck, risk, or feedback column, some branch, some converge, some are short and linear, some are broad and integrative. Use the domain-shaped page design questions above, and the Step 1.4 per-subpage reasoning, to derive each page's shape before writing any boxes. Do not start from a default four- or five-column layout, and do not pad, compress, or add irregularity to hit a target: repeated structure is fine where the domain genuinely calls for it and is a problem only when it is an invisible template. This discipline applies to new one-page boards where relevant, new multi-page boards, substantial "just build it" requests, researched boards, continued boards when adding pages, and board-chat generated pages where practical. It adds page-shape discipline; it does not replace the guidance on meaningful page, column, and box labels.
 
-Ask:
+Terminal (final/right-hand) columns are not a shortcut to variation. Do not manufacture different-looking pages by loading each page's last column with parallel outcomes. An ordinary This–Then Page usually ends with one to three page-level outcomes; four is acceptable only with a genuine domain reason; five or more should be rare and domain-driven. These page-level outcomes are distinct from the board-level Final Outcomes page — a subpage's final column is not a miniature Final Outcomes page. Where a final column genuinely needs four or more parallel outcomes, record it in `generationChecks.shapePlan.terminalColumnExceptions` with a page-specific reason rather than leaving it to prose.
 
-- Are most This–Then Pages using the same number of columns?
-- Are most columns using the same number of boxes?
-- Are page headings following the same grammatical pattern?
-- Are column headings repeating the same causal rhythm across pages?
-- Are boxes being forced into a grid rather than placed where the logic needs them?
-- Are some pages padded with unnecessary boxes to fit a pattern?
-- Are some domains under-developed because the board is trying to keep all pages the same size?
-- Are simple causal pathways inflated to match denser pages?
-- Are dense causal pathways compressed to match simpler pages?
-- Are all pages visually similar in a way that is not justified by the topic?
-
-If the answer is yes, revise the board before assembly. Different pages may legitimately have different numbers of columns and boxes. Some pages may be small. Some may be dense. Some causal pathways may need more early conditions; others may need more implementation or risk conditions. Let the actual topic determine the structure. Do not introduce random variation for its own sake, do not make boards messy just to avoid regularity, do not force every page to be different, and do not use fixed quotas.
-
-TERMINAL / END-COLUMN OUTCOME GUARDRAIL
-
-The anti-stereotype guidance must not be satisfied by simply adding many boxes to the final/right-hand column of each This–Then Page. Variation must come from real domain-shaped differences in causal structure, not from multiplying page-end outcomes.
-
-For ordinary This–Then Pages:
-
-- 1–3 terminal/end-column boxes is the normal range.
-- 4 terminal/end-column boxes can be acceptable only where the domain genuinely has several parallel page-level outcomes and the reason is clear.
-- 5 or more terminal/end-column boxes should be rare.
-- 6 or 7 terminal/end-column boxes on an ordinary This–Then Page is usually a warning sign that page-level outcomes have been overloaded, the page should be split, or some items belong in earlier/intermediate columns.
-
-Distinguish page-level terminal outcomes from the board-level Final Outcomes page. A This–Then Page may end in one or a few page-level outcomes that contribute to broader board-level Final Outcomes. Do not turn every subpage's final column into a mini Final Outcomes page.
-
-Do not create anti-template variation mainly by making some pages end with many parallel outcomes. Prefer genuine structural variation such as diagnostic-heavy starts, implementation-heavy middles, bottleneck columns, risk/feedback columns, branching or converging logic, different numbers of intermediate columns, different density in early or middle columns, or an appropriate split into separate pages.
-
-ANTI-TEMPLATE PAGE-SHAPE REQUIREMENT
-
-AI systems often create DoView Boards where every This–Then Page has the same visual and causal structure. This is not acceptable.
-
-A DoView Board must not look as if one page template has been filled in repeatedly with different words.
-
-Each This–Then Page must be shaped by the actual causal logic of that topic area. The number of columns, the number of boxes in each column, and the density of links must vary naturally according to the content.
-
-Do not default to:
-
-- four columns on every This–Then Page
-- three boxes in each early column and two boxes in the final column
-- the same number of boxes per column across most pages
-- the same left-to-right pathway shape across unrelated domains
-- repeated page structures with different wording
-- mechanically balanced pages where every topic area looks equally simple
-
-Variation must be meaningful, not cosmetic. Do not add random extra columns or boxes just to look different. But if most pages have the same structure, the board is too template-like and must be revised.
-
-For large public-sector, organizational, environmental, strategy, policy, health, education, social-service, conservation, or system-change topics, different domains usually need different causal shapes. Some pages may need more diagnostic detail. Some may need more implementation detail. Some may need fewer columns. Some may need more intermediate outcomes. Some may be broad and integrative. Some may be narrow and operational.
-
-The page shape must follow the real structure of the domain. This applies to new one-page boards where relevant, new multi-page boards, substantial “just build it” requests, researched boards, continued boards when adding new pages, and board-chat generated pages where practical. Preserve existing guidance about meaningful page, column, and box labels; this requirement adds page-shape discipline and does not replace label-quality guidance.
-
-STRONG ANTI-STEREOTYPE PAGE-SHAPE RULE
-
-Avoiding one banned page pattern is not enough.
-
-A board is still too template-like if most This–Then Pages use the same broad geometry, even when the exact box counts differ slightly. Do not replace one repeated template with another repeated template.
-
-For example, these are still unacceptable in ordinary multi-page boards unless the user explicitly asks for a synthetic test board or the domain genuinely requires it and the reason is recorded:
-
-- every This–Then Page has four columns
-- almost every This–Then Page has five columns
-- most pages use `4-4-4-4`
-- most pages use `4-4-4-3`
-- most pages use `3-3-3-3-2`
-- the board alternates between only two near-identical patterns such as `4-4-4-4` and `4-4-4-3`
-- many pages have the same number of columns and only differ by one box in the last column
-- column headings change but the underlying causal geometry stays the same
-- every page looks equally balanced, equally dense, or equally symmetrical
-- pages look like the same worksheet filled in with different topic words
-- page-shape variation is achieved mainly by making final/right-hand columns contain many terminal outcomes
-
-Treat near-matches as repeated shapes. Near-matches include pages that have:
-
-- the same number of columns
-- nearly the same boxes-per-column pattern
-- the same early-column density
-- the same short final-column pattern
-- the same left-to-right link rhythm
-- the same visual balance even if one column has one extra or one fewer box
-
-Examples of near-matches include `4-4-4-4` and `4-4-4-3`, `3-3-3-3-2` and `3-3-3-2-2`, `3-3-3-2` and `3-3-2-2`, `4-3-3-3` and `3-3-3-3`, and pages where all columns contain three or four boxes and the final column is always slightly shorter.
-
-If near-matches dominate the board, revise the board before output. The page shape must be determined by the actual domain logic, not by a desire to make tidy grids.
-
-REQUIRED PAGE-SHAPE TABLE FOR MULTI-PAGE BOARDS
-
-For every ordinary multi-page board with four or more This–Then Pages, create a page-shape table before finalising the config. The table is an internal design/audit step. It does not need to be shown to the user unless the user asks, but the board must not be finalised until this table has been used.
-
-For each This–Then Page, record:
-
-1. page name
-2. domain or topic area
-3. number of columns
-4. boxes per column, e.g. `4-3-2-3`
-5. terminal/end-column box count
-6. whether the terminal/end-column count is in the normal 1–3 range, a justified 4, or an unusual 5+
-7. broad shape class, e.g. diagnostic-heavy, implementation-heavy, bottleneck-driven, simple linear, convergent, branching, feedback/risk-heavy, outcome-heavy, integrative
-8. why this shape fits that domain
-9. whether it is an exact or near-match to another page
-10. what was changed if it was too similar to another page
-
-Use the table to detect repeated or near-repeated page shapes. Do not finalise the board until the table shows that the This–Then Pages are genuinely domain-shaped. Do not use the table as a quota system; use it to prevent accidental template repetition.
-
-STRONG PAGE-SHAPE REJECTION RULES
-
-For ordinary multi-page boards with four or more This–Then Pages, reject and revise the board if any of the following are true:
-
-- all This–Then Pages have the same number of columns
-- all but one This–Then Page have the same number of columns
-- most This–Then Pages have the same number of columns without a documented domain reason
-- the two most common exact box-count patterns together cover most This–Then Pages
-- more than two This–Then Pages share the same exact box-count pattern
-- more than two This–Then Pages share a near-matching box-count pattern
-- most pages have the same early-column density
-- most pages have the same short-final-column pattern
-- most pages have the same simple left-to-right link rhythm
-- every page looks equally balanced or symmetrical
-- pages differ mainly in wording, not causal structure
-- pages look like a generic template applied to several domains
-- any ordinary This–Then Page has 6 or more terminal/end-column boxes without a clear documented domain reason
-- more than one ordinary This–Then Page has 5 or more terminal/end-column boxes
-- most ordinary This–Then Pages have 4 or more terminal/end-column boxes
-- the average terminal/end-column count is above 3.5 across ordinary This–Then Pages
-- final/right-hand columns are consistently the densest columns
-- final-column load appears to be the main source of page-shape variation
-
-For boards with seven or more This–Then Pages, the board should normally include at least three visibly different page-shape families unless the domain genuinely requires fewer and the reason is recorded. For boards with four to six This–Then Pages, the board should normally include at least two visibly different page-shape families unless the domain genuinely requires fewer and the reason is recorded.
-
-A page-shape family is defined by a combination of number of columns, boxes-per-column rhythm, where the density sits, whether the page is diagnostic-heavy, implementation-heavy, convergent, branching, simple, integrative, or risk/feedback-heavy, and how links move through the page.
-
-Do not treat `4-4-4-4` and `4-4-4-3` as meaningfully different shape families. They are near-matches. Do not treat `3-3-3-3-2` and `3-3-3-2-2` as meaningfully different shape families. They are near-matches.
-
-Do not revise by randomly adding or removing boxes. Revise by rethinking the causal logic of the page.
+Commit the shape before building. Carry the Step 1 reasoning into the config as `generationChecks.shapePlan` (see Step 1.5): one entry per This–Then Page giving its `archetype`, `columns`, `boxCounts`, and a page-specific `shapeReason` taken from Step 1.4. The builder enforces this. In strict mode (whenever `generationChecks` is present) it measures every This–Then Page — column counts, exact and near-match box-count signatures, terminal-column load, heading rhythm, and link topology — and rejects boards whose pages repeat one another instead of following distinct domain logic, together with any shapePlan whose committed shapes repeat. If the builder rejects a board, restructure the affected pages from their domain logic: change how many causal stages they have, where density sits, and how links branch, converge, or feed back. Never answer a shape rejection by thinning, genericising, or deleting content, or by pushing outcomes into the terminal column to disguise repetition.
 
 AVOID NUMBERED LABELS UNLESS EXPLICITLY REQUESTED
 
-Do not number boxes, conditions, outcomes, rows, columns, pages, pathways, stages, or major board areas by default.
+Do not number boxes, conditions, outcomes, rows, columns, pages, pathways, steps, or major board areas by default.
 
 Avoid labels such as:
 
 - `Condition 1.1`
 - `Outcome 2.3`
 - `Box 4.2.1`
-- `Step 3`
+- `Phase 3`
 - `Pathway 07`
 - `Discovery condition 10.1.1`
 - `Implementation item 12.3.4`
@@ -710,40 +669,6 @@ Box labels should normally be meaningful natural-language outcome or condition s
 Numbered labels are allowed only when the user explicitly asks for numbered items.
 
 For normal boards, if the draft contains numbered labels, rewrite them into natural content-specific labels before producing the final board. Do not add a broader naming-audit regime and do not over-edit existing meaningful labels; this is a targeted rule against numbered placeholder labels.
-
-MINIMUM VARIATION EXPECTATION
-
-For any multi-page DoView Board with four or more This–Then Pages, the pages should normally show visible structural variation.
-
-This does not mean every page must be different. But the board should normally include variation such as:
-
-- some pages with three columns
-- some pages with four columns
-- some pages with five or more columns where justified
-- some pages with dense early diagnostic columns
-- some pages with fewer but stronger outcome columns
-- some pages with uneven numbers of boxes across columns
-- some pages with more converging links or Cross-Links
-- some pages with simpler causal pathways where the domain is genuinely simple
-
-A repeated 4-column, 3–3–3–2 structure across most pages is a warning sign of a poor AI-generated board.
-
-NATURAL COMPLEXITY RULE
-
-Do not force every domain into the same level of complexity.
-
-Some domains need more detail. Some need less. Some need more diagnostic boxes. Some need more implementation boxes. Some need more intermediate outcomes. Some need more feedback or enabling conditions.
-
-The number of boxes and columns on a page should be determined by:
-
-- the number of important causal conditions in that domain
-- the number of distinct mechanisms that need to be shown
-- the number of meaningful intermediate outcomes
-- the complexity of the domain
-- the level of detail needed for the user’s purpose
-
-Do not make every page feel equally weighted unless the topic genuinely requires that.
-
 
 CAUSAL-CONNECTIVITY / LINK-DENSITY PASS
 
@@ -755,24 +680,23 @@ Ask:
 - Does each non-ending This–Then Box have at least one meaningful forward link, unless it is deliberately a terminal outcome or a side condition?
 - Are there isolated boxes that should be connected to the page's causal story?
 - Are there under-linked causal stages where boxes sit in the same column without showing how they lead forward?
-- Are there missing cross-column links where a condition in one stage clearly enables, constrains, or contributes to a later stage?
+- Are there missing cross-column links where a condition in one step clearly enables, constrains, or contributes to a later step?
 - Are there useful cross-page This–Then links where one page's outcome, condition, or risk materially affects another page's pathway?
 - Do links express real This–Then causality rather than decorative density?
-- Do link main-text fields explain the relationship where the connection is important, non-obvious, evidence-based, or potentially contested?
+- Are important or non-obvious links understandable from the endpoint wording and surrounding causal structure without relying on link annotations?
 
-If stored links are requested or reasonably implied and the answer shows isolated boxes, under-linked stages, missing cross-column links, or weak forward movement, revise links and supporting link text before assembly. Do not create decorative links merely to increase counts. If stored links are not requested or reasonably implied, use the check to improve page shape, column order, and box wording rather than adding stored link records.
+If stored links are requested or reasonably implied and the answer shows isolated boxes, under-linked steps, missing cross-column links, or weak forward movement, revise links and supporting link text before assembly. Do not create decorative links merely to increase counts. If stored links are not requested or reasonably implied, use the check to improve page shape, column order, and box wording rather than adding stored link records.
 
 
-BOARD-QUALITY GATES — GENERAL BOARD-RICHNESS, NATURAL-SHAPE, STRONG PAGE-SHAPE AUDIT, CAUSAL-CONNECTIVITY, LABEL-QUALITY, COLOUR-SCHEMA, AND BUILDER WORKFLOW CORRECTIVE
+BOARD-QUALITY GATES — GENERAL BOARD-RICHNESS, DOMAIN-SHAPED PAGE GEOMETRY, CAUSAL-CONNECTIVITY, LABEL-QUALITY, COLOUR-SCHEMA, AND BUILDER WORKFLOW CORRECTIVE
 
 Run these quality gates before config finalisation and again before HTML assembly. These are substantive board-quality checks, not replacement technical validation. Passing builder validation only proves that the file can be assembled; it does not prove that the board is deep, specific, or useful. Before presenting a generated board, satisfy both content-quality checks, including the domain-decomposition, omitted-domain, omitted-regularity, and causal-connectivity / link-density checks where stored links are requested or reasonably implied, and technical build checks, including config validation and final HTML validation.
 
 PRE-CONFIG BOARD-QUALITY GATE
 
 - Domain-decomposition for substantial topics: before drafting pages for any substantial topic, identify the main distinct domains naturally implied by the topic, including relevant actors, audiences, causal pathways, risks, constraints, implementation workstreams, evidence needs, Measures, and learning questions where they matter. Use this as a thinking checklist, not as a fixed page list or quota.
-- Domain-shaped pages: every This–Then Page must reflect the actual domain, not a generic template. Column headings must name real causal stages, not placeholders such as Stage 1 / Stage 2 or generic Inputs / Activities / Outputs unless those terms are genuinely appropriate for the domain.
-- Anti-template / natural-shape pass: for substantial boards, check repeated page geometry, repeated column counts, repeated box counts, repeated heading rhythm, and padding boxes added merely to fill a grid. Revise artificial regularity before config finalisation. Do not add random irregularity; the aim is domain-shaped clarity.
-- Strong page-shape and terminal-column rejection criteria: reject and redesign a board if all or all but one This–Then Pages have the same number of columns, most pages share the same column count without a documented domain reason, the two most common exact or near-matching box-count patterns cover most This–Then Pages, more than two pages share an exact or near-matching pattern, most pages share the same early-column density, short-final-column pattern, or simple left-to-right link rhythm, pages differ mainly in wording rather than causal structure, or the board looks like a generic template applied to several domains. Repeated `4-4-4-4`, repeated `4-4-4-3`, repeated `3-3-3-3-2`, or near-matching combinations such as `4-4-4-4` plus `4-4-4-3` must be rejected and redesigned unless explicitly synthetic or justified by domain logic. Also reject ordinary boards where anti-stereotype variation has been achieved by overloading final/right-hand columns: ordinary This–Then Pages usually end with 1–3 terminal outcomes, 4 needs a genuine domain reason, and 5+ should be rare. Keep the existing meaningful-label guidance and focus this audit on page shape and terminal-column proportion.
+- Domain-shaped pages: every This–Then Page must reflect the actual domain, not a generic template. Column headings must name real causal stages, not placeholders such as Step 1 / Step 2 or generic Inputs / Activities / Outputs unless those terms are genuinely appropriate for the domain.
+- Domain-shaped page geometry: page shape must follow domain logic, not a repeated template, and variation must not come from overloading final/right-hand columns. The builder enforces this in strict mode; before finalising, sanity-check that pages differ because their domains differ rather than cosmetically, and restructure from domain logic where they do not. See "PAGE SHAPE FOLLOWS DOMAIN LOGIC" above.
 - Causal-connectivity / link-density pass: when stored links are requested or reasonably implied, review each relevant This–Then Page for isolated boxes, under-linked causal stages, missing cross-column links, and absent meaningful forward links. Revise links and link supporting text where needed before config finalisation. Do not add decorative links merely to increase counts. When stored links are not requested or reasonably implied, check the left-to-right causal story through page shape, columns, and box wording without adding stored link records.
 - Non-generic causal stages: box labels must describe specific outcomes, conditions, capacities, behaviors, decisions, or states for the topic. Avoid labels that could be pasted unchanged into almost any board.
 - Numbered-label pass: confirm the board does not use numbered labels unless the user explicitly requested numbered items. Confirm numbered labels are not being used as a substitute for real content-specific wording.
@@ -793,7 +717,7 @@ Before finalising `doview-board-config.json`, run an omitted-domain check. This 
 
 - What major domains are implied by this topic?
 - Have any distinct causal pathways been collapsed together?
-- Are any important actors, audiences, delivery stages, risks, constraints, or enabling conditions missing?
+- Are any important actors, audiences, delivery steps, risks, constraints, or enabling conditions missing?
 - Are there enough pages to avoid overloaded generic pages?
 - Are there enough boxes and structural links to show what leads to what?
 - Are How Pages used for action/implementation content?
@@ -812,16 +736,10 @@ Before finalising `doview-board-config.json`, also run an omitted-regularity che
 - Are any pages artificially padded to match a repeated page shape?
 - Are any pages artificially compressed to match a repeated page shape?
 - Are any page headings, column headings, or box-label patterns too repetitive?
-- Are any page headings, column headings, box labels, pathway labels, stage labels, or final outcomes using numbered placeholders such as `Condition 1.1`, `Outcome 2.3`, `Step 3`, or `Pathway 07` when the user did not explicitly request numbering?
+- Are any page headings, column headings, box labels, pathway labels, step labels, or final outcomes using numbered placeholders such as `Condition 1.1`, `Outcome 2.3`, `Phase 3`, or `Pathway 07` when the user did not explicitly request numbering?
 - Are any generated This–Then subpages missing a complete `color` object with `bg`, `bdr`, and `tab` hex values?
 - Are any domains being made to look equally complex when they are not?
 - Does the board’s visual structure reflect the actual causal structure of the topic?
-- Are exact or near-matching page geometries dominating the board?
-- Do the top two exact or near-matching patterns cover most This–Then Pages?
-- Are repeated short-final-column patterns or repeated early-column density patterns making pages look like the same worksheet?
-- Are any final/right-hand columns overloaded with too many page-level terminal outcomes?
-- Are most This–Then Pages ending with 1–3 terminal boxes, with any 4+ counts justified by the domain?
-- Is anti-stereotype variation being achieved by real causal shape differences rather than by multiplying final-column outcomes?
 
 
 CAUSAL-CONNECTIVITY / LINK-DENSITY CHECK
@@ -834,52 +752,22 @@ Before finalising `doview-board-config.json`, also run a causal-connectivity / l
 - Which remaining boxes lack meaningful forward This–Then links?
 - Which adjacent or non-adjacent columns have missing causal links?
 - Which cross-page causal dependencies should be represented with existing supported This–Then links?
-- Which important links need `mainText`, `notes1`, `notes2`, or `notes3` to explain the relationship, assumption, evidence, risk, or caveat?
+- Which proposed links remain uncertain, indirect or assumption-dependent and therefore require careful human attention before operational use?
 
-If stored links are requested or reasonably implied and the board fails this causal-connectivity / link-density check, add or revise supported structural links and link supporting text before generating or finalising `doview-board-config.json`. Preserve natural page shape, but do not create stored links solely because a default broad board was requested.
+If stored links are requested or reasonably implied and the board fails this causal-connectivity / link-density check, add or revise supported structural links before generating or finalising the relevant workflow step. Preserve natural page shape, but do not create stored links solely because a default broad board was requested. Keep link annotations governed by the workflow: blank in Steps 1 and 2.
 
 If the board fails this omitted-regularity check, revise the board before generating or finalising `doview-board-config.json`. Do not reject legitimate consistency where the domain genuinely calls for it. Do not make simple boards more complex than needed. Do not make boards irregular merely for style.
 
-MANDATORY PAGE-SHAPE AUDIT BEFORE FINAL BOARD OUTPUT
+FINAL PRE-OUTPUT CHECKS
 
-Before producing the final DoView Board, run a page-shape audit. For ordinary multi-page boards with four or more This–Then Pages, use the required page-shape table before final config finalisation and then re-check it before assembly.
+Page shape is checked deterministically by the builder, not by a self-audit here: when `generationChecks` is present, the builder measures every This–Then Page and rejects repeated geometry, near-match coverage across the board, terminal-column overload without a recorded exception, or a shapePlan whose committed shapes repeat. Do not restate a page-shape audit or emit a completion sentence; if the builder rejects the board, restructure the affected pages from their domain logic and rebuild, without thinning or genericising content.
 
-Check every This–Then Page for:
+Two page-level checks the builder cannot make remain your responsibility before final output:
 
-1. number of columns
-2. number of boxes in each column
-3. whether the page has the same exact or near-matching structure as other pages
-4. whether most pages use the same number of columns
-5. whether most pages use the same exact or near-matching boxes-per-column pattern
-6. terminal/end-column count and whether it is proportionate
-7. whether final columns repeatedly have the same number of outcome boxes
-8. whether final/right-hand columns are consistently the densest columns
-9. whether links run in the same simple pattern on every page
-10. whether each page’s shape reflects the actual causal logic of that topic area
+- Numbered labels: confirm the board does not use numbered placeholder labels (such as `Condition 1.1`, `Outcome 2.3`, or `Phase 3`) unless the user explicitly requested numbering, and that numbers are not standing in for real content-specific wording.
+- Colour objects: confirm every generated This–Then subpage includes a complete `color` object with `bg`, `bdr`, and `tab` hex values.
 
-If more than two This–Then Pages have substantially the same exact or near-matching shape, revise the board before output.
-
-If all, all but one, or most This–Then Pages have the same number of columns without a documented domain reason, revise the board before output.
-
-If the top two exact or near-matching patterns cover most This–Then Pages, revise the board before output.
-
-If most This–Then Pages have the same row pattern, such as 3–3–3–2, 4-4-4-4, 4-4-4-3, or 3-3-3-3-2, revise the board before output.
-
-If any ordinary This–Then Page has 6 or more terminal boxes without a clear domain reason, more than one page has 5 or more terminal boxes, most pages have 4 or more terminal boxes, the average terminal count is above 3.5, or final/right-hand columns are consistently the densest columns, revise the board before output.
-
-If every page looks equally balanced, symmetrical, or template-like, revise the board before output.
-
-Before final output, include these lines:
-
-`Page-shape audit completed: This–Then Pages were checked for exact and near-matching geometry, repeated column counts, repeated density patterns, repeated terminal/end-column counts, overloaded final/right-hand columns, and repeated link rhythms. The final board uses domain-shaped structures rather than a repeated template or terminal-column overload.`
-
-`Numbered-label check completed: numbered placeholder labels are not used unless explicitly requested.`
-
-`Colour-schema check completed: generated This–Then subpages include complete colour objects.`
-
-Do not ask the user for permission unless the user has requested an approval step. Run the audit automatically. Do not include the page-shape audit completion line unless the audit actually passed. If the audit fails, revise the board rather than reporting failure. Do not produce the final board until the page-shape audit has passed.
-
-This audit is for ordinary content boards. Do not over-interpret this as a rule against intentionally synthetic load-test boards. If the user explicitly asks for a load-test board and says the content/structure does not matter, the board may use artificial or repeated structures for testing scale. But even load-test boards must still be complete functional DoView Boards with the normal menus, controls, saved-state defaults, and Page View behaviour.
+These checks run automatically; do not ask the user for permission unless an approval step was requested. This does not apply to intentionally synthetic load-test boards: when the user explicitly asks for one and says content or structure does not matter, set `generationChecks.shapePlan.syntheticLoadTest: true`. Such boards may use artificial or repeated structures but must still be complete, functional DoView Boards with the normal menus, controls, saved-state defaults, and Page View behaviour.
 
 If the board fails this omitted-domain check, expand or restructure the board before assembling the final HTML. Do not force irrelevant Measures, Evaluation Questions, sources, Documentation Pages, or extra pages into genuinely simple boards, and do not require sources where the user supplied all information and no public evidence or current facts were requested.
 
@@ -887,7 +775,7 @@ PRE-ASSEMBLY BOARD-QUALITY GATE
 
 After the JSON config validates technically and before assembling HTML, re-check that no fixes or simplifications have reduced board depth, domain specificity, page count, causal detail, requested/implied links, Measures, Evaluation Questions, Documentation Pages, source placement, or coverage of major domains naturally implied by the topic. Run the omitted-domain check, omitted-regularity check, and any relevant causal-connectivity / link-density check again before the builder is run. If the builder or validator reports an error, fix the error while preserving or improving quality; do not delete content merely to make validation easier unless the deleted content is clearly invalid or unsupported.
 
-Before presenting the board, validate the substantive board quality, natural-shape / omitted-regularity checks, numbered-label checks, generated This–Then Page colour-object checks, mandatory page-shape audit, any relevant causal-connectivity / link-density checks, and the technical config/board structure and HTML assembly. Builder success is necessary but not sufficient; a technically valid board that fails the board-quality gate, omitted-domain check, or relevant causal-connectivity / link-density check must be revised and rebuilt before presentation. For complex boards, config validation must happen before final HTML assembly. Check that page IDs are unique, page types are valid, any stored links resolve to real boxes, any How Boxes referenced by links exist, final outcomes exist where referenced, Documentation Page content points to an existing Documentation Page, and sources are included where web research was used. When `doview-board-builder.js` is available, use it to validate the config and assembled HTML. Then validate the assembled HTML. The decisive `DoView.init()` validation must count only the body script after `<body>` and must find exactly one body config call; do not rely on whole-file `grep -c 'DoView\.init('` as the main validation because the engine itself may contain references to `DoView.init`. Also check that the engine appears once only, the config is in the body script, and the engine is not duplicated in the body. Keep using the existing HTML verification instructions, improved by the body-only `DoView.init()` count.
+Before presenting the board, validate the substantive board quality, omitted-regularity checks, numbered-label checks, generated This–Then Page colour-object checks, strict builder page-shape validation, any relevant causal-connectivity / link-density checks, and the technical config/board structure and HTML assembly. Builder success is necessary but not sufficient; a technically valid board that fails the board-quality gate, omitted-domain check, or relevant causal-connectivity / link-density check must be revised and rebuilt before presentation. For complex boards, config validation must happen before final HTML assembly. Check that page IDs are unique, page types are valid, any stored links resolve to real boxes, any How Boxes referenced by links exist, final outcomes exist where referenced, Documentation Page content points to an existing Documentation Page, and sources are included where web research was used. When `doview-board-builder.js` is available, use it to validate the config and assembled HTML. Then validate the assembled HTML. The decisive `DoView.init()` validation must count only the body script after `<body>` and must find exactly one body config call; do not rely on whole-file `grep -c 'DoView\.init('` as the main validation because the engine itself may contain references to `DoView.init`. Also check that the engine appears once only, the config is in the body script, and the engine is not duplicated in the body. Keep using the existing HTML verification instructions, improved by the body-only `DoView.init()` count.
 
 Prefer producing a complete first version over asking clarification questions. A useful draft board is better than no board. Ask only when the missing information would materially prevent the board from being created. The user can refine the board afterward. Do not ignore explicit user requests to discuss before building, do not build when the user has clearly asked to wait, and do not override safety or policy requirements.
 
@@ -911,7 +799,7 @@ CONTENT AND STRUCTURE RULES
 - If using internet sources: everything must come from public information. Do not reproduce personal data about identifiable individuals.
 - If the user supplies information: work only from that; do not look anything up.
 - The structure of columns and rows on each page/subpage must follow the inherent logic of that domain, not an arbitrary template.
-- Do not use numbered placeholder labels for boxes, conditions, outcomes, rows, columns, pages, pathways, stages, or major board areas unless the user explicitly requested numbered items.
+- Do not use numbered placeholder labels for boxes, conditions, outcomes, rows, columns, pages, pathways, steps, or major board areas unless the user explicitly requested numbered items.
 - Visible DoView box labels must be compact because they are displayed inside small visual boxes. Write short outcome/action labels, not full explanatory sentences. Aim for 3 to 8 words per box label where possible, and avoid more than about 10 to 12 words unless a technical phrase genuinely requires it. Prefer short noun phrases or short active phrases that preserve clear meaning.
 - Avoid long bracketed examples, long comma-separated lists, policy-document style wording, explanatory sentences, repeated qualifiers, unnecessary verbs, and multiple examples inside one label. Move explanatory detail, examples, caveats, evidence, and background into Page info, box notes, Documentation Pages, source notes, or Measures/Evaluation Questions if requested.
 - Do not solve long labels with mechanical truncation, automatic runtime shortening, smaller text, larger boxes, or CSS/layout changes. This is a generation-quality rule: rewrite long labels before finalizing the board.
@@ -934,7 +822,7 @@ DRAFTING STEPS:
 1. Extract items — identify all outcomes or steps to outcomes.
 2. Write as outcome statements — use outcome phrasing that tends to end with …ed.
 3. DEFAULT — use compact DoView outcome phrasing when building or proposing This–Then Box labels. This means avoiding auxiliary-verb forms such as "were", "was", "are", "is", "have been", "will be", "has been" when nothing else is specified. Prefer compact DoView phrasing such as "Predators, browsers and weeds controlled at priority sites", "Funding secured", "Risks identified early" over expanded forms like "Predators, browsers and weeds were controlled at priority sites", "Funding was secured", "Risks are identified early". This applies BOTH when building new boards AND when editing existing ones where no explicit wording has been requested. USER-DIRECTED EXCEPTION — if the user explicitly asks for a particular wording, preserve that wording exactly as requested, even if it uses forms like "were", "was", "is", "are", "have been", "will be", or "has been". Do not silently override explicit user intent in the name of compact DoView form. The compact form is a default, not an overrule of stated user preference.
-4. Map This→Then relationships — a box normally belongs to the left of another box where achieving the left-hand box helps make the right-hand box possible, more likely, better, earlier, safer, or more sustainable. A box on the left may represent a prerequisite, contributor, enabling condition, or required element at that stage in the overall sequence. Left-to-right position can also reflect temporal logic: a box may belong earlier because that is when the action, condition, or coordination step needs to occur, even if it does not have a direct box leading into it from the left. Rule of thumb: if removing a left-hand box would make no real difference to whether or how well the right-hand boxes are achieved, it probably does not belong. But err on the side of inclusion — most real-world outcomes depend on more enabling conditions than initially come to mind, not fewer.
+4. Map This→Then relationships — a box normally belongs to the left of another box where achieving the left-hand box helps make the right-hand box possible, more likely, better, earlier, safer, or more sustainable. A box on the left may represent a prerequisite, contributor, enabling condition, or required element at that step in the overall sequence. Left-to-right position can also reflect temporal logic: a box may belong earlier because that is when the action, condition, or coordination step needs to occur, even if it does not have a direct box leading into it from the left. Rule of thumb: if removing a left-hand box would make no real difference to whether or how well the right-hand boxes are achieved, it probably does not belong. But err on the side of inclusion — most real-world outcomes depend on more enabling conditions than initially come to mind, not fewer.
 5. Keep boxes tight — one concept per box.
 6. Multiple high-level outcomes are allowed in the final column.
 7. World-centric — include external assumptions/risks (phrased positively).
@@ -944,64 +832,62 @@ DRAFTING STEPS:
 11. Column headings are not boxes — a column heading must label the causal stage for the whole column, not state an additional outcome, step, action, or condition that belongs as a box. If a heading could be read as a missing box, rewrite the heading or include that concept as a box.
 12. Vary box counts — the number of boxes in each column is ENTIRELY determined by how many genuinely distinct outcomes occur at that causal stage in the real world. Do not default to 2 or 3 boxes per column.
 13. Vertical flow — if a column has top→bottom causality, order boxes accordingly.
-14. Include necessary steps — include all steps required to get to the next stage.
+14. Include necessary steps — include all steps required to get to the next step.
 15. Use qualifiers — use adequate / sufficient / high-quality where appropriate.
 16. Vary column counts across subpages — different subpages represent different domains with different numbers of causal stages. Do not default to a standard number of columns.
 
 ────────────────────────────────────────────────────────
-MANDATORY TWO-STAGE BUILD PROCESS
+MANDATORY INTERNAL STRUCTURE-FIRST BUILD PROCESS
 ────────────────────────────────────────────────────────
 
-AI systems have a strong tendency to produce visually uniform, template-like board structures. To prevent this, the build process is split into two mandatory stages that BOTH happen within a single response. The user does NOT need to send a second prompt.
+AI systems have a strong tendency to produce visually uniform board structures. Within Step 1 of the user workflow, use the following internal structure-first process. These are internal construction phases, not extra user-facing steps, and must not be shown as a plan before the files.
 
-STAGE 1 — STRUCTURE FIRST, NO CODE
+INTERNAL PHASE A — STRUCTURE FIRST, NO CODE
 
-Before writing ANY code, complete these steps and show them in the chat:
+Before writing code, complete these steps internally:
 
 Step 1.1 — Research / gather information.
 Step 1.2 — Decide whether the topic is simple or substantial. If substantial, do a domain-decomposition pass: list the main distinct domains naturally implied by the topic and check likely actors, audiences, causal pathways, risks, constraints, implementation workstreams, evidence needs, Measures, and learning questions where relevant. Use this as a thinking checklist, not as a fixed page list or quota.
 Step 1.3 — List the subpages (multi-page only) with one sentence each.
 Step 1.4 — Per-subpage domain reasoning and page-shape design (MANDATORY):
-For EACH subpage, write 2–4 sentences explaining: "In the real world, what are the genuinely distinct causal stages? At each stage, how many distinct things must happen?" Also answer the domain-shaped page design questions: is the page diagnostic, implementation-heavy, capability-building, risk/feedback-heavy, convergent, branching, simple linear, outcome-heavy, or integrative; where should density sit; and how should links move through the page? Derive structure from this reasoning.
+For EACH subpage, write 2–4 sentences explaining: "In the real world, what are the genuinely distinct causal stages? At each step, how many distinct things must happen?" Also answer the domain-shaped page design questions: is the page diagnostic, implementation-heavy, capability-building, risk/feedback-heavy, convergent, branching, simple linear, outcome-heavy, or integrative; where should density sit; and how should links move through the page? Derive structure from this reasoning.
 
 Step 1.5 — Produce the structural summary table:
   Structural summary:
   - [Subpage name]: columns = N; rows per column = [c1, c2, c3, …]
   …
+Carry this summary into the config as `generationChecks.shapePlan`: one `pages` entry per This–Then Page with `pageId`, `archetype`, `columns`, `boxCounts`, and a page-specific `shapeReason` taken from the Step 1.4 domain reasoning. The builder enforces the committed plan — each This–Then Page must match its planned `columns` and `boxCounts` exactly — so if domain reasoning changes a page's shape during the build, update the shapePlan from that reasoning first, then regenerate the page.
 
-Step 1.5a — For ordinary multi-page boards with four or more This–Then Pages, produce the internal page-shape table before finalising config: page name; domain/topic area; number of columns; boxes per column; broad shape class; why this shape fits the domain; exact/near-match status; and what changed if it was too similar to another page.
+Step 1.5a — For multi-page boards with four or more This–Then Pages, make sure each shapePlan entry carries a genuinely distinct `archetype` and `shapeReason` drawn from its Step 1.4 domain reasoning. If two pages would end up with the same rationale, rethink one of them from its domain logic before finalising, because the builder rejects a shapePlan whose committed page shapes repeat one another.
 Step 1.6 — List the Final Outcomes.
 Step 1.7 — List all column headings and box labels.
 Before finalising the generated board, review every visible box label. If any label is too long to fit comfortably in a DoView box, rewrite it as a shorter display label while preserving the intended meaning.
 
-STAGE 2 — ANTI-STEREOTYPE CHECK AND BUILD
+INTERNAL PHASE B — BUILD AND STRICT VALIDATION
 
-Check 1 — Column count variation: If all, all but one, or most This–Then subpages have the same column count without a documented domain reason, STOP and revise.
-Check 2 — Row count and density variation: If most columns have the same box density, most pages share the same early-column density, or most final columns are similarly short, STOP and revise.
-Check 3 — Cross-subpage exact and near-match uniqueness: If more than two This–Then subpages share identical or near-matching patterns, or if the top two exact/near-match patterns cover most pages, justify from domain logic or revise.
-Check 4 — Domain logic test: For every column, the box count must reflect real-world complexity.
-Check 5 — No standard template: avoiding one banned pattern is not enough. If the board repeats new templates such as `4-4-4-4`, `4-4-4-3`, `3-3-3-3-2`, or near-matching families, rebuild from domain logic.
-Check 6 — Omitted-domain check: If a substantial topic has omitted or collapsed major domains, actors, audiences, causal pathways, delivery stages, risks, constraints, enabling conditions, implementation workstreams, evidence needs, Measures, or learning questions that would materially improve the board, expand or restructure before building.
-Check 7 — Final sanity check: Would a domain expert recognise this as real analysis?
+Build the board from the internal Phase A plan, then run the builder with `generationChecks` present so strict validation runs. The builder enforces page shape deterministically — repeated column counts, repeated exact or near-match box-count patterns, board-wide pattern coverage, terminal-column overload, and a repetitive shapePlan are rejected — so there is no self-audit to state and no PASS/FAIL line to emit here. If the builder rejects the board, restructure the affected pages from their domain logic and rebuild; never thin, genericise, or delete content, and never push outcomes into the terminal column, to get past validation.
 
-State: "Anti-stereotype check: PASS" or "FAIL — [explanation]" and revise if needed.
+Two checks the builder cannot make remain yours:
 
-Only after PASS, proceed to build.
+- Omitted-domain: if a substantial topic has collapsed or omitted major domains, actors, audiences, causal pathways, delivery steps, risks, constraints, enabling conditions, implementation workstreams, evidence needs, Measures, or learning questions that would materially improve the board, expand or restructure before building.
+- Domain-expert sanity: would someone who knows this field recognise the board as real analysis rather than a generic template filled in with topic words? If not, revise from domain logic.
+
+Only once these hold and strict validation passes is the board complete.
 
 FAST PATH — ONE-PAGE "JUST DO IT" BOARDS:
-If the user requested a one-page board with "just do it" (or equivalent) and the topic is genuinely simple, skip Step 1.3, Step 1.4, and all of Stage 2. Go from Step 1.1 to Step 1.2 (confirm the topic is simple), then Step 1.5 (produce a brief structural summary), then Step 1.7 (list column headings and box labels), then proceed to build. This saves significant time and tokens for simple boards where anti-stereotype checks are unnecessary. If the one-page "just do it" topic is substantial, do not skip the domain-decomposition pass or omitted-domain check merely because the prompt is short.
+If the user requested a one-page board with "just do it" (or equivalent) and the topic is genuinely simple, skip Step 1.3, Step 1.4, and the internal Phase B content checks. Go from Step 1.1 to Step 1.2 (confirm the topic is simple), then Step 1.5 (produce a brief structural summary), then Step 1.7 (list column headings and box labels), then proceed to build. This saves significant time and tokens for simple boards where anti-stereotype checks are unnecessary. If the one-page "just do it" topic is substantial, do not skip the domain-decomposition pass or omitted-domain check merely because the prompt is short.
 
 ────────────────────────────────────────────────────────
 BUILDING THE BOARD — ENGINE APPROACH
 ────────────────────────────────────────────────────────
 
-IMPORTANT: DoView boards use a separate engine file (doview-board-engine.js) that contains all CSS, HTML structure, and JavaScript. You do NOT generate the engine code. You ONLY generate the small config data (~100 lines). The engine file handles everything else.
+IMPORTANT: DoView boards use a separate engine file (`doview-board-engine.js`) that contains all CSS, HTML structure, and JavaScript. Do not generate or rewrite the engine code. Generate the board's pure JSON content and structure, then let the builder validate and enrich it into the complete canonical JSON and matching standalone HTML.
 
 CRITICAL: Do NOT embed this prompt, or any part of it, inside the generated HTML file. The final HTML file must begin exactly with `<!DOCTYPE html>`. Do not place comments, advisory text, metadata, prompt text, notes, markdown, or explanatory text before it. The HTML output must contain ONLY the minimal HTML skeleton, the engine code (in the head), and the DoView.init() config (in the body). No prompt text, no build notes, no advisory comments, no metadata scripts, no extra script blocks. Embedding prompt text breaks the board because the prompt contains literal script tags that corrupt the HTML parser. Do not insert board JSON/config/state inside the engine script; keep the engine script intact and place the board config/state only in the separate initialization script.
 
-The reusable local builder file is `doview-board-builder.js`. It is the required final-HTML build path. It reads the engine and a pure JSON board config, validates the config, assembles the single-file HTML output, embeds the engine exactly once in the head, embeds one body-only `DoView.init(...)` config call, inserts the builder validation stamp, validates the assembled HTML, and writes the final board. The generated board remains a single standalone `.html` file; users do not need the builder, prompt, engine, config, or any other file to open the completed board. If the matching builder is unavailable, preserve the validated config and request the matching builder instead of presenting unstamped hand-assembled HTML as complete. The builder does not design, summarise, thin, condense, or quality-rate the board content. Do not reduce page count, domain specificity, causal detail, links, Measures, Evaluation Questions, Documentation Pages, or evidence placement to suit the builder workflow. Builder success is mechanical success only; it is not content success.
+The reusable local builder file is `doview-board-builder.js`. It is the required canonical JSON and final-HTML build path. It reads the engine and a pure JSON board config, validates and normalizes the config, adds required complete state and stable identities, writes canonical JSON, assembles the single-file HTML output from that same object, embeds the engine exactly once in the head, embeds one body-only `DoView.init(...)` config call, inserts the builder validation stamp, and validates the assembled HTML. The generated HTML remains standalone; users do not need the JSON, builder, prompt, or separate engine file beside it to open the board. If the matching builder is unavailable, preserve the pure JSON config and request the matching builder instead of presenting unstamped hand-assembled HTML as complete. The builder does not design, summarise, thin, condense, or quality-rate board content. Do not reduce page count, domain specificity, causal detail, links, Measures, Evaluation Questions, Documentation Pages, or evidence placement to suit the builder workflow. Builder success is mechanical success only; it is not content success.
 
-Builder/content validation guidance: when the builder validates config, it should compute each This–Then Page’s number of columns, boxes-per-column exact pattern, rough near-match signature, column-count distribution, most common exact patterns, most common near-match signatures, final/right-hand terminal-column count, average terminal-column count, number of pages with 4 terminal boxes, number of pages with 5 terminal boxes, number of pages with 6 or more terminal boxes, and whether terminal columns are often the densest columns. It should warn, or fail in extreme ordinary-board cases where practical, if all or nearly all This–Then Pages share a column count, more than two pages share an exact or near-matching shape, the top two exact or near-match patterns cover most pages, most pages are made of tidy three/four-box columns, page-shape variation appears cosmetic rather than structural, any ordinary page has 6 or more terminal boxes without a clear domain reason, more than one ordinary page has 5 or more terminal boxes, most ordinary pages have 4 or more terminal boxes, average terminal-column count exceeds 3.5, terminal columns are often the densest columns, or final-column load appears to be the main source of page-shape variation. Apply these stronger warnings only to ordinary boards with four or more This–Then Pages where appropriate. Do not block one-page boards, small boards, Documentation Pages, How Pages, Final Outcomes pages, user-requested very detailed boards, domains with documented reasons for several parallel terminal outcomes, or explicitly synthetic load-test boards where the user has said content/structure does not matter. The warning should identify the repeated pattern or overloaded terminal column clearly, for example: `Anti-template warning: 8 This–Then Pages all have 4 columns; patterns 4-4-4-4 and 4-4-4-3 cover all pages. Revise page shapes based on domain logic before final output.` Or: `Terminal-column warning: Page "Biodiversity recovery" has 7 terminal boxes. Ordinary This–Then Pages should usually end with 1–3 page-level outcomes. Consolidate, move some outcomes to intermediate columns, split the page, or record a clear domain reason.`
+Builder/content validation guidance: in strict mode (when `generationChecks` is present) the builder computes each This–Then Page's column count, exact and near-match box-count signatures, column-count distribution, pattern coverage, terminal-column load, heading rhythm, and link topology, and rejects ordinary multi-page boards (four or more This–Then Pages) whose pages repeat one another's geometry, whose committed shapePlan repeats, or whose variation comes mainly from overloaded terminal columns. It does not constrain one-page boards, small boards, Documentation, How, or Final Outcome pages, user-requested very detailed boards, domains with a recorded `terminalColumnExceptions` reason for several parallel terminal outcomes, or explicitly synthetic load-test boards flagged with `shapePlan.syntheticLoadTest`. A rejection names the repeated pattern or overloaded column; respond by restructuring from domain logic, never by thinning content.
 
 The engine file may be available in one of these locations (check in this order):
 1. User upload: /mnt/user-data/uploads/doview-board-engine.js
@@ -1014,13 +900,30 @@ The builder file may be available in one of these locations (check in this order
 3. Current working directory, if already created for this build
 4. If it is not available, preserve the validated config and ask the user for the matching builder. The hand-assembly section below is diagnostic only.
 
-Generated board output should follow this naming pattern:
+Generated Step deliverables must use the exact filename rules in `000-START-HERE-RUN-FIRST.md`. The HTML stem is:
 
-`<board-slug>_doview-board_v1.3.7_<yyyy-mm-dd>.html`
+- Step 1: `<abbreviated-board-name>-1-4-3-step-1-base-doview-board[-<known-ai-model>][-<exposed-effort>]-<yyyy-mm-dd>-<hhmm>`
+- Step 2: `<abbreviated-board-name>-1-4-3-step-2-prototype-doview-board-with-how-links[-<known-ai-model>][-<exposed-effort>]-<yyyy-mm-dd>-<hhmm>`
+
+Use **Step**, never Stage. Use lowercase slugs, hyphens rather than spaces and no colons. Include the AI model only when reliably known. Include effort only when explicitly exposed. Omit unavailable components completely: never write `model-unknown` or `effort-not-exposed` in a filename. Do not include a timezone in any filename.
+
+Create supporting files from the same HTML stem:
+
+- `<stem>.json`
+- `<stem>-prompt-used.md`
+- `<stem>-structure-audit.md` or `<stem>-mapping-audit.md`
+
+Create the user-downloadable ZIP as:
+
+- `<stem>-plus-additional-files-ai-readible-json-and-prompt-info.zip`
+
+The ZIP must contain, at its root, `<stem>.html`, `<stem>.json`, `<stem>-prompt-used.md`, and the Step-correct audit file. The HTML stored in the ZIP must be byte-identical to the directly linked HTML. Create and validate it with `tools/create-delivery-zip.js` and `tools/validate-delivery-zip.js`.
+
+The user-facing response must link only `<stem>.html` and that ZIP. Do not separately link the JSON, prompt record or audit.
 
 Example:
 
-`labour-2026-nz-election_doview-board_v1.3.7_2026-06-26.html`
+`burnham-policy-1-4-3-step-2-prototype-doview-board-with-how-links-gpt-5-6-thinking-high-effort-2026-08-14-1118.html`
 
 MANDATORY BUILD PROCESS — follow these exact steps. Use the matching builder path for final standalone HTML. The hand-assembly path is diagnostic only:
 
@@ -1038,6 +941,9 @@ Create a working file such as /mnt/data/doview-board-config.json containing ONLY
 
 ```json
 {
+  "format": "doview-board-json",
+  "schemaVersion": "V1.3.9",
+  "engineVersion": "V1.4.3",
   "title": "Board Title",
   "slug": "board_slug",
   "subpages": [
@@ -1129,19 +1035,24 @@ console.log('DoView config validation passed');
 
 For diagnostic hand assembly only, after `/mnt/data/doview-board-config.json` validates, create `/mnt/data/doview-config.js` containing only `DoView.init(<validated config>);`. Do not return this unstamped diagnostic assembly as the completed final board.
 
-Step 3 — Required builder path for final standalone HTML:
+Build phase — Required builder path for final standalone HTML:
 Before running the builder, rerun the current pre-assembly board-quality gate, omitted-domain check, omitted-regularity check, and any relevant causal-connectivity / link-density check. Only then run the builder:
 
 ```bash
 node /mnt/data/doview-board-builder.js \
   --engine /mnt/data/doview-board-engine.js \
   --config /mnt/data/doview-board-config.json \
-  --out /mnt/user-data/outputs/board-slug_doview-board_v1.3.7_YYYY-MM-DD.html
+  --out /mnt/user-data/outputs/board-name-1-4-3-step-1-base-doview-board-gpt-5-6-thinking-YYYY-MM-DD-HHmm.html \
+  --json-out /mnt/user-data/outputs/board-name-1-4-3-step-1-base-doview-board-gpt-5-6-thinking-YYYY-MM-DD-HHmm.json
 ```
 
-The builder validates the JSON config and the final HTML assembly before reporting success. Present the generated HTML only if the builder succeeds and the final embedded config contains the builder-inserted validation stamp. If the builder reports a config error or HTML validation error, revise the JSON/config or fix the build issue and rerun the builder from a clean output file. Do not present the board unless the final file exists and all builder validation checks pass. Do not manually invent or paste a stamp. Where the environment supports it, also load the output and confirm the visible board/content area is non-empty and shows expected page titles, box titles, Overview cards/items, or final outcomes.
+The builder validates the JSON config and final HTML assembly before reporting success. Create both generated files only if the builder succeeds, the canonical JSON is parseable, and the final embedded config contains the same builder-validated object. In the user-facing response, link the HTML directly and place that byte-identical HTML together with the JSON, prompt information and the relevant audit in the additional-files ZIP. If the builder reports a config, canonical JSON, or HTML validation error, revise the input or fix the build issue and rerun from clean output paths. Do not present the board unless both files exist and all builder checks pass. Do not manually invent or paste a stamp. Where the environment supports it, load the HTML and confirm the visible board/content area is non-empty and shows expected page titles, box titles, Overview cards/items, or final outcomes.
 
-Step 3 diagnostic fallback — Assemble HTML using bash only if the builder is unavailable, and do not present it as a completed final board:
+The HTML file is the standalone board for people to open and use. The additional-files ZIP contains the byte-identical standalone HTML, AI-readable JSON, prompt information and relevant audit. Do not list those internal files as separate downloads.
+
+The delivered JSON represents the board as generated. Later edits made only inside the standalone HTML do not automatically update the separately delivered JSON. Do not claim automatic synchronization.
+
+Diagnostic fallback — assemble HTML using bash only if the builder is unavailable, and do not present it as a completed final board:
 CRITICAL: The engine MUST be in the <head> tag, and the DoView.init() config MUST be in a separate <script> in the <body>. This architecture ensures the Download Board function works correctly — the engine in <head> survives when body content is replaced at runtime. Do not paste config/state into the engine script, do not split the engine script with embedded JSON, and do not damage the standalone initialization scaffolding or script boundaries.
 
 Run this exact bash sequence ONCE — if you need to retry, delete the output file first (`rm /mnt/user-data/outputs/boardname_doview.html`) and run ALL commands again from the beginning. Never re-run individual cat/echo lines, never append individual sections to an existing partially built file, and never present this unstamped diagnostic output as a completed board:
@@ -1175,7 +1086,7 @@ cat /mnt/data/doview-config.js >> /mnt/user-data/outputs/boardname_doview.html
 echo '</script></body></html>' >> /mnt/user-data/outputs/boardname_doview.html
 ```
 
-Step 4 — Verify the assembled HTML before presenting:
+Verification — Check the assembled HTML before presenting:
 Run these bash checks on the output file:
 ```bash
 FILE=/mnt/user-data/outputs/boardname_doview.html
@@ -1202,18 +1113,18 @@ HEAD_CLOSE=$(grep -cx '</head>' "$FILE")
 BODY_OPEN=$(grep -cx '<body>' "$FILE")
 [ "$HEAD_CLOSE" -eq 1 ] && [ "$BODY_OPEN" -eq 1 ] && echo "PASS: HTML skeleton correct" || { echo "FAIL: HTML skeleton wrong (</head>:$HEAD_CLOSE <body>:$BODY_OPEN)"; FAIL=1; }
 
-[ $FAIL -eq 0 ] && echo "ALL CHECKS PASSED" || echo "CHECKS FAILED — delete file and redo Steps 2-3"
+[ $FAIL -eq 0 ] && echo "ALL CHECKS PASSED" || echo "CHECKS FAILED — delete file and redo the complete assembly sequence"
 ```
 If any check shows FAIL, delete the output file and redo Steps 2–3 from scratch. Do NOT retry individual cat commands — always delete and rebuild the whole file. These checks help diagnose assembly only; they do not turn an unstamped hand assembly into a completed board.
 
 If builder or diagnostic fallback HTML assembly fails, times out, or cannot be completed, do not lose the board design. Preserve the validated config and return the config to the user if necessary. Explain that the final self-contained HTML assembly failed, include any useful error or validation output, and do not claim the board file was successfully created unless builder-produced final HTML exists, passes validation, and contains the builder-created stamp.
 
-IMPORTANT: Run the Step 3 bash commands exactly once. If you need to retry, delete the output file first and run ALL commands again from the beginning. Appending the engine a second time is the most common assembly error.
+IMPORTANT: Run the diagnostic assembly commands exactly once. If you need to retry, delete the output file first and run ALL commands again from the beginning. Appending the engine a second time is the most common assembly error.
 
-Step 5 — Present the builder-produced, stamped file using present_files.
+Final build phase — Present the builder-produced, stamped file using the available file-delivery mechanism.
 
 This approach means:
-- The AI generates only ~100 lines of config (not 800+ lines of engine)
+- The AI generates the board config (not 800+ lines of engine)
 - The output HTML is fully self-contained (works in artifact panel AND when downloaded)
 - The engine code is never in the AI's output — it flows from file to file via the builder
 - The HTML file contains NOTHING except the engine script, the config script, and the minimal HTML skeleton shown above — no embedded prompts, no metadata, no extra script blocks
@@ -1447,7 +1358,7 @@ DOVIEW BOARD FEATURES (handled by the engine)
 The engine provides all of the following automatically. You do NOT need to implement these — just generate the config. This list is for reference so you understand what the board can do:
 
 Visual design:
-- Orange header (#F5A623) with title left, "Board info" link, "Measures" link, "Eval Questions" link, "Links" link, "Search" link, "Walk-Through" link (opens https://doviewplanning.org/walkthrough in a new tab/window), and "Get training" link (opens https://doviewplanning.org/offerings in a new tab/window; tooltip "Want training? Get help using DoView Boards"; non-editable; appears in normal editable boards and in read-only copies); "SEE. PLAN. DO.™ V1.3.7" on the first right-hand line; the text-only Official DoView® Badge Standards-Compliant Board Structure on the second and third right-hand lines (white text, white rounded border, orange background, no logo, no icon — see "Official DoView® Badge Standards-Compliant Board Structure" below)
+- Orange header (#F5A623) with title left, "Board info" link, "Measures" link, "Eval Questions" link, "Links" link, "Search" link, "Walk-Through" link (opens https://doviewplanning.org/walkthrough in a new tab/window), and "Get training" link (opens https://doviewplanning.org/offerings in a new tab/window; tooltip "Want training? Get help using DoView Boards"; non-editable; appears in normal editable boards and in read-only copies); "SEE. PLAN. DO.™ V1.4.3" followed immediately by the unobtrusive user-activated "Get Latest Version" link to https://doviewplanning.org/prompt on the first right-hand line; the link opens a new tab with `rel="noopener noreferrer"` and performs no startup fetch or automatic update check; the text-only Official DoView® Badge Standards-Compliant Board Structure remains on the second and third right-hand lines (white text, white rounded border, orange background, no logo, no icon — see "Official DoView® Badge Standards-Compliant Board Structure" below)
 - Page-info bar: the bar below the header lays out as a flex row with the existing page name, Page info, View, etc. on the left, and an optional board-level Top right text right-justified on the right (see "Top right text" below). The Top right text is the same across all pages, plain text only, click-to-edit in editable boards, view-only in read-only copies, and persists with the board. When no Top right text exists, the right-hand side of the page-info bar shows nothing at all in both editable boards and read-only copies ( replaces the earlier "+ Add top right text" affordance so finished boards do not look unfinished). Top right text can be added or edited from Board info edit mode, where a compact "Top right text (optional)" field edits the same saved-state value (see "Board info / Page info" below).
 - Top right text: a board-level optional short plain-text annotation or disclaimer (e.g. Draft, Illustrative only, Confidential, Version for contractor review, Not yet approved). It is shown right-justified in the page-info bar across all pages — same text on every page. Plain text only — no rich text, no links. In normal editable boards, clicking the existing text opens a small modal with a text input plus Save / Clear / Cancel buttons; when no Top right text exists, no affordance appears in the page-info bar — instead, Top right text is added or edited from a compact "Top right text (optional)" field inside Board info edit mode, which writes to the same topRightText saved-state value. In read-only copies, the text is visible but not clickable/editable. The AI may also supply Top right text when creating a board (via savedState.topRightText). Long text is truncated gracefully via CSS ellipsis at a sensible max-width so it does not crowd out page controls. The text is saved with the board (savedState.topRightText), persists through Save / Download Board, Copy HTML Board, Create Read-Only Copy, localStorage, and DOVIEW-STATE snapshots, and defaults to '' for older boards (backward compatible).
 - Official DoView® Badge Standards-Compliant Board Structure: a non-editable text-only badge in the top-right of the orange header, on the second and third lines below the SEE. PLAN. DO.™ + version line. Two lines of text — "Official DoView® Badge" (slightly larger) and "Standards-Compliant Board Structure" (slightly smaller). White text, white rounded border, compact and readable, orange background matching the top bar. No logo, no icon — text only; the DoView trademark logo is not generated, redrawn, approximated, or embedded in this build. Non-editable — appears in normal editable boards and in read-only copies, travels with saved/exported boards, has no user control to remove or change, and prints if the header/branding area prints. Clicking the badge opens a non-editable info popup titled "Official DoView® Badge Standards-Compliant Board Structure" with a Close button (no editable fields). Popup body explains that the badge identifies the official DoView Boards package/source and standards-compliant board structure, not user-content review, endorsement, certification, approval, or quality assurance. The popup also explains that DoView Boards may be implemented elsewhere with acknowledgment, but the badge and official-status wording may not be used for non-official, forked, rebranded, or modified tools, boards, apps, platforms, systems, or collections unless authorised in writing by Dr Paul Duignan or the DoView® trademark owner. The popup ends with one clickable link — visible text "doviewplanning.org/trademarkuse" linking to https://doviewplanning.org/trademarkuse. Boundary: this is the reserved official badge for this official DoView release; this release does not create a broader certification system, does not imply third-party boards/tools may use the badge merely because they preserve the same feature set, and does not add logo/image handling.
@@ -1465,7 +1376,8 @@ Visual design:
 - Drilldown triangles on tiles and boxes with subpages
 - Selected box highlight: clicking a box shows a darker border to indicate which box is open
 - Custom border colors: box borders can be set per box from a Border color preset row in the box details pane. Presets: Default, Black, Grey, Orange, Blue, Green, Red, Purple. Default clears the custom border and returns the box to its normal style. Custom border applies only in the normal/resting state — selected, highlighted, reveal, inspect, search, and ghost/context states still override the custom border. Custom border is 2px when set; default is 1px in the page color. Custom border persists after save/reload, travels with read-only copies, and remains visible (but not editable) in read-only copies. The board chat can also set custom borders via [ACTION:setBoxBorder:BOX_ID:COLOR] / [ACTION:clearBoxBorder:BOX_ID] / [ACTION:setSubpageBorders:SUBPAGE_ID:COLOR] / [ACTION:clearSubpageBorders:SUBPAGE_ID].
-- Detail text boxes (Display Text): optional white text boxes displayed below any box on the board, controlled by the Page View toggle "Show Display Text under boxes". When visible, displayed as non-editable under-box blocks. Editable from the box detail pane.
+- Detail text boxes (Display Text): optional text blocks displayed below boxes, controlled by "Show Display Text under Boxes". "Show Full Display Text" is an independent saved preference that removes the limited-height clamp when enabled; it defaults to false for older state. "Show Code-style View" independently changes formatting. Full and Code-style are disabled in the settings panel while Display Text itself is off, and their stored preferences are preserved. Long text expands the layout rather than overlapping boxes.
+- Structured This–Then Box Actions retain Move Box Up/Down and add Move Box Left/Right. Horizontal moves transfer the selected box to the adjacent ordered column at the corresponding row where practical. Movement remaps positional keys while preserving stable UID, causal-link direction and identity, content, Display Text, notes, Measures, Evaluation Questions, tags, priorities, and Traffic Lights. Movement is a structured reorder only; do not add drag-and-drop.
 - This–Then link affordances: on This–Then Page boxes, small clickable circle affordances appear on the box edges showing This–Then link counts. A circle on the left edge shows the number of incoming links; a circle on the right edge shows the number of outgoing links. Controlled by the Show This–Then link counts (just between boxes on This–Then Pages) Page View toggle. When the toggle is on, circles are always shown: filled/dark with count when links exist, empty/outlined when no links exist. Both states are clickable. Clicking a circle opens a popup list of connected boxes with descriptive wording: the right-side list says "[Box name] makes these THIS-THEN boxes happen" (with a right arrow at the start of each item); the left-side list says "[Box name] results from these THIS-THEN boxes:" (with a right arrow at the end of each item). The popup includes a picker for selecting a target, with "Add" (orange) and "Cancel" buttons at the bottom of the popup. Circles sit with a small gap from the box edge for visual clarity.
 - Relationship-inspection state: clicking a link count circle enters a temporary relationship-inspection state. The home box (the box whose count was clicked) receives the strongest highlight style (3px dark border with subtle shadow). Linked boxes receive a clearly weaker secondary highlight (2px lighter grey border with slight background tint). This visual distinction makes the home box immediately identifiable and distinguishes it from the linked boxes without relying on a small arrow alone. When the user clicks a linked box name in the popup list and that box is on another page, the board navigates to that page and the destination box is visibly revealed with its secondary highlight, making it obvious why the user was taken there. The relationship-inspection state persists across page navigation — returning to the original page tab preserves the original home-box and linked-box highlights. The state clears only when the user intentionally exits it (clicking empty space on the board, activating a border-click reveal, selecting another count-click set, or clicking a box normally to open its entry panel).
 - Vertical Link affordances on This–Then Boxes: on This–Then Page boxes, a small square on the bottom edge shows the number of Level 1 How Boxes linking to this box, controlled by the Show Vertical Link counts from How Boxes (to check alignment) Page View toggle. When the toggle is on, the square is always shown: filled/dark with count when links exist, empty/outlined when no links exist. Both states are clickable. Clicking opens a popup titled "[Box name] is acted on by these HOW boxes:" with an upward arrow at the end of each item. The popup includes a picker for selecting a target, with "Add" (orange) and "Cancel" buttons at the bottom of the popup. For larger numbers of digits, squares widen into rectangles.
@@ -1484,7 +1396,7 @@ How Page details:
 - How Boxes use stable 3-digit numbering (H001, H002, H003, …). Once assigned, a How Box number never changes — not after deletion, not after reordering. If H003 is deleted, H004 stays H004. New boxes take the next available number (e.g. H009).
 - How Box state keys use the format SUBPAGE_ID-HXXX (e.g. p2-H001). All standard state commands (setLight, addSofar, setPriority, etc.) work on How Boxes using these keys.
 - How Boxes support all the same entry types as This–Then Boxes: Notes 1, Notes 2, Notes 3, Notes 4, Notes 5, Traffic Lights, priorities, detail text, and custom borders.
-- The entry panel for How Boxes provides: "+ Add box after", "+ Add text next to box", "Move earlier", "Move later", "Move to first", "Move to last", and "Delete box". Reordering changes only display order, never stable box numbers.
+- How Box Actions provide Add How Box below, Move Box Left, Move Box Right, Move Box Up, Move Box Down, Move Box First, Move Box Last, and Delete. Left/Right/First/Last retain their existing ordered-grid behavior. Up/Down swap only with the rendered How Box above or below in the same visual column. Reordering changes display order only and never changes stable H IDs, stable UIDs, links, content, or attached metadata.
 - The board chat can manage How Boxes via: [ACTION:addHowBox:SUBPAGE_ID:LABEL], [ACTION:removeHowBox:SUBPAGE_ID:HOW_ID], [ACTION:renameHowBox:SUBPAGE_ID:HOW_ID:NEW_LABEL].
 
 This–Then links:
@@ -1521,14 +1433,14 @@ Measures and Evaluation Questions:
 - Measures and Evaluation Questions are preserved in saved boards, localStorage, and DOVIEW-STATE snapshots.
 - When a Measure or Evaluation Question is edited, created, associated, dis-associated, or deleted, all visible references (under-box display, entry panel associated items, clones) update immediately without requiring the user to leave the page and come back. The current page, open box selection, and scroll position are preserved as far as practical. (user-facing wording uses associated/association for Measures and Evaluation Questions; structural box-to-box links keep links/linked terminology.)
 - Measures and Evaluation Questions can also be attached to This–Then links (see Link details). Deleting a Measure or Evaluation Question also removes any links to it held on This–Then links, not only the links held on boxes. How links are NOT supported for this feature in the current build.
-- The current release does not include clones inside box notes or Measure/EQ notes, named/saved multiple views, per-page custom view overrides, reordering of under-box display types, or richer list browsing and link panes. These are outside the current V1.3.7 feature set.
+- The current release does not include clones inside box notes or Measure/EQ notes, named/saved multiple views, per-page custom view overrides, reordering of under-box display types, or richer list browsing and link panes. These are outside the current V1.4.3 feature set.
 
 View system:
 - Board-wide Page View settings, separate per page type (one set for all This–Then Pages, one set for all How Pages, one set for the Final Outcomes page).
 - Page View button appears in the page info bar on This–Then Pages, How Pages, and the Final Outcomes page (not Documentation Pages, not Overview). When Priority is off in Page View settings,  hides the priority marker completely on This–Then Boxes, How Boxes, and Final Outcome boxes; when Priority is on, existing priority behavior is preserved.
-- This–Then Page View toggles: Show Traffic Lights, Show priorities, Show Display Text under Boxes, Show any link Display Text/Traffic Lights on mouse over of black link arrow, Show Measures under Boxes, Show Evaluation Questions under Boxes, Show This–Then Link counts (just between boxes on This–Then Pages), Show Vertical Link counts from How Boxes (to check alignment), Show Cross-Links to How Boxes.
-- How Page View toggles: Show Traffic Lights, Show priorities, Show Display Text under Boxes, Show numbering, Show Measures under Boxes, Show Evaluation Questions under Boxes, Show Vertical Link counts to This–Then Boxes or How Boxes (to check alignment), Show Cross-Links to This–Then Boxes or How Boxes.
-- Final Outcomes Page View toggles: Show Traffic Lights, Show priorities, Show Display Text under boxes, Show Measures under boxes, Show Evaluation Questions under boxes.
+- This–Then Page View toggles include the compact Display Text row: Show Display Text under Boxes, Show Full Display Text, Show Code-style View. Other toggles are Show Traffic Lights, Show priorities, Show any link Display Text/Traffic Lights on mouse over of black link arrow, Show Measures under Boxes, Show Evaluation Questions under Boxes, Show This–Then Link counts (just between boxes on This–Then Pages), Show Vertical Link counts from How Boxes (to check alignment), and Show Cross-Links to How Boxes.
+- How Page View toggles include the compact Display Text row: Show Display Text under Boxes, Show Full Display Text, Show Code-style View. Other toggles are Show Traffic Lights, Show priorities, Show numbering, Show Measures under Boxes, Show Evaluation Questions under Boxes, Show Vertical Link counts to This–Then Boxes or How Boxes (to check alignment), and Show Cross-Links to This–Then Boxes or How Boxes.
+- Final Outcomes Page View toggles: Show Traffic Lights, Show priorities, Show Display Text under Boxes, Show Full Display Text, Show Code-style View, Show Measures under Boxes, Show Evaluation Questions under Boxes.
 - The Cross-Link option is the last item in both the This–Then and How View lists.
 - Built-in Restore Defaults: For This–Then Pages, Restore Defaults turns on Show Traffic Lights, Show priorities, and Show Vertical Link counts from How Boxes (to check alignment); it leaves Show This–Then Link counts (just between boxes on This–Then Pages), Show Measures, Show Evaluation Questions, Show Display Text under Boxes, Show any link Display Text/Traffic Lights on mouse over of black link arrow, and Show Cross-Links to How Boxes off. For How Pages, Restore Defaults turns on Show numbering, Show Traffic Lights, Show priorities, and Show Vertical Link counts to This–Then Boxes or How Boxes (to check alignment); it leaves Show Measures, Show Evaluation Questions, Show Display Text under Boxes, and Show Cross-Links to This–Then Boxes or How Boxes off. For the Final Outcomes page, Restore Defaults turns on Show Traffic Lights and Show priorities; all other toggles remain off. Generated new boards still use the explicit `savedState.viewSettings` rule above, including standard setup choice 7d, unless the user asked for different View items.
 - Clear All and Restore Defaults: on This–Then and How Pages, the Page View settings panel provides two controls below the list of toggles — Clear All (turns off every item shown in that page type's View list) and Restore Defaults (restores the built-in defaults for that page type as described above). These are view changes only, not data deletion. Clear All does not delete content or links.
@@ -1802,7 +1714,7 @@ DD. PAGE VIEW WORDING FOR CROSS-LINK TOGGLES:
 The user-facing Page View labels for the right-border Cross-Link toggles differ between page types. On This–Then Pages the label reads exactly: "Show Cross-Links to How Boxes" — because ordinary This–Then→This–Then links belong under the normal This–Then Link system above. On How Pages the label reads exactly: "Show Cross-Links to This–Then Boxes or How Boxes" — covering same-page How→How, non-adjacent-level How→How, unlevelled How, and Level 2+ How→This–Then links. The corresponding Vertical Link toggle label on This–Then Pages is exactly "Show Vertical Link counts from How Boxes (to check alignment)"; on How Pages it is exactly "Show Vertical Link counts to This–Then Boxes or How Boxes (to check alignment)". Older wording is replaced by these names and must not be reintroduced. These labels are consistent with the strict Vertical Link / Cross-Link semantics defined in AA above.
 
 EE. CLEAR ALL AND RESTORE DEFAULTS IN PAGE VIEW SETTINGS:
-The Page View settings panel on This–Then Pages and How Pages includes controls below the list of toggles: Clear All (turns off every item shown in that page type's View list), Select All, and Restore Defaults (restores the built-in defaults for that page type). These are view changes only, not data deletion; they do not delete content or links. Clear All turns off only items actually present in that page's View list. Restore Defaults restores the true built-in defaults for that page type, not the user's prior state. Defaults produce the following. For This–Then Pages: Show Traffic Lights = on, Show priorities = on, Show Vertical Link counts from How Boxes (to check alignment) = on, Show This–Then Link counts (just between boxes on This–Then Pages) = off, Show Cross-Links to How Boxes = off, Show Measures under Boxes = off, Show Evaluation Questions under Boxes = off, Show Display Text under Boxes = off, Show any link Display Text/Traffic Lights on mouse over of black link arrow = off. For How Pages: Show numbering = on, Show Traffic Lights = on, Show priorities = on, Show Vertical Link counts to This–Then Boxes or How Boxes (to check alignment) = on, Show Cross-Links to This–Then Boxes or How Boxes = off, Show Measures under Boxes = off, Show Evaluation Questions under Boxes = off, Show Display Text under Boxes = off. On both page types, the Cross-Link option is the last item in the toggle list, and the Clear All, Select All, and Restore Defaults controls sit clearly below the list. Note: if an existing saved board contains saved view settings, those saved view settings are preserved on load and are NOT overwritten by these defaults — defaults apply to new/default state and when the user explicitly clicks Restore Defaults.
+The Page View settings panel on This–Then Pages and How Pages includes controls below the list of toggles: Clear All (turns off every item shown in that page type's View list), Select All, and Restore Defaults (restores the built-in defaults for that page type). These are view changes only, not data deletion; they do not delete content or links. Clear All turns off only items actually present in that page's View list. Restore Defaults restores the true built-in defaults for that page type, not the user's prior state. Defaults produce the following. For This–Then Pages: Show Traffic Lights = on, Show priorities = on, Show Vertical Link counts from How Boxes (to check alignment) = on, Show This–Then Link counts (just between boxes on This–Then Pages) = off, Show Cross-Links to How Boxes = off, Show Measures under Boxes = off, Show Evaluation Questions under Boxes = off, Show Display Text under Boxes = off, Show Full Display Text = off, Show Code-style View = off, Show any link Display Text/Traffic Lights on mouse over of black link arrow = off. For How Pages: Show numbering = on, Show Traffic Lights = on, Show priorities = on, Show Vertical Link counts to This–Then Boxes or How Boxes (to check alignment) = on, Show Cross-Links to This–Then Boxes or How Boxes = off, Show Measures under Boxes = off, Show Evaluation Questions under Boxes = off, Show Display Text under Boxes = off, Show Full Display Text = off, Show Code-style View = off. Full and Code-style are dependent controls in the compact Display Text row: they are disabled while Display Text is off, preserve their stored values, and do not count as independent items for Select All. On both page types, the Cross-Link option is the last item in the toggle list, and the Clear All, Select All, and Restore Defaults controls sit clearly below the list. Note: if an existing saved board contains saved view settings, those saved view settings are preserved on load and are NOT overwritten by these defaults — defaults apply to new/default state and when the user explicitly clicks Restore Defaults.
 
 FF. STANDARD HOW-PAGE EMPTY/NEW WORDING:
 The standard explanatory wording for new/empty How-page starter boxes and any related empty-state wording is: "How (action, person, team, unit, organization, capability, …)". This single wording covers action, person, team, unit, organization, capability, and similar "how" entities, and is used consistently wherever the empty/new How-box concept is explained. Earlier inconsistent wording such as "Add activity, project, organization or other action", "Action 1", "Action 2", and similar must not be used. Numbering is not embedded in the box text itself because the stable H001, H002, H003 (etc.) IDs already provide the numbering. This wording applies to: starter boxes on newly created How Pages, starter boxes on the How Page in a freshly created-and-saved new empty board, newly added How Boxes via the "+ Add How Box" control, and newly added How Boxes via the entry panel's "+ Add box after" control.
@@ -1817,4 +1729,4 @@ II. TEMPORARY SOURCE-REFERENCE BOX COLOUR AND TRIGGERING:
 The temporary source-reference box (see BB) must keep the same color as the original selected source box, including for How source boxes. It must not be forced to a generic white/grey style merely because the source is on a How Page. For How sources, the source-ref box uses the source page's page color (and, if the source box has a custom border color set, that custom border color is respected). The temporary source-reference box is created only by intended explicit cross-page navigation routes from a source box — notably: (1) clicking a linked-item in a This–Then count popup whose target is on another page; (2) clicking a linked-item in a Vertical Link or Cross-Link popup whose target is on another page; (3) clicking the on-box jump triangle when the target page differs from the current page. Manual tab navigation does not create a source-reference box. The box remains strictly transient — it is never saved into board state and is never restored after reload.
 
 JJ. PAGE VIEW WORDING AND DEFAULTS LOCK-IN:
-Use the following exact user-facing Page View wording. On This–Then Pages: "Show any link Display Text/Traffic Lights on mouse over of black link arrow", "Show This–Then Link counts (just between boxes on This–Then Pages)", "Show Vertical Link counts from How Boxes (to check alignment)", and "Show Cross-Links to How Boxes" — note: ordinary This–Then→This–Then Links stay under the normal This–Then Link system above; the Cross-Link toggle on This–Then Pages is specifically about allowed Cross-Links involving How Boxes. On How Pages: "Show Vertical Link counts to This–Then Boxes or How Boxes (to check alignment)" and "Show Cross-Links to This–Then Boxes or How Boxes". Built-in defaults: for This–Then Pages, Traffic Lights on, priorities on, Vertical Link counts from How Boxes (to check alignment) on, This–Then Link counts off, Cross-Links to How Boxes off, Measures off, Evaluation Questions off, Display Text under Boxes off, any link Display Text/Traffic Lights on mouse over of black link arrow off; for How Pages, numbering on, Traffic Lights on, priorities on, Vertical Link counts to This–Then Boxes or How Boxes (to check alignment) on, Cross-Links to This–Then Boxes or How Boxes off, Measures off, Evaluation Questions off, Display Text under Boxes off. Clear All turns off every item in the current page's View list. Restore Defaults re-applies the built-in defaults above. Both are view-only changes and do not delete any data. If a saved board already contains saved view settings, those saved view settings are preserved on load and are not overwritten by defaults unless the user explicitly clicks Restore Defaults.
+Use the following exact user-facing Page View wording. On This–Then Pages: "Show any link Display Text/Traffic Lights on mouse over of black link arrow", "Show This–Then Link counts (just between boxes on This–Then Pages)", "Show Vertical Link counts from How Boxes (to check alignment)", and "Show Cross-Links to How Boxes" — note: ordinary This–Then→This–Then Links stay under the normal This–Then Link system above; the Cross-Link toggle on This–Then Pages is specifically about allowed Cross-Links involving How Boxes. On How Pages: "Show Vertical Link counts to This–Then Boxes or How Boxes (to check alignment)" and "Show Cross-Links to This–Then Boxes or How Boxes". On This–Then, How, and Final Outcomes views, the compact Display Text row reads exactly "Show Display Text under Boxes", "Show Full Display Text", and "Show Code-style View". Built-in defaults: for This–Then Pages, Traffic Lights on, priorities on, Vertical Link counts from How Boxes (to check alignment) on, This–Then Link counts off, Cross-Links to How Boxes off, Measures off, Evaluation Questions off, Display Text under Boxes off, Full Display Text off, Code-style View off, any link Display Text/Traffic Lights on mouse over of black link arrow off; for How Pages, numbering on, Traffic Lights on, priorities on, Vertical Link counts to This–Then Boxes or How Boxes (to check alignment) on, Cross-Links to This–Then Boxes or How Boxes off, Measures off, Evaluation Questions off, Display Text under Boxes off, Full Display Text off, Code-style View off. Full and Code-style are disabled when Display Text is off while their stored values are preserved. Clear All turns off every item in the current page's View list. Restore Defaults re-applies the built-in defaults above. Both are view-only changes and do not delete any data. If a saved board already contains saved view settings, those saved view settings are preserved on load and are not overwritten by defaults unless the user explicitly clicks Restore Defaults.

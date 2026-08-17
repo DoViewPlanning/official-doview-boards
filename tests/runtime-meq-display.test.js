@@ -73,14 +73,6 @@ function runtimeFixture() {
   return {
     title: 'Runtime Measure and Evaluation Question fixture',
     slug: 'runtime-meq-fixture',
-    generationChecks: {
-      measuresMustAttachToBoxes: true,
-      evalQuestionsMustAttachToBoxes: true,
-      allPageViewOptionsOffUnlessRequested: true,
-      boxDisplayTextRequested: false,
-      trafficLightsRequested: false,
-      prioritiesRequested: false
-    },
     subpages: [
       {
         id: 'p1',
@@ -153,21 +145,25 @@ function chromeExecutable() {
 
 try {
   const configPath = path.join(tempDir, 'runtime-meq-fixture.json');
-  const htmlPath = path.join(tempDir, 'runtime-meq-fixture_doview-board_v1.3.7_2026-06-26.html');
+  const htmlPath = path.join(tempDir, 'runtime-meq-fixture-1-4-3-step-1-base-doview-board-2026-08-14-1211.html');
   const probePath = path.join(tempDir, 'runtime-meq-probe.html');
   fs.writeFileSync(configPath, JSON.stringify(runtimeFixture(), null, 2));
   const build = childProcess.spawnSync(process.execPath, [
     builder,
     '--engine', engine,
     '--config', configPath,
-    '--out', htmlPath
+    '--out', htmlPath,
+    '--compatibility'
   ], { encoding: 'utf8' });
   assert.strictEqual(build.status, 0, 'Runtime fixture builder failed:\n' + build.stderr);
 
   const html = fs.readFileSync(htmlPath, 'utf8');
   const embedded = embeddedConfig(html);
-  assert.strictEqual(embedded.savedState.SP, undefined, 'Regression fixture must omit savedState.SP');
+  assert.ok(Array.isArray(embedded.savedState.SP), 'Compatibility rebuild must preserve a complete savedState.SP page structure');
+  assert.ok(embedded.savedState.SP.length >= 2, 'Compatibility rebuild must retain the fixture pages');
   assert.strictEqual(embedded.builderValidation.checks.measureEqAttachment, 'passed');
+  assert.strictEqual(embedded.builderValidation.builderVersion, 'V1.4.3');
+  assert.strictEqual(embedded.builderValidation.mode, 'compatibility');
 
   const probe = `
 setTimeout(function(){

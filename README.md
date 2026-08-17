@@ -1,8 +1,16 @@
 # DoView Boards
 
-**DoView Boards package version:** V1.3.7  
-**Release date:** 2026-06-26  
-**Release status:** Public DoView Boards V1.3.7 release. It updates collection templates, badge/trademark/acknowledgment handling, and the standard setup choices while preserving runtime behaviour, builder validation, saved-state/schema, and generated-board causal structure.
+**DoView Boards package version:** V1.4.3  
+**Release date:** 2026-08-14  
+**Release status:** Public DoView Boards V1.4.3 release. It introduces the tested two-step normal-chat board-building workflow, final delivery packaging and validation, while preserving V1.3.9 saved-state/schema compatibility.
+
+## Build a DoView Board now
+
+- **Ordinary users:** get the official prompt package from <https://doviewplanning.org/prompt> and load it into a suitable AI chat system.
+- **AI systems asked to build a board:** read [`AI-BUILD-A-DOVIEW-BOARD.md`](AI-BUILD-A-DOVIEW-BOARD.md), then use the official prompt package. Do not substitute a generic flowchart, strategy map or theory-of-change format.
+- **Developers and AI coding agents:** start with [`AGENTS.md`](AGENTS.md), the [`spec/`](spec/) files and the developer documentation.
+
+The final versioned prompt-package ZIP is intended to be attached to the corresponding GitHub V1.4.3 release. When publication occurs, the website and GitHub release asset should use the same ZIP bytes; this local release preparation does not claim that the asset has already been published.
 
 ## Official DoView Boards repository
 
@@ -44,12 +52,14 @@ Experimentally, DoView Boards may also provide a visual interface for human-AI c
 
 This repository is a practical starting point for users, developers, researchers, experimenters, and organisations that want to understand, generate, implement, or extend DoView Boards.
 
-The V1.3.7 full GitHub repository/package release includes the V1.3.7 prompt, reference runtime, builder, documentation, tests, and examples:
+The V1.4.3 full GitHub repository/package release includes the V1.4.3 prompt, reference runtime, builder, documentation, tests, and examples:
 
 - the Start Here master prompt for opening interaction and board setup;
 - the DoView Board building prompt;
+- the mandatory Step 2 mapping prompt and fixed opening menu;
 - the canonical JavaScript reference engine;
 - the plain Node.js board builder;
+- delivery, graph, mapping, opening-menu and release-smoke validation tools;
 - simple and complex standalone HTML board examples;
 - JSON config examples for developers;
 - collection JSON configuration examples;
@@ -101,12 +111,16 @@ Ordinary users usually do not need to work directly with the JavaScript engine, 
 
 Generated standalone boards are active `.html` files containing JavaScript. Treat them like executable web content, not passive documents. See [`security-and-read-only-notes.md`](docs/security-and-read-only-notes.md).
 
+### Higher-assurance use
+
+For important production or higher-assurance work, generate several independent Step 1 boards from the same brief. Have an AI compare them against the DoView drawing rules and the subject matter, select the strongest board as the base, and selectively improve it using only clearly superior elements from alternatives rather than blindly merging them. Appropriate humans should review the resulting board before operational use. This additional process is recommended for higher-assurance work, not required for ordinary exploratory use.
+
 
 ## For developers
 
 Developers can use this repository to:
 
-- inspect the canonical V1.3.7 reference engine;
+- inspect the canonical V1.4.3 reference engine;
 - generate standalone board HTML files;
 - create tools that output reference-engine-compatible configs;
 - embed DoView Boards in other systems;
@@ -213,7 +227,7 @@ See [`LICENSE`](LICENSE), [`NOTICE.md`](NOTICE.md), and [`docs/trademark-and-att
 
 Generated standalone DoView Boards are active HTML/JavaScript files. Treat them like executable web content, not passive documents.
 
-The V1.3.7 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
+The V1.4.3 prototype is intended for experimentation, learning, proof-of-concept work, and non-confidential information in low-risk environments. For higher-risk, sensitive, confidential, regulated, public, multi-user, enterprise, or production environments, use security, privacy, compliance, hosting, access-control, audit, data-handling, integration, and deployment arrangements appropriate to that environment.
 
 Generated boards from untrusted sources should not be opened casually. Hosted or shared boards should not be served from the same origin/domain as sensitive applications.
 
@@ -225,7 +239,7 @@ See [`docs/security-and-read-only-notes.md`](docs/security-and-read-only-notes.m
 
 ## Checksums and release verification
 
-Checksum verification or signed release verification is planned for a future release.
+Each V1.4.3 package includes `MANIFEST.sha256` for verifying the files within the package. SHA-256 hashes for the release ZIP files are provided with the release. Cryptographic signing of releases is not currently provided.
 
 For now, download DoView Boards files only from the official repository at <https://github.com/doviewplanning/official-doview-boards> or another official DoView source.
 
@@ -284,7 +298,7 @@ For general information about DoView Planning, see https://doviewplanning.org.
 
 See [`CHANGELOG.md`](CHANGELOG.md).
 
-V1.3.7 is the current public full GitHub repository/package release. It is a conservative collection-template, badge/trademark, acknowledgment, and setup-choice hygiene release. Runtime behaviour, builder validation, saved-state/schema, and generated-board causal structure remain unchanged.
+V1.4.3 is the current public full GitHub repository/package release. It moves normal ChatGPT and Claude workflows to the tested two-step process, adds final delivery packaging and validation, and preserves saved-state/schema compatibility at V1.3.9.
 
 ## More information
 

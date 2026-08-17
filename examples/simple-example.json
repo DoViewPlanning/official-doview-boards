@@ -1,0 +1,367 @@
+{
+  "format": "doview-board-json",
+  "schemaVersion": "V1.3.9",
+  "engineVersion": "V1.4.3",
+  "title": "Example Minimal DoView — Community Garden Open Day",
+  "slug": "example-minimal-community-garden-open-day",
+  "subpages": [
+    {
+      "id": "p1",
+      "label": "Open day logic",
+      "pageType": "this_then",
+      "color": {
+        "bg": "#ecfdf5",
+        "bdr": "#a7f3d0",
+        "tab": "#059669"
+      },
+      "cols": [
+        {
+          "h": "Foundations in place",
+          "boxes": [
+            "Purpose agreed",
+            "Volunteers available"
+          ],
+          "uid": "col_75a3dc4b-71bf-4b30-99b1-fe773eb4b581"
+        },
+        {
+          "h": "Open day prepared",
+          "boxes": [
+            "Activities planned",
+            "Visitors invited"
+          ],
+          "uid": "col_6abd9777-7a2e-466d-afc7-5129e29fab94"
+        },
+        {
+          "h": "Open day value created",
+          "boxes": [
+            "Residents more connected to the garden"
+          ],
+          "uid": "col_7e2f6d78-464b-4002-af25-864d662ba027"
+        }
+      ],
+      "uid": "page_48a005cc-5f01-46b4-92d2-991ba0714765"
+    },
+    {
+      "id": "p2",
+      "label": "Using DoView Boards and Disclaimer",
+      "pageType": "documentation",
+      "color": {
+        "bg": "#f3e8ff",
+        "bdr": "#d8b4fe",
+        "tab": "#8b5cf6"
+      },
+      "cols": [],
+      "uid": "page_1302adf0-2d31-4d2b-83c7-5a1531327778"
+    }
+  ],
+  "finalOutcomes": [
+    "Community garden participation strengthened"
+  ],
+  "sources": [
+    {
+      "title": "Information about DoView Boards",
+      "url": "https://doviewplanning.org/doviewboards"
+    },
+    {
+      "title": "Example-only source note",
+      "url": "https://doviewplanning.org"
+    }
+  ],
+  "savedState": {
+    "boardInfo": "Minimal reference config showing one This–Then Page, one Final Outcome, and simple many-to-one causal linking. Replace example content before real use.",
+    "pageInfo": {
+      "p1": "A small This–Then example. The two preparation boxes both contribute to the final page-level outcome."
+    },
+    "ttLinks": [
+      {
+        "id": "ttl_1",
+        "from": "p1-c0-b0",
+        "to": "p1-c1-b0",
+        "mainText": "A clear purpose helps shape suitable open day activities.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "light": "",
+        "uid": "link_f763d60d-4e25-4cd2-b58f-0909e23a6698"
+      },
+      {
+        "id": "ttl_2",
+        "from": "p1-c0-b1",
+        "to": "p1-c1-b0",
+        "mainText": "Available volunteers make the planned activities feasible.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "light": "",
+        "uid": "link_b1f4303b-59f2-47c0-9fb6-c22eedade79e"
+      },
+      {
+        "id": "ttl_3",
+        "from": "p1-c1-b0",
+        "to": "p1-c2-b0",
+        "mainText": "Well-planned activities give residents useful reasons to attend and connect.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "light": "",
+        "uid": "link_5c5a4372-eab7-48fe-8377-01d9a27fda79"
+      },
+      {
+        "id": "ttl_4",
+        "from": "p1-c1-b1",
+        "to": "p1-c2-b0",
+        "mainText": "Invitations help local residents know the event is for them.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "light": "",
+        "uid": "link_495b0677-b630-4bc7-8291-8164cd337ea2"
+      }
+    ],
+    "ttLinkNextId": 5,
+    "howLinks": [],
+    "howLinkNextId": 1,
+    "measures": [],
+    "measureNextId": 1,
+    "evalQuestions": [],
+    "eqNextId": 1,
+    "tags": [],
+    "viewSettings": {
+      "thisThen": {
+        "showCounts": false,
+        "showTrafficLights": false,
+        "showPriorities": false,
+        "showHowCounts": false,
+        "showMeasures": false,
+        "showEvalQuestions": false,
+        "showMainText": false,
+        "showFullMainText": false,
+        "showMainTextCodeStyle": false,
+        "showLinkInfoOnHover": true,
+        "showLateralHow": false,
+        "showTags": false,
+        "showLinkInfoCodeStyle": false
+      },
+      "how": {
+        "showNumbering": false,
+        "showTrafficLights": false,
+        "showPriorities": false,
+        "showWhyCounts": false,
+        "showLateralHow": false,
+        "showMeasures": false,
+        "showEvalQuestions": false,
+        "showMainText": false,
+        "showFullMainText": false,
+        "showMainTextCodeStyle": false,
+        "showTags": false
+      },
+      "finalOutcomes": {
+        "showTrafficLights": false,
+        "showPriorities": false,
+        "showMeasures": false,
+        "showEvalQuestions": false,
+        "showMainText": false,
+        "showFullMainText": false,
+        "showMainTextCodeStyle": false,
+        "showTags": false
+      }
+    },
+    "topRightText": "Reference example",
+    "sourcesInitialized": true,
+    "docContent": {
+      "p2": "<h1>Using DoView Boards and Disclaimer</h1>\n<p>See the disclaimer section below.</p>\n<p>The DoView Board prompt and the DoView Board built within this DoView Board prototype app are provided free of charge so that anyone can experiment with DoView Boards and explore for themselves how they can answer the 20 key questions that anyone running or overseeing an organization needs to answer. See <a href=\"https://doviewplanning.org/doviewboards\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/doviewboards</a>.</p>\n<h2>Walk-Through</h2>\n<p>To get a walk-through for using DoView Boards, see <a href=\"https://doviewplanning.org/walkthrough\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/walkthrough</a>.</p>\n<h2>Accessing Consulting or Training</h2>\n<p>We can provide consulting or training on integrating the use of DoView Boards into your existing planning, implementation and reporting workflows in business, government, or nonprofit settings. See <a href=\"https://doviewplanning.org/offerings\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/offerings</a>.</p>\n<h2>Adapting the DoView Board Prototype App to your setting</h2>\n<p>This DoView Board is being used within the DoView Board prototype app. It is a free of charge app that runs inside any browser window and can be used for piloting, testing, proof-of-concept and for use where confidential information is not being included and where there is a low security risk.</p>\n<p>The DoView Board app is an open-source developer project under an Apache-2.0 open-source license. See <a href=\"https://github.com/doviewplanning/official-doview-boards\" target=\"_blank\" rel=\"noopener noreferrer\">https://github.com/doviewplanning/official-doview-boards</a>. The wider DoView Planning methodology and DoView® trademarks are governed separately. See <a href=\"https://doviewplanning.org/trademarkuse\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/trademarkuse</a>.</p>\n<p>Because it is an open-source project, any developer can extend, harden, adapt, or include features of the DoView Board app in other planning products or systems to suit specific deployment requirements. For example, adding enhanced stability, scalability, security, authentication, data handling, or integration features needed for production use, sensitive content, or higher-security environments. If you are looking to deploy DoView Boards in a live operational setting, you can work with any developer to tailor the app to your needs. You can also get in touch with us for advice and methodological input into the best way for you to adapt and extend your use of DoView Boards in your particular setting. <a href=\"https://doviewplanning.org/contact\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/contact</a>.</p>\n<h2>Disclaimer</h2>\n<p>DoView Boards are provided for planning and illustrative purposes only. The content of any DoView Board does not constitute professional advice of any kind, including but not limited to legal, financial, medical, strategic, or organizational advice. No warranty is given as to the accuracy, completeness, or fitness for purpose of any content. The usual precautions for AI-generated material need to be taken. Dr Paul Duignan, DoViewPlanning.org, The Ideas Web Ltd, DoView Corporation Ltd and any associated parties accept no liability whatsoever for any loss, damage, or adverse outcome arising directly or indirectly from the use of, or reliance on, any DoView Board or its contents. Use entirely at your own risk.</p>\n<p>Please note that this DoView Board is in an interactive HTML file and contains active JavaScript so the board can work. Only open boards from sources you trust. Read-only copies disable editing through the board interface but are not security protection.</p>"
+    },
+    "B": {
+      "p1-c0-b0": {
+        "label": "Purpose agreed",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "hasSubpage": false,
+        "detailText": "",
+        "borderColor": "",
+        "boxColor": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "jumpToPage": "",
+        "uid": "box_ee4dd30d-b575-4d04-81d9-e27dedc32a3e"
+      },
+      "p1-c0-b1": {
+        "label": "Volunteers available",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "hasSubpage": false,
+        "detailText": "",
+        "borderColor": "",
+        "boxColor": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "jumpToPage": "",
+        "uid": "box_d920127b-1a49-45b8-9086-92af230bacc0"
+      },
+      "p1-c1-b0": {
+        "label": "Activities planned",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "hasSubpage": false,
+        "detailText": "",
+        "borderColor": "",
+        "boxColor": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "jumpToPage": "",
+        "uid": "box_30066239-27f9-4332-ac1c-e6e60cdd00cc"
+      },
+      "p1-c1-b1": {
+        "label": "Visitors invited",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "hasSubpage": false,
+        "detailText": "",
+        "borderColor": "",
+        "boxColor": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "jumpToPage": "",
+        "uid": "box_2dbbffe9-232f-4200-b974-be506d112ece"
+      },
+      "p1-c2-b0": {
+        "label": "Residents more connected to the garden",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "hasSubpage": false,
+        "detailText": "",
+        "borderColor": "",
+        "boxColor": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "jumpToPage": "",
+        "uid": "box_6fa9d8b7-3a9f-4771-800e-1ce19592d024"
+      },
+      "final-b0": {
+        "label": "Community garden participation strengthened",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "hasSubpage": false,
+        "detailText": "",
+        "borderColor": "",
+        "boxColor": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "jumpToPage": "",
+        "uid": "final_f804fa20-0851-4f29-b88d-b907afc17b8c"
+      }
+    },
+    "SP": [
+      {
+        "id": "p1",
+        "label": "Open day logic",
+        "pageType": "this_then",
+        "color": {
+          "bg": "#ecfdf5",
+          "bdr": "#a7f3d0",
+          "tab": "#059669"
+        },
+        "cols": [
+          {
+            "h": "Foundations in place",
+            "boxes": [
+              "Purpose agreed",
+              "Volunteers available"
+            ],
+            "uid": "col_75a3dc4b-71bf-4b30-99b1-fe773eb4b581"
+          },
+          {
+            "h": "Open day prepared",
+            "boxes": [
+              "Activities planned",
+              "Visitors invited"
+            ],
+            "uid": "col_6abd9777-7a2e-466d-afc7-5129e29fab94"
+          },
+          {
+            "h": "Open day value created",
+            "boxes": [
+              "Residents more connected to the garden"
+            ],
+            "uid": "col_7e2f6d78-464b-4002-af25-864d662ba027"
+          }
+        ],
+        "uid": "page_48a005cc-5f01-46b4-92d2-991ba0714765"
+      },
+      {
+        "id": "p2",
+        "label": "Using DoView Boards and Disclaimer",
+        "pageType": "documentation",
+        "color": {
+          "bg": "#f3e8ff",
+          "bdr": "#d8b4fe",
+          "tab": "#8b5cf6"
+        },
+        "cols": [],
+        "uid": "page_1302adf0-2d31-4d2b-83c7-5a1531327778"
+      }
+    ],
+    "FO": [
+      "Community garden participation strengthened"
+    ],
+    "boardUid": "board_4cc04cac-5e28-4de3-b0d2-7641e67237cf",
+    "presentationView": false
+  },
+  "builderValidation": {
+    "builderVersion": "V1.4.3",
+    "validationVersion": "V1.4.3",
+    "mode": "compatibility",
+    "passed": true,
+    "validatedAt": "2026-08-14T02:13:53.450Z",
+    "checks": {
+      "noLevelHowPages": "passed",
+      "uniqueNumberedHowLevels": "passed",
+      "thisThenLinkAnnotations": "blank-as-required",
+      "howLinkAnnotations": "blank-as-required",
+      "documentationClones": "passed",
+      "measureEqAttachment": "passed",
+      "viewSettings": "passed",
+      "displayTextTrafficPriority": "passed",
+      "sourcesRegistry": "passed",
+      "documentationPagePlan": "passed",
+      "compactBoxLabels": "passed",
+      "competencyMappingReview": "deferred-to-step-2",
+      "mappingBreadthReview": "deferred-to-step-2",
+      "evidenceReviewWorkflow": "not-part-of-v1.4.3",
+      "thisThenCausalReview": "passed",
+      "selfReview": "passed",
+      "completionCounts": "passed",
+      "completionParagraphDeclaration": "passed"
+    },
+    "warnings": [
+      "generationChecks metadata is absent; compatibility mode ran high-confidence baseline checks but skipped request-specific strict checks."
+    ],
+    "autoFixes": [
+      "Removed input builderValidation metadata. The compatibility rebuild creates a fresh validation stamp."
+    ]
+  }
+}

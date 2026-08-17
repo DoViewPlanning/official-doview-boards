@@ -1,8 +1,8 @@
 # DoView Board Examples
 
-**DoView Boards package version:** V1.3.7  
-**Release date:** 2026-06-26  
-**Document status:** Examples guide for the V1.3.7 full GitHub repository/package release
+**DoView Boards package version:** V1.4.3  
+**Release date:** 2026-08-14  
+**Document status:** Examples guide for the V1.4.3 full GitHub repository/package release
 
 This folder contains example DoView Board files for users and developers.
 

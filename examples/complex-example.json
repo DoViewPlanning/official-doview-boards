@@ -1,0 +1,3485 @@
+{
+  "title": "Example Complex DoView — Community Food Resilience Initiative",
+  "slug": "example-complex-community-food-resilience",
+  "subpages": [
+    {
+      "id": "p1",
+      "label": "Need, assets, and priority groups",
+      "pageType": "this_then",
+      "color": {
+        "bg": "#dbeafe",
+        "bdr": "#93c5fd",
+        "tab": "#3b82f6"
+      },
+      "cols": [
+        {
+          "h": "Local conditions understood",
+          "boxes": [
+            "Neighbourhood food needs mapped",
+            "Existing food assets identified",
+            "Priority groups defined with care",
+            "Privacy and dignity risks surfaced"
+          ],
+          "uid": "col_32c14a82-07b6-4ef1-8016-33555fba5e81"
+        },
+        {
+          "h": "Shared picture agreed",
+          "boxes": [
+            "Residents’ experience reflected",
+            "Service gaps made visible",
+            "Common language established"
+          ],
+          "uid": "col_b8ded13e-82c1-4e88-9c6f-f936046146ec"
+        },
+        {
+          "h": "Targeting decisions improved",
+          "boxes": [
+            "Support focused on highest-need households",
+            "Duplication between services reduced"
+          ],
+          "uid": "col_1022fd50-209a-4aa8-a237-21582a0292d1"
+        }
+      ],
+      "uid": "page_c7338b64-9734-4cc6-928d-0975c81c8a7b"
+    },
+    {
+      "id": "p2",
+      "label": "Household access and affordability",
+      "pageType": "this_then",
+      "color": {
+        "bg": "#dcfce7",
+        "bdr": "#86efac",
+        "tab": "#22c55e"
+      },
+      "cols": [
+        {
+          "h": "Practical barriers reduced",
+          "boxes": [
+            "Transport barriers lowered",
+            "Opening times matched to household routines"
+          ],
+          "uid": "col_95196124-e827-40d5-b297-07a8bec47b53"
+        },
+        {
+          "h": "Affordable choices widened",
+          "boxes": [
+            "Low-cost staple options available",
+            "Culturally suitable food options included",
+            "Fresh food access improved",
+            "Eligibility pathways made understandable"
+          ],
+          "uid": "col_a3ad9733-edd3-4bfd-aa9f-8bf9f8dfd420"
+        },
+        {
+          "h": "Household food stress eased",
+          "boxes": [
+            "Emergency food reliance reduced",
+            "Weekly food planning more stable",
+            "Choice and dignity protected"
+          ],
+          "uid": "col_68fe6085-3dd1-4e2f-a904-28adb3ab762b"
+        },
+        {
+          "h": "Everyday wellbeing strengthened",
+          "boxes": [
+            "Children and older people better nourished",
+            "Household stress visibly reduced"
+          ],
+          "uid": "col_f8762cd2-d16f-47ab-8180-6f0551d4dfc4"
+        }
+      ],
+      "uid": "page_410e165b-bd99-4ab8-a1da-9296072d1a28"
+    },
+    {
+      "id": "p3",
+      "label": "Local production and supply reliability",
+      "pageType": "this_then",
+      "color": {
+        "bg": "#fef9c3",
+        "bdr": "#fde047",
+        "tab": "#eab308"
+      },
+      "cols": [
+        {
+          "h": "Supply base diversified",
+          "boxes": [
+            "Community growers recruited",
+            "Surplus food relationships secured",
+            "Local producers engaged"
+          ],
+          "uid": "col_02e4febb-3d76-421f-b1c6-33f65f9743f8"
+        },
+        {
+          "h": "Quality safeguards established",
+          "boxes": [
+            "Safe handling routines followed",
+            "Storage capacity matched to volume"
+          ],
+          "uid": "col_b639e8c3-3d9b-4e84-ba2f-74ccfbe1dcd3"
+        },
+        {
+          "h": "Continuity risks managed",
+          "boxes": [
+            "Seasonal shortfalls anticipated",
+            "Backup suppliers arranged",
+            "Volunteer capacity planned",
+            "Perishable stock losses reduced"
+          ],
+          "uid": "col_a73d42d4-8840-444a-a200-45474fe56bec"
+        },
+        {
+          "h": "Local supply dependable",
+          "boxes": [
+            "Weekly distribution volumes stabilised",
+            "Fresh produce availability sustained",
+            "Community trust in supply increased"
+          ],
+          "uid": "col_bc4bac4f-4966-4822-b062-530bb15fdd33"
+        },
+        {
+          "h": "Food system resilience increased",
+          "boxes": [
+            "Local food networks stronger",
+            "External shock vulnerability reduced"
+          ],
+          "uid": "col_fd044703-5c8c-4f81-9270-3eba300c3008"
+        }
+      ],
+      "uid": "page_cd28ae56-17cb-4735-97c6-b162b720cb1b"
+    },
+    {
+      "id": "p4",
+      "label": "Distribution and service integration",
+      "pageType": "this_then",
+      "color": {
+        "bg": "#fce7f3",
+        "bdr": "#f9a8d4",
+        "tab": "#ec4899"
+      },
+      "cols": [
+        {
+          "h": "Roles and referral routes clarified",
+          "boxes": [
+            "Partner roles agreed",
+            "Referral routes simplified",
+            "Consent expectations understood"
+          ],
+          "uid": "col_1c9ae40f-7f42-4750-8059-ff894ff0927c"
+        },
+        {
+          "h": "Coordination routines embedded",
+          "boxes": [
+            "Pickup and delivery schedules coordinated",
+            "Case workers and food teams connected",
+            "Information handoffs made reliable",
+            "Safeguarding issues escalated appropriately"
+          ],
+          "uid": "col_6f25b87f-8bf2-44a4-bff8-aa1fc96cc079"
+        },
+        {
+          "h": "Joined-up support received",
+          "boxes": [
+            "Households reached before crisis points",
+            "Food support linked to wider help",
+            "Service burden on residents reduced"
+          ],
+          "uid": "col_524c700b-9cd1-4ea6-ae69-050d638b601e"
+        }
+      ],
+      "uid": "page_084f5729-774f-4d93-b538-1b47474d5321"
+    },
+    {
+      "id": "p5",
+      "label": "Community capability and participation",
+      "pageType": "this_then",
+      "color": {
+        "bg": "#ede9fe",
+        "bdr": "#c4b5fd",
+        "tab": "#8b5cf6"
+      },
+      "cols": [
+        {
+          "h": "Leadership conditions created",
+          "boxes": [
+            "Resident leadership invited",
+            "Youth and elders included",
+            "Cultural knowledge respected",
+            "Community hosts supported"
+          ],
+          "uid": "col_3ecda7b6-4a75-43ea-a26a-a71862385f02"
+        },
+        {
+          "h": "Practical skills grown",
+          "boxes": [
+            "Growing and cooking skills shared",
+            "Peer support routines practised"
+          ],
+          "uid": "col_836b3a2c-8274-40be-82d9-91aa1ecb14ec"
+        },
+        {
+          "h": "Participation sustained",
+          "boxes": [
+            "Volunteer roles manageable",
+            "Recognition and feedback loops maintained",
+            "Local problem-solving confidence increased"
+          ],
+          "uid": "col_1c309e44-3fa9-4e8e-acaa-d6f68e8110fb"
+        },
+        {
+          "h": "Community ownership deepened",
+          "boxes": [
+            "Residents shape priorities",
+            "Food initiatives continue between funding cycles",
+            "Mutual support networks strengthened",
+            "Community resilience story shared"
+          ],
+          "uid": "col_1932906c-0a92-4c06-8b1f-b2b48e136b69"
+        }
+      ],
+      "uid": "page_80f06c21-0132-4e68-8f09-327373c7cd3d"
+    },
+    {
+      "id": "p6",
+      "label": "Governance, resources, and learning",
+      "pageType": "this_then",
+      "color": {
+        "bg": "#ffedd5",
+        "bdr": "#fdba74",
+        "tab": "#f97316"
+      },
+      "cols": [
+        {
+          "h": "Accountability arrangements set",
+          "boxes": [
+            "Decision rights transparent",
+            "Financial controls proportionate"
+          ],
+          "uid": "col_77b9b386-5c02-46ae-a89c-ecc2d2f0c159"
+        },
+        {
+          "h": "Resources secured and balanced",
+          "boxes": [
+            "Funding mix diversified",
+            "In-kind contributions coordinated",
+            "Staff and volunteer load monitored"
+          ],
+          "uid": "col_9a40abb7-bd99-4322-bdbc-5c2c40572e7b"
+        },
+        {
+          "h": "Learning information used",
+          "boxes": [
+            "Measures reviewed regularly",
+            "Resident feedback acted on",
+            "Unintended effects discussed"
+          ],
+          "uid": "col_5bda6f18-7021-4e68-bac8-0f41afe736fe"
+        },
+        {
+          "h": "Adaptation decisions made",
+          "boxes": [
+            "Activities adjusted to evidence",
+            "Underperforming workstreams redesigned"
+          ],
+          "uid": "col_116e9bda-2f09-4339-bc82-53c15c5f4fc5"
+        },
+        {
+          "h": "Initiative remains viable",
+          "boxes": [
+            "Governance confidence sustained",
+            "Resilience investment case strengthened",
+            "Longer-term stewardship secured"
+          ],
+          "uid": "col_6dba0226-a78d-4f9b-aa0e-9529af206709"
+        }
+      ],
+      "uid": "page_fbd2ccee-1239-4a83-bdc9-4200d60278f5"
+    },
+    {
+      "id": "p7",
+      "label": "How: implementation workstreams",
+      "pageType": "how",
+      "color": {
+        "bg": "#f1f5f9",
+        "bdr": "#cbd5e1",
+        "tab": "#64748b"
+      },
+      "cols": [],
+      "howBoxes": [
+        {
+          "id": "H001",
+          "label": "Run community needs and assets mapping",
+          "uid": "box_0071"
+        },
+        {
+          "id": "H002",
+          "label": "Set up partner referral and consent protocol",
+          "uid": "box_0072"
+        },
+        {
+          "id": "H003",
+          "label": "Coordinate weekly supply, storage, and distribution",
+          "uid": "box_0073"
+        },
+        {
+          "id": "H004",
+          "label": "Recruit and support growers, hosts, and volunteers",
+          "uid": "box_0074"
+        },
+        {
+          "id": "H005",
+          "label": "Negotiate surplus and local producer agreements",
+          "uid": "box_0075"
+        },
+        {
+          "id": "H006",
+          "label": "Operate household access and affordability pathway",
+          "uid": "box_0076"
+        },
+        {
+          "id": "H007",
+          "label": "Facilitate resident leadership and feedback forums",
+          "uid": "box_0077"
+        },
+        {
+          "id": "H008",
+          "label": "Maintain safeguarding and escalation routines",
+          "uid": "box_0078"
+        },
+        {
+          "id": "H009",
+          "label": "Review measures and learning each month",
+          "uid": "box_0079"
+        },
+        {
+          "id": "H010",
+          "label": "Prepare sustainability and stewardship plan",
+          "uid": "box_0080"
+        }
+      ],
+      "nextHowNum": 11,
+      "howLevel": 1,
+      "uid": "page_864233bd-786f-48fb-9b7b-415a4511a456"
+    },
+    {
+      "id": "p8",
+      "label": "Evidence, assumptions, and learning notes",
+      "pageType": "documentation",
+      "color": {
+        "bg": "#f3e8ff",
+        "bdr": "#d8b4fe",
+        "tab": "#a855f8"
+      },
+      "cols": [],
+      "uid": "page_a65cb87e-60d9-44ca-8bdf-dc39a2c3345e"
+    },
+    {
+      "id": "p9",
+      "label": "Using DoView Boards and Disclaimer",
+      "pageType": "documentation",
+      "color": {
+        "bg": "#f3e8ff",
+        "bdr": "#d8b4fe",
+        "tab": "#8b5cf6"
+      },
+      "cols": [],
+      "uid": "page_036cd53f-3ff2-4c51-a70a-938ec189270e"
+    }
+  ],
+  "finalOutcomes": [
+    "Community food resilience improved",
+    "Household food security and dignity strengthened",
+    "Local food system coordination sustained"
+  ],
+  "sources": [
+    {
+      "title": "Information about DoView Boards",
+      "url": "https://doviewplanning.org/doviewboards"
+    },
+    {
+      "title": "Local evidence and community sources to be added by project team",
+      "url": ""
+    }
+  ],
+  "savedState": {
+    "B": {
+      "p1-c0-b0": {
+        "label": "Neighbourhood food needs mapped",
+        "light": "",
+        "priority": "A",
+        "entries": [],
+        "detailText": "Example supporting text for “Neighbourhood food needs mapped”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0001",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p1-c0-b1": {
+        "label": "Existing food assets identified",
+        "light": "",
+        "priority": "B",
+        "entries": [],
+        "detailText": "Example supporting text for “Existing food assets identified”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0002",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p1-c0-b2": {
+        "label": "Priority groups defined with care",
+        "light": "",
+        "priority": "C",
+        "entries": [],
+        "detailText": "Example supporting text for “Priority groups defined with care”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0003",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p1-c0-b3": {
+        "label": "Privacy and dignity risks surfaced",
+        "light": "",
+        "priority": "D",
+        "entries": [],
+        "detailText": "Example supporting text for “Privacy and dignity risks surfaced”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0004",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p1-c1-b0": {
+        "label": "Residents’ experience reflected",
+        "light": "",
+        "priority": "E",
+        "entries": [],
+        "detailText": "Example supporting text for “Residents’ experience reflected”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0005",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p1-c1-b1": {
+        "label": "Service gaps made visible",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Service gaps made visible”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0006",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p1-c1-b2": {
+        "label": "Common language established",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Common language established”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0007",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p1-c2-b0": {
+        "label": "Support focused on highest-need households",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Support focused on highest-need households”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0008",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p1-c2-b1": {
+        "label": "Duplication between services reduced",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Duplication between services reduced”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0009",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c0-b0": {
+        "label": "Transport barriers lowered",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Transport barriers lowered”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0010",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c0-b1": {
+        "label": "Opening times matched to household routines",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Opening times matched to household routines”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0011",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c1-b0": {
+        "label": "Low-cost staple options available",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Low-cost staple options available”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0012",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c1-b1": {
+        "label": "Culturally suitable food options included",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Culturally suitable food options included”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0013",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c1-b2": {
+        "label": "Fresh food access improved",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Fresh food access improved”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0014",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c1-b3": {
+        "label": "Eligibility pathways made understandable",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Eligibility pathways made understandable”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0015",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c2-b0": {
+        "label": "Emergency food reliance reduced",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Emergency food reliance reduced”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [
+          "M001"
+        ],
+        "evalQuestions": [
+          "EQ001"
+        ],
+        "tagIds": [],
+        "uid": "box_0016",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c2-b1": {
+        "label": "Weekly food planning more stable",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Weekly food planning more stable”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0017",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c2-b2": {
+        "label": "Choice and dignity protected",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Choice and dignity protected”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [
+          "M002"
+        ],
+        "evalQuestions": [
+          "EQ002"
+        ],
+        "tagIds": [],
+        "uid": "box_0018",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c3-b0": {
+        "label": "Children and older people better nourished",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Children and older people better nourished”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0019",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p2-c3-b1": {
+        "label": "Household stress visibly reduced",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Household stress visibly reduced”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0020",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c0-b0": {
+        "label": "Community growers recruited",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Community growers recruited”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0021",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c0-b1": {
+        "label": "Surplus food relationships secured",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Surplus food relationships secured”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0022",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c0-b2": {
+        "label": "Local producers engaged",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Local producers engaged”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0023",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c1-b0": {
+        "label": "Safe handling routines followed",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Safe handling routines followed”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0024",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c1-b1": {
+        "label": "Storage capacity matched to volume",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Storage capacity matched to volume”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0025",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c2-b0": {
+        "label": "Seasonal shortfalls anticipated",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Seasonal shortfalls anticipated”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0026",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c2-b1": {
+        "label": "Backup suppliers arranged",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Backup suppliers arranged”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0027",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c2-b2": {
+        "label": "Volunteer capacity planned",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Volunteer capacity planned”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0028",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c2-b3": {
+        "label": "Perishable stock losses reduced",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Perishable stock losses reduced”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0029",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c3-b0": {
+        "label": "Weekly distribution volumes stabilised",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Weekly distribution volumes stabilised”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [
+          "M003"
+        ],
+        "evalQuestions": [
+          "EQ003"
+        ],
+        "tagIds": [],
+        "uid": "box_0030",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c3-b1": {
+        "label": "Fresh produce availability sustained",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Fresh produce availability sustained”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0031",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c3-b2": {
+        "label": "Community trust in supply increased",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Community trust in supply increased”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0032",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c4-b0": {
+        "label": "Local food networks stronger",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Local food networks stronger”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0033",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p3-c4-b1": {
+        "label": "External shock vulnerability reduced",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “External shock vulnerability reduced”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0034",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c0-b0": {
+        "label": "Partner roles agreed",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Partner roles agreed”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0035",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c0-b1": {
+        "label": "Referral routes simplified",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Referral routes simplified”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0036",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c0-b2": {
+        "label": "Consent expectations understood",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Consent expectations understood”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0037",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c1-b0": {
+        "label": "Pickup and delivery schedules coordinated",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Pickup and delivery schedules coordinated”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0038",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c1-b1": {
+        "label": "Case workers and food teams connected",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Case workers and food teams connected”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0039",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c1-b2": {
+        "label": "Information handoffs made reliable",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Information handoffs made reliable”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0040",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c1-b3": {
+        "label": "Safeguarding issues escalated appropriately",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Safeguarding issues escalated appropriately”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0041",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c2-b0": {
+        "label": "Households reached before crisis points",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Households reached before crisis points”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [
+          "M004"
+        ],
+        "evalQuestions": [
+          "EQ004"
+        ],
+        "tagIds": [],
+        "uid": "box_0042",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c2-b1": {
+        "label": "Food support linked to wider help",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Food support linked to wider help”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0043",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p4-c2-b2": {
+        "label": "Service burden on residents reduced",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Service burden on residents reduced”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0044",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c0-b0": {
+        "label": "Resident leadership invited",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Resident leadership invited”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0045",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c0-b1": {
+        "label": "Youth and elders included",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Youth and elders included”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0046",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c0-b2": {
+        "label": "Cultural knowledge respected",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Cultural knowledge respected”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0047",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c0-b3": {
+        "label": "Community hosts supported",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Community hosts supported”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0048",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c1-b0": {
+        "label": "Growing and cooking skills shared",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Growing and cooking skills shared”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0049",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c1-b1": {
+        "label": "Peer support routines practised",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Peer support routines practised”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0050",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c2-b0": {
+        "label": "Volunteer roles manageable",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Volunteer roles manageable”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0051",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c2-b1": {
+        "label": "Recognition and feedback loops maintained",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Recognition and feedback loops maintained”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0052",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c2-b2": {
+        "label": "Local problem-solving confidence increased",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Local problem-solving confidence increased”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0053",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c3-b0": {
+        "label": "Residents shape priorities",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Residents shape priorities”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0054",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c3-b1": {
+        "label": "Food initiatives continue between funding cycles",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Food initiatives continue between funding cycles”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [
+          "M005"
+        ],
+        "evalQuestions": [
+          "EQ005"
+        ],
+        "tagIds": [],
+        "uid": "box_0055",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c3-b2": {
+        "label": "Mutual support networks strengthened",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Mutual support networks strengthened”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0056",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p5-c3-b3": {
+        "label": "Community resilience story shared",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Community resilience story shared”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0057",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c0-b0": {
+        "label": "Decision rights transparent",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Decision rights transparent”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0058",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c0-b1": {
+        "label": "Financial controls proportionate",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Financial controls proportionate”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0059",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c1-b0": {
+        "label": "Funding mix diversified",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Funding mix diversified”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0060",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c1-b1": {
+        "label": "In-kind contributions coordinated",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “In-kind contributions coordinated”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0061",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c1-b2": {
+        "label": "Staff and volunteer load monitored",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Staff and volunteer load monitored”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0062",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c2-b0": {
+        "label": "Measures reviewed regularly",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Measures reviewed regularly”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0063",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c2-b1": {
+        "label": "Resident feedback acted on",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Resident feedback acted on”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0064",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c2-b2": {
+        "label": "Unintended effects discussed",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Unintended effects discussed”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0065",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c3-b0": {
+        "label": "Activities adjusted to evidence",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Activities adjusted to evidence”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0066",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c3-b1": {
+        "label": "Underperforming workstreams redesigned",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Underperforming workstreams redesigned”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0067",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c4-b0": {
+        "label": "Governance confidence sustained",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Governance confidence sustained”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0068",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c4-b1": {
+        "label": "Resilience investment case strengthened",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Resilience investment case strengthened”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0069",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p6-c4-b2": {
+        "label": "Longer-term stewardship secured",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Example supporting text for “Longer-term stewardship secured”. Replace with local evidence, resident input, partner data, and current constraints before using in a real initiative.",
+        "measures": [
+          "M006"
+        ],
+        "evalQuestions": [
+          "EQ006"
+        ],
+        "tagIds": [],
+        "uid": "box_0070",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H001": {
+        "label": "Run community needs and assets mapping",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0071",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H002": {
+        "label": "Set up partner referral and consent protocol",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0072",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H003": {
+        "label": "Coordinate weekly supply, storage, and distribution",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0073",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H004": {
+        "label": "Recruit and support growers, hosts, and volunteers",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0074",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H005": {
+        "label": "Negotiate surplus and local producer agreements",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0075",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H006": {
+        "label": "Operate household access and affordability pathway",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0076",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H007": {
+        "label": "Facilitate resident leadership and feedback forums",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0077",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H008": {
+        "label": "Maintain safeguarding and escalation routines",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0078",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H009": {
+        "label": "Review measures and learning each month",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0079",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "p7-H010": {
+        "label": "Prepare sustainability and stewardship plan",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Implementation workstream note. Replace with responsible lead, timing, dependencies, and risks in a real board.",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "box_0080",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "final-b0": {
+        "label": "Community food resilience improved",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Final outcome for the illustrative complex example. Replace with locally agreed outcome wording.",
+        "measures": [
+          "M005",
+          "M006"
+        ],
+        "evalQuestions": [
+          "EQ006"
+        ],
+        "tagIds": [],
+        "uid": "box_0081",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "final-b1": {
+        "label": "Household food security and dignity strengthened",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Final outcome for the illustrative complex example. Replace with locally agreed outcome wording.",
+        "measures": [
+          "M001",
+          "M002"
+        ],
+        "evalQuestions": [
+          "EQ001"
+        ],
+        "tagIds": [],
+        "uid": "box_0082",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      },
+      "final-b2": {
+        "label": "Local food system coordination sustained",
+        "light": "",
+        "priority": "",
+        "entries": [],
+        "detailText": "Final outcome for the illustrative complex example. Replace with locally agreed outcome wording.",
+        "measures": [
+          "M003",
+          "M004"
+        ],
+        "evalQuestions": [
+          "EQ003",
+          "EQ004"
+        ],
+        "tagIds": [],
+        "uid": "box_0083",
+        "hasSubpage": false,
+        "borderColor": "",
+        "boxColor": "",
+        "jumpToPage": ""
+      }
+    },
+    "boardInfo": "This is a deliberately complex example DoView Board. It demonstrates the strengthened V1.2.6 natural-shape, terminal-column guardrail, near-match, and causal-connectivity guidance: a substantial topic is decomposed into distinct domains, causal pathways, implementation workstreams, measures, evaluation questions, and documentation notes without forcing every This–Then page into the same geometry or leaving causal boxes as disconnected inventory items. It is illustrative only and does not use public research. A real board should replace generic assumptions with local evidence and community input.",
+    "pageInfo": {
+      "overview": "Reference example only. The varied page geometry is intentional: each page is shaped by its causal domain rather than a repeated grid.",
+      "p1": "Needs and assets are not treated as a neat four-column pathway because discovery, agreement, and targeting are uneven work.",
+      "p2": "Household access uses a longer pathway because barriers, affordable choices, stress, and wellbeing are distinct steps.",
+      "p3": "Supply reliability uses more steps because production, safeguards, continuity, dependable supply, and resilience are different causal moves.",
+      "p4": "Distribution and service integration is deliberately narrower: the logic turns on roles, routines, and joined-up support.",
+      "p5": "Participation combines leadership, skills, sustained participation, and ownership.",
+      "p6": "Governance and learning includes accountability, resources, learning, adaptation, and viability.",
+      "p7": "How page with implementation workstreams only. Links point upward to relevant This–Then outcomes.",
+      "p8": "Documentation page for assumptions, evidence notes, and learning guidance."
+    },
+    "docContent": {
+      "p8": "<h2>Purpose of this example</h2>\n<p>This Documentation page shows how a complex DoView Board can keep longer explanation outside compact boxes while still keeping the final board as one standalone HTML file.</p>\n<h2>Natural-shape note</h2>\n<p>The This–Then pages deliberately use different numbers of columns and boxes because the domains differ. This is not random irregularity: the need-mapping pathway is shorter, the supply pathway is longer, and governance has its own learning and sustainability sequence.</p>\n<h2>Assumptions to replace in a real board</h2>\n<ul>\n<li>Local food need, assets, and constraints should be checked with local evidence.</li>\n<li>Priority groups should be defined with community input and privacy safeguards.</li>\n<li>Measures should be refined so they are useful and not burdensome.</li>\n<li>Partner capacity and volunteer load should be reviewed before scaling.</li>\n</ul>\n<h2>Learning cycle</h2>\n<p>Use the measures and evaluation questions to revise workstreams, not just report activity. Evidence notes should be added close to the claims they support.</p>",
+      "p9": "<h1>Using DoView Boards and Disclaimer</h1>\n<p>See the disclaimer section below.</p>\n<p>The DoView Board prompt and the DoView Board built within this DoView Board prototype app are provided free of charge so that anyone can experiment with DoView Boards and explore for themselves how they can answer the 20 key questions that anyone running or overseeing an organization needs to answer. See <a href=\"https://doviewplanning.org/doviewboards\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/doviewboards</a>.</p>\n<h2>Walk-Through</h2>\n<p>To get a walk-through for using DoView Boards, see <a href=\"https://doviewplanning.org/walkthrough\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/walkthrough</a>.</p>\n<h2>Accessing Consulting or Training</h2>\n<p>We can provide consulting or training on integrating the use of DoView Boards into your existing planning, implementation and reporting workflows in business, government, or nonprofit settings. See <a href=\"https://doviewplanning.org/offerings\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/offerings</a>.</p>\n<h2>Adapting the DoView Board Prototype App to your setting</h2>\n<p>This DoView Board is being used within the DoView Board prototype app. It is a free of charge app that runs inside any browser window and can be used for piloting, testing, proof-of-concept and for use where confidential information is not being included and where there is a low security risk.</p>\n<p>The DoView Board app is an open-source developer project under an Apache-2.0 open-source license. See <a href=\"https://github.com/doviewplanning/official-doview-boards\" target=\"_blank\" rel=\"noopener noreferrer\">https://github.com/doviewplanning/official-doview-boards</a>. The wider DoView Planning methodology and DoView® trademarks are governed separately. See <a href=\"https://doviewplanning.org/trademarkuse\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/trademarkuse</a>.</p>\n<p>Because it is an open-source project, any developer can extend, harden, adapt, or include features of the DoView Board app in other planning products or systems to suit specific deployment requirements. For example, adding enhanced stability, scalability, security, authentication, data handling, or integration features needed for production use, sensitive content, or higher-security environments. If you are looking to deploy DoView Boards in a live operational setting, you can work with any developer to tailor the app to your needs. You can also get in touch with us for advice and methodological input into the best way for you to adapt and extend your use of DoView Boards in your particular setting. <a href=\"https://doviewplanning.org/contact\" target=\"_blank\" rel=\"noopener noreferrer\">https://doviewplanning.org/contact</a>.</p>\n<h2>Disclaimer</h2>\n<p>DoView Boards are provided for planning and illustrative purposes only. The content of any DoView Board does not constitute professional advice of any kind, including but not limited to legal, financial, medical, strategic, or organizational advice. No warranty is given as to the accuracy, completeness, or fitness for purpose of any content. The usual precautions for AI-generated material need to be taken. Dr Paul Duignan, DoViewPlanning.org, The Ideas Web Ltd, DoView Corporation Ltd and any associated parties accept no liability whatsoever for any loss, damage, or adverse outcome arising directly or indirectly from the use of, or reliance on, any DoView Board or its contents. Use entirely at your own risk.</p>\n<p>Please note that this DoView Board is in an interactive HTML file and contains active JavaScript so the board can work. Only open boards from sources you trust. Read-only copies disable editing through the board interface but are not security protection.</p>"
+    },
+    "ttLinks": [
+      {
+        "id": "ttl_1",
+        "from": "p1-c0-b0",
+        "to": "p1-c1-b0",
+        "mainText": "Neighbourhood food needs mapped helps residents’ experience reflected.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0084",
+        "light": ""
+      },
+      {
+        "id": "ttl_2",
+        "from": "p1-c0-b1",
+        "to": "p1-c1-b1",
+        "mainText": "Existing food assets identified helps service gaps made visible.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0085",
+        "light": ""
+      },
+      {
+        "id": "ttl_3",
+        "from": "p1-c0-b2",
+        "to": "p1-c1-b2",
+        "mainText": "Priority groups defined with care helps common language established.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0086",
+        "light": ""
+      },
+      {
+        "id": "ttl_4",
+        "from": "p1-c0-b3",
+        "to": "p1-c1-b2",
+        "mainText": "Privacy and dignity risks surfaced helps common language established.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0087",
+        "light": ""
+      },
+      {
+        "id": "ttl_5",
+        "from": "p1-c0-b3",
+        "to": "p1-c1-b0",
+        "mainText": "Privacy and dignity risks surfaced also supports residents’ experience reflected.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0088",
+        "light": ""
+      },
+      {
+        "id": "ttl_6",
+        "from": "p1-c1-b0",
+        "to": "p1-c2-b0",
+        "mainText": "Residents’ experience reflected helps support focused on highest-need households.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0089",
+        "light": ""
+      },
+      {
+        "id": "ttl_7",
+        "from": "p1-c1-b1",
+        "to": "p1-c2-b1",
+        "mainText": "Service gaps made visible helps duplication between services reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0090",
+        "light": ""
+      },
+      {
+        "id": "ttl_8",
+        "from": "p1-c1-b2",
+        "to": "p1-c2-b1",
+        "mainText": "Common language established helps duplication between services reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0091",
+        "light": ""
+      },
+      {
+        "id": "ttl_9",
+        "from": "p1-c1-b2",
+        "to": "p1-c2-b0",
+        "mainText": "Common language established also supports support focused on highest-need households.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0092",
+        "light": ""
+      },
+      {
+        "id": "ttl_10",
+        "from": "p2-c0-b0",
+        "to": "p2-c1-b0",
+        "mainText": "Transport barriers lowered helps low-cost staple options available.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0093",
+        "light": ""
+      },
+      {
+        "id": "ttl_11",
+        "from": "p2-c0-b1",
+        "to": "p2-c1-b1",
+        "mainText": "Opening times matched to household routines helps culturally suitable food options included.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0094",
+        "light": ""
+      },
+      {
+        "id": "ttl_12",
+        "from": "p2-c0-b1",
+        "to": "p2-c1-b0",
+        "mainText": "Opening times matched to household routines also supports low-cost staple options available.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0095",
+        "light": ""
+      },
+      {
+        "id": "ttl_13",
+        "from": "p2-c1-b0",
+        "to": "p2-c2-b0",
+        "mainText": "Low-cost staple options available helps emergency food reliance reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0096",
+        "light": ""
+      },
+      {
+        "id": "ttl_14",
+        "from": "p2-c1-b1",
+        "to": "p2-c2-b1",
+        "mainText": "Culturally suitable food options included helps weekly food planning more stable.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0097",
+        "light": ""
+      },
+      {
+        "id": "ttl_15",
+        "from": "p2-c1-b2",
+        "to": "p2-c2-b2",
+        "mainText": "Fresh food access improved helps choice and dignity protected.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0098",
+        "light": ""
+      },
+      {
+        "id": "ttl_16",
+        "from": "p2-c1-b3",
+        "to": "p2-c2-b2",
+        "mainText": "Eligibility pathways made understandable helps choice and dignity protected.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0099",
+        "light": ""
+      },
+      {
+        "id": "ttl_17",
+        "from": "p2-c1-b3",
+        "to": "p2-c2-b0",
+        "mainText": "Eligibility pathways made understandable also supports emergency food reliance reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0100",
+        "light": ""
+      },
+      {
+        "id": "ttl_18",
+        "from": "p2-c2-b0",
+        "to": "p2-c3-b0",
+        "mainText": "Emergency food reliance reduced helps children and older people better nourished.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0101",
+        "light": ""
+      },
+      {
+        "id": "ttl_19",
+        "from": "p2-c2-b1",
+        "to": "p2-c3-b1",
+        "mainText": "Weekly food planning more stable helps household stress visibly reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0102",
+        "light": ""
+      },
+      {
+        "id": "ttl_20",
+        "from": "p2-c2-b2",
+        "to": "p2-c3-b1",
+        "mainText": "Choice and dignity protected helps household stress visibly reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0103",
+        "light": ""
+      },
+      {
+        "id": "ttl_21",
+        "from": "p2-c2-b2",
+        "to": "p2-c3-b0",
+        "mainText": "Choice and dignity protected also supports children and older people better nourished.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0104",
+        "light": ""
+      },
+      {
+        "id": "ttl_22",
+        "from": "p3-c0-b0",
+        "to": "p3-c1-b0",
+        "mainText": "Community growers recruited helps safe handling routines followed.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0105",
+        "light": ""
+      },
+      {
+        "id": "ttl_23",
+        "from": "p3-c0-b1",
+        "to": "p3-c1-b1",
+        "mainText": "Surplus food relationships secured helps storage capacity matched to volume.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0106",
+        "light": ""
+      },
+      {
+        "id": "ttl_24",
+        "from": "p3-c0-b2",
+        "to": "p3-c1-b1",
+        "mainText": "Local producers engaged helps storage capacity matched to volume.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0107",
+        "light": ""
+      },
+      {
+        "id": "ttl_25",
+        "from": "p3-c0-b2",
+        "to": "p3-c1-b0",
+        "mainText": "Local producers engaged also supports safe handling routines followed.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0108",
+        "light": ""
+      },
+      {
+        "id": "ttl_26",
+        "from": "p3-c1-b0",
+        "to": "p3-c2-b0",
+        "mainText": "Safe handling routines followed helps seasonal shortfalls anticipated.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0109",
+        "light": ""
+      },
+      {
+        "id": "ttl_27",
+        "from": "p3-c1-b1",
+        "to": "p3-c2-b1",
+        "mainText": "Storage capacity matched to volume helps backup suppliers arranged.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0110",
+        "light": ""
+      },
+      {
+        "id": "ttl_28",
+        "from": "p3-c1-b1",
+        "to": "p3-c2-b0",
+        "mainText": "Storage capacity matched to volume also supports seasonal shortfalls anticipated.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0111",
+        "light": ""
+      },
+      {
+        "id": "ttl_29",
+        "from": "p3-c2-b0",
+        "to": "p3-c3-b0",
+        "mainText": "Seasonal shortfalls anticipated helps weekly distribution volumes stabilised.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0112",
+        "light": ""
+      },
+      {
+        "id": "ttl_30",
+        "from": "p3-c2-b1",
+        "to": "p3-c3-b1",
+        "mainText": "Backup suppliers arranged helps fresh produce availability sustained.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0113",
+        "light": ""
+      },
+      {
+        "id": "ttl_31",
+        "from": "p3-c2-b2",
+        "to": "p3-c3-b2",
+        "mainText": "Volunteer capacity planned helps community trust in supply increased.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0114",
+        "light": ""
+      },
+      {
+        "id": "ttl_32",
+        "from": "p3-c2-b3",
+        "to": "p3-c3-b2",
+        "mainText": "Perishable stock losses reduced helps community trust in supply increased.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0115",
+        "light": ""
+      },
+      {
+        "id": "ttl_33",
+        "from": "p3-c2-b3",
+        "to": "p3-c3-b0",
+        "mainText": "Perishable stock losses reduced also supports weekly distribution volumes stabilised.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0116",
+        "light": ""
+      },
+      {
+        "id": "ttl_34",
+        "from": "p3-c3-b0",
+        "to": "p3-c4-b0",
+        "mainText": "Weekly distribution volumes stabilised helps local food networks stronger.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0117",
+        "light": ""
+      },
+      {
+        "id": "ttl_35",
+        "from": "p3-c3-b1",
+        "to": "p3-c4-b1",
+        "mainText": "Fresh produce availability sustained helps external shock vulnerability reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0118",
+        "light": ""
+      },
+      {
+        "id": "ttl_36",
+        "from": "p3-c3-b2",
+        "to": "p3-c4-b1",
+        "mainText": "Community trust in supply increased helps external shock vulnerability reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0119",
+        "light": ""
+      },
+      {
+        "id": "ttl_37",
+        "from": "p3-c3-b2",
+        "to": "p3-c4-b0",
+        "mainText": "Community trust in supply increased also supports local food networks stronger.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0120",
+        "light": ""
+      },
+      {
+        "id": "ttl_38",
+        "from": "p4-c0-b0",
+        "to": "p4-c1-b0",
+        "mainText": "Partner roles agreed helps pickup and delivery schedules coordinated.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0121",
+        "light": ""
+      },
+      {
+        "id": "ttl_39",
+        "from": "p4-c0-b1",
+        "to": "p4-c1-b1",
+        "mainText": "Referral routes simplified helps case workers and food teams connected.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0122",
+        "light": ""
+      },
+      {
+        "id": "ttl_40",
+        "from": "p4-c0-b2",
+        "to": "p4-c1-b2",
+        "mainText": "Consent expectations understood helps information handoffs made reliable.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0123",
+        "light": ""
+      },
+      {
+        "id": "ttl_41",
+        "from": "p4-c0-b2",
+        "to": "p4-c1-b0",
+        "mainText": "Consent expectations understood also supports pickup and delivery schedules coordinated.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0124",
+        "light": ""
+      },
+      {
+        "id": "ttl_42",
+        "from": "p4-c1-b0",
+        "to": "p4-c2-b0",
+        "mainText": "Pickup and delivery schedules coordinated helps households reached before crisis points.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0125",
+        "light": ""
+      },
+      {
+        "id": "ttl_43",
+        "from": "p4-c1-b1",
+        "to": "p4-c2-b1",
+        "mainText": "Case workers and food teams connected helps food support linked to wider help.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0126",
+        "light": ""
+      },
+      {
+        "id": "ttl_44",
+        "from": "p4-c1-b2",
+        "to": "p4-c2-b2",
+        "mainText": "Information handoffs made reliable helps service burden on residents reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0127",
+        "light": ""
+      },
+      {
+        "id": "ttl_45",
+        "from": "p4-c1-b3",
+        "to": "p4-c2-b2",
+        "mainText": "Safeguarding issues escalated appropriately helps service burden on residents reduced.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0128",
+        "light": ""
+      },
+      {
+        "id": "ttl_46",
+        "from": "p4-c1-b3",
+        "to": "p4-c2-b0",
+        "mainText": "Safeguarding issues escalated appropriately also supports households reached before crisis points.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0129",
+        "light": ""
+      },
+      {
+        "id": "ttl_47",
+        "from": "p5-c0-b0",
+        "to": "p5-c1-b0",
+        "mainText": "Resident leadership invited helps growing and cooking skills shared.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0130",
+        "light": ""
+      },
+      {
+        "id": "ttl_48",
+        "from": "p5-c0-b1",
+        "to": "p5-c1-b1",
+        "mainText": "Youth and elders included helps peer support routines practised.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0131",
+        "light": ""
+      },
+      {
+        "id": "ttl_49",
+        "from": "p5-c0-b2",
+        "to": "p5-c1-b1",
+        "mainText": "Cultural knowledge respected helps peer support routines practised.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0132",
+        "light": ""
+      },
+      {
+        "id": "ttl_50",
+        "from": "p5-c0-b3",
+        "to": "p5-c1-b1",
+        "mainText": "Community hosts supported helps peer support routines practised.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0133",
+        "light": ""
+      },
+      {
+        "id": "ttl_51",
+        "from": "p5-c0-b3",
+        "to": "p5-c1-b0",
+        "mainText": "Community hosts supported also supports growing and cooking skills shared.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0134",
+        "light": ""
+      },
+      {
+        "id": "ttl_52",
+        "from": "p5-c1-b0",
+        "to": "p5-c2-b0",
+        "mainText": "Growing and cooking skills shared helps volunteer roles manageable.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0135",
+        "light": ""
+      },
+      {
+        "id": "ttl_53",
+        "from": "p5-c1-b1",
+        "to": "p5-c2-b1",
+        "mainText": "Peer support routines practised helps recognition and feedback loops maintained.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0136",
+        "light": ""
+      },
+      {
+        "id": "ttl_54",
+        "from": "p5-c1-b1",
+        "to": "p5-c2-b0",
+        "mainText": "Peer support routines practised also supports volunteer roles manageable.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0137",
+        "light": ""
+      },
+      {
+        "id": "ttl_55",
+        "from": "p5-c2-b0",
+        "to": "p5-c3-b0",
+        "mainText": "Volunteer roles manageable helps residents shape priorities.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0138",
+        "light": ""
+      },
+      {
+        "id": "ttl_56",
+        "from": "p5-c2-b1",
+        "to": "p5-c3-b1",
+        "mainText": "Recognition and feedback loops maintained helps food initiatives continue between funding cycles.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0139",
+        "light": ""
+      },
+      {
+        "id": "ttl_57",
+        "from": "p5-c2-b2",
+        "to": "p5-c3-b2",
+        "mainText": "Local problem-solving confidence increased helps mutual support networks strengthened.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0140",
+        "light": ""
+      },
+      {
+        "id": "ttl_58",
+        "from": "p5-c2-b2",
+        "to": "p5-c3-b0",
+        "mainText": "Local problem-solving confidence increased also supports residents shape priorities.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0141",
+        "light": ""
+      },
+      {
+        "id": "ttl_59",
+        "from": "p6-c0-b0",
+        "to": "p6-c1-b0",
+        "mainText": "Decision rights transparent helps funding mix diversified.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0142",
+        "light": ""
+      },
+      {
+        "id": "ttl_60",
+        "from": "p6-c0-b1",
+        "to": "p6-c1-b1",
+        "mainText": "Financial controls proportionate helps in-kind contributions coordinated.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0143",
+        "light": ""
+      },
+      {
+        "id": "ttl_61",
+        "from": "p6-c0-b1",
+        "to": "p6-c1-b0",
+        "mainText": "Financial controls proportionate also supports funding mix diversified.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0144",
+        "light": ""
+      },
+      {
+        "id": "ttl_62",
+        "from": "p6-c1-b0",
+        "to": "p6-c2-b0",
+        "mainText": "Funding mix diversified helps measures reviewed regularly.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0145",
+        "light": ""
+      },
+      {
+        "id": "ttl_63",
+        "from": "p6-c1-b1",
+        "to": "p6-c2-b1",
+        "mainText": "In-kind contributions coordinated helps resident feedback acted on.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0146",
+        "light": ""
+      },
+      {
+        "id": "ttl_64",
+        "from": "p6-c1-b2",
+        "to": "p6-c2-b2",
+        "mainText": "Staff and volunteer load monitored helps unintended effects discussed.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0147",
+        "light": ""
+      },
+      {
+        "id": "ttl_65",
+        "from": "p6-c1-b2",
+        "to": "p6-c2-b0",
+        "mainText": "Staff and volunteer load monitored also supports measures reviewed regularly.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0148",
+        "light": ""
+      },
+      {
+        "id": "ttl_66",
+        "from": "p6-c2-b0",
+        "to": "p6-c3-b0",
+        "mainText": "Measures reviewed regularly helps activities adjusted to evidence.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0149",
+        "light": ""
+      },
+      {
+        "id": "ttl_67",
+        "from": "p6-c2-b1",
+        "to": "p6-c3-b1",
+        "mainText": "Resident feedback acted on helps underperforming workstreams redesigned.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0150",
+        "light": ""
+      },
+      {
+        "id": "ttl_68",
+        "from": "p6-c2-b2",
+        "to": "p6-c3-b1",
+        "mainText": "Unintended effects discussed helps underperforming workstreams redesigned.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0151",
+        "light": ""
+      },
+      {
+        "id": "ttl_69",
+        "from": "p6-c2-b2",
+        "to": "p6-c3-b0",
+        "mainText": "Unintended effects discussed also supports activities adjusted to evidence.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0152",
+        "light": ""
+      },
+      {
+        "id": "ttl_70",
+        "from": "p6-c3-b0",
+        "to": "p6-c4-b0",
+        "mainText": "Activities adjusted to evidence helps governance confidence sustained.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0153",
+        "light": ""
+      },
+      {
+        "id": "ttl_71",
+        "from": "p6-c3-b1",
+        "to": "p6-c4-b1",
+        "mainText": "Underperforming workstreams redesigned helps resilience investment case strengthened.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0154",
+        "light": ""
+      },
+      {
+        "id": "ttl_72",
+        "from": "p6-c3-b1",
+        "to": "p6-c4-b0",
+        "mainText": "Underperforming workstreams redesigned also supports governance confidence sustained.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0155",
+        "light": ""
+      },
+      {
+        "id": "ttl_73",
+        "from": "p1-c2-b0",
+        "to": "p2-c0-b0",
+        "mainText": "Better targeting helps remove the right access barriers.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0156",
+        "light": ""
+      },
+      {
+        "id": "ttl_74",
+        "from": "p1-c2-b1",
+        "to": "p4-c0-b0",
+        "mainText": "Less duplication depends on clearer partner roles.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0157",
+        "light": ""
+      },
+      {
+        "id": "ttl_75",
+        "from": "p3-c4-b0",
+        "to": "p5-c3-b2",
+        "mainText": "Stronger local networks support wider mutual support.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0158",
+        "light": ""
+      },
+      {
+        "id": "ttl_76",
+        "from": "p6-c3-b0",
+        "to": "p3-c2-b0",
+        "mainText": "Evidence-based adaptation helps anticipate seasonal shortfalls.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "measures": [],
+        "evalQuestions": [],
+        "tagIds": [],
+        "uid": "link_0159",
+        "light": ""
+      }
+    ],
+    "ttLinkNextId": 83,
+    "howLinks": [
+      {
+        "id": "hwl_1",
+        "from": "p7-H001",
+        "to": "p1-c0-b0",
+        "mainText": "Mapping work supports clear understanding of local need.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0166"
+      },
+      {
+        "id": "hwl_2",
+        "from": "p7-H002",
+        "to": "p4-c0-b1",
+        "mainText": "Referral protocol simplifies routes into support.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0167"
+      },
+      {
+        "id": "hwl_3",
+        "from": "p7-H003",
+        "to": "p3-c3-b0",
+        "mainText": "Weekly coordination stabilises supply volumes.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0168"
+      },
+      {
+        "id": "hwl_4",
+        "from": "p7-H004",
+        "to": "p5-c0-b3",
+        "mainText": "Volunteer and host support keeps participation practical.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0169"
+      },
+      {
+        "id": "hwl_5",
+        "from": "p7-H005",
+        "to": "p3-c0-b1",
+        "mainText": "Surplus agreements diversify supply.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0170"
+      },
+      {
+        "id": "hwl_6",
+        "from": "p7-H006",
+        "to": "p2-c1-b3",
+        "mainText": "Access pathway makes eligibility understandable.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0171"
+      },
+      {
+        "id": "hwl_7",
+        "from": "p7-H007",
+        "to": "p5-c3-b0",
+        "mainText": "Feedback forums help residents shape priorities.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0172"
+      },
+      {
+        "id": "hwl_8",
+        "from": "p7-H008",
+        "to": "p4-c1-b3",
+        "mainText": "Escalation routines protect safety.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0173"
+      },
+      {
+        "id": "hwl_9",
+        "from": "p7-H009",
+        "to": "p6-c2-b0",
+        "mainText": "Monthly review keeps measures useful.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0174"
+      },
+      {
+        "id": "hwl_10",
+        "from": "p7-H010",
+        "to": "p6-c4-b2",
+        "mainText": "Stewardship planning supports long-term viability.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "tagIds": [],
+        "uid": "link_0175"
+      }
+    ],
+    "howLinkNextId": 11,
+    "measures": [
+      {
+        "id": "M001",
+        "title": "Households reporting reduced emergency food reliance",
+        "mainText": "Track cautiously and pair with dignity-focused feedback.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "measure_0176",
+        "tagIds": []
+      },
+      {
+        "id": "M002",
+        "title": "Households reporting lower food-related stress",
+        "mainText": "Short resident pulse check, interpreted with context.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "measure_0177",
+        "tagIds": []
+      },
+      {
+        "id": "M003",
+        "title": "Weekly fresh-food distribution stability",
+        "mainText": "Compare planned and actual volume and quality over time.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "measure_0178",
+        "tagIds": []
+      },
+      {
+        "id": "M004",
+        "title": "Referral completion and service handoff reliability",
+        "mainText": "Monitor whether referrals result in timely support.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "measure_0179",
+        "tagIds": []
+      },
+      {
+        "id": "M005",
+        "title": "Resident leadership participation breadth",
+        "mainText": "Track whether leadership includes priority groups without tokenism.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "measure_0180",
+        "tagIds": []
+      },
+      {
+        "id": "M006",
+        "title": "Sustainability commitments secured",
+        "mainText": "Track funding, in-kind support, governance commitments, and stewardship arrangements.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "measure_0181",
+        "tagIds": []
+      }
+    ],
+    "measureNextId": 7,
+    "evalQuestions": [
+      {
+        "id": "EQ001",
+        "questionText": "Who is still missing out despite the access pathway?",
+        "mainText": "Use resident feedback and partner data to identify hidden barriers.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "eq_0182",
+        "tagIds": []
+      },
+      {
+        "id": "EQ002",
+        "questionText": "Does the initiative protect dignity as well as provide food?",
+        "mainText": "Look for experiences of choice, stigma, privacy, and respect.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "eq_0183",
+        "tagIds": []
+      },
+      {
+        "id": "EQ003",
+        "questionText": "Which supply risks are most likely to disrupt continuity?",
+        "mainText": "Review seasonal, storage, transport, volunteer, and supplier risks.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "eq_0184",
+        "tagIds": []
+      },
+      {
+        "id": "EQ004",
+        "questionText": "Are partners becoming better coordinated or just busier?",
+        "mainText": "Check whether coordination reduces duplication and resident burden.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "eq_0185",
+        "tagIds": []
+      },
+      {
+        "id": "EQ005",
+        "questionText": "Is community leadership becoming broader and more durable?",
+        "mainText": "Look beyond attendance counts to shared ownership and confidence.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "eq_0186",
+        "tagIds": []
+      },
+      {
+        "id": "EQ006",
+        "questionText": "What evidence should change the initiative design next?",
+        "mainText": "Use learning reviews to adjust workstreams rather than just report activity.",
+        "notes1": "",
+        "notes2": "",
+        "notes3": "",
+        "uid": "eq_0187",
+        "tagIds": []
+      }
+    ],
+    "eqNextId": 7,
+    "tags": [],
+    "viewSettings": {
+      "thisThen": {
+        "showCounts": false,
+        "showTrafficLights": false,
+        "showPriorities": false,
+        "showHowCounts": false,
+        "showMeasures": false,
+        "showEvalQuestions": false,
+        "showMainText": false,
+        "showLateralHow": false,
+        "showTags": false,
+        "showLinkInfoOnHover": true,
+        "showMainTextCodeStyle": false,
+        "showLinkInfoCodeStyle": false,
+        "showFullMainText": false
+      },
+      "how": {
+        "showNumbering": false,
+        "showTrafficLights": false,
+        "showPriorities": false,
+        "showWhyCounts": false,
+        "showLateralHow": false,
+        "showMeasures": false,
+        "showEvalQuestions": false,
+        "showMainText": false,
+        "showTags": false,
+        "showMainTextCodeStyle": false,
+        "showFullMainText": false
+      },
+      "finalOutcomes": {
+        "showTrafficLights": false,
+        "showPriorities": false,
+        "showMeasures": false,
+        "showEvalQuestions": false,
+        "showMainText": false,
+        "showTags": false,
+        "showMainTextCodeStyle": false,
+        "showFullMainText": false
+      }
+    },
+    "topRightText": "Complex example board",
+    "sourcesInitialized": true,
+    "SP": [
+      {
+        "id": "p1",
+        "label": "Need, assets, and priority groups",
+        "pageType": "this_then",
+        "color": {
+          "bg": "#dbeafe",
+          "bdr": "#93c5fd",
+          "tab": "#3b82f6"
+        },
+        "cols": [
+          {
+            "h": "Local conditions understood",
+            "boxes": [
+              "Neighbourhood food needs mapped",
+              "Existing food assets identified",
+              "Priority groups defined with care",
+              "Privacy and dignity risks surfaced"
+            ],
+            "uid": "col_32c14a82-07b6-4ef1-8016-33555fba5e81"
+          },
+          {
+            "h": "Shared picture agreed",
+            "boxes": [
+              "Residents’ experience reflected",
+              "Service gaps made visible",
+              "Common language established"
+            ],
+            "uid": "col_b8ded13e-82c1-4e88-9c6f-f936046146ec"
+          },
+          {
+            "h": "Targeting decisions improved",
+            "boxes": [
+              "Support focused on highest-need households",
+              "Duplication between services reduced"
+            ],
+            "uid": "col_1022fd50-209a-4aa8-a237-21582a0292d1"
+          }
+        ],
+        "uid": "page_c7338b64-9734-4cc6-928d-0975c81c8a7b"
+      },
+      {
+        "id": "p2",
+        "label": "Household access and affordability",
+        "pageType": "this_then",
+        "color": {
+          "bg": "#dcfce7",
+          "bdr": "#86efac",
+          "tab": "#22c55e"
+        },
+        "cols": [
+          {
+            "h": "Practical barriers reduced",
+            "boxes": [
+              "Transport barriers lowered",
+              "Opening times matched to household routines"
+            ],
+            "uid": "col_95196124-e827-40d5-b297-07a8bec47b53"
+          },
+          {
+            "h": "Affordable choices widened",
+            "boxes": [
+              "Low-cost staple options available",
+              "Culturally suitable food options included",
+              "Fresh food access improved",
+              "Eligibility pathways made understandable"
+            ],
+            "uid": "col_a3ad9733-edd3-4bfd-aa9f-8bf9f8dfd420"
+          },
+          {
+            "h": "Household food stress eased",
+            "boxes": [
+              "Emergency food reliance reduced",
+              "Weekly food planning more stable",
+              "Choice and dignity protected"
+            ],
+            "uid": "col_68fe6085-3dd1-4e2f-a904-28adb3ab762b"
+          },
+          {
+            "h": "Everyday wellbeing strengthened",
+            "boxes": [
+              "Children and older people better nourished",
+              "Household stress visibly reduced"
+            ],
+            "uid": "col_f8762cd2-d16f-47ab-8180-6f0551d4dfc4"
+          }
+        ],
+        "uid": "page_410e165b-bd99-4ab8-a1da-9296072d1a28"
+      },
+      {
+        "id": "p3",
+        "label": "Local production and supply reliability",
+        "pageType": "this_then",
+        "color": {
+          "bg": "#fef9c3",
+          "bdr": "#fde047",
+          "tab": "#eab308"
+        },
+        "cols": [
+          {
+            "h": "Supply base diversified",
+            "boxes": [
+              "Community growers recruited",
+              "Surplus food relationships secured",
+              "Local producers engaged"
+            ],
+            "uid": "col_02e4febb-3d76-421f-b1c6-33f65f9743f8"
+          },
+          {
+            "h": "Quality safeguards established",
+            "boxes": [
+              "Safe handling routines followed",
+              "Storage capacity matched to volume"
+            ],
+            "uid": "col_b639e8c3-3d9b-4e84-ba2f-74ccfbe1dcd3"
+          },
+          {
+            "h": "Continuity risks managed",
+            "boxes": [
+              "Seasonal shortfalls anticipated",
+              "Backup suppliers arranged",
+              "Volunteer capacity planned",
+              "Perishable stock losses reduced"
+            ],
+            "uid": "col_a73d42d4-8840-444a-a200-45474fe56bec"
+          },
+          {
+            "h": "Local supply dependable",
+            "boxes": [
+              "Weekly distribution volumes stabilised",
+              "Fresh produce availability sustained",
+              "Community trust in supply increased"
+            ],
+            "uid": "col_bc4bac4f-4966-4822-b062-530bb15fdd33"
+          },
+          {
+            "h": "Food system resilience increased",
+            "boxes": [
+              "Local food networks stronger",
+              "External shock vulnerability reduced"
+            ],
+            "uid": "col_fd044703-5c8c-4f81-9270-3eba300c3008"
+          }
+        ],
+        "uid": "page_cd28ae56-17cb-4735-97c6-b162b720cb1b"
+      },
+      {
+        "id": "p4",
+        "label": "Distribution and service integration",
+        "pageType": "this_then",
+        "color": {
+          "bg": "#fce7f3",
+          "bdr": "#f9a8d4",
+          "tab": "#ec4899"
+        },
+        "cols": [
+          {
+            "h": "Roles and referral routes clarified",
+            "boxes": [
+              "Partner roles agreed",
+              "Referral routes simplified",
+              "Consent expectations understood"
+            ],
+            "uid": "col_1c9ae40f-7f42-4750-8059-ff894ff0927c"
+          },
+          {
+            "h": "Coordination routines embedded",
+            "boxes": [
+              "Pickup and delivery schedules coordinated",
+              "Case workers and food teams connected",
+              "Information handoffs made reliable",
+              "Safeguarding issues escalated appropriately"
+            ],
+            "uid": "col_6f25b87f-8bf2-44a4-bff8-aa1fc96cc079"
+          },
+          {
+            "h": "Joined-up support received",
+            "boxes": [
+              "Households reached before crisis points",
+              "Food support linked to wider help",
+              "Service burden on residents reduced"
+            ],
+            "uid": "col_524c700b-9cd1-4ea6-ae69-050d638b601e"
+          }
+        ],
+        "uid": "page_084f5729-774f-4d93-b538-1b47474d5321"
+      },
+      {
+        "id": "p5",
+        "label": "Community capability and participation",
+        "pageType": "this_then",
+        "color": {
+          "bg": "#ede9fe",
+          "bdr": "#c4b5fd",
+          "tab": "#8b5cf6"
+        },
+        "cols": [
+          {
+            "h": "Leadership conditions created",
+            "boxes": [
+              "Resident leadership invited",
+              "Youth and elders included",
+              "Cultural knowledge respected",
+              "Community hosts supported"
+            ],
+            "uid": "col_3ecda7b6-4a75-43ea-a26a-a71862385f02"
+          },
+          {
+            "h": "Practical skills grown",
+            "boxes": [
+              "Growing and cooking skills shared",
+              "Peer support routines practised"
+            ],
+            "uid": "col_836b3a2c-8274-40be-82d9-91aa1ecb14ec"
+          },
+          {
+            "h": "Participation sustained",
+            "boxes": [
+              "Volunteer roles manageable",
+              "Recognition and feedback loops maintained",
+              "Local problem-solving confidence increased"
+            ],
+            "uid": "col_1c309e44-3fa9-4e8e-acaa-d6f68e8110fb"
+          },
+          {
+            "h": "Community ownership deepened",
+            "boxes": [
+              "Residents shape priorities",
+              "Food initiatives continue between funding cycles",
+              "Mutual support networks strengthened",
+              "Community resilience story shared"
+            ],
+            "uid": "col_1932906c-0a92-4c06-8b1f-b2b48e136b69"
+          }
+        ],
+        "uid": "page_80f06c21-0132-4e68-8f09-327373c7cd3d"
+      },
+      {
+        "id": "p6",
+        "label": "Governance, resources, and learning",
+        "pageType": "this_then",
+        "color": {
+          "bg": "#ffedd5",
+          "bdr": "#fdba74",
+          "tab": "#f97316"
+        },
+        "cols": [
+          {
+            "h": "Accountability arrangements set",
+            "boxes": [
+              "Decision rights transparent",
+              "Financial controls proportionate"
+            ],
+            "uid": "col_77b9b386-5c02-46ae-a89c-ecc2d2f0c159"
+          },
+          {
+            "h": "Resources secured and balanced",
+            "boxes": [
+              "Funding mix diversified",
+              "In-kind contributions coordinated",
+              "Staff and volunteer load monitored"
+            ],
+            "uid": "col_9a40abb7-bd99-4322-bdbc-5c2c40572e7b"
+          },
+          {
+            "h": "Learning information used",
+            "boxes": [
+              "Measures reviewed regularly",
+              "Resident feedback acted on",
+              "Unintended effects discussed"
+            ],
+            "uid": "col_5bda6f18-7021-4e68-bac8-0f41afe736fe"
+          },
+          {
+            "h": "Adaptation decisions made",
+            "boxes": [
+              "Activities adjusted to evidence",
+              "Underperforming workstreams redesigned"
+            ],
+            "uid": "col_116e9bda-2f09-4339-bc82-53c15c5f4fc5"
+          },
+          {
+            "h": "Initiative remains viable",
+            "boxes": [
+              "Governance confidence sustained",
+              "Resilience investment case strengthened",
+              "Longer-term stewardship secured"
+            ],
+            "uid": "col_6dba0226-a78d-4f9b-aa0e-9529af206709"
+          }
+        ],
+        "uid": "page_fbd2ccee-1239-4a83-bdc9-4200d60278f5"
+      },
+      {
+        "id": "p7",
+        "label": "How: implementation workstreams",
+        "pageType": "how",
+        "color": {
+          "bg": "#f1f5f9",
+          "bdr": "#cbd5e1",
+          "tab": "#64748b"
+        },
+        "cols": [],
+        "howBoxes": [
+          {
+            "id": "H001",
+            "label": "Run community needs and assets mapping",
+            "uid": "box_0071"
+          },
+          {
+            "id": "H002",
+            "label": "Set up partner referral and consent protocol",
+            "uid": "box_0072"
+          },
+          {
+            "id": "H003",
+            "label": "Coordinate weekly supply, storage, and distribution",
+            "uid": "box_0073"
+          },
+          {
+            "id": "H004",
+            "label": "Recruit and support growers, hosts, and volunteers",
+            "uid": "box_0074"
+          },
+          {
+            "id": "H005",
+            "label": "Negotiate surplus and local producer agreements",
+            "uid": "box_0075"
+          },
+          {
+            "id": "H006",
+            "label": "Operate household access and affordability pathway",
+            "uid": "box_0076"
+          },
+          {
+            "id": "H007",
+            "label": "Facilitate resident leadership and feedback forums",
+            "uid": "box_0077"
+          },
+          {
+            "id": "H008",
+            "label": "Maintain safeguarding and escalation routines",
+            "uid": "box_0078"
+          },
+          {
+            "id": "H009",
+            "label": "Review measures and learning each month",
+            "uid": "box_0079"
+          },
+          {
+            "id": "H010",
+            "label": "Prepare sustainability and stewardship plan",
+            "uid": "box_0080"
+          }
+        ],
+        "nextHowNum": 11,
+        "howLevel": 1,
+        "uid": "page_864233bd-786f-48fb-9b7b-415a4511a456"
+      },
+      {
+        "id": "p8",
+        "label": "Evidence, assumptions, and learning notes",
+        "pageType": "documentation",
+        "color": {
+          "bg": "#f3e8ff",
+          "bdr": "#d8b4fe",
+          "tab": "#a855f8"
+        },
+        "cols": [],
+        "uid": "page_a65cb87e-60d9-44ca-8bdf-dc39a2c3345e"
+      },
+      {
+        "id": "p9",
+        "label": "Using DoView Boards and Disclaimer",
+        "pageType": "documentation",
+        "color": {
+          "bg": "#f3e8ff",
+          "bdr": "#d8b4fe",
+          "tab": "#8b5cf6"
+        },
+        "cols": [],
+        "uid": "page_036cd53f-3ff2-4c51-a70a-938ec189270e"
+      }
+    ],
+    "FO": [
+      "Community food resilience improved",
+      "Household food security and dignity strengthened",
+      "Local food system coordination sustained"
+    ],
+    "boardUid": "board_5d9f5b0a-4f03-4c08-b55f-73d1c7027228",
+    "presentationView": false
+  },
+  "format": "doview-board-json",
+  "schemaVersion": "V1.3.9",
+  "engineVersion": "V1.4.3",
+  "builderValidation": {
+    "builderVersion": "V1.4.3",
+    "validationVersion": "V1.4.3",
+    "mode": "compatibility",
+    "passed": true,
+    "validatedAt": "2026-08-14T02:13:53.573Z",
+    "checks": {
+      "noLevelHowPages": "passed",
+      "uniqueNumberedHowLevels": "passed",
+      "thisThenLinkAnnotations": "blank-as-required",
+      "howLinkAnnotations": "blank-as-required",
+      "documentationClones": "passed",
+      "measureEqAttachment": "passed",
+      "viewSettings": "passed",
+      "displayTextTrafficPriority": "passed",
+      "sourcesRegistry": "passed",
+      "documentationPagePlan": "passed",
+      "compactBoxLabels": "passed",
+      "competencyMappingReview": "deferred-to-step-2",
+      "mappingBreadthReview": "deferred-to-step-2",
+      "evidenceReviewWorkflow": "not-part-of-v1.4.3",
+      "thisThenCausalReview": "passed",
+      "selfReview": "passed",
+      "completionCounts": "passed",
+      "completionParagraphDeclaration": "passed"
+    },
+    "warnings": [
+      "generationChecks metadata is absent; compatibility mode ran high-confidence baseline checks but skipped request-specific strict checks.",
+      "Terminal-column check: Page \"Community capability and participation\" has 4 terminal boxes. This can be acceptable with a genuine domain reason; ordinary pages usually end with 1–3."
+    ],
+    "autoFixes": [
+      "Removed input builderValidation metadata. The compatibility rebuild creates a fresh validation stamp."
+    ]
+  }
+}

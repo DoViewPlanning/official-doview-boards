@@ -5,7 +5,7 @@ This folder contains reusable developer templates for creating:
 - a DoView Board collection page; and
 - a DoView Board collection-of-collections page.
 
-These files are adapted for the DoView Boards V1.3.7 release.
+These files are adapted for the DoView Boards V1.4.3 release.
 
 These files are developer resources, not runtime dependencies for generated DoView Board HTML files.
 

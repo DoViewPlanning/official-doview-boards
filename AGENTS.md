@@ -1,12 +1,27 @@
 # Instructions for AI Coding Agents
 
-**DoView Boards version:** V1.3.7  
-**Release date:** 2026-06-26  
+**DoView Boards version:** V1.4.3  
+**Release date:** 2026-08-14  
 **Document status:** Instructions for AI coding agents working with this repository
 
 This file is for AI coding agents such as Claude Code, Codex, Cursor, Replit Agent, and similar tools.
 
 If you are an AI coding agent working in this repository, follow these instructions unless the human user gives a more specific instruction that is consistent with the DoView-compatible standard, security guidance, licence, and trademark guidance.
+
+## Choose the correct route
+
+If the user wants to build, create or generate a DoView Board, do not invent a generic flowchart, strategy map or theory-of-change format and call it a DoView Board. Use the official prompt-package workflow in this repository:
+
+1. read `000-START-HERE-RUN-FIRST.md`, `doview-board-building-prompt.md` and `additional-doview-prompt.md`;
+2. use the matching builder, engine and tools;
+3. if no subject has been supplied, reproduce `OPENING-MENU.md` verbatim and nothing else;
+4. complete Step 1 structure before Step 2 How mapping;
+5. preserve an accepted Step 1 structure during Step 2;
+6. return exactly the two required deliverable links after each Step and retain the exact human-review safeguard.
+
+Step 1 creates the bounded board structure, including ordinary This–Then links and the selected How Pages and How Boxes, but no How links. Step 2 adds only permitted How links. Strict validation establishes technical consistency, not semantic truth; human and subject-matter review remains required before operational use.
+
+If the user instead wants to develop, modify, integrate or extend DoView Boards software, follow the developer and specification route below. The quickest public route for an ordinary board-building request is <https://doviewplanning.org/prompt>.
 
 ## Read these files first
 
@@ -30,7 +45,7 @@ When interpreting this repository:
 
 1. Treat [`spec/doview-board-minimum-spec.md`](spec/doview-board-minimum-spec.md) as the DoView-compatible standard for this release.
 2. Treat [`spec/this-then-page-rules.md`](spec/this-then-page-rules.md) as the expanded This–Then Page modelling guidance. If it appears to conflict with the minimum specification, the minimum specification controls.
-3. Treat [`doview-board-engine.js`](doview-board-engine.js) as the canonical V1.3.7 reference implementation.
+3. Treat [`doview-board-engine.js`](doview-board-engine.js) as the canonical V1.4.3 reference implementation.
 4. Treat [`docs/config-reference.md`](docs/config-reference.md) as the technical reference for the reference-engine config shape.
 5. Treat [`doview-board-builder.js`](doview-board-builder.js) as the reference local builder for assembling standalone HTML boards from JSON config.
 6. Treat the files in [`examples/`](examples/) as examples of correct structure, not as limits on what DoView Boards can contain.

@@ -1,5 +1,47 @@
 # Changelog
 
+## V1.4.3 — 2026-08-14
+
+Extensive testing of the prompt was carried out to improve the comprehensiveness and defensibility of links between This–Then Boxes, between This–Then Boxes and How Boxes, and between How Boxes. V1.4.3 moves normal ChatGPT and Claude chat workflows to a two-step process. Step 1 creates the base DoView Board, including links between This–Then Boxes. Step 2 adds links between This–Then Boxes and How Boxes, and between How Boxes.
+
+### Included
+
+- Integrated the accepted V1.4.3-rc4 two-step workflow, builder, engine, examples and deterministic validation tools into the current repository baseline.
+- Promoted current package, engine, builder, validation, examples and delivery naming to final V1.4.3 while preserving saved schema V1.3.9.
+- Finalised Step 1 `1-4-3-step-1-base-doview-board` and Step 2 `1-4-3-step-2-prototype-doview-board-with-how-links` filename segments.
+- Retained exactly two user-facing delivery links after each Step.
+- Required each supporting ZIP to contain the standalone HTML, same-stem canonical JSON, prompt-used record and Step-correct audit, with byte-identical HTML inside and outside the ZIP.
+- Added repository routing for ordinary users, ordinary AI systems and developer/AI coding-agent workflows.
+- Added higher-assurance guidance for comparing independent Step 1 candidates before human review and operational use.
+
+### Preserved behaviours and compatibility
+
+- Substantive RC4 generation and How-mapping rules are unchanged apart from final-version promotion.
+- Saved board/schema compatibility remains V1.3.9.
+- Repository-only documentation, collection-index content and templates from the current-main baseline are retained.
+- Human and subject-matter review remains the final safeguard; deterministic validation does not certify semantic correctness.
+
+## V1.4.3-rc4 — 2026-08-06
+
+- Replaced rc3 delivery segments with `step-1-base-doview-board` and `step-2-prototype-doview-board-with-how-links`.
+- Added the exact `-plus-additional-files-ai-readible-json-and-prompt-info.zip` suffix.
+- Required standalone HTML inside every Step ZIP and byte-equivalence validation against the separately delivered HTML.
+- Retained exactly two user-facing links with the final labels and a fully bold Step completion paragraph.
+- Added delivery-ZIP creation and validation tools and expanded positive and negative release tests.
+
+## V1.4.3-rc3 — 2026-08-05
+
+- Removed the obsolete header site line, retained the compact notebook-friendly bottom control bar and introduced Step-specific delivery filenames.
+- Added conditional AI-model and effort filename components, prohibited timezone components and corrected stale evidence-workflow metadata.
+
+## V1.4.3-rc2 — 2026-08-04
+
+- Added the fixed ten-choice opening menu, two-step workflow, corrected prompt URL and opening/completion validators.
+
+## V1.4.3-rc1 — 2026-08-04
+
+- Defined the Step 1 structure and Step 2 How-mapping workflow, internal self-review, exact human-review wording and deterministic graph/mapping/count checks while preserving V1.3.9 saved-schema compatibility.
+
 ## V1.3.7 — 2026-06-26
 
 Conservative template, badge/trademark, acknowledgment, setup-choice, and version-consistency hygiene release based on the accepted V1.3.6 package.

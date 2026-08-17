@@ -1,10 +1,10 @@
 # Security and Read-Only Notes
 
-**DoView Boards version:** V1.3.7  
-**Release date:** 2026-06-26  
+**DoView Boards version:** V1.4.3  
+**Release date:** 2026-08-14  
 **Document status:** Developer and deployment guidance for this release
 
-This document explains the main security, deployment, and read-only limitations for the DoView Boards V1.3.7 release. It is intended for people using, sharing, hosting, adapting, or integrating DoView Boards.
+This document explains the main security, deployment, and read-only limitations for the DoView Boards V1.4.3 release. It is intended for people using, sharing, hosting, adapting, or integrating DoView Boards.
 
 ## 1. Main security principle
 
@@ -18,7 +18,7 @@ The Save / Download Board workflow is user-triggered. In browsers that support a
 
 ## 2. Intended-use level of the prototype
 
-The V1.3.7 DoView Board prototype is intended to make it easy to:
+The V1.4.3 DoView Board prototype is intended to make it easy to:
 
 - experiment with DoView Boards;
 - learn how they work;
@@ -143,11 +143,11 @@ The DoView Board prompt package may be used with AI systems to help create board
 
 Review is especially important where a board may affect public communication, funding, evaluation, legal obligations, policy, services, health, safety, employment, education, vulnerable groups, or other consequential decisions.
 
-## 10. Future checksum and verification work
+## 10. Package checksum and release verification
 
-Checksum verification or signed release verification is planned for a future release.
+Each V1.4.3 package includes `MANIFEST.sha256` for verifying the files within the package. SHA-256 hashes for the release ZIP files are provided with the release. Cryptographic signing of releases is not currently provided.
 
-For now, users should download DoView Board files only from the official repository at <https://github.com/doviewplanning/official-doview-boards> or another official DoView source. When checksum or signature files are introduced, this document and the README should be updated with verification instructions.
+Users should download DoView Board files only from the official repository at <https://github.com/doviewplanning/official-doview-boards> or another official DoView source.
 
 ## 11. Trademark and official-status note
 
@@ -157,4 +157,4 @@ Use of the DoView® Marks, Official DoView® Badge, logos, certification marks, 
 
 ## 12. No warranty
 
-The DoView Boards V1.3.7 release is provided under the applicable licence terms. Review the Apache-2.0 licence and any accompanying notices. You are responsible for deciding whether the software, board files, AI-generated content, hosting, integrations, and deployment arrangements are appropriate for your use case.
+The DoView Boards V1.4.3 release is provided under the applicable licence terms. Review the Apache-2.0 licence and any accompanying notices. You are responsible for deciding whether the software, board files, AI-generated content, hosting, integrations, and deployment arrangements are appropriate for your use case.
